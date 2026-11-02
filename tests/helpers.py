@@ -4,9 +4,9 @@ from __future__ import annotations
 import os
 import tempfile
 
-from stopkit.accounts import Account
-from stopkit.cmd import CmdResult
-from stopkit.config import SENTINEL_TAGS as ST
+from stopkit.system.accounts import Account
+from stopkit.system.cmd import CmdResult
+from stopkit.system.names import SENTINEL_TAGS as ST
 from stopkit.observe.model import Item, Listing
 from stopkit.observe.snapshot import Snapshot
 

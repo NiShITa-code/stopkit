@@ -1,14 +1,14 @@
 """Timers: work scheduled to start later, for one account's service manager or for the whole system.
 
-Review gap 1 (24 Oct): the button did not list timers at all, so a timer the agent set was never found
-and never checked. A timer shows no activity until it fires, so only a listing can find it.
+A timer shows no activity until it fires, so a check that watches only what runs never finds one: only
+a listing can.
 """
 from __future__ import annotations
 
 import time
 
-from ..accounts import Account
-from ..cmd import Runner, run
+from ..system.accounts import Account
+from ..system.cmd import Runner, run
 from .model import Item, Listing, failed
 from .units import json_rows, user_manager_argv
 

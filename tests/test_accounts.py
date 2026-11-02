@@ -2,9 +2,9 @@ import os
 import tempfile
 import unittest
 
-from stopkit import accounts
-from stopkit.accounts import Account
-from stopkit.config import KitError
+from stopkit.system import accounts
+from stopkit.system.accounts import Account
+from stopkit.system import KitError
 from tests.helpers import FakeRunner
 
 

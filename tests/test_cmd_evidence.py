@@ -3,8 +3,8 @@ import tempfile
 import unittest
 from unittest import mock
 
-from stopkit import cmd
-from stopkit.evidence import EvidenceStore
+from stopkit.system import cmd
+from stopkit.system.evidence import EvidenceStore
 
 
 class RunTest(unittest.TestCase):

@@ -11,7 +11,7 @@ The self-test and the ground-truth check ran on 27 October 2026 on Ubuntu 24.04.
 | Run | Command | Result | Record |
 |---|---|---|---|
 | Self-test | `python3 -B -m stopkit selftest`, as root, from the installed copy | Passed (below) | [selftest-20261027T091012Z-70406a](../validation/selftest-20261027T091012Z-70406a) |
-| Ground-truth check | `python3 -B -m stopkit e0 --trials 30 --fires`, as root, from the installed copy | Passed (below) | [e0-20261027-092228-f20558](../validation/e0-20261027-092228-f20558) |
+| Ground-truth check | `python3 -B -m stopkit dev e0 --trials 30 --fires`, as root, from the installed copy | Passed (below) | [e0-20261027-092228-f20558](../validation/e0-20261027-092228-f20558) |
 | Recheck | `PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012Z-70406a/run-*` | The same verdicts from the stored evidence for all six runs; `experiments/verify.py` repeats it as its check `selftest_recheck` | the six `run-*` folders of the self-test |
 | LangGraph example | `sudo bash examples/langgraph/demo.sh --auto` | Completed; the results are in [examples/langgraph/README.md](../examples/langgraph/README.md) | [langgraph-example-20261027.log](../validation/langgraph-example-20261027.log), [langgraph-example-20261101.log](../validation/langgraph-example-20261101.log) |
 

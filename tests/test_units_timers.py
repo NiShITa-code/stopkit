@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from stopkit.accounts import Account
+from stopkit.system.accounts import Account
 from stopkit.observe.timers import list_timers
 from stopkit.observe.units import SHOW_PROPS, list_user_units, unit_in_force, user_manager_argv
 from tests.helpers import FakeRunner, result

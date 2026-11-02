@@ -7,9 +7,9 @@ import os
 import sys
 import unittest
 
-from stopkit import specs
-from stopkit.adapters import temporal_dev as tp
-from stopkit.cmd import CmdResult
+from stopkit import spec
+from stopkit.bindings import temporal as tp
+from stopkit.system.cmd import CmdResult
 
 TAGS = {'temporal-server': 'stopkit-tp-server-aa', 'temporal-worker': 'stopkit-tp-worker-bb',
         'temporal-hb': 'stopkit-tp-hb-cc', 'temporal-nh': 'stopkit-tp-nh-dd', 'temporal-timer': 'stopkit-tp-timer-ee'}
@@ -93,7 +93,7 @@ EVERY_OPEN = listed((SENTINEL, 'RUNNING'), (HB, 'RUNNING'), (NH, 'RUNNING'), (TI
 
 class SpecTest(unittest.TestCase):
     def test_the_scenario_and_its_stops(self):
-        sc = specs.scenario(tp.TemporalAdapter.scenario)
+        sc = spec.scenario(tp.TemporalAdapter.scenario)
         self.assertGreaterEqual(min(sc.checks_s), sc.grace_s + sc.effect_lookback_s)
         self.assertGreaterEqual(sc.restart_settle_s, sc.effect_lookback_s)
         timer = next(it for it in sc.items if it.id == 'timer').truth['P4']
@@ -102,22 +102,22 @@ class SpecTest(unittest.TestCase):
         for it in sc.items:
             self.assertEqual(it.raw.get('restart_read', True), it.id not in ('server', 'worker'), it.id)
         for s in tp.STOPS:
-            self.assertTrue(specs.stop(f'temporal.{s}').implemented, s)
+            self.assertTrue(spec.stop(f'temporal.{s}').implemented, s)
         for s in ('cancel', 'terminate'):
-            stop = specs.stop(f'temporal.{s}')
+            stop = spec.stop(f'temporal.{s}')
             self.assertTrue(stop.in_scope('platform-execution') and stop.in_scope('platform-trigger'), s)
             self.assertFalse(stop.in_scope('platform-worker') or stop.in_scope('platform-component'), s)
         for s in ('worker-kill', 'worker-stop'):
-            stop = specs.stop(f'temporal.{s}')
+            stop = spec.stop(f'temporal.{s}')
             self.assertTrue(stop.in_scope('platform-worker') and stop.in_scope('platform-execution'), s)
             self.assertFalse(stop.in_scope('platform-trigger'), s)
-        self.assertEqual(specs.stop('temporal.server-stop').structures, ('platform-component',))
-        self.assertTrue(specs.stop('temporal.reference').whole_agent)
+        self.assertEqual(spec.stop('temporal.server-stop').structures, ('platform-component',))
+        self.assertTrue(spec.stop('temporal.reference').whole_agent)
         for name in (tp.SURFACE, tp.ACTIVITY_SURFACE):
-            self.assertEqual(specs.surfaces()[name].observer, 'stopkit.adapters.temporal_dev')
+            self.assertEqual(spec.surfaces()[name].observer, 'stopkit.bindings.temporal')
 
     def test_each_case_is_looked_for_where_its_scenario_item_is_read(self):
-        sc = specs.scenario(tp.TemporalAdapter.scenario)
+        sc = spec.scenario(tp.TemporalAdapter.scenario)
         cases = {c.name: c for c in tp.TemporalAdapter.cases}
         for it in sc.items:
             self.assertEqual(set(cases[it.case].surfaces), {s for ss in it.paths.values() for s in ss}, it.id)

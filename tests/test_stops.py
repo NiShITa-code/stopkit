@@ -5,8 +5,9 @@ import tempfile
 import time
 import unittest
 
-from stopkit import procfs, stops
-from stopkit.accounts import Account, as_account_argv
+from stopkit.system import procfs
+from stopkit import stops
+from stopkit.system.accounts import Account, as_account_argv
 from stopkit.observe.units import user_manager_argv
 from tests.helpers import FakeProc, FakeRunner, result
 

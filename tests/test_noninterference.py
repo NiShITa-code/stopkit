@@ -1,7 +1,7 @@
 """The non-interference tests' pass rules, on hand-made records."""
 import unittest
 
-from stopkit import noninterference as ni
+from stopkit.run import noninterference as ni
 
 
 def rec(stop='host.sigterm', verdicts=None, acted=None, seconds=0.01, truth=None, errors=(), folder='run'):

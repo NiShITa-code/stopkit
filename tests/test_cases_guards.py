@@ -3,11 +3,12 @@ import subprocess
 import tempfile
 import unittest
 
-from stopkit import guards
-from stopkit.accounts import Account
-from stopkit.adapters import pretend
-from stopkit.cases import CASES, new_tags, plan_text
-from stopkit.config import SENTINEL_TAGS, KitError
+from stopkit.system import guards
+from stopkit.system.accounts import Account
+from stopkit.bindings import pretend
+from stopkit.spec.cases import CASES, new_tags, plan_text
+from stopkit.system.names import SENTINEL_TAGS
+from stopkit.system import KitError
 from stopkit.observe.processes import command_text
 from tests.helpers import result
 

@@ -9,13 +9,11 @@ import time
 import unittest
 import json
 
-from stopkit import truth
+from stopkit.score import ground_truth
+from stopkit.truth import bench
 from stopkit.observe import effects
 
-PKG = os.path.dirname(os.path.abspath(truth.__file__))  # the stopkit package, in any layout
-RECORDER = os.path.join(PKG, 'truth_recorder.py')
-SINK = os.path.join(PKG, 'observe', 'effect_sink.py')
-BEAT = os.path.join(PKG, 'adapters', 'beat.py')
+RECORDER, SINK, BEAT = bench.RECORDER, bench.SINK, bench.BEAT_SOURCE  # the programs, in any layout
 
 
 def wait_for(pred, timeout=5.0):
@@ -76,7 +74,7 @@ class RecorderLiveTest(unittest.TestCase):
         time.sleep(0.2)
         rec.terminate(), sink.terminate()
         rec.wait(5), sink.wait(5)
-        lg = truth.load(self.log)
+        lg = ground_truth.load(self.log)
         exits = [e for e in lg.events if e['ev'] == 'exit' and e['tag'] == 'tag-kill']
         self.assertEqual(len(exits), 1)
         self.assertGreaterEqual(exits[0]['mono'], t_kill)

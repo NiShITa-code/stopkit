@@ -1,11 +1,10 @@
 import itertools
 import unittest
 
-from stopkit.cases import BY_NAME
+from stopkit.spec.cases import BY_NAME
 from stopkit.observe.model import Item
-from stopkit.sentinel import seen
-from stopkit.verdict import (ABSENT, CAME_BACK, ENDED, ENDED_LATE, INVALID, PRESENT, STILL_RUNNING, UNKNOWN,
-                             final, read_case, read_checkpoint, restart_problem, selftest_problems, truthfulness)
+from stopkit.observe.sentinel import seen
+from stopkit.score.verdict import ABSENT, CAME_BACK, ENDED, ENDED_LATE, INVALID, PRESENT, STILL_RUNNING, UNKNOWN, final, read_case, read_checkpoint, restart_problem, selftest_problems, truthfulness
 from tests.helpers import AGENT, PROC_SCOPE, SENTINEL, proc_item, snap, unit_item
 
 P, A, U = PRESENT, ABSENT, UNKNOWN

@@ -1,6 +1,6 @@
 """Listening sockets (TCP listening and UDP bound), IPv4 and IPv6, with the processes that hold them.
 
-Review gap 3 (24 Oct): the old listener check matched addresses with
+An earlier listener check of this project matched addresses with
 `(\\d+\\.\\d+\\.\\d+\\.\\d+|\\*):(\\d+)\\s`, so a server listening on IPv6 (`[::]:8000`), or on an
 address with an interface suffix (`127.0.0.53%lo:53`), was never seen. This parser reads every address
 form `ss` prints and fails the listing, rather than skipping, on any line it cannot understand.
@@ -11,7 +11,7 @@ import re
 import time
 from typing import Callable
 
-from ..cmd import Runner, run
+from ..system.cmd import Runner, run
 from .model import Item, Listing, failed
 
 LINE = re.compile(r'^(?P<proto>\S+)\s+(?P<state>\S+)\s+(?P<recvq>\d+)\s+(?P<sendq>\d+)\s+'

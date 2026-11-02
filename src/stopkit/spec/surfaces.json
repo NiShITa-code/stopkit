@@ -87,7 +87,7 @@
                    "a unit is active while its main process runs; work inside it is read on other surfaces"]
   },
   "n8n-queue": {
-   "implemented": true, "observer": "stopkit.adapters.n8n", "observer_kind": "existence",
+   "implemented": true, "observer": "stopkit.bindings.n8n", "observer_kind": "existence",
    "lists": "the jobs in the active list of n8n's queue (Bull, in Redis), each with the execution it runs and the time left on its lock; a job is in force while a worker holds its lock (renewed every 10 s for 60 s); an execution is named by the tag of the work whose effects carry its ID",
    "proof": "a sentinel key the binding set in the same Redis is read by the same script, in one step (EVAL)",
    "kinds": ["P1", "P3"],
@@ -96,7 +96,7 @@
                    "an execution whose work has sent no effect yet has no tag to be named by"]
   },
   "n8n-trigger": {
-   "implemented": true, "observer": "stopkit.adapters.n8n", "observer_kind": "existence",
+   "implemented": true, "observer": "stopkit.bindings.n8n", "observer_kind": "existence",
    "lists": "the run's workflows in n8n's database (Postgres) and whether each is published, which arms its triggers",
    "proof": "a sentinel workflow, published once a year, which no stop under test unpublishes, is read by the same query",
    "kinds": ["P4"],
@@ -104,7 +104,7 @@
                    "triggers of other kinds (webhooks, polling) are not distinguished from schedules"]
   },
   "langgraph-run": {
-   "implemented": true, "observer": "stopkit.adapters.langgraph_dev", "observer_kind": "existence",
+   "implemented": true, "observer": "stopkit.bindings.langgraph", "observer_kind": "existence",
    "lists": "the runs of the run's thread, from the LangGraph server's own API, with their status (pending or running is in force)",
    "proof": "a sentinel thread, which no stop under test touches, is read from the same server just before",
    "kinds": ["P1", "P4"],
@@ -112,7 +112,7 @@
                    "while the server does not answer, its saved runs are not read (the listing fails, so the reading is unknown)"]
   },
   "temporal-activity": {
-   "implemented": true, "observer": "stopkit.adapters.temporal_dev", "observer_kind": "existence",
+   "implemented": true, "observer": "stopkit.bindings.temporal", "observer_kind": "existence",
    "lists": "the pending activities of every workflow the Temporal development server holds, from `temporal workflow describe` (as root, through its CLI), each with its state and attempt; an activity is in force while its workflow is open and a worker holds its attempt by the server's own deadline (its last heartbeat, or its start, plus its heartbeat timeout; its start plus its start-to-close timeout when it has no heartbeat timeout); an activity is named by its workflow's ID, the tag of its work",
    "proof": "a sentinel workflow, on a task queue no worker polls and touched by no stop under test, is open in the same reading: in `temporal workflow list` and in its own description, read first",
    "kinds": ["P1", "P3"],
@@ -122,7 +122,7 @@
                    "while the server does not answer (stopped, or ended with the account), nothing is read: the listing fails and the reading is unknown; its database file is not read"]
   },
   "temporal-workflow": {
-   "implemented": true, "observer": "stopkit.adapters.temporal_dev", "observer_kind": "existence",
+   "implemented": true, "observer": "stopkit.bindings.temporal", "observer_kind": "existence",
    "lists": "every workflow the Temporal development server holds in its namespace (`temporal workflow list`, as root, through its CLI), each open one read again from the server's current state (`temporal workflow describe`); a workflow is in force while it is open, because the server still fires its timers, dispatches its tasks and retries its activities; a workflow is named by its ID, the tag of its work",
    "proof": "a sentinel workflow, on a task queue no worker polls and touched by no stop under test, is open in the same reading: in `temporal workflow list` and in its own description, read first",
    "kinds": ["P1", "P3", "P4"],

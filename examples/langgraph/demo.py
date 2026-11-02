@@ -33,8 +33,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 KIT = os.path.abspath(os.path.join(HERE, '..', '..'))
 # the package is under src/ in the repository, and at the top of an installed copy (setup/base.sh)
 sys.path.insert(0, os.path.join(KIT, 'src') if os.path.isdir(os.path.join(KIT, 'src', 'stopkit')) else KIT)
-from stopkit import accounts, stops  # noqa: E402
-from stopkit.config import AGENT, STATE_DIR  # noqa: E402
+from stopkit.system import accounts  # noqa: E402
+from stopkit import stops  # noqa: E402
+from stopkit.system.names import AGENT, STATE_DIR  # noqa: E402
 from langgraph_sdk import get_sync_client  # noqa: E402  (installed in the demo's environment)
 import log_filter  # noqa: E402  which of LangGraph's log lines the demo shows (also used by check_log_filter.py)
 

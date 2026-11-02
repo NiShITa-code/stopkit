@@ -1,6 +1,6 @@
 import unittest
 
-from stopkit import guards
+from stopkit.system import guards
 
 
 class GuardsTest(unittest.TestCase):

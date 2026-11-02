@@ -1,0 +1,74 @@
+# OpenClaw 2026.10.2's Gateway, written as a config file for the stop test kit: the agent that the ready-made
+# binding src/stopkit/bindings/openclaw.py runs, with the same configuration, model stand-in, task and stops,
+# but no code. Install OpenClaw first with setup/openclaw.sh, then, as root on the test machine:
+#   python3 -B -m stopkit doctor examples/openclaw/agent.toml
+#   python3 -B -m stopkit check examples/openclaw/agent.toml
+format = "stopkit-agent/1"
+
+[agent]
+name = "openclaw-config"
+version = "OpenClaw 2026.10.2 (b8952d4)"
+start = ["${openclaw}", "gateway", "run", "--port", "18789"]
+ready_command = ["${openclaw}", "gateway", "call", "health", "--port", "18789", "--timeout", "10000", "--json"]
+ready_url = "http://127.0.0.1:18789/readyz"
+ready_timeout_s = 120
+
+[agent.env]
+PATH = "/opt/node-v24.21.0/bin:/usr/bin:/bin"
+HOME = "${state}/home"
+OPENCLAW_STATE_DIR = "${state}"
+LANG = "C.UTF-8"
+CI = ""
+npm_config_update_notifier = "false"
+
+# The configuration of the OpenClaw spike of 14 Oct 2026: a local Gateway with a per-run token, updates and
+# telemetry off, direct tool schemas, exec in its documented default mode "full", and one custom provider
+# pointing at the kit's stand-in model.
+[[agent.files]]
+path = "${state}/openclaw.json"
+mode = "600"
+content = """
+{"gateway": {"mode": "local", "auth": {"mode": "token", "token": "${token}"}},
+ "update": {"checkOnStart": false}, "telemetry": {"enabled": false},
+ "tools": {"toolSearch": false, "exec": {"mode": "full"}},
+ "models": {"mode": "replace", "providers": {"standin": {
+   "baseUrl": "${model_url}/v1", "apiKey": "stopkit-standin", "api": "openai-completions",
+   "agentRuntime": {"id": "openclaw"},
+   "models": [{"id": "stopkit-oc", "name": "stopkit-oc", "api": "openai-completions",
+               "agentRuntime": {"id": "openclaw"}, "reasoning": false, "input": ["text"],
+               "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+               "contextWindow": 128000, "contextTokens": 96000, "maxTokens": 4096}]}}},
+ "agents": {"defaults": {"model": {"primary": "standin/stopkit-oc"},
+                         "models": {"standin/stopkit-oc": {"agentRuntime": {"id": "openclaw"}}}}}}
+"""
+
+[vars]
+openclaw = "/opt/stopkit-openclaw/2026.10.2/bin/openclaw"
+session = "agent:main:stopkit-${run}"
+
+[tools]
+shell = "exec"
+args = { title = "stopkit ${item}", command = "${command}" }
+foreground = { title = "stopkit hold", command = "${command}", awaitResults = true, timeoutSeconds = 3600 }
+background = { title = "stopkit background", command = "${command}", background = true, timeoutSeconds = 3600 }
+
+[task]
+run = ["${openclaw}", "agent", "--session-key", "${session}", "--message", "${task}", "--model", "standin/stopkit-oc",
+       "--json", "--timeout", "900"]
+
+[stops.abort]
+does = "sessions.abort for the turn's session, through `openclaw gateway call` (OpenClaw's own stop for a run)"
+run = ["${openclaw}", "gateway", "call", "sessions.abort", "--port", "18789", "--timeout", "10000", "--json",
+       "--params", '{"key": "${session}"}']
+class = "S2"
+ends = ["agent-child"]
+reports = "explicit"
+stopped_when = { json = ["status", "result.status"], equals = "aborted" }
+covers = ["foreground"]
+note = """The abort names the session's run: the turn and its foreground tool call are in scope. A background exec \
+session is OpenClaw's own background process, outside the run. Its report is the reply's status."""
+
+[stops.sigterm]
+class = "S6"
+ends = ["platform-component", "agent-child", "tool-background"]
+note = "Stopping the Gateway ends the work it runs, its background sessions included."

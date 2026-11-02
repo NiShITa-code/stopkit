@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from stopkit.accounts import Account
+from stopkit.system.accounts import Account
 from stopkit.observe import snapshot
 from stopkit.observe.units import user_manager_argv
 from tests.helpers import FakeProc, FakeRunner, result

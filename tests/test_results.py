@@ -1,6 +1,6 @@
 import unittest
 
-from stopkit import results
+from stopkit.report import results
 
 
 def record(items, stop='host.sigterm', said=True, report='apparent'):

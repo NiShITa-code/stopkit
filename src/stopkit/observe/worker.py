@@ -5,7 +5,7 @@ import json
 import socket
 import time
 
-from ..config import WORKER_SOCKET
+from ..system.names import WORKER_SOCKET
 from .model import Item, Listing, failed
 
 NOT_RUNNING = (FileNotFoundError, ConnectionRefusedError)    # no worker, so no job of it can be running

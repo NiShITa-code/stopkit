@@ -16,19 +16,24 @@ Users, in order of priority:
 
 ## 2. Commands
 
-The commands (`python3 -B -m stopkit <command>` from the copy that `setup/base.sh` installs, such as `/opt/stopkit`, or `stopkit <command>` after `pip install -e .`; as root, except `recheck`):
+The commands are `python3 -B -m stopkit <command>` from the copy that `setup/base.sh` installs, such as `/opt/stopkit`, or `stopkit <command>` after `pip install -e .`. They run as root, except `init`, `report` and `recheck`, which only read and write files.
 
+- **`init [FILE]`** writes a config file template for an agent, every field explained ([CONFIG.md](CONFIG.md)).
+- **`doctor FILE`** checks the machine, the kit's accounts and one agent's config file. It starts the agent as a run would, confirms that it sends the stand-in model a request offering the shell tool the file names, and that the tool runs one harmless command whose output comes back, then stops the agent. It plants nothing.
+- **`check TARGET`** tests the stops of an agent: TARGET is the agent's config file, or the name of a ready-made binding. Every stop (or those given with `--stop`) runs `--runs` times (three by default) against the planted work of the agent's scenario, with the bench instruments: the sealed ground-truth recorder and the effect sink (FRAMEWORK.md section 3). It writes a record in the format `stopkit-record/2` for every run, then the batch's report. The self-test runs this way too.
+- **`watch baseline|before|after|restart|report`** is watch mode. It plants nothing. It lists what account U holds, optionally before the agent starts (the baseline), just before a stop the person makes their own way, again after it (as often as wanted), and after a restart of U's service manager (only with `--yes`, since that stops U's services). It follows each thing by its identity in the listings (a process by its ID and start time, a unit by its name, a crontab line by its text, an at job by its number, a socket by its address), scores each with the same rules and proofs as a test run, and lists what is new after the stop. With a baseline, only what was not there at the baseline counts as the agent's work.
+- **`report FOLDER... --out DIR`** writes the report (FORMAT.md section 3) from run folders.
+- **`recheck FOLDER`** scores a run again from its own stored evidence and reports any difference.
 - **`setup`** creates the kit's accounts (`stopkit-agent`, `stopkit-sentinel`, and `stopkit-worker`, which runs the worker stand-in), puts the sentinel items in place and checks that the agent account is empty.
 - **`selftest`** checks the kit itself on known answers before anything is reported. It uses a "null" stop that does nothing, after which every leftover must still be running, and the reference stop, after which every leftover must have ended. If either answer is wrong, the self-test fails.
-- **`bench --adapter A --stop S`** runs stop S of agent A against the planted work of a scenario, with the bench instruments: the sealed ground-truth recorder and the effect sink (FRAMEWORK.md section 3). It writes a record in the format `stopkit-record/2` for every run, then the batch's report. The self-test runs this way, and so does every binding the README lists.
-- **`report FOLDER... --out DIR`** generates the report (FORMAT.md section 3) from bench run folders.
-- **`e0`** checks the ground truth on its own (FRAMEWORK.md section 3.4), before anything is scored with it.
-- **`noninterference --adapter A --stop S`** runs the non-interference tests N1–N7 on a binding: observing changes nothing, a stopped component is not restarted by a listing, the results are the same with and without the instruments and at two polling rates, and the kit's own actions and footprint are excluded.
-- **`smoke-check FOLDER`** holds a binding's smoke batch (the null stop and the reference stop) to the known answers ([GUIDE.md](GUIDE.md), section 8).
-- **`test --adapter A --stop S`** runs stop S of agent A against the test leftovers without the ground truth, N times, and writes a record (`stopkit-record/1`) and a score sheet for every run, plus a summary.
-- **`recheck FOLDER`** scores a run again from its own stored evidence and reports any difference.
 - **`status`** and **`cleanup`** show and empty the agent account; `cleanup --all` removes everything the kit made.
-- **`check baseline|before|after|restart|report`** is check mode. It plants nothing. It lists what account U holds, optionally before the agent starts (the baseline), just before a stop the person makes their own way, again after it (as often as wanted), and after a restart of U's service manager (only with `--yes`, since that stops U's services). It follows each thing by its identity in the listings (a process by its ID and start time, a unit by its name, a crontab line by its text, an at job by its number, a socket by its address), scores each with the same rules and proofs as a test run, and lists what is new after the stop. With a baseline, only what was not there at the baseline counts as the agent's work.
+
+The checks of the kit itself are under `stopkit dev`, for the authors of bindings ([GUIDE.md](GUIDE.md), section 8):
+
+- **`dev e0`** checks the ground truth on its own (FRAMEWORK.md section 3.4), before anything is scored with it.
+- **`dev noninterference TARGET --stop S`** runs the non-interference tests N1–N7: observing changes nothing, a stopped component is not restarted by a listing, the results are the same with and without the instruments and at two polling rates, and the kit's own actions and footprint are excluded.
+- **`dev smoke-check FOLDER`** holds a binding's smoke batch (the null stop and the reference stop) to the known answers.
+- **`dev test --adapter A --stop S`** runs stop S of agent A without the ground truth, in the earlier record format (`stopkit-record/1`), with a score sheet for every run and a summary.
 
 ## 3. Scope
 
@@ -52,56 +57,56 @@ The kit does not cover macOS, Windows, containers or Kubernetes, cloud resources
 
 ## 5. Architecture
 
+The package is split into layers. Each layer imports only from itself and the layers before it, and scoring and reporting import none of the code that acts on the live system, which is why a run can be scored again on any machine; `tests/test_layers.py` checks both from the syntax tree of every module.
+
 ```
 src/stopkit/                 the package; installed by setup/base.sh as /opt/stopkit/stopkit
-  cli.py, __main__.py        the commands
-  config.py                  names and places; everything the kit creates starts with "stopkit-"
-  cmd.py                     run a command; never raises; keeps argv, exit code, output and timing
-  evidence.py                full command outputs and listings, gzip-compressed, stored once by SHA-256
-  guards.py                  checks about the machine before anything changes: root, free disk, one command at a time
-  accounts.py                the kit's disposable accounts: created, marked as the kit's own, commands run as them
-  procfs.py                  reading the process table safely
-  egress.py                  keeping a third-party agent off the network while it is tested
-  codehash.py                one SHA-256 over the kit's own code, recorded in every run
-  observe/                   listing what is running or scheduled, surface by surface, always fresh
-    model.py                 Item, Listing
-    processes.py             processes of given accounts (from /proc)
-    managers.py              each account's service-manager state, from the system's manager
-    units.py                 user units of an account, including temporary ones
-    timers.py                user and system timers
-    cron.py                  crontab lines and at jobs
-    sockets.py               listening sockets, IPv4 and IPv6, with the processes that hold them
-    worker.py                the worker stand-in's own record of the jobs handed to it
-    components.py            a platform's own processes, as the systemd units a binding runs them in
-    snapshot.py              one fresh listing of every surface
-    effect_sink.py           where planted work sends the effects it issues
-    effects.py               which effects each piece of work issued, and when
-  sentinel.py                the sentinel's items: put in place, and seen or not in a snapshot
-  cases.py                   the leftover kinds, their surfaces and tags
-  delegation.py              setting up the worker stand-in (worker_standin.py) for the delegated case
-  standin_http.py            an outside service that planted work reaches over HTTP
-  adapters/                  the bindings: base.py (the adapter interface); pretend.py and pretend_agent.sh;
-                             mcp.py and mcp_server.py; n8n.py; langgraph_dev.py and langgraph_app/;
-                             temporal_dev.py and temporal_app/; claude_code.py; openclaw.py; model_standin.py
-                             (the scripted stand-in model); beat.py and work_report.py (what planted work reports)
-  stops.py                   signals by process identity; kill-tree; kill-account; the reference stop;
-                             what is left of an account; clean-up
-  verdict.py                 readings and verdicts (section 9)
-  record.py, report.py       record.json, report.md, SHA256SUMS; recheck (record format 1)
-  runner.py                  one run of `test`, and its batches (record format 1)
-  check.py                   check mode
-  specs.py, spec/            the versioned specification: kinds of work, structures, stops, surfaces,
-                             verdict rules and scenarios (FORMAT.md section 0)
-  interfaces.py              the interfaces every binding plugs into (FRAMEWORK.md section 4)
-  bench.py                   the bench instruments of one run
-  truth_recorder.py, truth.py  the sealed ground-truth recorder, and scoring its log
-  protocol.py                the run protocol with the bench, the self-test, and recheck (record format 2)
-  coverage.py                the coverage manifest of a run
-  results.py, accuracy.py    rows (one per run, item and kind of work), and accuracy against the truth
-  reports.py                 REPORT.md and REPORT.html, timelines, rows.jsonl and accuracy.json
-  e0.py                      the ground truth checked on its own
-  noninterference.py         the non-interference tests N1–N7
-tests/                       unit tests with fakes; live tests behind STOPKIT_LIVE=1
+  __init__.py, __main__.py   the version; `python3 -m stopkit`
+  spec/                      1. the catalogue, as data: kinds of work, structures, stops, surfaces, verdict rules
+                             and scenarios (*.json, FORMAT.md section 0); their loader and checks (__init__.py),
+                             which also registers a scenario and stops from an agent's config file; the host's
+                             leftover kinds, surfaces and tags (cases.py)
+  system/                    2. the machine: names.py (names and places; everything the kit creates starts with
+                             "stopkit-"), cmd.py (run a command; never raises; keeps argv, exit code, output and
+                             timing), evidence.py (full outputs and listings, gzip-compressed, stored once by
+                             SHA-256), accounts.py (the kit's disposable accounts: created, marked as the kit's own,
+                             commands run as them), procfs.py (the process table, read safely), guards.py (checks
+                             before anything changes: root, free disk, one command at a time), egress.py (keeping a
+                             third-party agent off the network); KitError
+  observe/                   3. listing what is running or scheduled, surface by surface, always fresh: model.py
+                             (Item, Listing); processes.py; managers.py (each account's service-manager state);
+                             units.py (user units, including temporary ones); timers.py; cron.py (crontab lines and
+                             at jobs); sockets.py (IPv4 and IPv6, with the processes that hold them); worker.py (the
+                             worker stand-in's record of its jobs); components.py (a platform's own processes);
+                             effect_sink.py and effects.py (where planted work sends its effects, and which effects
+                             each piece of work issued, and when); snapshot.py (one fresh listing of every surface);
+                             sentinel.py (the sentinel's items: put in place, and seen or not in a snapshot)
+  truth/                     4. the ground truth: recorder.py (the sealed recorder), beat.py and work_report.py
+                             (what planted work reports), http_standin.py (an outside service that planted work
+                             reaches over HTTP), bench.py (the instruments of one run)
+  stops/                     5. the generic stops: signals by process identity; kill-tree, kill-scope,
+                             kill-account; the reference stop; what is left of an account; clean-up
+  agents/                    5. what an agent is to the kit: base.py (the adapter interface); agent_config.py (an
+                             agent's config file, read and checked, and the scenario and stops it becomes);
+                             configured.py (the adapter that runs an agent from its file); model_standin.py (the
+                             scripted stand-in model); mcp_server.py (the MCP test server); worker_standin.py and
+                             delegation.py (the worker stand-in, for work handed to another program)
+  bindings/                  6. the ready-made bindings: pretend.py and pretend_agent.sh; mcp.py; n8n.py; langgraph.py
+                             and langgraph_app/; temporal.py and temporal_app/; claude_code.py; openclaw.py; their
+                             names, and the choice between a name and a config file, in __init__.py
+  score/                     7. scoring: verdict.py (readings and verdicts, section 9), ground_truth.py (the truth's
+                             own verdicts, from the recorder's log), coverage.py (what a run could see), accuracy.py
+                             (the kit against the truth)
+  report/                    8. records and reports: record.py (record.json, report.md, SHA256SUMS; recheck of record
+                             format 1), results.py (rows: one per run, item and kind of work), reports.py (REPORT.md
+                             and REPORT.html, timelines, rows.jsonl and accuracy.json), sheets.py (score sheets of
+                             record format 1), codehash.py (one SHA-256 over the kit's own code, in every record)
+  run/                       9. running: protocol.py (one run with the bench, batches, the self-test, and recheck of
+                             record format 2), runner.py (preparing the accounts; the runs of record format 1),
+                             doctor.py, watch.py (watch mode), e0.py (the ground truth on its own),
+                             noninterference.py (N1–N7)
+  cli.py                     10. the commands
+tests/                       unit tests with fakes; live tests behind STOPKIT_LIVE=1; the layers (test_layers.py)
 ```
 
 ## 6. Surfaces: how each is listed
@@ -142,7 +147,7 @@ Each case is harmless, touches only localhost, and is tagged with a nonce. The p
 
 The two coverage cases are there so that every surface the kit claims to check is exercised end to end.
 
-Bench runs (`bench`, and the self-test) plant the same nine host cases from the scenario file `src/stopkit/spec/scenarios/host-bundle-1.json`, with two differences that let the ground truth time them: the crontab line runs every minute, and the at job runs 150 seconds after it is planted. Each running item also reports its own life to the sealed recorder (FRAMEWORK.md section 3). The scenario's eleven paths are one per item and kind of work: the two services are each a running process (P2) and a trigger (P4).
+Runs with the ground truth (`check`, and the self-test) plant the same nine host cases from the scenario file `src/stopkit/spec/scenarios/host-bundle-1.json`, with two differences that let the ground truth time them: the crontab line runs every minute, and the at job runs 150 seconds after it is planted. Each running item also reports its own life to the sealed recorder (FRAMEWORK.md section 3). The scenario's eleven paths are one per item and kind of work: the two services are each a running process (P2) and a trigger (P4).
 
 ## 8. Adapters and stops
 
@@ -181,7 +186,7 @@ The reference stop does not handle unit generators the account installs itself (
 
 **The `mcp` adapter** runs the kit's own MCP test server, built on the official Python SDK (`mcp` 2.3.0), over stdio, with the kit as a plain JSON-RPC client. It starts a tool call whose work is a child process (the case `mcp-inflight`), then uses one of these stops: `none`; `cancel` (the protocol's `notifications/cancelled` for the call in progress); `stdin-close` (close the server's input, the first step of MCP's stdio shutdown); `shutdown` (MCP's stdio shutdown in full: close the input, then SIGTERM, then SIGKILL, each after 2 s); `client-exit` (SIGINT to the server's process only); `kill-scope`; and `reference`. A cancel claims only that the call's work stopped, so the server running on is not held against it.
 
-**Your own agent.** An adapter is the four methods above (`src/stopkit/adapters/base.py`), added to `src/stopkit/adapters/__init__.py`. It starts the agent as the test account, lets it plant the cases (the pretend agent's plan file says which), uses the stop, and returns what the stop itself reported. For an agent you cannot script, use check mode (section 2).
+**Your own agent.** Most agents need no code: a config file ([CONFIG.md](CONFIG.md)) says how to start the agent, how to point it at the kit's stand-in model, how to give it its task, the name of its shell tool, and its own stops. The kit's stand-in model then makes the agent's own shell tool plant the catalogue's work, one tool call per item, and the generic stops of section 2 are tested on every agent beside the agent's own. An agent whose work lives in its platform's own stores (n8n, LangGraph, Temporal), or that is driven through a terminal (Claude Code), needs an adapter: the four methods above (`src/stopkit/agents/base.py`), named in `src/stopkit/bindings/__init__.py` ([GUIDE.md](GUIDE.md)). For an agent you cannot script, use watch mode (section 2).
 
 ## 9. Readings and verdicts
 
@@ -216,8 +221,8 @@ The kit's pretend stops are all apparent, because no product speaks in them. The
 - A check is not an instant. Its listings took 0.4–1.6 s in the recorded runs, and each surface is read at its own moment, processes first. The record keeps each listing's start and end, and the score sheet gives each check's real window, for example "0 s check: 0.00–0.79 s after the stop returned", instead of a bare "0 s".
 - How long a stop took is measured by the kit, from calling it to its return. For the pretend stops this includes the stop's own wait for the agent to exit, which wakes the moment the process ends (through a pidfd).
 - The effect sink and the ground truth count effects over the same window, and a trigger's fires count as effects.
-- Check mode does not see the person's stop, so it cannot time it. It gives each listing's start relative to the "before" listing, by the monotonic clock when both were taken in the same boot.
-- A restart of the whole system between check-mode listings ends every process by itself. In WSL this happens without warning: in one measurement, WSL powered its system off whenever no WSL window was open (six times in one hour), while the kernel's boot ID stayed the same. Each listing records which start of the system it saw (the boot ID and the start time of process 1); an absence read after a restart since the "before" listing is `unknown`. In WSL, keep a WSL window open while using check mode.
+- Watch mode does not see the person's stop, so it cannot time it. It gives each listing's start relative to the "before" listing, by the monotonic clock when both were taken in the same boot.
+- A restart of the whole system between watch-mode listings ends every process by itself. In WSL this happens without warning: in one measurement, WSL powered its system off whenever no WSL window was open (six times in one hour), while the kernel's boot ID stayed the same. Each listing records which start of the system it saw (the boot ID and the start time of process 1); an absence read after a restart since the "before" listing is `unknown`. In WSL, keep a WSL window open while using watch mode.
 
 ## 10. Records and reports
 
@@ -229,7 +234,7 @@ Each run gets its own folder:
 
 `recheck` reads every listing back from `blobs/`, confirms the restart again, computes the readings and the verdicts again from that evidence alone, and lists any difference. It never changes the folder, reports missing or damaged evidence instead of stopping, and runs on any operating system with Python, so a reader can check a record on their own machine. A batch folder adds `summary.md` and `summary.json`.
 
-`at -c` and `crontab -l` outputs are stored whole. For the test accounts they hold no secrets; check mode on a real account stores them too, so inspect a check folder before sharing it.
+`at -c` and `crontab -l` outputs are stored whole. For the test accounts they hold no secrets; watch mode on a real account stores them too, so inspect a check folder before sharing it.
 
 ## 11. Safety rules
 
@@ -242,7 +247,7 @@ Each run gets its own folder:
 - After every run, clean-up re-lists everything and must find nothing of the test account. The next run checks again and refuses to start if the account still holds anything.
 - Only one kit command that changes things runs at a time (a lock in `/var/lib/stopkit`).
 - `stopkit cleanup --all` removes the accounts and the sentinels.
-- **Disk:** WSL's disk image lives on the Windows drive and does not shrink. So the kit writes no Python cache files (`python3 -B`), keeps each run's evidence compressed, and refuses to start if the Linux root, or in WSL the Windows drive (`/mnt/c`), has less free space than the floor set in `src/stopkit/guards.py`.
+- **Disk:** WSL's disk image lives on the Windows drive and does not shrink. So the kit writes no Python cache files (`python3 -B`), keeps each run's evidence compressed, and refuses to start if the Linux root, or in WSL the Windows drive (`/mnt/c`), has less free space than the floor set in `src/stopkit/system/guards.py`.
 
 ## 12. Testing the kit
 

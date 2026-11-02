@@ -10,17 +10,21 @@ import time
 import unittest
 import urllib.request
 
-from stopkit import codehash, egress, specs, truth
+from stopkit.report import codehash
+from stopkit.system import egress
+from stopkit import spec
+from stopkit.score import ground_truth
+from stopkit.truth import bench
 from stopkit.observe import effects
 from stopkit.observe.components import SENTINEL_KEY, list_components
 from stopkit.observe.model import Item, Listing
 from stopkit.observe.snapshot import Snapshot
-from stopkit.sentinel import seen as sentinel_seen
-from stopkit.verdict import restart_problem
+from stopkit.observe.sentinel import seen as sentinel_seen
+from stopkit.score.verdict import restart_problem
 from tests.helpers import AGENT, SENTINEL, FakeRunner, result, snap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-KIT = os.path.dirname(os.path.abspath(truth.__file__))  # the stopkit package, in any layout
+TRUTH = os.path.dirname(os.path.abspath(bench.__file__))  # the truth layer's programs, in any layout
 S = 'stopkit-sentinel-beat'
 H = 'stopkit-sentinel-http'
 
@@ -105,7 +109,7 @@ class EffectSurfaceTest(unittest.TestCase):
 
 class TruthWindowTest(unittest.TestCase):
     def test_the_truth_reads_the_window_the_effect_surface_read(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         raw = json.dumps({'now': 103.0, 'since': 101.0, 'lookback_s': 2.0})
         eff = Listing('effect', 'all', True, (), 0.0, (), (('effect-window', raw),))
         proc = Listing('process', 'x', True, (), 0.0)
@@ -136,7 +140,7 @@ def tlog(*events, until=200.0):
                     'msg': {'type': 'beat', 'tag': S, 'item': 'channel', 'n': 1, 't': t}})
         t = round(t + 0.2, 6)
     evs += list(events)
-    return truth.Log(tuple(sorted(evs, key=lambda e: e['mono'])), ())
+    return ground_truth.Log(tuple(sorted(evs, key=lambda e: e['mono'])), ())
 
 
 def tmsg(kind, t, inst='i1', pid=40, tag='W', **kw):
@@ -154,45 +158,45 @@ def tbeats(a, b, inst='i1', every=0.2):
 
 class BeatsOracleTest(unittest.TestCase):
     def read(self, lg, w, delay=0.0):
-        return truth.read_beats(lg, 'W', w, delay, 0.05, S)
+        return ground_truth.read_beats(lg, 'W', w, delay, 0.05, S)
 
     def test_alive_through_the_window(self):
         lg = tlog(tmsg('hello', 90.0), *tbeats(90.1, 150))
-        self.assertEqual(self.read(lg, (100, 101)), truth.PRESENT)
+        self.assertEqual(self.read(lg, (100, 101)), ground_truth.PRESENT)
 
     def test_an_end_hook_before_the_window_reads_absent(self):
         lg = tlog(*tbeats(90.1, 99.0), tmsg('end', 99.1))
-        self.assertEqual(self.read(lg, (100, 101)), truth.ABSENT)
+        self.assertEqual(self.read(lg, (100, 101)), ground_truth.ABSENT)
 
     def test_silence_without_an_end_is_indefinite(self):
         lg = tlog(*tbeats(90.1, 99.0))
-        self.assertEqual(self.read(lg, (100, 101)), truth.INDEFINITE)
+        self.assertEqual(self.read(lg, (100, 101)), ground_truth.INDEFINITE)
 
     def test_the_end_of_the_hosting_process_ends_the_work(self):
         hello = {'ev': 'msg', 'mono': 90.001, 'cred': {'pid': 40, 'uid': 1001},
                  'msg': {'type': 'hello', 'tag': 'W', 'item': 'W', 'pid': 40, 'start': 7, 't': 90.0, 'inst': 'i1', 'inproc': True}}
         exit_ = {'ev': 'exit', 'mono': 99.2, 'pid': 40, 'start': 7, 'tag': 'W', 'item': 'W'}
         lg = tlog(hello, *tbeats(90.1, 99.0), exit_)
-        self.assertEqual(self.read(lg, (100, 101)), truth.ABSENT)
-        self.assertEqual(self.read(lg, (98, 99.1)), truth.INDEFINITE)
+        self.assertEqual(self.read(lg, (100, 101)), ground_truth.ABSENT)
+        self.assertEqual(self.read(lg, (98, 99.1)), ground_truth.INDEFINITE)
 
     def test_a_retry_is_a_run_of_its_own(self):
         lg = tlog(*tbeats(90.1, 99.0, 'i1'), tmsg('end', 99.1, 'i1'), *tbeats(100.5, 150, 'i2'))
-        self.assertEqual(self.read(lg, (100, 101)), truth.INDEFINITE)     # a run started inside the window
-        self.assertEqual(self.read(lg, (110, 111)), truth.PRESENT)
+        self.assertEqual(self.read(lg, (100, 101)), ground_truth.INDEFINITE)     # a run started inside the window
+        self.assertEqual(self.read(lg, (110, 111)), ground_truth.PRESENT)
 
     def test_work_placed_by_its_arrival(self):
         evs = [{'ev': 'msg', 'mono': a + 0.002, 'cred': {'pid': 3, 'uid': 0},
                 'msg': {'type': 'beat', 'tag': 'W', 'item': 'W', 'n': 1, 't': None, 'arrival': a, 'inst': 'e7', 'via': 'http'}}
                for a in [90 + i for i in range(30)]]
         lg = tlog(*evs)
-        self.assertEqual(self.read(lg, (100, 101), delay=0.05), truth.PRESENT)
+        self.assertEqual(self.read(lg, (100, 101), delay=0.05), ground_truth.PRESENT)
 
     def test_scored_entry(self):
         lg = tlog(*tbeats(90.1, 101.4), tmsg('end', 101.5))
-        times = truth.Times(100.0, 85.0, None, 190.0, (('before', 'before'), ('3 s', 'after')),
+        times = ground_truth.Times(100.0, 85.0, None, 190.0, (('before', 'before'), ('3 s', 'after')),
                             {'before': {'effect': (99, 99.5)}, '3 s': {'effect': (103, 103.1)}})
-        got = truth.score(lg, [('w', 'P1', 'W', {'oracle': 'beats', 'surfaces': ['effect']})], times, S, 0.6, 0.05)
+        got = ground_truth.score(lg, [('w', 'P1', 'W', {'oracle': 'beats', 'surfaces': ['effect']})], times, S, 0.6, 0.05)
         e = got['items']['w']['P1']
         self.assertEqual((e['readings']['before'], e['readings']['3 s'], e['verdict']), ('present', 'absent', 'ended'))
         self.assertEqual(e['effects_after'], 4)                 # 100.8, 101.0, 101.2, 101.4
@@ -210,18 +214,18 @@ class RestartReadTest(unittest.TestCase):
                  {'ev': 'watch', 'mono': 150.002, 'pid': 41, 'start': 9, 'tag': 'C', 'item': 'C'}]
         lg = tlog(*hello)
         cps = (('before', 'before'), ('10 s', 'after'), ('restart', 'restart'))
-        times = truth.Times(100.0, 85.0, 140.0, 190.0, cps, {'before': {'component': (99, 99.5)},
+        times = ground_truth.Times(100.0, 85.0, 140.0, 190.0, cps, {'before': {'component': (99, 99.5)},
                                                              '10 s': {'component': (110, 110.1)},
                                                              'restart': {'component': (160, 160.1)}})
         spec = {'oracle': 'pidfd', 'surfaces': ['component']}
-        read = truth.score(lg, [('c', 'P1', 'C', spec)], times, S, 0.6, 0.05)['items']['c']['P1']
+        read = ground_truth.score(lg, [('c', 'P1', 'C', spec)], times, S, 0.6, 0.05)['items']['c']['P1']
         self.assertEqual(read['verdict'], 'came back')
-        skip = truth.score(lg, [('c', 'P1', 'C', dict(spec, restart_read=False))], times, S, 0.6, 0.05)['items']['c']['P1']
+        skip = ground_truth.score(lg, [('c', 'P1', 'C', dict(spec, restart_read=False))], times, S, 0.6, 0.05)['items']['c']['P1']
         self.assertEqual((skip['verdict'], skip['definite']), ('ended', True))
 
     def test_nor_is_its_report_judged_after_it(self):
-        from stopkit import protocol
-        from stopkit.verdict import truthfulness
+        from stopkit.run import protocol
+        from stopkit.score.verdict import truthfulness
         # As in n8n's reference runs of 29 Oct: the stop said everything had ended, and the restart action started
         # n8n's main process again. That made the report a false all-clear, though the verdict was ended.
         main = {'id': 'main', 'kind': 'P1', 'verdict': 'ended',
@@ -239,11 +243,11 @@ class RunTimingTest(unittest.TestCase):
     """The run's waits around the 'before' listing and after the last listing (protocol.before_wait,
     recording_end), held to what the truth needs to read there."""
     def read(self, lg, w):
-        return truth.read_beats(lg, 'W', w, 0.0, 0.05, S)
+        return ground_truth.read_beats(lg, 'W', w, 0.0, 0.05, S)
 
     def wait(self, surfaces=('effect',), lookback=2.0):
         from types import SimpleNamespace
-        from stopkit import protocol
+        from stopkit.run import protocol
         return protocol.before_wait(SimpleNamespace(effect_lookback_s=lookback), list(surfaces))
 
     def test_only_work_read_on_the_effect_surface_waits(self):
@@ -254,20 +258,20 @@ class RunTimingTest(unittest.TestCase):
     def test_work_that_began_just_before_readiness_is_confirmed_one_lookback_later(self):
         # As in each MCP run of 29 Oct: the work first reported 1.2 s before readiness (100.0).
         lg = tlog(tmsg('hello', 98.8), *tbeats(98.8, 150))
-        self.assertEqual(self.read(lg, (98.0, 100.0)), truth.INDEFINITE)
+        self.assertEqual(self.read(lg, (98.0, 100.0)), ground_truth.INDEFINITE)
         listed = 100.0 + self.wait()
-        self.assertEqual(self.read(lg, (listed - 2.0, listed)), truth.PRESENT)
+        self.assertEqual(self.read(lg, (listed - 2.0, listed)), ground_truth.PRESENT)
 
     def test_work_the_stop_ends_at_once_is_confirmed_by_acting_before_the_cut_off(self):
         # As in n8n's reference run of 29 Oct: the stop came 20 ms after the listing and ended the work, whose
         # end the truth could not see (no end hook ran), before it acted again.
         listed = 100.0
-        self.assertEqual(self.read(tlog(*tbeats(50.0, listed)), (98.0, listed)), truth.INDEFINITE)
+        self.assertEqual(self.read(tlog(*tbeats(50.0, listed)), (98.0, listed)), ground_truth.INDEFINITE)
         cut = listed + self.wait()
-        self.assertEqual(self.read(tlog(*tbeats(50.0, cut)), (98.0, listed)), truth.PRESENT)
+        self.assertEqual(self.read(tlog(*tbeats(50.0, cut)), (98.0, listed)), ground_truth.PRESENT)
 
     def test_the_recording_outlasts_the_last_listing_enough_to_read_it(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         # As in each MCP run of 29 Oct (no trigger, so no trigger window): the recording ended 0.3 s after the
         # restart listing, so a process that had ended read indefinite there, and so did work still running,
         # torn down before it acted again.
@@ -276,19 +280,19 @@ class RunTimingTest(unittest.TestCase):
                   'msg': {'type': 'hello', 'tag': 'C', 'item': 'C', 'pid': 40, 'start': 7, 't': 90.0}},
                  {'ev': 'watch', 'mono': 90.002, 'pid': 40, 'start': 7, 'tag': 'C', 'item': 'C'},
                  {'ev': 'exit', 'mono': 100.1, 'pid': 40, 'start': 7, 'tag': 'C', 'item': 'C'}]
-        self.assertEqual(truth.read_pidfd(tlog(*ended, until=listed + 0.3), 'C', (410.0, listed), 0.05, S),
-                         truth.INDEFINITE)
+        self.assertEqual(ground_truth.read_pidfd(tlog(*ended, until=listed + 0.3), 'C', (410.0, listed), 0.05, S),
+                         ground_truth.INDEFINITE)
         self.assertEqual(self.read(tlog(*tbeats(90.0, listed + 0.05), until=listed + 0.3), (409.0, listed)),
-                         truth.INDEFINITE)
+                         ground_truth.INDEFINITE)
         end = protocol.recording_end(restarted, 0.0, listed)
         self.assertEqual(end, listed + 2.5)
-        self.assertEqual(truth.read_pidfd(tlog(*ended, until=end), 'C', (410.0, listed), 0.05, S), truth.ABSENT)
-        self.assertEqual(self.read(tlog(*tbeats(90.0, end), until=end), (409.0, listed)), truth.PRESENT)
+        self.assertEqual(ground_truth.read_pidfd(tlog(*ended, until=end), 'C', (410.0, listed), 0.05, S), ground_truth.ABSENT)
+        self.assertEqual(self.read(tlog(*tbeats(90.0, end), until=end), (409.0, listed)), ground_truth.PRESENT)
         self.assertEqual(protocol.recording_end(restarted, 120.0, listed), 526.0)     # a trigger's window is later
 
     def gap(self, *truths):
         from types import SimpleNamespace
-        from stopkit import protocol
+        from stopkit.run import protocol
         return protocol.restart_gap([(SimpleNamespace(truth={'P': t}), 'P') for t in truths])
 
     def test_what_the_restart_starts_again_is_seen_to_start_after_the_last_listing(self):
@@ -304,9 +308,9 @@ class RunTimingTest(unittest.TestCase):
                      'msg': {'type': 'hello', 'tag': 'C', 'item': 'C', 'pid': 41, 'start': 9, 't': t}},
                     {'ev': 'watch', 'mono': t + 0.002, 'pid': 41, 'start': 9, 'tag': 'C', 'item': 'C'}]
         w = (119.0, 120.0)
-        self.assertEqual(truth.read_pidfd(tlog(*gone, *again(120.2)), 'C', w, 0.05, S), truth.INDEFINITE)
+        self.assertEqual(ground_truth.read_pidfd(tlog(*gone, *again(120.2)), 'C', w, 0.05, S), ground_truth.INDEFINITE)
         self.assertEqual(self.gap({'oracle': 'pidfd'}, {'oracle': 'beats'}), 1.5)
-        self.assertEqual(truth.read_pidfd(tlog(*gone, *again(120.0 + 1.5 + 0.2)), 'C', w, 0.05, S), truth.ABSENT)
+        self.assertEqual(ground_truth.read_pidfd(tlog(*gone, *again(120.0 + 1.5 + 0.2)), 'C', w, 0.05, S), ground_truth.ABSENT)
 
     def test_a_trigger_still_armed_can_fire_before_the_restart(self):
         # As in n8n's runs of 29 Oct: the schedule, still armed, fires every 60 s (margin 10 s); the last
@@ -315,18 +319,18 @@ class RunTimingTest(unittest.TestCase):
         lg = tlog(*[tmsg('fire', t, tag='T') for t in (55.0, 115.0, 175.0)], until=260.0)
 
         def read(restart):
-            times = truth.Times(100.0, 50.0, restart, 260.0, (('120 s', 'after'),), {'120 s': {'t': (119.0, 120.0)}})
-            return truth.read_fire(lg, 'T', spec, (119.0, 120.0), 'after', times, S)
-        self.assertEqual(read(120.07), truth.INDEFINITE)
+            times = ground_truth.Times(100.0, 50.0, restart, 260.0, (('120 s', 'after'),), {'120 s': {'t': (119.0, 120.0)}})
+            return ground_truth.read_fire(lg, 'T', spec, (119.0, 120.0), 'after', times, S)
+        self.assertEqual(read(120.07), ground_truth.INDEFINITE)
         self.assertEqual(self.gap(spec, {'oracle': 'fire', 'when': 'restart', 'margin_s': 30}), 70)
-        self.assertEqual(read(120.0 + 70), truth.PRESENT)
+        self.assertEqual(read(120.0 + 70), ground_truth.PRESENT)
 
 
 class SmokeCheckTest(unittest.TestCase):
     """protocol.smoke_problems: the known answers of a binding's smoke run, and the one unknown it accepts."""
 
     def rec(self, stop='reference', after='unknown', ok=False, restart='absent', truth_after='absent', verdict=None):
-        from stopkit import verdict as v
+        from stopkit.score import verdict as v
         readings = {'before': 'present', '45 s': after, 'restart': restart}
         cps = [{'name': 'before', 'kind': 'before', 'snapshot': {'listings': [{'surface': 'temporal-workflow', 'ok': True}]}},
                {'name': '45 s', 'kind': 'after', 'snapshot': {'listings': [{'surface': 'temporal-workflow', 'ok': ok}]}},
@@ -339,25 +343,25 @@ class SmokeCheckTest(unittest.TestCase):
                 'errors': [], 'checkpoints': cps, 'items': [item], 'truth': tr}
 
     def test_an_unknown_while_the_store_was_down_is_accepted_and_noted(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         problems, notes = protocol.smoke_problems(self.rec())
         self.assertEqual(problems, [])
         self.assertTrue(any('accepted unknown' in n for n in notes))
 
     def test_an_unknown_without_a_failed_listing_fails(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         self.assertTrue(protocol.smoke_problems(self.rec(ok=True))[0])
 
     def test_an_unknown_that_comes_back_after_the_restart_fails(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         self.assertTrue(protocol.smoke_problems(self.rec(restart='present'))[0])
 
     def test_an_unknown_the_truth_saw_present_fails(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         self.assertTrue(protocol.smoke_problems(self.rec(truth_after='present'))[0])
 
     def test_a_false_absent_fails_and_a_false_present_is_noted(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         problems, _ = protocol.smoke_problems(self.rec(after='absent', ok=True, truth_after='present'))
         self.assertTrue(any('kit absent, truth present' in p for p in problems))
         problems, notes = protocol.smoke_problems(self.rec(stop='none', after='present', ok=True, restart='present',
@@ -366,7 +370,7 @@ class SmokeCheckTest(unittest.TestCase):
         self.assertTrue(any('kit present, truth absent' in n for n in notes))
 
     def test_the_null_stop_wants_still_running(self):
-        from stopkit import protocol
+        from stopkit.run import protocol
         problems, _ = protocol.smoke_problems(self.rec(stop='none', after='absent', ok=True))
         self.assertTrue(any('ended under none' in p for p in problems))
 
@@ -405,18 +409,18 @@ class ComponentsTest(unittest.TestCase):
 
 class SpecTest(unittest.TestCase):
     def test_the_mcp_scenario_loads(self):
-        sc = specs.scenario('mcp-bundle-1')
+        sc = spec.scenario('mcp-bundle-1')
         self.assertEqual(sc.effect_lookback_s, 2.0)
         self.assertEqual([i.truth[k]['oracle'] for i in sc.items for k in i.paths], ['pidfd', 'beats', 'pidfd'])
         self.assertGreaterEqual(min(sc.checks_s), sc.grace_s + sc.effect_lookback_s)
 
     def test_the_host_scenario_keeps_its_defaults(self):
-        sc = specs.scenario('host-bundle-1')
+        sc = spec.scenario('host-bundle-1')
         self.assertIsNone(sc.effect_lookback_s)
         self.assertEqual((sc.effect_channels, sc.delivery_bound_s, sc.restart_settle_s), (('datagram',), 0.0, 3.0))
 
     def test_the_new_surfaces(self):
-        surf = specs.surfaces()
+        surf = spec.surfaces()
         self.assertTrue(surf['effect'].implemented and surf['component'].implemented)
 
 
@@ -476,7 +480,7 @@ class ReportersTest(unittest.TestCase):
         self.d.close()
 
     def test_the_in_process_reporter(self):
-        sys.path.insert(0, os.path.join(KIT, 'adapters'))
+        sys.path.insert(0, TRUTH)
         try:
             from work_report import Work
         finally:
@@ -492,7 +496,7 @@ class ReportersTest(unittest.TestCase):
         self.assertEqual(self.d.get('sink')['n'], 1)
 
     def test_exec_reports_then_becomes_the_program(self):
-        p = subprocess.run([sys.executable, '-I', '-B', os.path.join(KIT, 'adapters', 'beat.py'), 'exec',
+        p = subprocess.run([sys.executable, '-I', '-B', bench.BEAT_SOURCE, 'exec',
                             self.d.path('truth'), 'T', 'server', '--', '/bin/sh', '-c', 'echo $$'],
                            capture_output=True, text=True, timeout=20)
         hello = self.d.get('truth')
@@ -501,7 +505,7 @@ class ReportersTest(unittest.TestCase):
 
     def test_the_http_stand_in_passes_reports_on(self):
         log = os.path.join(self.d.dir, 'standin.jsonl')
-        p = subprocess.Popen([sys.executable, '-I', '-B', os.path.join(KIT, 'standin_http.py'), self.d.path('truth'),
+        p = subprocess.Popen([sys.executable, '-I', '-B', bench.STANDIN, self.d.path('truth'),
                               self.d.path('sink'), log], stdout=subprocess.PIPE, text=True)
         try:
             port = int(p.stdout.readline().split()[1])

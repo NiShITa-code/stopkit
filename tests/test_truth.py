@@ -1,8 +1,8 @@
 """The ground-truth scorer on recorder logs written by hand: each oracle's readings at known moments."""
 import unittest
 
-from stopkit import truth
-from stopkit.truth import ABSENT, INDEFINITE, PRESENT
+from stopkit.score import ground_truth
+from stopkit.score.ground_truth import ABSENT, INDEFINITE, PRESENT
 
 SENTINEL = 'sentinel-beat'
 CUT, PLANT, RESTART, END = 100.0, 90.0, 405.0, 600.0
@@ -12,7 +12,7 @@ SURFACES = ('process', 'unit', 'cron', 'at', 'listener', 'worker')
 
 
 def times(restart=RESTART):
-    return truth.Times(CUT, PLANT, restart, END, CHECKS,
+    return ground_truth.Times(CUT, PLANT, restart, END, CHECKS,
                        {cp: {s: w for s in SURFACES} for cp, w in WINDOWS.items()})
 
 
@@ -51,7 +51,7 @@ def log(*parts, ticks_until=END + 1, sentinel_until=END + 1):
     evs += beats(SENTINEL, 85.0, sentinel_until)
     for p in parts:
         evs += p
-    return truth.Log(tuple(sorted(evs, key=lambda e: e['mono'])), ())
+    return ground_truth.Log(tuple(sorted(evs, key=lambda e: e['mono'])), ())
 
 
 def spec(oracle='pidfd', **kw):
@@ -59,7 +59,7 @@ def spec(oracle='pidfd', **kw):
 
 
 def score(lg, paths, t=None):
-    return truth.score(lg, paths, t or times(), SENTINEL, grace=0.6, latency=0.005)
+    return ground_truth.score(lg, paths, t or times(), SENTINEL, grace=0.6, latency=0.005)
 
 
 class PidfdTest(unittest.TestCase):
@@ -100,9 +100,9 @@ class PidfdTest(unittest.TestCase):
         self.assertIsNone(r['verdict'])
 
     def test_effects_after_the_end_of_the_run_are_not_counted(self):
-        t = truth.Times(CUT, PLANT, RESTART, 100.7, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in WINDOWS.items()})
+        t = ground_truth.Times(CUT, PLANT, RESTART, 100.7, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in WINDOWS.items()})
         lg = log(hello('B', 11, 91.0), beats('B', 91.0, 101.0))
-        r = truth.score(lg, [('bg', 'P2', 'B', spec())], t, SENTINEL, grace=0.6, latency=0.005)['items']['bg']['P2']
+        r = ground_truth.score(lg, [('bg', 'P2', 'B', spec())], t, SENTINEL, grace=0.6, latency=0.005)['items']['bg']['P2']
         self.assertEqual(r['effects_after'], 0)                # 100.8 and 101.0 fall after the end, 100.7
 
     def test_effects_are_counted_from_the_cut_off_plus_grace(self):
@@ -143,16 +143,16 @@ class FireTest(unittest.TestCase):
         windows = {**WINDOWS, 'restart': (490, 491)}
         p = [('timer', 'P4', 'T', spec('fire', when='period', period_s=60, margin_s=60))]
         lg = log(fire('T', 95.0), ticks_until=561, sentinel_until=561)
-        t = truth.Times(CUT, PLANT, RESTART, 560.0, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()}, 480.0)
+        t = ground_truth.Times(CUT, PLANT, RESTART, 560.0, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()}, 480.0)
         self.assertEqual(score(lg, p, t)['items']['timer']['P4']['readings']['restart'], INDEFINITE)
         lg = log(fire('T', 95.0))
-        t = truth.Times(CUT, PLANT, RESTART, END, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()}, 480.0)
+        t = ground_truth.Times(CUT, PLANT, RESTART, END, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()}, 480.0)
         self.assertEqual(score(lg, p, t)['items']['timer']['P4']['readings']['restart'], ABSENT)
         lg = log(fire('T', 95.0), fire('T', 590.0))
         self.assertEqual(score(lg, p, t)['items']['timer']['P4']['readings']['restart'], PRESENT)
         # A record made before the end of the action was kept is scored as it was: the window from the start.
         lg = log(fire('T', 95.0), ticks_until=561, sentinel_until=561)
-        t = truth.Times(CUT, PLANT, RESTART, 560.0, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()})
+        t = ground_truth.Times(CUT, PLANT, RESTART, 560.0, CHECKS, {cp: {s: w for s in SURFACES} for cp, w in windows.items()})
         self.assertEqual(score(lg, p, t)['items']['timer']['P4']['readings']['restart'], ABSENT)
 
     def test_armed_timer(self):
@@ -189,7 +189,7 @@ class RunTest(unittest.TestCase):
 
     def test_a_missing_window_is_indefinite(self):
         t = times()
-        t = truth.Times(t.cut_off, t.plant, t.restart, t.end, t.checkpoints,
+        t = ground_truth.Times(t.cut_off, t.plant, t.restart, t.end, t.checkpoints,
                         {cp: ({} if cp == '60 s' else w) for cp, w in t.windows.items()})
         r = score(log(hello('B', 11, 91.0)), [('bg', 'P2', 'B', spec())], t)['items']['bg']['P2']
         self.assertEqual(r['readings']['60 s'], INDEFINITE)

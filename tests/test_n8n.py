@@ -6,9 +6,9 @@ import tempfile
 import unittest
 from unittest import mock
 
-from stopkit import specs
-from stopkit.adapters import n8n
-from stopkit.cmd import CmdResult
+from stopkit import spec
+from stopkit.bindings import n8n
+from stopkit.system.cmd import CmdResult
 
 TAGS = {'n8n-main': 'stopkit-n8n-main-aa', 'n8n-worker': 'stopkit-n8n-worker-bb', 'n8n-loop': 'stopkit-n8n-loop-cc',
         'n8n-child': 'stopkit-n8n-child-dd', 'n8n-schedule': 'stopkit-n8n-sched-ee'}
@@ -54,14 +54,14 @@ class WorkflowsTest(unittest.TestCase):
         self.assertIn(TAGS['n8n-schedule'], wfs['schedule']['name'])
 
     def test_the_scenario_and_its_stops(self):
-        sc = specs.scenario('n8n-bundle-1')
+        sc = spec.scenario('n8n-bundle-1')
         self.assertEqual(sc.effect_channels, ('http',))
         self.assertGreaterEqual(min(sc.checks_s), sc.grace_s + sc.effect_lookback_s)
         for s in n8n.STOPS:
-            self.assertTrue(specs.stop(f'n8n.{s}').implemented, s)
-        self.assertFalse(specs.stop('n8n.stop-by-id').in_scope('platform-child-execution'))
-        self.assertTrue(specs.stop('n8n.worker-stop').in_scope('platform-child-execution'))
-        self.assertFalse(specs.stop('n8n.worker-stop').in_scope('platform-component'))
+            self.assertTrue(spec.stop(f'n8n.{s}').implemented, s)
+        self.assertFalse(spec.stop('n8n.stop-by-id').in_scope('platform-child-execution'))
+        self.assertTrue(spec.stop('n8n.worker-stop').in_scope('platform-child-execution'))
+        self.assertFalse(spec.stop('n8n.worker-stop').in_scope('platform-component'))
 
 
 class ListingsTest(unittest.TestCase):

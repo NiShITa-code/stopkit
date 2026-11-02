@@ -2,7 +2,7 @@ import os
 import tempfile
 import unittest
 
-from stopkit import procfs
+from stopkit.system import procfs
 
 
 STATUS = """Name:\tsleep

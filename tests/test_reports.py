@@ -4,7 +4,8 @@ import os
 import tempfile
 import unittest
 
-from stopkit import accuracy, reports, results
+from stopkit.score import accuracy
+from stopkit.report import reports, results
 
 CUT = 1000.0
 

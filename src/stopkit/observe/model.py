@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Mapping
 
-from ..cmd import CmdResult
+from ..system.cmd import CmdResult
 
 SURFACES = ('process', 'unit', 'timer', 'cron', 'at', 'listener', 'worker')   # where leftovers can be
 CONTEXT = ('manager', 'status')            # read only to explain the others: a service manager, a platform's claims

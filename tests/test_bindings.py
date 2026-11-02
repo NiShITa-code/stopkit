@@ -5,10 +5,10 @@ import os
 import sys
 import unittest
 
-from stopkit import adapters, specs
+from stopkit import agents, bindings, spec
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.dirname(os.path.abspath(adapters.__file__)))  # the package's adapters, in any layout
+sys.path.insert(0, agents.HERE)  # the stand-in model is a program; import it from its folder, in any layout
 import model_standin  # noqa: E402
 sys.path.pop(0)
 
@@ -26,13 +26,13 @@ class Ctx:
 
 class SpecTest(unittest.TestCase):
     def test_every_binding_has_a_scenario_and_registered_stops(self):
-        for name in adapters.NAMES:
-            a = adapters.get(name)
+        for name in bindings.NAMES:
+            a = bindings.get(name)
             with self.subTest(binding=name):
-                sc = specs.scenario(a.scenario)
+                sc = spec.scenario(a.scenario)
                 self.assertEqual({c.name for c in a.cases} >= {it.case for it in sc.items}, True)
                 for stop in a.stops:
-                    self.assertTrue(specs.stop(f'{a.prefix}.{stop}').implemented, stop)
+                    self.assertTrue(spec.stop(f'{a.prefix}.{stop}').implemented, stop)
                 self.assertIn('none', a.stops)
                 self.assertIn('reference', a.stops)
                 self.assertIn(getattr(a, 'n2_stop', 'kill-account'), a.stops)     # N2 uses it (noninterference.n2)
@@ -41,14 +41,14 @@ class SpecTest(unittest.TestCase):
                     self.assertGreaterEqual(sc.restart_settle_s, sc.effect_lookback_s)
 
     def test_scopes_tell_the_turn_from_background_work(self):
-        esc = specs.stop('claude-code.esc')
+        esc = spec.stop('claude-code.esc')
         self.assertTrue(esc.in_scope('agent-child'))
         self.assertFalse(esc.in_scope('tool-background'))
-        abort = specs.stop('openclaw.abort')
+        abort = spec.stop('openclaw.abort')
         self.assertTrue(abort.in_scope('agent-child'))
         self.assertFalse(abort.in_scope('tool-background'))
-        self.assertTrue(specs.stop('openclaw.gateway-sigterm').in_scope('tool-background'))
-        self.assertFalse(specs.stop('langgraph.cancel').in_scope('agent-detached'))
+        self.assertTrue(spec.stop('openclaw.gateway-sigterm').in_scope('tool-background'))
+        self.assertFalse(spec.stop('langgraph.cancel').in_scope('agent-detached'))
 
 
 class AnthropicScriptTest(unittest.TestCase):
@@ -94,7 +94,7 @@ class ChatScriptTest(unittest.TestCase):
 
 class AgentScriptsTest(unittest.TestCase):
     def test_claude_code_plants_through_its_bash_tool(self):
-        from stopkit.adapters import claude_code
+        from stopkit.bindings import claude_code
         ctx = Ctx({c.name: c.prefix + 'aa' for c in claude_code.ClaudeCodeAdapter.cases})
         s = claude_code.script(ctx)
         self.assertEqual([x['name'] for x in s['steps']], ['cron', 'service', 'detached', 'background', 'foreground'])
@@ -105,7 +105,7 @@ class AgentScriptsTest(unittest.TestCase):
         self.assertNotIn(ctx.tags['cc'], json.dumps(s))          # only Claude Code's own process carries its tag
 
     def test_openclaw_plants_through_exec_and_its_config_points_at_the_stand_in(self):
-        from stopkit.adapters import openclaw
+        from stopkit.bindings import openclaw
         ctx = Ctx({c.name: c.prefix + 'aa' for c in openclaw.OpenClawAdapter.cases})
         s = openclaw.script(ctx)
         self.assertEqual([x['input'].get('background') for x in s['steps']], [True, None, None, None])

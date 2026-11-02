@@ -1,7 +1,7 @@
 """User units of an account: every loaded unit, including temporary ones, and every unit file.
 
-Review gap 2 (24 Oct): the button counted only units whose `is-enabled` said "enabled", so a temporary
-unit started with `systemd-run --user`, which is never enabled, was missed. This lister keeps every unit
+A check that counts only units whose `is-enabled` says "enabled" misses a temporary unit started with
+`systemd-run --user`, which is never enabled. This lister keeps every unit
 the account's service manager has loaded (`list-units --all`) and every unit file it knows
 (`list-unit-files`), whatever their state. For loaded units it also asks the manager (`show`) for each
 unit's own enablement and for the units that trigger it: `list-unit-files` lists a template once (as
@@ -20,8 +20,8 @@ import json
 import time
 from typing import Mapping
 
-from ..accounts import Account, as_account_argv
-from ..cmd import CmdResult, Runner, run
+from ..system.accounts import Account, as_account_argv
+from ..system.cmd import CmdResult, Runner, run
 from .model import Item, Listing, failed
 
 NO_MANAGER = ('Failed to connect to bus', 'No such file or directory', 'Transport endpoint is not connected',

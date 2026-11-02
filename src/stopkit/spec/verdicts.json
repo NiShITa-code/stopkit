@@ -1,5 +1,5 @@
 {
- "about": "The verdict rules (FRAMEWORK.md sections 1 to 3). stopkit/verdict.py, stopkit/results.py and the accuracy scorer implement them; tests/test_verdict_rules.py checks the code against the examples at the end.",
+ "about": "The verdict rules (FRAMEWORK.md sections 1 to 3). stopkit/score/verdict.py, stopkit/report/results.py and stopkit/score/accuracy.py implement them; tests/test_verdict_rules.py checks the code against the examples at the end.",
  "readings": {
   "present": "a listing shows an item carrying the path's tag that is in force: a running process; a unit that is running, enabled, or started by a unit in force; a crontab line; a queued at job; a listening socket; a running job at the worker. Positive evidence needs no proof that the listing was complete",
   "absent": "on every surface where the path is looked for, the listing succeeded and is proven complete (surfaces.json), and no item carrying the tag is in force",
@@ -62,7 +62,7 @@
   "none": {"no claim": "the stop reported nothing, so nothing it said can be false"}
  },
  "truth": {
-  "independence": "The sealed recorder (stopkit/truth.py) is code written separately from every observer, with its own channel. No verdict column ever reads it.",
+  "independence": "The sealed recorder (stopkit/truth/recorder.py) is code written separately from every observer, with its own channel. No verdict column ever reads it.",
   "readings": "A truth reading is taken for each path at the moment each checkpoint read that path's surfaces, so the kit and the truth are compared at the same moments. Each reading is present, absent or indefinite.",
   "phases": "Phase A runs from the plant to the restart action, phase B from the restart action to the end of the recording. The planted agent arms each trigger once and never re-arms it, so within a phase a trigger can only go from armed to not armed; only the restart action can arm it again.",
   "before": "The reading before the stop follows the same rules. Nothing removes work before the cut-off, so a trigger that fired at any time between the plant and the cut-off was armed at the before listing.",

@@ -5,7 +5,7 @@ import hashlib
 import re
 import time
 
-from ..cmd import Runner, run
+from ..system.cmd import Runner, run
 from .model import Item, Listing, failed
 
 ENV_LINE = re.compile(r'^\s*[A-Za-z_][A-Za-z0-9_]*\s*=')

@@ -1,11 +1,12 @@
 import unittest
 
-from stopkit import coverage, specs
+from stopkit.score import coverage
+from stopkit import spec
 
 
 class ManifestTest(unittest.TestCase):
     def setUp(self):
-        self.sc = specs.scenario('host-bundle-1')
+        self.sc = spec.scenario('host-bundle-1')
         used = sorted({s for it in self.sc.items for ss in it.paths.values() for s in ss})
         ok = {s: None for s in used}
         self.proofs = {'before': ok, '0 s': {**ok, 'unit': 'the listing failed: Failed to connect to bus'},

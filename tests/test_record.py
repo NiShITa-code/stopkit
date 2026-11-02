@@ -6,10 +6,10 @@ import tempfile
 import unittest
 from dataclasses import asdict
 
-from stopkit import record, report
-from stopkit.cases import CASES
-from stopkit.evidence import EvidenceStore
-from stopkit.verdict import read_checkpoint, restart_problem
+from stopkit.report import record, sheets
+from stopkit.spec.cases import CASES
+from stopkit.system.evidence import EvidenceStore
+from stopkit.score.verdict import read_checkpoint, restart_problem
 from tests.helpers import AGENT, PROC_SCOPE, SENTINEL, proc_item, result, snap
 
 TAGS = {c.name: c.prefix + '0' * 12 for c in CASES}
@@ -45,7 +45,7 @@ def make_run(folder, restart_ok=True):
            'claim': {'said_stopped': True, 'message': "the agent's main process exited", 'seconds': 0.1},
            'errors': [], 'cleanup': {'remaining': []}}
     record.score(rec)
-    record.write(folder, rec, report.run_report(rec))
+    record.write(folder, rec, sheets.run_report(rec))
     return rec
 
 
@@ -114,7 +114,7 @@ class RecordTest(unittest.TestCase):
         self.assertIn('| background: ', text)
         self.assertIn('**still running**', text)
         self.assertIn('false all-clear', text)
-        batch = report.batch_report('test', [self.rec])
+        batch = sheets.batch_report('test', [self.rec])
         self.assertIn('still running 1/1', batch)
 
 

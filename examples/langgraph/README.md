@@ -78,7 +78,7 @@ The terminal contains the live lines described above and the final count table. 
 
 The platform is the pinned development server, `langgraph dev`, with its local saved state. [graph.py](graph.py) also defines an async task variant; this demo launches the synchronous variant.
 
-The receiver runs outside the agent's account. Stopkit supplies the account listings and cleanup through `src/stopkit/stops.py`. The kit's own validation is in [VALIDATION.md](../../docs/VALIDATION.md).
+The receiver runs outside the agent's account. Stopkit supplies the account listings and cleanup through `src/stopkit/stops/`. The kit's own validation is in [VALIDATION.md](../../docs/VALIDATION.md).
 
 ## Files
 

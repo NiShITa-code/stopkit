@@ -7,8 +7,8 @@ import os
 import pwd
 import unittest
 
-from stopkit import accounts, guards
-from stopkit.cmd import run
+from stopkit.system import accounts, guards
+from stopkit.system.cmd import run
 from stopkit.observe import snapshot
 from stopkit.observe.cron import list_at_jobs, list_crontab
 from stopkit.observe.processes import list_processes

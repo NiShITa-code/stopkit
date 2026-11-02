@@ -49,9 +49,10 @@ the stop or came back after the restart:
 
 $$\mathrm{false\ all\text{-}clear} \iff \mathrm{reported\ stopped} \,\wedge\, \exists\, i \in S :\ \bigl(\exists\, c \in C : x_i(c) = \mathsf{present}\bigr) \vee x_i(r) = \mathsf{present} .$$
 
-Work outside the stop's scope is reported as a remainder for operators, not as a failure of the stop. The method and
-its terms are in [docs/FRAMEWORK.md](docs/FRAMEWORK.md), the engineering in [docs/DESIGN.md](docs/DESIGN.md), the record
-format in [docs/FORMAT.md](docs/FORMAT.md), and what has been checked in [docs/VALIDATION.md](docs/VALIDATION.md).
+Work outside the stop's scope is reported as a remainder for operators, not as a failure of the stop. How to test your
+own agent is in [docs/CONFIG.md](docs/CONFIG.md). The method and its terms are in [docs/FRAMEWORK.md](docs/FRAMEWORK.md),
+the engineering in [docs/DESIGN.md](docs/DESIGN.md), the record format in [docs/FORMAT.md](docs/FORMAT.md), and what has
+been checked in [docs/VALIDATION.md](docs/VALIDATION.md).
 
 | Binding | What it runs | Its stops | Set-up |
 |---|---|---|---|
@@ -64,8 +65,11 @@ format in [docs/FORMAT.md](docs/FORMAT.md), and what has been checked in [docs/V
 | `openclaw` | OpenClaw's Gateway (2026.10.2), against a scripted stand-in for its model | Abort the session, SIGTERM or SIGKILL to the Gateway, a control-group stop | `setup/openclaw.sh` |
 
 Every binding also has `none`, the null stop, and `reference`, the full stop in the playbook's order. The stand-in model
-is a local, scripted model API, so no binding needs a model account. To write a binding for another system, follow
-[docs/GUIDE.md](docs/GUIDE.md).
+is a local, scripted model API, so no binding needs a model account. Most other agents need no binding at all: a config
+file says how to start the agent, point it at the stand-in model, give it its task and press its own stops, and the kit
+plants its catalogue of work through the agent's own shell tool ([docs/CONFIG.md](docs/CONFIG.md)).
+[examples/openclaw](examples/openclaw/README.md) is OpenClaw written as such a file. A system whose work lives in its own
+stores needs a binding written in Python ([docs/GUIDE.md](docs/GUIDE.md)).
 
 ## Getting started
 
@@ -94,19 +98,34 @@ The self-test runs the null stop and the reference stop on the host's planted wo
 known answers: under the null stop everything still runs, under the reference stop everything has ended, and the kit
 agrees with the ground truth wherever the truth is definite. Nothing else should be trusted until it passes.
 
-### 03. Testing a binding's stops
+### 03. Testing your own agent
+
+Install the agent on the machine, then describe it in one file: how to start it, how to point it at the kit's stand-in
+model, how to give it its task, the name of its shell tool, and its own stops ([docs/CONFIG.md](docs/CONFIG.md)).
 
 ```bash
-python3 -B -m stopkit bench --adapter pretend --stop sigterm --stop kill-scope --runs 3
+python3 -B -m stopkit init my-agent.toml
+python3 -B -m stopkit doctor my-agent.toml
+python3 -B -m stopkit check my-agent.toml
 ```
 
-Each batch writes a folder under `results/`: one folder per run, with `record.json`, the evidence (`blobs/`), the ground
-truth's log (`truth.jsonl`), the effects (`effects.jsonl`), `report.md` and `SHA256SUMS`, and the batch's report in
-`report/REPORT.md` and `REPORT.html`: the reach matrix, each run's details, accuracy against the ground truth, timelines,
-and what was not covered. For a platform, run its set-up script first, then the same command with its `--adapter` and
-its stops.
+`init` writes a template with every field explained. `doctor` reads the file, checks the machine, starts the agent and
+confirms that its shell tool runs a command the stand-in model asks for, without planting anything. `check` tests every
+stop three times: the kit's own stops (signals, kills of a process tree, a control group or the account, and the
+reference stop) and the agent's. Each batch writes a folder under `results/`: one folder per run, with `record.json`,
+the evidence (`blobs/`), the ground truth's log (`truth.jsonl`), the effects (`effects.jsonl`), `report.md` and
+`SHA256SUMS`, and the batch's report in `report/REPORT.md` and `REPORT.html`: the reach matrix, each run's details,
+accuracy against the ground truth, timelines, and what was not covered.
 
-### 04. Scoring a run again
+### 04. Testing a ready-made binding
+
+```bash
+python3 -B -m stopkit check pretend --stop sigterm --stop kill-scope --runs 3
+```
+
+For a platform, run its set-up script first, then the same command with its name and its stops.
+
+### 05. Scoring a run again
 
 On any machine with Python, without root, from the repository:
 
@@ -114,20 +133,20 @@ On any machine with Python, without root, from the repository:
 PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012Z-70406a/run-01-none
 ```
 
-### 05. Checking an agent you stop yourself
+### 06. Checking an agent you stop yourself
 
-Check mode plants nothing. It lists what an account of your choice holds around a stop you make your own way:
+Watch mode plants nothing. It lists what an account of your choice holds around a stop you make your own way:
 
 ```bash
-python3 -B -m stopkit check before --account AGENT_ACCOUNT
+python3 -B -m stopkit watch before --account AGENT_ACCOUNT
 ```
 
-Then stop the agent however you normally would, and run `check after FOLDER` as often as you like, optionally
-`check restart FOLDER --yes` (this restarts that account's services), and `check report FOLDER`.
+Then stop the agent however you normally would, and run `watch after FOLDER` as often as you like, optionally
+`watch restart FOLDER --yes` (this restarts that account's services), and `watch report FOLDER`.
 `python3 -B -m stopkit status` shows what the kit sees now, and `python3 -B -m stopkit cleanup --all` removes the
 accounts and everything else the kit made in them.
 
-### 06. Watching the live demonstration
+### 07. Watching the live demonstration
 
 [examples/langgraph](examples/langgraph/README.md) runs a real LangGraph development server with a scripted workload in
 one terminal, presses LangGraph's cancel, Ctrl+C and kill in turn, and shows LangGraph's own log and answers beside the
@@ -137,14 +156,14 @@ activity an outside service receives. From the installed copy, as root:
 bash examples/langgraph/demo.sh
 ```
 
-### 07. Checking the kit itself
+### 08. Checking the kit itself
 
 | Command | What it checks |
 |---|---|
-| `.venv/bin/python -m pytest -q tests` | The unit tests, after `python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"`; add `STOPKIT_LIVE=1`, as root, to check every listing against the real system |
-| `python3 -B -m stopkit e0 --trials 30 --fires [--binding B]` | The ground truth on its own: exits recorded within 50 ms, nothing lost, blocked work never read as ended, a cut channel read as indefinite, triggers firing on schedule |
-| `python3 -B -m stopkit noninterference --adapter B --stop S ...` | N1–N7: the kit's observers and instruments do not change what they measure |
-| `python3 -B -m stopkit smoke-check FOLDER` | A binding's smoke batch against the known answers ([docs/GUIDE.md](docs/GUIDE.md), section 8) |
+| `.venv/bin/python -m pytest -q tests` | The unit tests, after `python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"`, the package's layers among them; add `STOPKIT_LIVE=1`, as root, to check every listing against the real system |
+| `python3 -B -m stopkit dev e0 --trials 30 --fires [--binding B]` | The ground truth on its own: exits recorded within 50 ms, nothing lost, blocked work never read as ended, a cut channel read as indefinite, triggers firing on schedule |
+| `python3 -B -m stopkit dev noninterference TARGET --stop S ...` | N1–N7: the kit's observers and instruments do not change what they measure |
+| `python3 -B -m stopkit dev smoke-check FOLDER` | A binding's smoke batch against the known answers ([docs/GUIDE.md](docs/GUIDE.md), section 8) |
 
 ## The experiments behind it
 
@@ -164,6 +183,7 @@ records are in [experiments/](experiments/README.md); `python3 -B experiments/ve
 ├── .gitleaks.toml                        # the secret scan: gitleaks' rules, with the records' identifiers allowed by shape
 ├── .github/workflows/ci.yml              # secret and identity scans, then lint, the tests, the checks and the commands
 ├── docs/                                 # the kit's documents
+│   ├── CONFIG.md                         # testing your own agent with a config file
 │   ├── DESIGN.md                         # the engineering: commands, scope, key ideas, architecture
 │   ├── FORMAT.md                         # records, evidence and reports
 │   ├── FRAMEWORK.md                      # the method: outcome families, scope, ground truth
@@ -172,60 +192,33 @@ records are in [experiments/](experiments/README.md); `python3 -B experiments/ve
 ├── src/stopkit/                          # the kit
 │   ├── __init__.py                       # the version string
 │   ├── __main__.py                       # python3 -m stopkit
-│   ├── accounts.py                       # the kit's disposable accounts, and running commands as them
-│   ├── accuracy.py                       # the kit's readings and verdicts against the ground truth
-│   ├── bench.py                          # the bench instruments of one run: the ground-truth recorder and the effect sink
-│   ├── cases.py                          # the planted leftovers: what each is, where the kit looks, its tag
-│   ├── check.py                          # check mode, around a stop made by hand
 │   ├── cli.py                            # the commands
-│   ├── cmd.py                            # running commands; every one leaves the same evidence
-│   ├── codehash.py                       # one SHA-256 over the kit's own code, recorded in every run
-│   ├── config.py                         # the names and places the kit uses
-│   ├── coverage.py                       # what each run could see
-│   ├── delegation.py                     # setting up the worker stand-in
-│   ├── e0.py                             # the ground truth checked on its own
-│   ├── egress.py                         # keeping a third-party agent off the network during its runs
-│   ├── evidence.py                       # the evidence store behind every result
-│   ├── guards.py                         # the checks of the machine before anything changes
-│   ├── interfaces.py                     # the interfaces every binding plugs into
-│   ├── noninterference.py                # the non-interference tests N1–N7
-│   ├── procfs.py                         # reading the process table
-│   ├── protocol.py                       # one run of one stop with the bench, the self-test and recheck
-│   ├── record.py                         # run records
-│   ├── report.py                         # score sheets: one per run and one per batch
-│   ├── reports.py                        # the batch reports, generated from run records
-│   ├── results.py                        # rows: one per run, item and kind of work
-│   ├── runner.py                         # preparing the accounts, runs without the bench, batches
-│   ├── sentinel.py                       # known items that prove each listing worked
-│   ├── specs.py                          # loads and checks spec/
-│   ├── standin_http.py                   # an outside service that planted work reaches over HTTP
-│   ├── stops.py                          # the stops the kit carries out itself
-│   ├── truth.py                          # ground-truth verdicts from the recorder's log
-│   ├── truth_recorder.py                 # the sealed ground-truth recorder
-│   ├── verdict.py                        # readings and verdicts
-│   ├── worker_standin.py                 # the worker stand-in
-│   ├── adapters/
-│   │   ├── __init__.py                   # the binding names
+│   ├── agents/
+│   │   ├── __init__.py                   # layer 5, what an agent is to the kit; the stand-ins' programs
+│   │   ├── agent_config.py               # an agent's config file: read, checked, turned into its scenario and stops
 │   │   ├── base.py                       # what every binding provides
-│   │   ├── beat.py                       # the reporter a planted process runs
-│   │   ├── claude_code.py                # Claude Code, against the stand-in model
-│   │   ├── langgraph_dev.py              # LangGraph's development server
-│   │   ├── mcp.py                        # the kit's MCP test server, driven through a tool call
+│   │   ├── configured.py                 # runs an agent from its config file
+│   │   ├── delegation.py                 # setting up the worker stand-in
 │   │   ├── mcp_server.py                 # the MCP test server
 │   │   ├── model_standin.py              # the scripted stand-in model (Anthropic and OpenAI APIs)
+│   │   └── worker_standin.py             # the worker stand-in
+│   ├── bindings/
+│   │   ├── __init__.py                   # layer 6, the binding names; a config file or a name
+│   │   ├── claude_code.py                # Claude Code, against the stand-in model
+│   │   ├── langgraph.py                  # LangGraph's development server
+│   │   ├── mcp.py                        # the kit's MCP test server, driven through a tool call
 │   │   ├── n8n.py                        # n8n in queue mode
 │   │   ├── openclaw.py                   # OpenClaw's Gateway, against the stand-in model
 │   │   ├── pretend.py                    # the kit's scripted test agent
 │   │   ├── pretend_agent.sh              # the scripted agent's own process
-│   │   ├── temporal_dev.py               # Temporal's development server and a worker
-│   │   ├── work_report.py                # reporting for work inside a platform's process
+│   │   ├── temporal.py                   # Temporal's development server and a worker
 │   │   ├── langgraph_app/
 │   │   │   ├── graph.py                  # the LangGraph binding's agent
 │   │   │   └── langgraph.json            # the LangGraph server's configuration
 │   │   └── temporal_app/
 │   │       └── stopkit_temporal_work.py  # the Temporal binding's workflows, activities and worker
 │   ├── observe/
-│   │   ├── __init__.py                   # the listings, each read fresh from the system
+│   │   ├── __init__.py                   # layer 3, the listings, each read fresh from the system
 │   │   ├── components.py                 # a platform's own processes, as systemd units
 │   │   ├── cron.py                       # crontab lines and at jobs
 │   │   ├── effect_sink.py                # where planted work sends its effects
@@ -233,57 +226,101 @@ records are in [experiments/](experiments/README.md); `python3 -B experiments/ve
 │   │   ├── managers.py                   # each account's service manager
 │   │   ├── model.py                      # items and listings
 │   │   ├── processes.py                  # processes and their control groups
+│   │   ├── sentinel.py                   # known items that prove each listing worked
 │   │   ├── snapshot.py                   # one complete reading of every surface
 │   │   ├── sockets.py                    # listening sockets and their processes
 │   │   ├── timers.py                     # user and system timers
 │   │   ├── units.py                      # an account's user units and unit files
 │   │   └── worker.py                     # the jobs handed to the worker stand-in
-│   └── spec/
-│       ├── kinds.json                    # the kinds of work an agent can leave
-│       ├── stops.json                    # the stops and what each is meant to end
-│       ├── structures.json               # where each piece of work sits
-│       ├── surfaces.json                 # what each listing reads
-│       ├── verdicts.json                 # the verdicts, readings and their rules
-│       ├── version.json                  # the specification's version
-│       └── scenarios/
-│           ├── claude-code-bundle-1.json # one scenario: the work a binding plants
-│           ├── host-bundle-1.json        # one scenario: the work a binding plants
-│           ├── langgraph-bundle-1.json   # one scenario: the work a binding plants
-│           ├── mcp-bundle-1.json         # one scenario: the work a binding plants
-│           ├── n8n-bundle-1.json         # one scenario: the work a binding plants
-│           ├── openclaw-bundle-1.json    # one scenario: the work a binding plants
-│           └── temporal-bundle-1.json    # one scenario: the work a binding plants
+│   ├── report/
+│   │   ├── __init__.py                   # layer 8, records and reports, which never touch the live system
+│   │   ├── codehash.py                   # one SHA-256 over the kit's own code, recorded in every run
+│   │   ├── record.py                     # run records
+│   │   ├── reports.py                    # the batch reports, generated from run records
+│   │   ├── results.py                    # rows: one per run, item and kind of work
+│   │   └── sheets.py                     # score sheets of the earlier record format
+│   ├── run/
+│   │   ├── __init__.py                   # layer 9, running
+│   │   ├── doctor.py                     # stopkit doctor: the machine and one agent's config file
+│   │   ├── e0.py                         # the ground truth checked on its own
+│   │   ├── noninterference.py            # the non-interference tests N1–N7
+│   │   ├── protocol.py                   # one run of one stop with the bench, batches, the self-test and recheck
+│   │   ├── runner.py                     # preparing the accounts; the runs of the earlier record format
+│   │   └── watch.py                      # watch mode, around a stop made by hand
+│   ├── score/
+│   │   ├── __init__.py                   # layer 7, scoring, which never touches the live system
+│   │   ├── accuracy.py                   # the kit's readings and verdicts against the ground truth
+│   │   ├── coverage.py                   # what each run could see
+│   │   ├── ground_truth.py               # ground-truth verdicts from the recorder's log
+│   │   └── verdict.py                    # readings and verdicts
+│   ├── spec/
+│   │   ├── __init__.py                   # loads and checks the files beside it; registers a config file's scenario and stops
+│   │   ├── cases.py                      # the host's planted leftovers: what each is, where the kit looks, its tag
+│   │   ├── kinds.json                    # the kinds of work an agent can leave
+│   │   ├── stops.json                    # the stops and what each is meant to end
+│   │   ├── structures.json               # where each piece of work sits
+│   │   ├── surfaces.json                 # what each listing reads
+│   │   ├── verdicts.json                 # the verdicts, readings and their rules
+│   │   ├── version.json                  # the specification's version
+│   │   └── scenarios/
+│   │       ├── claude-code-bundle-1.json # one scenario: the work a binding plants
+│   │       ├── host-bundle-1.json        # one scenario: the work a binding plants
+│   │       ├── langgraph-bundle-1.json   # one scenario: the work a binding plants
+│   │       ├── mcp-bundle-1.json         # one scenario: the work a binding plants
+│   │       ├── n8n-bundle-1.json         # one scenario: the work a binding plants
+│   │       ├── openclaw-bundle-1.json    # one scenario: the work a binding plants
+│   │       └── temporal-bundle-1.json    # one scenario: the work a binding plants
+│   ├── stops/
+│   │   └── __init__.py                   # layer 5, the stops the kit carries out itself, and the clean-up
+│   ├── system/
+│   │   ├── __init__.py                   # layer 2, the machine; KitError
+│   │   ├── accounts.py                   # the kit's disposable accounts, and running commands as them
+│   │   ├── cmd.py                        # running commands; every one leaves the same evidence
+│   │   ├── egress.py                     # keeping a third-party agent off the network during its runs
+│   │   ├── evidence.py                   # the evidence store behind every result
+│   │   ├── guards.py                     # the checks of the machine before anything changes
+│   │   ├── names.py                      # the names and places the kit uses
+│   │   └── procfs.py                     # reading the process table
+│   └── truth/
+│       ├── __init__.py                   # layer 4, the ground truth
+│       ├── beat.py                       # the reporter a planted process runs
+│       ├── bench.py                      # the bench instruments of one run: the ground-truth recorder and the effect sink
+│       ├── http_standin.py               # an outside service that planted work reaches over HTTP
+│       ├── recorder.py                   # the sealed ground-truth recorder
+│       └── work_report.py                # reporting for work inside a platform's process
 ├── tests/                                # the kit's unit tests (live ones behind STOPKIT_LIVE=1) and the repository's checks
 │   ├── __init__.py                       # the test package
 │   ├── helpers.py                        # the fakes the tests share
-│   ├── test_accounts.py                  # accounts.py
+│   ├── test_accounts.py                  # system/accounts.py
+│   ├── test_agent_config.py              # agents/agent_config.py
 │   ├── test_bindings.py                  # every binding's specification and its scripted parts
 │   ├── test_cases_guards.py              # cases.py and guards.py
-│   ├── test_check.py                     # check.py
+│   ├── test_check.py                     # run/watch.py, watch mode
 │   ├── test_cmd_evidence.py              # cmd.py and evidence.py
-│   ├── test_coverage.py                  # coverage.py
+│   ├── test_coverage.py                  # score/coverage.py
 │   ├── test_cron.py                      # observe/cron.py
-│   ├── test_guards.py                    # guards.py
+│   ├── test_guards.py                    # system/guards.py
 │   ├── test_launch.py                    # how planted processes are launched
+│   ├── test_layers.py                    # the package's layers: what each module may import
 │   ├── test_live.py                      # every lister against the real system (root, STOPKIT_LIVE=1)
-│   ├── test_mcp.py                       # adapters/mcp.py
-│   ├── test_n8n.py                       # adapters/n8n.py
-│   ├── test_noninterference.py           # noninterference.py
+│   ├── test_mcp.py                       # bindings/mcp.py
+│   ├── test_n8n.py                       # bindings/n8n.py
+│   ├── test_noninterference.py           # run/noninterference.py
 │   ├── test_packaging.py                 # what the repository may and may not hold
 │   ├── test_platform_core.py             # the parts every platform binding shares
-│   ├── test_procfs.py                    # procfs.py
-│   ├── test_record.py                    # record.py
-│   ├── test_reports.py                   # reports.py
-│   ├── test_results.py                   # results.py
+│   ├── test_procfs.py                    # system/procfs.py
+│   ├── test_record.py                    # report/record.py
+│   ├── test_reports.py                   # report/reports.py
+│   ├── test_results.py                   # report/results.py
 │   ├── test_snapshot.py                  # observe/snapshot.py
 │   ├── test_sockets.py                   # observe/sockets.py
-│   ├── test_specs.py                     # specs.py
-│   ├── test_stops.py                     # stops.py
-│   ├── test_temporal.py                  # adapters/temporal_dev.py
-│   ├── test_truth.py                     # truth.py
+│   ├── test_specs.py                     # spec/__init__.py against the files in spec/
+│   ├── test_stops.py                     # the stops the kit carries out itself
+│   ├── test_temporal.py                  # bindings/temporal.py
+│   ├── test_truth.py                     # score/ground_truth.py
 │   ├── test_truth_live.py                # the recorder, sink and reporter as real processes
 │   ├── test_units_timers.py              # observe/units.py and observe/timers.py
-│   ├── test_verdict.py                   # verdict.py
+│   ├── test_verdict.py                   # score/verdict.py
 │   ├── test_verdict_rules.py             # verdict.py against spec/verdicts.json
 │   └── test_worker.py                    # observe/worker.py
 ├── setup/                                # machine set-up for the kit and its platform bindings
@@ -297,17 +334,21 @@ records are in [experiments/](experiments/README.md); `python3 -B experiments/ve
 │   ├── openclaw.sh                       # OpenClaw, for the OpenClaw binding
 │   ├── temporal-constraints.txt          # the Temporal binding's pinned packages
 │   └── temporal.sh                       # the Temporal CLI and SDK, for the Temporal binding
-├── examples/langgraph/                   # the live demonstration
-│   ├── README.md                         # how to run the demonstration and what each step shows
-│   ├── check_log_filter.py               # checks the filter against a saved server log
-│   ├── constraints.txt                   # the pinned versions of requirements.txt
-│   ├── demo.py                           # the guided demonstration
-│   ├── demo.sh                           # starts the guided demonstration
-│   ├── graph.py                          # the scripted workload
-│   ├── helper.py                         # the detached helper the workload starts
-│   ├── langgraph.json                    # the server's configuration
-│   ├── log_filter.py                     # which of LangGraph's log lines the demonstration shows
-│   └── requirements.txt                  # the packages the demonstration installs
+├── examples/                             # the live LangGraph demonstration; OpenClaw as a config file
+│   ├── langgraph/
+│   │   ├── README.md                     # how to run the demonstration and what each step shows
+│   │   ├── check_log_filter.py           # checks the filter against a saved server log
+│   │   ├── constraints.txt               # the pinned versions of requirements.txt
+│   │   ├── demo.py                       # the guided demonstration
+│   │   ├── demo.sh                       # starts the guided demonstration
+│   │   ├── graph.py                      # the scripted workload
+│   │   ├── helper.py                     # the detached helper the workload starts
+│   │   ├── langgraph.json                # the server's configuration
+│   │   ├── log_filter.py                 # which of LangGraph's log lines the demonstration shows
+│   │   └── requirements.txt              # the packages the demonstration installs
+│   └── openclaw/
+│       ├── README.md                     # how to check it, and how it relates to the binding
+│       └── agent.toml                    # OpenClaw's Gateway, written as a config file
 ├── scripts/                              # repository tools
 │   └── identity_scan.py                  # refuses a personal name or home folder, in a file, a path or an archive member
 ├── validation/                           # the kit's recorded validation runs
@@ -388,8 +429,8 @@ records are in [experiments/](experiments/README.md); `python3 -B experiments/ve
 
 The kit uses only Python's standard library. Its MCP binding runs the kit's test server on the official Python SDK for
 MCP (`mcp` 2.3.0), and each platform binding drives a pinned installation through the platform's own public
-interfaces: its API, its command-line tool, signals and the service manager. The kit runs as root on the machine under
-test, apart from `recheck`, and every command that acts for the agent runs as the test account. The observers read the
+interfaces: its API, its command-line tool, signals and the service manager. Every command of the kit runs as root on
+the machine under test, and every command that acts for the agent runs as the test account. The observers read the
 system without changing it: per-account listings run as the account itself, so a listing never starts a service
 manager that a stop has ended. The ground-truth recorder is a separate process that the kit's verdicts never read, so
 the two can be compared.

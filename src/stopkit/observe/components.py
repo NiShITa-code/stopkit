@@ -12,8 +12,8 @@ from __future__ import annotations
 import time
 from typing import Sequence
 
-from ..cmd import Runner, run
-from ..config import WORKER_UNIT
+from ..system.cmd import Runner, run
+from ..system.names import WORKER_UNIT
 from .model import Item, Listing, failed
 from .units import parse_show
 

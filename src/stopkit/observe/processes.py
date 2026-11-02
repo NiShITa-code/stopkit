@@ -7,7 +7,7 @@ import re
 import time
 from typing import Mapping
 
-from .. import procfs
+from ..system import procfs
 from .model import Item, Listing, failed
 
 TAG = re.compile(r'stopkit-[A-Za-z0-9-]+')

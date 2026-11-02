@@ -24,7 +24,7 @@ version = { attr = "stopkit.__version__" }
 where = ["src"]
 
 [tool.setuptools.package-data]
-stopkit = ["spec/*.json", "spec/scenarios/*.json", "adapters/*.sh", "adapters/langgraph_app/*", "adapters/temporal_app/*"]
+stopkit = ["spec/*.json", "spec/scenarios/*.json", "bindings/*.sh", "bindings/langgraph_app/*", "bindings/temporal_app/*"]
 
 [tool.ruff]
 line-length = 120

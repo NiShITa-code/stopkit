@@ -1,9 +1,9 @@
 """One complete reading of every surface, taken fresh from the system.
 
-Review gap 4 (24 Oct): the button's verify step re-checked only the items its find step had listed, so
-anything find missed was never checked, and its "verified" showed closure, not completeness. Here every
-checkpoint calls take(), which runs every lister again from scratch; nothing is carried over from an
-earlier snapshot, and leftovers are recognised by their tags in the new listings.
+A check that only re-reads the items an earlier listing found can never find what that listing missed:
+it shows that those items closed, not that nothing is left. So every checkpoint calls take(), which runs
+every lister again from scratch; nothing is carried over from an earlier snapshot, and leftovers are
+recognized by their tags in the new listings.
 """
 from __future__ import annotations
 
@@ -11,9 +11,9 @@ import time
 from dataclasses import dataclass
 from typing import Callable, Sequence
 
-from .. import procfs
-from ..accounts import Account
-from ..cmd import Runner, run
+from ..system import procfs
+from ..system.accounts import Account
+from ..system.cmd import Runner, run
 from .cron import list_at_jobs, list_crontab
 from .managers import list_manager
 from .model import Item, Listing

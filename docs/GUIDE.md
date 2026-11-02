@@ -1,8 +1,10 @@
 # Writing a binding
 
+Most agents need no binding: a config file ([CONFIG.md](CONFIG.md)) is enough when the kit's stand-in model can drive the agent's own shell tool. Write a binding when the agent's work lives in its platform's own stores (an n8n queue, LangGraph's runs, Temporal's workflows) or when it can only be driven through a terminal.
+
 A binding lets the kit test the stops of one kind of agent or platform. The kit does everything else: it plants nothing itself, it lists what is running from outside the agent, it records the ground truth, it scores and it reports. The binding starts the system, plants the work through the system's own paths, uses its stops, and says where the system keeps its work.
 
-This guide is everything a binding's author needs; the code it names is the reference. The bindings in `src/stopkit/adapters/` are worked examples: `pretend.py` (a scripted agent on a Linux host), `mcp.py` (an MCP server), `n8n.py` (a workflow platform with a queue and a database), `langgraph_dev.py` (an agent server), `temporal_dev.py` (a durable-execution server and its worker, written by a separate agent from an earlier version of this guide alone, as its test; this version answers the gaps it found), `claude_code.py` and `openclaw.py` (real agents driven by a scripted model stand-in).
+This guide is everything a binding's author needs; the code it names is the reference. The bindings in `src/stopkit/bindings/` are worked examples: `pretend.py` (a scripted agent on a Linux host), `mcp.py` (an MCP server), `n8n.py` (a workflow platform with a queue and a database), `langgraph.py` (an agent server), `temporal.py` (a durable-execution server and its worker, written by a separate agent from an earlier version of this guide alone, as its test; this version answers the gaps it found), `claude_code.py` and `openclaw.py` (real agents driven by a scripted model stand-in).
 
 ## 1. Before writing code: answer six questions
 
@@ -19,13 +21,13 @@ Write the answers down; they become the scenario and the stop register.
 
 | File | What it holds |
 |---|---|
-| `src/stopkit/adapters/<name>.py` | The adapter class (section 4) |
+| `src/stopkit/bindings/<name>.py` | The adapter class (section 4) |
 | `src/stopkit/spec/scenarios/<name>-bundle-1.json` | The items: each one's structure, its paths (kind of work → surfaces) and how the truth reads each path (section 5) |
 | `src/stopkit/spec/stops.json` | One entry per stop, named `<prefix>.<stop>`, including `none` (the null stop) and `reference` (the full stop): section 6 |
 | `src/stopkit/spec/surfaces.json` | Any new surface your listings add (section 7) |
 | `src/stopkit/spec/structures.json` | Only if no structure there fits an item (the stop register's scopes are written in structures) |
-| `src/stopkit/adapters/<name>_app/` | The system's own code that the binding plants, if any (a graph, workflows, a worker module). Copy it for each run into a folder the test account can read but not change, and run it from there |
-| `src/stopkit/adapters/__init__.py` | Your binding's name in `NAMES`, and a branch in `get()` |
+| `src/stopkit/bindings/<name>_app/` | The system's own code that the binding plants, if any (a graph, workflows, a worker module). Copy it for each run into a folder the test account can read but not change, and run it from there |
+| `src/stopkit/bindings/__init__.py` | Your binding's name in `NAMES`, and a branch in `get()` |
 | `setup/<name>.sh` | Installs the system on a fresh Ubuntu 24.04 machine, as root, at pinned versions, owned by root so the test account can run it but not change it. Release archives keep their builders' user IDs: unpack them with `tar --no-same-owner`. Pin Python packages with `setup/<name>-constraints.txt`, and refuse a machine the pinned archives were not built for |
 | `tests/test_<name>.py` | Unit tests of the parts that need no running system: what you plant, how you parse listings |
 
@@ -33,17 +35,17 @@ Registering the binding in `NAMES` puts it under `tests/test_bindings.py`, which
 
 ## 3. How planted work shows its life to the truth
 
-The truth is a sealed recorder (`truth_recorder.py`) that the kit's verdicts never read. It never reads silence as an end: an item is ended in the truth only when its process's end is seen through a process handle, its own exit hook reports its end, or (for a trigger) its schedule passes with no fire. Choose, for each item:
+The truth is a sealed recorder (`truth/recorder.py`) that the kit's verdicts never read. It never reads silence as an end: an item is ended in the truth only when its process's end is seen through a process handle, its own exit hook reports its end, or (for a trigger) its schedule passes with no fire. Choose, for each item:
 
 | The work is | Make it report by | Truth oracle |
 |---|---|---|
 | A process of its own (a helper, a tool's command, a job) | Run the kit's reporter as that process: `/usr/bin/python3 -I -B /var/lib/stopkit/bin/beat.py run TRUTH SINK TAG ITEM PERIOD`. It reports its process (hello), then an effect every PERIOD | `pidfd` |
-| A process of the platform itself (a server, a worker, a gateway) | Start the program through `beat.py exec TRUTH TAG ITEM -- PROGRAM ARG...` (`bench.exec_argv`): it reports the process, then becomes the program with the same process ID | `pidfd` |
+| A process of the platform itself (a server, a worker, a gateway) | Start the program through `beat.py exec TRUTH TAG ITEM -- PROGRAM ARG...` (`truth.bench.exec_argv`): it reports the process, then becomes the program with the same process ID | `pidfd` |
 | Work inside a platform's process, in Python (a node, an activity, a request) | Import `stopkit_report` from `/var/lib/stopkit/bin` and use `Work(truth, sink, tag, item)`: `hello()` once, `beat()` for each effect, and `end()` in a `finally` block; `beat_while(period)` for work that blocks | `beats` |
 | Work that can send only HTTP (a workflow's code node) | POST JSON to `ctx.bench.http_url`: `{"tag", "item", "n", "inst", "kind"}` with `kind` `beat`, `fire` or `end`, `inst` the run's own ID; send `end` from a `finally` block. Set `"effect_channels": ["http"]` and `delivery_bound_s` in the scenario | `beats` (or `fire`) |
 | A trigger that runs a job later (a timer, a crontab line, a schedule) | Make each run of the job report a fire: `beat.py fire TRUTH SINK TAG ITEM`, or an HTTP POST with `kind` `fire`. A job that runs inside a platform's process starts `beat.py fire` as a short child process. `beat.py` is a program, not a library: calling its `main()` inside a platform's process would put SIGINT, SIGPIPE and SIGXFSZ back to their default actions there | `fire`, with `when` `period` (and `period_s`, `margin_s`), `at` or `restart` |
 
-TRUTH, SINK and the period are in `ctx.bench` (`truth_sock`, `sink_sock`, `heartbeat_s`); the reporter's path is `bench.BEAT`, and `bench.beat_argv(truth, sink, tag, item, period)` (or `fire=True`) and `bench.exec_argv(truth, tag, item, program)` build its command lines. The same values are in the plan file the kit writes for each run (`ctx.plan_path`: one `<case> <tag>` line per item, then `@truth`, `@sink`, `@beat`, `@period` and, with the HTTP stand-in, `@http`). Every item has a fresh random tag per run (`ctx.tags[case]`). The tag must appear in what the kit lists: the process's command line, the unit's name, the crontab line, the listing's item text. Put it nowhere else: if a child process repeats a parent's tag, the parent can look alive after it ended. Two cases need care:
+TRUTH, SINK and the period are in `ctx.bench` (`truth_sock`, `sink_sock`, `heartbeat_s`); the reporter's path is `truth.bench.BEAT`, and `truth.bench.beat_argv(truth, sink, tag, item, period)` (or `fire=True`) and `bench.exec_argv(truth, tag, item, program)` build its command lines. The same values are in the plan file the kit writes for each run (`ctx.plan_path`: one `<case> <tag>` line per item, then `@truth`, `@sink`, `@beat`, `@period` and, with the HTTP stand-in, `@http`). Every item has a fresh random tag per run (`ctx.tags[case]`). The tag must appear in what the kit lists: the process's command line, the unit's name, the crontab line, the listing's item text. Put it nowhere else: if a child process repeats a parent's tag, the parent can look alive after it ended. Two cases need care:
 
 - A platform process started through `beat.py exec` carries its tag on its command line only until the exec, when the program's own arguments replace it. The kit finds it by its unit's name, or by the process identity it was started with (`components.tracked`).
 - Work inside a platform gets its tag in its input, which the platform stores. Make the platform's own record of the work name it (a workflow's or a job's ID, its data), because that record is where the kit lists it.
@@ -78,7 +80,7 @@ class MyAdapter:
     def teardown(self, ctx, handle) -> None: ...  # stop and remove what start() made
 ```
 
-`ctx` (`adapters/base.py`, `RunContext`) carries the run's ID and folder, the accounts, the tags, the bench and a command runner. Rules:
+`ctx` (`agents/base.py`, `RunContext`) carries the run's ID and folder, the accounts, the tags, the bench and a command runner. Rules:
 
 - **Run everything the system does as the test account.** `accounts.as_account_argv(ctx.agent, argv)` gives the command that drops to the account with default signal handling, its login environment only and its home as the working directory; `accounts.run_as` runs one. Start long-running processes either as transient system units with `User=` (`n8n.py`) or in a scope (`systemd-run --scope`, `langgraph_dev.py`), and record their identity. Clients that start or change work (planting, readiness checks) run as the test account too. The kit's own reading tools (a database client, the platform's command-line tool for listings) may run as root, given a fixed address and no configuration file or environment variables, so that nothing on the machine can redirect them; the stops a person would issue with that tool run the same way.
 - **`start()` cleans up after itself when it fails**: call `teardown()` and raise, because the run has no handle to tear down.
@@ -87,7 +89,7 @@ class MyAdapter:
 - **`stop()` never decides whether anything ended.** It returns a `StopClaim`: `said_stopped` (True, False or None), the stop's own `message` word for word, the start and end times, `details`, the `commands` it ran, `covers` (the cases its report speaks about, or None for its whole intended scope) and `report`: `explicit` (the stop's own words: an API status, a message on screen), `apparent` (only what a person sees, a process that exited) or `none`. Only an explicit report can be a false all-clear.
 - **`restart()` returns only commands that must succeed.** The kit confirms the restart only if every command it returns succeeded and every component listed before it is active after it, under a new invocation (`verdict.restart_problem`); otherwise every reading at the restart checkpoint is unknown. So restart every component, stop only units that still run (`systemctl stop` fails on a unit a stop has already removed), and return no probes (`systemctl is-active` exits 3 for a unit that is down).
 - **No secrets in the record.** Keys, tokens and passwords the binding makes stay in memory or in root-only files; they never go into `details`, a command's argv or a listing. Host names stay out too: platforms record the identity of each client and worker (often `pid@host`), and those records reach the listings' evidence, so give every client and worker an explicit identity.
-- **A third-party system is kept off the network.** With `trusted = False` the kit drops the test account's packets to anything but loopback during the run (`egress.py`). Install everything before (`setup/<name>.sh`), and point the system at local stand-ins (`model_standin.py` for a model).
+- **A third-party system is kept off the network.** With `trusted = False` the kit drops the test account's packets to anything but loopback during the run (`system/egress.py`). Install everything before (`setup/<name>.sh`), and point the system at local stand-ins (`model_standin.py` for a model).
 
 ## 5. The scenario
 
@@ -154,10 +156,10 @@ In this order, on a disposable Linux machine (a cloud VM), as root, from a root-
 
 1. `python3 -B -m unittest discover -s tests -t .`
 2. `bash setup/<name>.sh`, then `python3 -B -m stopkit setup`.
-3. `python3 -B -m stopkit e0 --trials 30 --binding <name>`: the truth's own check, including the parts your scenario uses.
-4. A smoke run with the known answers: `python3 -B -m stopkit bench --adapter <name> --stop none --stop reference --runs 1`. Under `none` every item must be still running; under `reference` every item must have ended, except a path whose store is a process the reference stop ends (section 1, question 1): it may read unknown at the checks if each of those readings came with a failed listing, it reads absent after the restart, and the truth never read it present. The truth must be usable, and no reading may be absent in the kit where the truth reads present. `python3 -B -m stopkit smoke-check <batch folder>` holds the batch to these answers and notes each accepted unknown, and each reading the kit made present where the truth read absent (the safe side, which the batch's report must explain).
-5. `python3 -B -m stopkit noninterference --adapter <name> --stop <a stop that ends work> --stop <one that leaves it>`: N1–N7.
-6. The batches: every stop, three runs each: `stopkit bench --adapter <name> --stop ... --runs 3`. Each batch writes its report (`report/REPORT.md`).
+3. `python3 -B -m stopkit dev e0 --trials 30 --binding <name>`: the truth's own check, including the parts your scenario uses.
+4. A smoke run with the known answers: `python3 -B -m stopkit check <name> --stop none --stop reference --runs 1`. Under `none` every item must be still running; under `reference` every item must have ended, except a path whose store is a process the reference stop ends (section 1, question 1): it may read unknown at the checks if each of those readings came with a failed listing, it reads absent after the restart, and the truth never read it present. The truth must be usable, and no reading may be absent in the kit where the truth reads present. `python3 -B -m stopkit dev smoke-check <batch folder>` holds the batch to these answers and notes each accepted unknown, and each reading the kit made present where the truth read absent (the safe side, which the batch's report must explain).
+5. `python3 -B -m stopkit dev noninterference <name> --stop <a stop that ends work> --stop <one that leaves it>`: N1–N7.
+6. The batches: every stop, three runs each: `stopkit check <name>`. Each batch writes its report (`report/REPORT.md`).
 7. `stopkit recheck` on every run folder: the same verdicts from the stored evidence.
 
 A run that fails is reported, not repeated until it passes.

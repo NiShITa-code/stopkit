@@ -13,7 +13,7 @@ SS = '\n'.join([
     'tcp   LISTEN 0      5                [::1]:631           [::]:*',
 ])
 
-# The listener check used before (run_e2b.agent_listeners), kept here to show what it missed (review gap 3).
+# The listener check used before (run_e2b.agent_listeners), kept here to show what it missed.
 OLD = re.compile(r'(\d+\.\d+\.\d+\.\d+|\*):(\d+)\s')
 
 

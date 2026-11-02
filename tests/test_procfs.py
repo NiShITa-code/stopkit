@@ -1,6 +1,6 @@
 import unittest
 
-from stopkit import procfs
+from stopkit.system import procfs
 from stopkit.observe.processes import list_processes
 from tests.helpers import FakeProc
 

@@ -5,7 +5,7 @@ import threading
 import time
 import unittest
 
-from stopkit import worker_standin
+from stopkit.agents import worker_standin
 from stopkit.observe.worker import list_worker_jobs, request
 
 

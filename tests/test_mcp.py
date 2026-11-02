@@ -2,8 +2,8 @@ import subprocess
 import sys
 import unittest
 
-from stopkit import record
-from stopkit.adapters.mcp import _Client
+from stopkit.report import record
+from stopkit.bindings.mcp import _Client
 
 # A stand-in server: answers each request line with a result carrying the same id, ignores notifications.
 ECHO = ('import json,sys\n'

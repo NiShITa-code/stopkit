@@ -189,7 +189,7 @@ class MutationTests(unittest.TestCase):
             edit_text(record, '"verdict": "still running"', '"verdict": "ended"')
             sys.path.insert(0, str(ROOT / "src"))
             try:
-                from stopkit import protocol
+                from stopkit.run import protocol
             finally:
                 sys.path.pop(0)
             (view / run / "SHA256SUMS").write_text(protocol._sums(str(view / run)), encoding="utf-8")
