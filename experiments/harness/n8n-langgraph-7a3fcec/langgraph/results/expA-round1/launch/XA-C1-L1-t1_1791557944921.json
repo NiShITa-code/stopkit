@@ -1,0 +1,19 @@
+{
+ "trial": "XA-C1-L1-t1",
+ "t_launch": 1791557944.921418,
+ "server_pid": 34484,
+ "parent_run_id": "01a1212c-c32f-7783-b836-dee73d8805cc",
+ "attempt": 1,
+ "variant": "C1: helper runs as a subgraph inside this run; no helper run created",
+ "bgproc_pid": 34502,
+ "cron_id": "01a1212c-c67b-7461-919a-432ab44213b6",
+ "cron_created": {
+  "cron_id": "01a1212c-c67b-7461-919a-432ab44213b6",
+  "assistant_id": "51f239a0-b773-58df-b115-1f2c4818cc25",
+  "thread_id": "None",
+  "schedule": "* * * * *",
+  "next_run_date": "2026-10-09T15:00:00+00:00",
+  "enabled": "True"
+ },
+ "t_launch_done": 1791557944.95995
+}

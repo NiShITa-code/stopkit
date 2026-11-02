@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "run_kind": "pilot",
+  "batch_id": "final1029",
+  "conditions": [
+    "C3"
+  ],
+  "seed": 20261012,
+  "host_profile": "linux-vm",
+  "source_hashes": {
+    "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+    "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+    "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+    "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+    "temporal/DESIGN-expC.md": "55d551e7750c3428efc642ce7d34107b411e46ab5b37978a7e8c434f76fc6f72",
+    "temporal/RULES-expC.md": "113b93b47b2b1e8a88be686fb7d76acf47fc4c471a3de0e686dbb4e1810e2cdc",
+    "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+    "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9",
+    "temporal/harness_c.py": "a6f7012f48c7f9590122e80ef9684ed0497432d25a151d4801a95e643cbb4f47",
+    "temporal/jobs_c.py": "e6ea3276dbec2bd29ad32d2f57986b1794ca8db2b2af5719ab58c40eac92046d",
+    "temporal/mutate_c.py": "2bc5b480fd89ed4a5ed3bfce176e662668f69cee2df0fcc6d3eeca87ba10de6d",
+    "temporal/receiver_c.py": "68dcb5af3ef4a8ba0a60a36771342b808f727a0abcdc860fecdbe8c8ee404b7e",
+    "temporal/run_expC.py": "106b79da93bff83ed5ba8c7f0139d094dd3e72e5db1f4d3a1566b153570f9d2a",
+    "tests/test_analyze_c.py": "1a22aaf68c692516fadb5f8f2413231081dcefba69421898717c635027932db0",
+    "tests/test_clockwall_c.py": "932a19d8667462b9767dee5d35dad3c5d7fcf4f31af9df31ea25c1c02554ba49",
+    "tests/test_harness_c.py": "4dbca62a08e9a0d8b25ac98f48bb0f761de0238d8629b3eddea39696044e242b",
+    "tests/test_runner_c.py": "0747f2977c61ccb9e25551d71e294bfffcde7434c7a26dcd5aae54dbf22535d2"
+  },
+  "trials": [
+    {
+      "trial": "XC-pilot-final1029-C3",
+      "condition": "C3",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-29T19:58:56+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-29T19:58:56+00:00",
+        "values": {
+          "id": "4678159341961748665",
+          "name": "cas-final",
+          "zone": "projects/10000000001/zones/us-central1-a",
+          "machine_type": "projects/10000000001/machineTypes/e2-standard-4",
+          "cpu_platform": "Intel Broadwell",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261024",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-29T20:02:54+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-pilot-final1029-C3-20261029-195857",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-29T20:02:54+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-pilot-final1029-C3-20261029-195857"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-pilot-final1029/derived/XC-pilot-final1029-C3",
+        "reports": {
+          "XC-pilot-final1029/derived/XC-pilot-final1029-C3/scored_c.jsonl": "4562dd08ccd36a12cb06664c0d247d637f242c269b7c0aeefc50ef27e38d2cd4",
+          "XC-pilot-final1029/derived/XC-pilot-final1029-C3/summary_c.md": "0c93675d3ed65e214e7cad534082ef9bf3c9a99e89715340dd71b4ddc2414e9a"
+        },
+        "manifest": "XC-pilot-final1029/derived/XC-pilot-final1029-C3/manifest-sha256.json",
+        "manifest_sha256": "43c857a9de0813b6af0f4f0eec51d1793c1c57dc9452567de313dd3de7cd2805"
+      }
+    }
+  ],
+  "incomplete": [],
+  "completed": true,
+  "stopped_reason": null,
+  "stops": [],
+  "pc_gate": "not in this batch"
+}

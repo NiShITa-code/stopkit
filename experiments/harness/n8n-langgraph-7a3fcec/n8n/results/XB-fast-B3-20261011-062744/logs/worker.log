@@ -1,0 +1,49 @@
+Acquiring database migration lock...
+n8n Task Broker ready on 127.0.0.1, port 5682
+Failed to start Python task runner in internal mode. because its virtual environment is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode
+
+There are deprecations related to your n8n setup. Please take the recommended actions to update your configuration:
+ - N8N_UNVERIFIED_PACKAGES_ENABLED -> The default for this variable will change to `false` in a future version. Set it to `true` explicitly to keep installing unverified community packages.
+ - N8N_RUNNERS_MODE -> Internal task runner mode is deprecated and will be removed in a future version. For isolation and scaling, run the task runner launcher as a separate process, set this variable to `external` and share `N8N_RUNNERS_AUTH_TOKEN` with the launcher. See https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners
+ - N8N_COMPRESSION_NODE_MAX_DECOMPRESSED_SIZE_BYTES -> The default for this variable will be reduced from 2 GiB to 256 MiB in a future version. Set it explicitly to keep your current limit.
+ - N8N_COMPRESSION_NODE_MAX_ZIP_ENTRIES -> The default for this variable will be reduced from 5000 to 1000 in a future version. Set it explicitly to keep your current limit.
+ - Running n8n outside a container is deprecated. Future versions will require running n8n via the official Docker image. See https://docs.n8n.io/deploy/host-n8n
+
+[license SDK] Skipping renewal on init: renewOnInit is disabled in config
+[license SDK] Skipping renewal on init: license cert is not initialized
+Instance registered
+Discovered 4 cluster checks
+
+n8n worker server listening on port 5680
+
+n8n worker is now ready
+ * Version: 2.41.7
+ * Concurrency: 10
+ * Pool: (default)
+ * Queue: jobs
+
+Registered runner "JS Task Runner" (UWa-pwep0_9TEBjO0BDZ9) 
+Worker started execution 1 (job 1)
+Worker started execution 2 (job 2)
+Worker started execution 9 (job 3)
+Worker finished execution 9 (job 3)
+Worker finished execution 1 (job 1)
+Worker finished execution 2 (job 2)
+Worker started execution 6 (job 4)
+Worker finished execution 6 (job 4)
+Worker started execution 10 (job 5)
+Worker finished execution 10 (job 5)
+Received SIGTERM. Shutting down...
+Capped 1 in-flight task timeout(s) to fit the shutdown window (task IDs: TB5qnAle)
+[runner:js] Received SIGTERM signal, shutting down...
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+Waiting for 1 in-process executions to finish... (execution IDs: 8)
+[runner:js] Task runner stopped
+Stopping worker...

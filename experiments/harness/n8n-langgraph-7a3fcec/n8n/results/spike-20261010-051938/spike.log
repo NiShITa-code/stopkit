@@ -1,0 +1,19 @@
+05:19:40 started postgres pid 736
+05:19:41 postgres ready: True
+05:19:41 started valkey pid 750
+05:19:41 started recorder pid 752
+05:19:43 started twin pid 758
+05:19:43 started n8n-main pid 759
+05:19:56 n8n main healthy: True
+05:19:56 started n8n-worker pid 786
+05:20:03 n8n worker healthy: True
+05:20:03 owner setup: HTTP 404
+05:20:03 login: HTTP 404, cookie no
+05:20:03 api key: HTTP 404, key no
+05:20:05 stopped n8n-worker with SIGTERM in 2.03 s (rc -15)
+05:20:07 stopped n8n-main with SIGTERM in 2.02 s (rc -15)
+05:20:07 stopped twin with SIGTERM in 0.01 s (rc -15)
+05:20:07 stopped recorder with SIGTERM in 0.01 s (rc -15)
+05:20:09 stopped valkey with SIGTERM in 2.02 s (rc -15)
+05:20:11 stopped postgres with SIGTERM in 2.03 s (rc -15)
+05:20:11 report: /mnt/c/work/agent-shutdown-test/stopcheck/n8n/results/spike-20261010-051938/report.json; leftover processes: ['410 bash -c bash /mnt/c/work/agent-shutdown-test/stopcheck/n8n/spike_ns.sh 2>&1 | tail -40', '519 /root/pilot-venv/bin/python -u /mnt/c/work/agent-shutdown-test/stopcheck/n8n/spike.py']

@@ -1,0 +1,8 @@
+{
+ "canary_procs": [],
+ "server_procs": [],
+ "recorder_alive": false,
+ "port_2024": null,
+ "port_8765": null,
+ "ps": []
+}

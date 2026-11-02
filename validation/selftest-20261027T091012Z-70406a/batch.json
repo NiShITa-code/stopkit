@@ -1,0 +1,68 @@
+{
+ "adapter": "pretend",
+ "batch_id": "20261027T091012Z-70406a",
+ "format": "stopkit-batch/2",
+ "kind": "selftest",
+ "problems": [],
+ "runs": [
+  {
+   "errors": [],
+   "folder": "run-01-none",
+   "in_scope": "nothing",
+   "run_id": "20261027T091013Z-dfd542",
+   "selftest_problems": [],
+   "stop": "host.none",
+   "truth": "ok"
+  },
+  {
+   "errors": [],
+   "folder": "run-02-reference",
+   "in_scope": "ended late",
+   "run_id": "20261027T091225Z-dfe59d",
+   "selftest_problems": [],
+   "stop": "host.reference",
+   "truth": "ok"
+  },
+  {
+   "errors": [],
+   "folder": "run-03-none",
+   "in_scope": "nothing",
+   "run_id": "20261027T091425Z-d528b4",
+   "selftest_problems": [],
+   "stop": "host.none",
+   "truth": "ok"
+  },
+  {
+   "errors": [],
+   "folder": "run-04-reference",
+   "in_scope": "ended late",
+   "run_id": "20261027T091626Z-42a8e0",
+   "selftest_problems": [],
+   "stop": "host.reference",
+   "truth": "ok"
+  },
+  {
+   "errors": [],
+   "folder": "run-05-none",
+   "in_scope": "nothing",
+   "run_id": "20261027T091828Z-22526a",
+   "selftest_problems": [],
+   "stop": "host.none",
+   "truth": "ok"
+  },
+  {
+   "errors": [],
+   "folder": "run-06-reference",
+   "in_scope": "ended late",
+   "run_id": "20261027T092026Z-d26a81",
+   "selftest_problems": [],
+   "stop": "host.reference",
+   "truth": "ok"
+  }
+ ],
+ "runs_per_stop": 3,
+ "stops": [
+  "none",
+  "reference"
+ ]
+}

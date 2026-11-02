@@ -1,0 +1,3794 @@
+{
+ "effects": [
+  {
+   "category": "agree",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 381,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 381,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 381,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 377,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 377
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 52,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 52
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 381,
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree but for the last effect, cut off from its report by the kill",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 3,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 2,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 3,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 0,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 1,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 2,
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 381,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 382,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 382
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 382,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 382
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 377,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 377
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 52,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 52
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 381,
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 3,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 3,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 3,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 1,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 2,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 3,
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 381,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 381,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 382,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 382
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 377,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 377
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 51,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 51
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 1,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 381,
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": 381
+  },
+  {
+   "category": "agree",
+   "item": "agent",
+   "kind": "P1",
+   "kit": 3,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 3
+  },
+  {
+   "category": "agree",
+   "item": "background",
+   "kind": "P2",
+   "kit": 2,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "listener",
+   "kind": "P2",
+   "kit": 2,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 2
+  },
+  {
+   "category": "agree",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": 0,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": 1,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 1
+  },
+  {
+   "category": "agree",
+   "item": "timer",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "cron",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": 0,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 0
+  },
+  {
+   "category": "agree",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": 3,
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": 3
+  }
+ ],
+ "readings": [
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "agent",
+   "kind": "P1",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "background",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "background",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "listener",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "timer",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "cron",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "0 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "10 s",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "before",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "indefinite",
+   "checkpoint": "restart",
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "indefinite"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "0 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "10 s",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "before",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "present",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "present"
+  },
+  {
+   "category": "agree",
+   "checkpoint": "restart",
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "absent",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "absent"
+  }
+ ],
+ "verdicts": [
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "still running",
+   "run": "20261027T091013Z-dfd542",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "ended",
+   "run": "20261027T091225Z-dfe59d",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "still running",
+   "run": "20261027T091425Z-d528b4",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "ended",
+   "run": "20261027T091626Z-42a8e0",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "came back"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "still running",
+   "run": "20261027T091828Z-22526a",
+   "stop": "host.none",
+   "truth": "still running"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "agent",
+   "kind": "P1",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "background",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "listener",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "restarting-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "restarting-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "transient-service",
+   "kind": "P2",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "transient-service",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "timer",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "cron",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "unknown"
+  },
+  {
+   "category": "indefinite",
+   "definite": false,
+   "item": "at-job",
+   "kind": "P4",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": null
+  },
+  {
+   "category": "agree",
+   "definite": true,
+   "item": "delegated",
+   "kind": "P3",
+   "kit": "ended",
+   "run": "20261027T092026Z-d26a81",
+   "stop": "host.reference",
+   "truth": "ended"
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+recorder also listening on /run/stopcheck/374/recorder.sock
+recorder listening on 127.0.0.1:8765, writing /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/smoke-x/pings.jsonl

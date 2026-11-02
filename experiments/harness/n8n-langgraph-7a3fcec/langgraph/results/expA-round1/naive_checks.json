@@ -1,0 +1,1070 @@
+[
+ {
+  "trial": "XA-C1-CC-t1",
+  "graph": "parent_c1",
+  "stop": "CC",
+  "left_behind": [
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [
+   "pcron"
+  ],
+  "left_short_watch": [],
+  "left_tcp_only": [
+   "inrun",
+   "own",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-L1-t1",
+  "graph": "parent_c1",
+  "stop": "L1",
+  "left_behind": [
+   "bg",
+   "pcron"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "bg"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-L2-t1",
+  "graph": "parent_c1",
+  "stop": "L2",
+  "left_behind": [
+   "bg",
+   "pcron"
+  ],
+  "status_says_ended": true,
+  "status_raw": "HTTP 404: {\"detail\":\"Not Found\"}",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "bg"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-L4-t1",
+  "graph": "parent_c1",
+  "stop": "L4",
+  "left_behind": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "bg"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-PG-t1",
+  "graph": "parent_c1",
+  "stop": "PG",
+  "left_behind": [
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [
+   "pcron"
+  ],
+  "left_short_watch": [],
+  "left_tcp_only": [
+   "inrun",
+   "own",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-S1-t1",
+  "graph": "parent_c1",
+  "stop": "S1",
+  "left_behind": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "bg",
+   "inrun",
+   "own"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C1-S2-t1",
+  "graph": "parent_c1",
+  "stop": "S2",
+  "left_behind": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "status_says_ended": true,
+  "status_raw": "success",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "bg",
+   "inrun",
+   "own"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "inrun",
+   "own",
+   "pcron"
+  ]
+ },
+ {
+  "trial": "XA-C2A-CC-t1",
+  "graph": "parent_c2a",
+  "stop": "CC",
+  "left_behind": [],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": []
+ },
+ {
+  "trial": "XA-C2A-L1-t1",
+  "graph": "parent_c2a",
+  "stop": "L1",
+  "left_behind": [],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": []
+ },
+ {
+  "trial": "XA-C2A-L2-t1",
+  "graph": "parent_c2a",
+  "stop": "L2",
+  "left_behind": [],
+  "status_says_ended": true,
+  "status_raw": "HTTP 404: {\"detail\":\"Not Found\"}",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": []
+ },
+ {
+  "trial": "XA-C2A-L4-t1",
+  "graph": "parent_c2a",
+  "stop": "L4",
+  "left_behind": [
+   "async"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": [
+   "async"
+  ]
+ },
+ {
+  "trial": "XA-C2A-PG-t1",
+  "graph": "parent_c2a",
+  "stop": "PG",
+  "left_behind": [],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": []
+ },
+ {
+  "trial": "XA-C2A-S1-t1",
+  "graph": "parent_c2a",
+  "stop": "S1",
+  "left_behind": [
+   "async"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "async"
+  ],
+  "left_short_watch": [
+   "async"
+  ],
+  "left_tcp_only": [
+   "async"
+  ]
+ },
+ {
+  "trial": "XA-C2A-S2-t1",
+  "graph": "parent_c2a",
+  "stop": "S2",
+  "left_behind": [
+   "async"
+  ],
+  "status_says_ended": true,
+  "status_raw": "success",
+  "ps_cron_sees_something": false,
+  "left_end_only": [
+   "async"
+  ],
+  "left_short_watch": [
+   "async"
+  ],
+  "left_tcp_only": [
+   "async"
+  ]
+ },
+ {
+  "trial": "XA-C2S-CC-t1",
+  "graph": "parent_c2s",
+  "stop": "CC",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-L1-t1",
+  "graph": "parent_c2s",
+  "stop": "L1",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "sync"
+  ],
+  "left_short_watch": [
+   "sync"
+  ],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-L2-t1",
+  "graph": "parent_c2s",
+  "stop": "L2",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": true,
+  "status_raw": "HTTP 404: {\"detail\":\"Not Found\"}",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "sync"
+  ],
+  "left_short_watch": [
+   "sync"
+  ],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-L4-t1",
+  "graph": "parent_c2s",
+  "stop": "L4",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "sync"
+  ],
+  "left_short_watch": [
+   "sync"
+  ],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-PG-t1",
+  "graph": "parent_c2s",
+  "stop": "PG",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": false,
+  "left_end_only": [],
+  "left_short_watch": [],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-S1-t1",
+  "graph": "parent_c2s",
+  "stop": "S1",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "sync"
+  ],
+  "left_short_watch": [
+   "sync"
+  ],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-C2S-S2-t1",
+  "graph": "parent_c2s",
+  "stop": "S2",
+  "left_behind": [
+   "sync"
+  ],
+  "status_says_ended": true,
+  "status_raw": "success",
+  "ps_cron_sees_something": false,
+  "left_end_only": [
+   "sync"
+  ],
+  "left_short_watch": [
+   "sync"
+  ],
+  "left_tcp_only": [
+   "sync"
+  ]
+ },
+ {
+  "trial": "XA-X-CC-t1",
+  "graph": "parent_x",
+  "stop": "CC",
+  "left_behind": [
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "det",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "det"
+  ],
+  "left_tcp_only": [
+   "det",
+   "key_use",
+   "keyvalid",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-DA-t1",
+  "graph": "parent_x",
+  "stop": "DA",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "oscron",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-KEY-t1",
+  "graph": "parent_x",
+  "stop": "KEY",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "running",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-KEYC-t1",
+  "graph": "parent_x",
+  "stop": "KEYC",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "oscron",
+   "out",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "running",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "oscron",
+   "out",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-L1-t1",
+  "graph": "parent_x",
+  "stop": "L1",
+  "left_behind": [
+   "bg",
+   "det",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "out",
+   "sep"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ]
+ },
+ {
+  "trial": "XA-X-L2-t1",
+  "graph": "parent_x",
+  "stop": "L2",
+  "left_behind": [
+   "bg",
+   "det",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ],
+  "status_says_ended": true,
+  "status_raw": "HTTP 404: {\"detail\":\"Not Found\"}",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "out",
+   "sep"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sep",
+   "sleeper"
+  ]
+ },
+ {
+  "trial": "XA-X-L3-t1",
+  "graph": "parent_x",
+  "stop": "L3",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": true,
+  "status_raw": "HTTP 404: {\"detail\":\"Thread with ID 01a1",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-L4-t1",
+  "graph": "parent_x",
+  "stop": "L4",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "pcron",
+   "sleeper"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-NET-t1",
+  "graph": "parent_x",
+  "stop": "NET",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "running",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-PG-t1",
+  "graph": "parent_x",
+  "stop": "PG",
+  "left_behind": [
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "tok_use"
+  ],
+  "status_says_ended": false,
+  "status_raw": "",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "det",
+   "keyvalid",
+   "oscron",
+   "outjob_r",
+   "outjob_s",
+   "pcron"
+  ],
+  "left_short_watch": [
+   "det",
+   "oscron"
+  ],
+  "left_tcp_only": [
+   "det",
+   "key_use",
+   "keyvalid",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-S1-t1",
+  "graph": "parent_x",
+  "stop": "S1",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": true,
+  "status_raw": "interrupted",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ },
+ {
+  "trial": "XA-X-S2-t1",
+  "graph": "parent_x",
+  "stop": "S2",
+  "left_behind": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "status_says_ended": true,
+  "status_raw": "success",
+  "ps_cron_sees_something": true,
+  "left_end_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "oscron",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ],
+  "left_short_watch": [
+   "bg",
+   "det",
+   "key_use",
+   "out",
+   "own",
+   "sep",
+   "tok_use"
+  ],
+  "left_tcp_only": [
+   "bg",
+   "det",
+   "key_use",
+   "keyvalid",
+   "out",
+   "outjob_r",
+   "outjob_s",
+   "own",
+   "pcron",
+   "sep",
+   "sleeper",
+   "tok_use"
+  ]
+ }
+]

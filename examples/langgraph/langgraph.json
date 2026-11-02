@@ -1,0 +1,4 @@
+{
+  "dependencies": ["."],
+  "graphs": {"agent": "./graph.py:graph", "agent_async": "./graph.py:graph_async"}
+}

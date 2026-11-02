@@ -1,0 +1,6 @@
+Temporal CLI 1.9.1 (Server 1.32.0, UI 2.54.1)
+
+Temporal Server:      localhost:7833
+Temporal Persistence: /root/stopcheck-temporal/temporal/results/XC-pilot-rt1029c-C3-20261029-164506/temporal.db
+Temporal HTTP:        localhost:7834
+Temporal Metrics:     http://localhost:7835/metrics

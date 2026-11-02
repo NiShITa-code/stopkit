@@ -1,0 +1,2 @@
+recorder also listening on /var/lib/stopcheck-n8n/feas2/sock/recorder.sock
+recorder listening on 127.0.0.1:8765, writing /mnt/c/work/agent-shutdown-test/stopcheck/n8n/results/feasibility2-20261010-080435/pings.jsonl

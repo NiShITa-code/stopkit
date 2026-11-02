@@ -1,0 +1,24 @@
+[   14.565188] Admin systemd[1]: Started stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15.
+[   14.593544] Admin cron[768]: (CRON) INFO (pidfile fd = 3)
+[   14.594870] Admin cron[768]: (CRON) INFO (Skipping @reboot jobs -- not system startup)
+[  115.637278] Admin CRON[1025]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  115.643914] Admin CRON[1025]: (n8ntest) CMD ([1026] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  175.670395] Admin CRON[1352]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  175.679979] Admin CRON[1352]: (n8ntest) CMD ([1353] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  235.623485] Admin CRON[1574]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  235.629136] Admin CRON[1574]: (n8ntest) CMD ([1575] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  241.263029] Admin systemd[1]: Stopping stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15...
+[  241.270536] Admin systemd[1]: stopcheck-cron-f3.service: Deactivated successfully.
+[  241.271948] Admin systemd[1]: Stopped stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15.
+[  340.532922] Admin systemd[1]: Started stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15.
+[  340.561477] Admin cron[747]: (CRON) INFO (pidfile fd = 3)
+[  340.562187] Admin cron[747]: (CRON) INFO (Skipping @reboot jobs -- not system startup)
+[  415.601706] Admin CRON[930]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  415.604051] Admin CRON[930]: (n8ntest) CMD ([931] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  475.586175] Admin CRON[1273]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  475.587588] Admin CRON[1273]: (n8ntest) CMD ([1276] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  535.608965] Admin CRON[1517]: pam_unix(cron:session): session opened for user n8ntest(uid=1000) by n8ntest(uid=0)
+[  535.612984] Admin CRON[1517]: (n8ntest) CMD ([1518] PILOT_RECORDER_SOCK=/var/lib/stopcheck-n8n/f3/sock/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/f3/bin/canary_b.py n8n_oscron F3 150 # stopcheck-f3)
+[  536.963724] Admin systemd[1]: Stopping stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15...
+[  536.973129] Admin systemd[1]: stopcheck-cron-f3.service: Deactivated successfully.
+[  536.976552] Admin systemd[1]: Stopped stopcheck-cron-f3.service - /usr/sbin/cron -f -L 15.

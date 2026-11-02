@@ -1,0 +1,101 @@
+{
+  "batch": "20261029T184003Z",
+  "mode": "batch",
+  "started_utc": "2026-10-29T18:40:03Z",
+  "clients": {
+    "claude-2.1.310": {
+      "path": "/root/mcp-clients/_anthropic-ai_claude-code_2.1.310/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+      "sha256": "b73676430af12f97316a798b8371f81d640f90a58bdcb8f3ce56a835bb47df56"
+    },
+    "claude-2.1.308": {
+      "path": "/root/mcp-clients/_anthropic-ai_claude-code_2.1.308/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+      "sha256": "356733f185fa988e6bf3aa9a555269fdd167982a2e2a80d3c8a78037bb92ad58"
+    },
+    "codex-0.164.0": {
+      "path": "/root/mcp-clients/_openai_codex_0.164.0/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex",
+      "sha256": "b93f6811d3f653f0fb83be4050d857fb9abbb111dfa2ce160563327daff7f306"
+    },
+    "codex-0.165.0-alpha.1": {
+      "path": "/root/mcp-clients/_openai_codex_0.165.0-alpha.1/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex",
+      "sha256": "bddea38d3a643c13c415b03f83bf5162d1cc27a54c6b03a3e8d9e7f8d707de5e"
+    }
+  },
+  "files_sha256": {
+    "PREDICTIONS.md": "76d0012840d014216dfe2f8f0ef86dcfac8bef86827e7c60c9978479d737b7da",
+    "run_probe.py": "6c2c20367ffed636691e1447c2e5fef0c7b023358f020c95f6a8846f9e1aec63",
+    "probe_server.py": "df6376d2087c3969319705241748102df5affeedae699e313f00e37c6d35ac01",
+    "stub_model.py": "05372e601168d2074a01d5751888e415f37ee23eb5112955b85352923796d7a7"
+  },
+  "constants": {
+    "STEPS": 30,
+    "INTERVAL": 0.5,
+    "STOP_AFTER_START": 1.2,
+    "WATCH": 10.0,
+    "GRACE": 0.6,
+    "TIMEOUT_MS": 3000,
+    "BG_MS": 2000,
+    "SEED": 20261025,
+    "PROMPT": "Call the slow tool from the probe MCP server with run_id {run_id}, then say done.",
+    "FOLLOW_UP": "What happened to the slow tool call?"
+  },
+  "order": [
+    "claude-2.1.308/esc",
+    "claude-2.1.308/bg-stop",
+    "codex-0.165.0-alpha.1/sigterm",
+    "claude-2.1.310/sigterm",
+    "claude-2.1.310/bg-stop",
+    "codex-0.164.0/sigterm",
+    "claude-2.1.308/esc",
+    "claude-2.1.308/sigterm",
+    "codex-0.164.0/timeout",
+    "codex-0.165.0-alpha.1/timeout",
+    "codex-0.164.0/timeout",
+    "claude-2.1.310/sigterm",
+    "claude-2.1.308/quit",
+    "codex-0.165.0-alpha.1/esc",
+    "claude-2.1.308/sigterm",
+    "codex-0.165.0-alpha.1/timeout",
+    "codex-0.164.0/timeout",
+    "codex-0.164.0/esc",
+    "codex-0.165.0-alpha.1/quit",
+    "claude-2.1.310/sigterm",
+    "codex-0.165.0-alpha.1/quit",
+    "claude-2.1.310/timeout",
+    "claude-2.1.310/bg-stop",
+    "codex-0.164.0/quit",
+    "claude-2.1.310/control",
+    "claude-2.1.308/control",
+    "codex-0.164.0/quit",
+    "claude-2.1.308/sigterm",
+    "claude-2.1.310/quit",
+    "claude-2.1.310/quit",
+    "codex-0.165.0-alpha.1/quit",
+    "codex-0.164.0/esc",
+    "claude-2.1.310/esc",
+    "codex-0.164.0/quit",
+    "codex-0.164.0/control",
+    "claude-2.1.308/quit",
+    "claude-2.1.310/esc",
+    "claude-2.1.308/timeout",
+    "codex-0.165.0-alpha.1/esc",
+    "codex-0.165.0-alpha.1/sigterm",
+    "codex-0.165.0-alpha.1/sigterm",
+    "claude-2.1.308/esc",
+    "codex-0.165.0-alpha.1/control",
+    "claude-2.1.310/timeout",
+    "codex-0.164.0/sigterm",
+    "claude-2.1.310/timeout",
+    "claude-2.1.308/timeout",
+    "claude-2.1.308/bg-stop",
+    "claude-2.1.310/esc",
+    "claude-2.1.308/quit",
+    "codex-0.164.0/esc",
+    "codex-0.165.0-alpha.1/esc",
+    "codex-0.164.0/sigterm",
+    "claude-2.1.310/bg-stop",
+    "claude-2.1.310/quit",
+    "codex-0.165.0-alpha.1/timeout",
+    "claude-2.1.308/timeout",
+    "claude-2.1.308/bg-stop"
+  ]
+}

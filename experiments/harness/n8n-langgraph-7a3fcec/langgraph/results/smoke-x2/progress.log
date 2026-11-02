@@ -1,0 +1,21 @@
+01:36:06 harness start: {"levers": "L1", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "/mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/smoke-x2", "cond": "SMOKEX2", "graph": "parent_x", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all"}
+01:36:06 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+01:36:06 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+01:36:06 code: git no commits, sha256 {'harness.py': '8c7559b4928a', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': '754d44d61476', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': 'f5d9f4e21367'}
+01:36:08 world: {'netns': 'sc-out-388', 'veth': ['sca388', 'scb388'], 'sockdir': '/run/stopcheck/388', 'mock_pids': [716, 722], 'logdir': 'mocks'}
+01:36:08 recorder pid=728
+01:36:10 === SMOKEX2-L1-t1: cancel the agent's run: runs.cancel(thread, run) with the default action ('interrupt')
+01:36:13   server #1 pid=738 ready=True in 3.4s (wipe=True)
+01:36:22   warm-up: {'need': ['bgproc', 'collateral', 'det', 'helper', 'parent'], 'seen': ['attempt', 'bgproc', 'collateral', 'control_kill', 'det', 'helper', 'out_caller', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 3.06}  cron=yes
+01:36:32   STOP pulled: {'ok': True} (call took 0.040s)
+01:38:01   restart probe: server stopped {'pid': 738, 'how': 'SIGTERM', 'exit_s': 0.37, 'returncode': -15}
+01:38:04   server #2 pid=1725 ready=True in 2.8s (wipe=False)
+01:39:04   due (s after stop): {'sleeper': 47.39, 'outjob_s': 47.574, 'outjob_r': 47.583, 'oscron': 27.978, 'pcron': 27.978}
+01:39:04   controls_x ok=True failed=[]
+01:39:14   active after stop: {'parent': False, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': True, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+01:39:14   controls: {'twin_ok': True, 'twin_max_gap_s': 1.018, 'twin_last_rel': 89.995, 'control_kill_ok': True, 'control_kill_last_rel': -0.367, 'control_kill_pings_10s_before': 10, 'control_kill_process_gone': True}
+01:39:14   restart probe active: {'parent': False, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': False, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+01:39:14   cleanup ok=True in-server pings after API cleanup=[]
+01:39:15   validity: {'valid': True, 'reasons': []}
+01:39:15 final teardown
+01:39:17 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}

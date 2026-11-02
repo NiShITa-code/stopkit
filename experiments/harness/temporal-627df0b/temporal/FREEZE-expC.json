@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-10-14T03:14:04.972338+00:00",
+  "prepared_from_head": "7e943bc38fe1eba1bb65a77991f0d917fa3958da",
+  "timing_mode": "full",
+  "conditions": [
+    "C2",
+    "C0-LA",
+    "C1",
+    "C2w",
+    "C5",
+    "PC",
+    "C3",
+    "C0-NH",
+    "C4",
+    "C3w",
+    "C5n",
+    "C8",
+    "C7l",
+    "C6",
+    "C0-HB",
+    "C7"
+  ],
+  "seed": 20261012,
+  "order": [
+    "C2",
+    "C0-LA",
+    "C1",
+    "C2w",
+    "C5",
+    "PC",
+    "C3",
+    "C0-NH",
+    "C4",
+    "C3w",
+    "C5n",
+    "C8",
+    "C7l",
+    "C6",
+    "C0-HB",
+    "C7"
+  ],
+  "host_profile": "linux-vm",
+  "prediction_file": "predictions/temporal-expC-cells.json",
+  "prediction_sha256": "fc1b6303347188842f08a2ac8059369deb7d88cf3f87009678f6b2ba43bb2580",
+  "source_hashes": {
+    "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+    "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+    "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+    "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+    "temporal/DESIGN-expC.md": "55d551e7750c3428efc642ce7d34107b411e46ab5b37978a7e8c434f76fc6f72",
+    "temporal/RULES-expC.md": "113b93b47b2b1e8a88be686fb7d76acf47fc4c471a3de0e686dbb4e1810e2cdc",
+    "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+    "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9",
+    "temporal/harness_c.py": "a6f7012f48c7f9590122e80ef9684ed0497432d25a151d4801a95e643cbb4f47",
+    "temporal/jobs_c.py": "e6ea3276dbec2bd29ad32d2f57986b1794ca8db2b2af5719ab58c40eac92046d",
+    "temporal/mutate_c.py": "2bc5b480fd89ed4a5ed3bfce176e662668f69cee2df0fcc6d3eeca87ba10de6d",
+    "temporal/receiver_c.py": "68dcb5af3ef4a8ba0a60a36771342b808f727a0abcdc860fecdbe8c8ee404b7e",
+    "temporal/run_expC.py": "106b79da93bff83ed5ba8c7f0139d094dd3e72e5db1f4d3a1566b153570f9d2a",
+    "tests/test_analyze_c.py": "1a22aaf68c692516fadb5f8f2413231081dcefba69421898717c635027932db0",
+    "tests/test_clockwall_c.py": "932a19d8667462b9767dee5d35dad3c5d7fcf4f31af9df31ea25c1c02554ba49",
+    "tests/test_harness_c.py": "4dbca62a08e9a0d8b25ac98f48bb0f761de0238d8629b3eddea39696044e242b",
+    "tests/test_runner_c.py": "0747f2977c61ccb9e25551d71e294bfffcde7434c7a26dcd5aae54dbf22535d2"
+  },
+  "validation_pilots": [
+    {
+      "condition": "C0-HB",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C0-HB",
+      "record_sha256": "10255e14c11a696f0af2ac565dde2b9317f384463735a4be8c40b683f4295a8b",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C0-HB-20261014-024006",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C0-LA",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C0-LA",
+      "record_sha256": "ef5ab824faebe2d48e68006339308af1f022f49437e55af9de3e894615618c0c",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C0-LA-20261014-024758",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C0-NH",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C0-NH",
+      "record_sha256": "23c6cb31bc08a9512581492d5a0c88399d77842ffbd9116220a640898fb71a4e",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C0-NH-20261014-024402",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C2",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C2",
+      "record_sha256": "0a8e6c76a3f8f00f28c3a22cc72ea334c02ed076f907c93a40b2958e79ab365e",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C2-20261014-025551",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C3",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C3",
+      "record_sha256": "2669c3786c44e46976acfa6357b150d2bf703982f2a2617d18a2f831ec9207eb",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C3-20261014-025947",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C6",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-C6",
+      "record_sha256": "f9ad01c029411aa54a8f9f0122670123e07a52aa68c9e5b812665a740ad7bea1",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-C6-20261014-030343",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "PC",
+      "kind": "pilot",
+      "trial": "XC-pilot-c-valid2-1014-PC",
+      "record_sha256": "cd8f007cd4ba73d1d9c8451e8ea850b82498493150b9d7bda356dee3f49a923b",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-pilot-c-valid2-1014-PC-20261014-025155",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C1",
+      "kind": "smoke",
+      "trial": "XC-smoke-c-smoke2-1014-C1",
+      "record_sha256": "2799cc822375ace533d354bd271b4b9a13068f7345287f67ef40cc16feb65d14",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-smoke-c-smoke2-1014-C1-20261014-023244",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C2w",
+      "kind": "smoke",
+      "trial": "XC-smoke-c-smoke2-1014-C2w",
+      "record_sha256": "fd64aa31cebb894c43d5cafd3069822ffca4e3d249407d6d8c23ef369b116227",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-smoke-c-smoke2-1014-C2w-20261014-023355",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C5",
+      "kind": "smoke",
+      "trial": "XC-smoke-c-smoke2-1014-C5",
+      "record_sha256": "b25c719895007f5ccf251bb06ddd9c94ed8a531677b8e498fe83500bcb918343",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-smoke-c-smoke2-1014-C5-20261014-023512",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C7",
+      "kind": "smoke",
+      "trial": "XC-smoke-c-smoke2-1014-C7",
+      "record_sha256": "912967f22328c939e51a9fba0263c27bb1917b51c46d8ea6518a8ddd82864cf7",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-smoke-c-smoke2-1014-C7-20261014-023628",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    },
+    {
+      "condition": "C8",
+      "kind": "smoke",
+      "trial": "XC-smoke-c-smoke2-1014-C8",
+      "record_sha256": "99d31f2f1ddfb41e67a841ed00c3783d0e237e37a38155e41de4b587eb0fce28",
+      "folder": "/root/stopcheck-temporal/temporal/results/XC-smoke-c-smoke2-1014-C8-20261014-023745",
+      "host_profile": "linux-vm",
+      "predictions": "fixed before this run"
+    }
+  ]
+}

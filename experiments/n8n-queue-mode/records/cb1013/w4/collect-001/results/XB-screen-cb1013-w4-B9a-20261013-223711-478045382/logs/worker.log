@@ -1,0 +1,139 @@
+Acquiring database migration lock...
+n8n Task Broker ready on 127.0.0.1, port 5682
+Failed to start Python task runner in internal mode. because its virtual environment is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode
+
+There are deprecations related to your n8n setup. Please take the recommended actions to update your configuration:
+ - N8N_UNVERIFIED_PACKAGES_ENABLED -> The default for this variable will change to `false` in a future version. Set it to `true` explicitly to keep installing unverified community packages.
+ - N8N_RUNNERS_MODE -> Internal task runner mode is deprecated and will be removed in a future version. For isolation and scaling, run the task runner launcher as a separate process, set this variable to `external` and share `N8N_RUNNERS_AUTH_TOKEN` with the launcher. See https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners
+ - N8N_COMPRESSION_NODE_MAX_DECOMPRESSED_SIZE_BYTES -> The default for this variable will be reduced from 2 GiB to 256 MiB in a future version. Set it explicitly to keep your current limit.
+ - N8N_COMPRESSION_NODE_MAX_ZIP_ENTRIES -> The default for this variable will be reduced from 5000 to 1000 in a future version. Set it explicitly to keep your current limit.
+ - Running n8n outside a container is deprecated. Future versions will require running n8n via the official Docker image. See https://docs.n8n.io/deploy/host-n8n
+
+[license SDK] Skipping renewal on init: renewOnInit is disabled in config
+[license SDK] Skipping renewal on init: license cert is not initialized
+Instance registered
+Discovered 4 cluster checks
+
+n8n worker server listening on port 5680
+
+n8n worker is now ready
+ * Version: 2.41.7
+ * Concurrency: 10
+ * Pool: (default)
+ * Queue: jobs
+
+Registered runner "JS Task Runner" (Jil_S4qxq19c4JgcFewLo) 
+Worker started execution 1 (job 1)
+Worker started execution 2 (job 2)
+Worker started execution 10 (job 3)
+Worker finished execution 10 (job 3)
+Worker started execution 11 (job 4)
+Worker started execution 12 (job 5)
+Worker started execution 13 (job 6)
+Worker started execution 14 (job 7)
+Worker started execution 15 (job 8)
+Worker started execution 16 (job 9)
+Worker started execution 17 (job 10)
+Worker started execution 18 (job 11)
+Acquiring database migration lock...
+n8n Task Broker ready on 127.0.0.1, port 5682
+Failed to start Python task runner in internal mode. because its virtual environment is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode
+
+There are deprecations related to your n8n setup. Please take the recommended actions to update your configuration:
+ - N8N_UNVERIFIED_PACKAGES_ENABLED -> The default for this variable will change to `false` in a future version. Set it to `true` explicitly to keep installing unverified community packages.
+ - N8N_RUNNERS_MODE -> Internal task runner mode is deprecated and will be removed in a future version. For isolation and scaling, run the task runner launcher as a separate process, set this variable to `external` and share `N8N_RUNNERS_AUTH_TOKEN` with the launcher. See https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners
+ - N8N_COMPRESSION_NODE_MAX_DECOMPRESSED_SIZE_BYTES -> The default for this variable will be reduced from 2 GiB to 256 MiB in a future version. Set it explicitly to keep your current limit.
+ - N8N_COMPRESSION_NODE_MAX_ZIP_ENTRIES -> The default for this variable will be reduced from 5000 to 1000 in a future version. Set it explicitly to keep your current limit.
+ - Running n8n outside a container is deprecated. Future versions will require running n8n via the official Docker image. See https://docs.n8n.io/deploy/host-n8n
+
+[license SDK] Skipping renewal on init: renewOnInit is disabled in config
+[license SDK] Skipping renewal on init: license cert is not initialized
+Currently active workflows:
+   - xb-xb-screen-cb1013-w4-b9a-cred_store (ID: 9jE3BifR6xJHBWUA)
+   - xb-xb-screen-cb1013-w4-b9a-loop_node (ID: J0hJezxRMB4aovor)
+   - xb-xb-screen-cb1013-w4-b9a-sub (ID: kA5Eu8FBd9sTT3Ca)
+   - xb-xb-screen-cb1013-w4-b9a-wait_long (ID: 0j8QdPZdLSdK3psE)
+   - xb-xb-screen-cb1013-w4-b9a-fanout (ID: 2dU8yBJhVAWm8Uou)
+   - xb-xb-screen-cb1013-w4-b9a-wait_short (ID: qr4eqahPepUJKzRq)
+   - xb-xb-screen-cb1013-w4-b9a-ai (ID: uP1pYZa7tPQgQAIX)
+   - xb-xb-screen-cb1013-w4-b9a-out (ID: Ozkv0Pi0yS8DQ8af)
+   - xb-xb-screen-cb1013-w4-b9a-collateral (ID: YL2azXbY8cNUY3EX)
+   - xb-xb-screen-cb1013-w4-b9a-agent (ID: 9Fz5asza3EwXgZaX)
+   - xb-xb-screen-cb1013-w4-b9a-sched (ID: cazMEheyBUciNi2G)
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+(node:39642) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 editorUiConnected listeners added to [Push]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+[Recovery] Logs available, amended execution
+Found unfinished executions: 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18
+This could be due to a crash of an active workflow or a restart of n8n
+Instance registered
+Discovered 4 cluster checks
+
+n8n worker server listening on port 5680
+
+n8n worker is now ready
+ * Version: 2.41.7
+ * Concurrency: 10
+ * Pool: (default)
+ * Queue: jobs
+
+Registered runner "JS Task Runner" (PGYuwobokvjT6Y-hjj9nI) 
+Worker started execution 20 (job 13)
+Worker started execution 19 (job 12)
+Worker started execution 21 (job 14)
+Worker started execution 22 (job 15)
+Worker started execution 23 (job 16)
+Worker started execution 24 (job 17)
+Worker started execution 25 (job 19)
+Worker started execution 26 (job 20)
+Worker started execution 27 (job 21)
+Worker started execution 28 (job 22)
+Worker finished execution 25 (job 19)
+Worker finished execution 23 (job 16)
+Worker finished execution 24 (job 17)
+Worker finished execution 26 (job 20)
+Worker finished execution 27 (job 21)
+Worker finished execution 28 (job 22)
+Worker started execution 29 (job 23)
+Worker started execution 30 (job 24)
+Worker started execution 31 (job 25)
+Worker started execution 32 (job 26)
+Worker started execution 33 (job 27)
+Worker started execution 34 (job 28)
+Worker finished execution 29 (job 23)
+Worker started execution 35 (job 29)
+Worker finished execution 32 (job 26)
+Worker started execution 36 (job 30)
+Worker finished execution 36 (job 30)
+Worker started execution 37 (job 31)
+Worker finished execution 31 (job 25)
+Worker finished execution 30 (job 24)
+Worker finished execution 33 (job 27)
+Worker finished execution 34 (job 28)
+Worker finished execution 35 (job 29)
+Worker finished execution 37 (job 31)
+Worker started execution 38 (job 32)
+Worker finished execution 38 (job 32)
+Worker finished execution 20 (job 13)
+Worker finished execution 22 (job 15)
+Worker finished execution 21 (job 14)
+Worker finished execution 19 (job 12)
+Received SIGTERM. Shutting down...
+[runner:js] Received SIGTERM signal, shutting down...
+[runner:js] Task runner stopped
+Stopping worker...

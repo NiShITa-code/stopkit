@@ -1,0 +1,19 @@
+# The secret scan uses gitleaks' own rules; the identifiers the trial records hold that are not secrets are
+# allowed by their shape, so a secret anywhere else is still found.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "identifiers in the trial records that are not secrets"
+regexTarget = "secret"
+regexes = [
+  # the stand-in outside service's test keys and tokens, made for each trial and accepted only by its stand-in issuer
+  '''^(?:key|tok)_[0-9a-f]{16}$''',
+  # the kit's transient systemd unit names
+  '''^stopkit-[a-z]+-[0-9a-f]+\.(?:service|timer)$''',
+  # SHA-256 digests and UUIDs
+  '''^[0-9a-f]{64}$''',
+  '''^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$''',
+  # the dated feature names a client sends in its request headers
+  '''^[a-z]+(?:-[a-z]+)*-20[0-9]{2}-[0-9]{2}-[0-9]{2}$''',
+]

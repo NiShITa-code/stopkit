@@ -1,0 +1,68 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: gitleaks (full history)
+        run: |
+          curl -sL https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz | tar xz gitleaks
+          ./gitleaks detect --source . --redact -v
+
+  identity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: no personal name or home-folder path in a tracked file or an archive member
+        env:
+          # Names to refuse, as an extended regex, held as a repository secret so
+          # the pattern itself never appears in the tree.
+          NAMES: ${{ secrets.IDENTITY_PATTERN }}
+        run: |
+          if [ -z "$NAMES" ]; then
+            if [ "${{ github.event_name }}" = push ]; then
+              echo "::error::the IDENTITY_PATTERN repository secret is not set"
+              exit 1
+            fi
+            echo "::warning::the IDENTITY_PATTERN secret is not available to this run; only home folders are checked"
+            python3 scripts/identity_scan.py --no-names
+          else
+            python3 scripts/identity_scan.py
+          fi
+
+  test:
+    needs: [secrets, identity]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: { python-version: ["3.11", "3.12", "3.13"] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ matrix.python-version }}", cache: pip }
+      - name: install
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -e ".[dev]"
+      - name: lint
+        run: .venv/bin/ruff check src tests scripts experiments/scripts experiments/tests experiments/verify.py && .venv/bin/ruff format --check src tests scripts experiments/scripts experiments/tests experiments/verify.py
+      - name: rerun every check on the records
+        run: .venv/bin/python -B experiments/scripts/build_results.py && git diff --exit-code -- experiments/results/
+      - name: tests
+        run: .venv/bin/python -m pytest -q
+      - name: the command-line entry points
+        run: |
+          .venv/bin/python -B experiments/verify.py
+          .venv/bin/stopkit --help > /dev/null
+          .venv/bin/stopkit recheck validation/selftest-20261027T091012Z-70406a/run-01-none

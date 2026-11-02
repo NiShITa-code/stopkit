@@ -1,0 +1,8 @@
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"tool_calls":[{"index":0,"id":"callstopcheckf1","type":"function","function":{"name":"exec","arguments":"{\"title\":\"StopCheck spike echo\",\"command\":\"printf 'STOPCHECK_F_%s\\\\n' \\\"$((40+2))\\\"\"}"}}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{},"finish_reason":"tool_calls"}]}
+
+data: [DONE]
+

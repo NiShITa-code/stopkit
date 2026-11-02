@@ -1,0 +1,31 @@
+{
+ "scenario": "host-bundle-1",
+ "binding": "host",
+ "description": "The Linux reference bundle: one item of each kind the host can hold, planted through the paths a real agent's tools use. Each running item reports its own life to the sealed ground-truth recorder. Grace is three heartbeat periods. Trigger margins from E0 (26 Oct, WSL): the timer with AccuracySec=1s fired at most 0.7 s after each minute, cron at most 2.2 s, the at job 0.07 s after its minute.",
+ "items": [
+  {"id": "agent", "case": "agent", "structure": "agent-main",
+   "paths": {"P1": ["process"]}, "truth": {"P1": {"oracle": "pidfd"}}},
+  {"id": "background", "case": "background", "structure": "agent-detached",
+   "paths": {"P2": ["process"]}, "truth": {"P2": {"oracle": "pidfd"}}},
+  {"id": "listener", "case": "listener", "structure": "agent-child",
+   "paths": {"P2": ["listener", "process"]}, "truth": {"P2": {"oracle": "pidfd"}}},
+  {"id": "restarting-service", "case": "restarting-service", "structure": "account-service-process",
+   "paths": {"P2": ["process"], "P4": ["unit"]}, "path_structures": {"P4": "account-trigger"},
+   "truth": {"P2": {"oracle": "pidfd"}, "P4": {"oracle": "fire", "when": "restart", "margin_s": 30}}},
+  {"id": "transient-service", "case": "transient-service", "structure": "account-service-process",
+   "paths": {"P2": ["process"], "P4": ["unit"]}, "path_structures": {"P4": "account-trigger"},
+   "truth": {"P2": {"oracle": "pidfd"}, "P4": {"oracle": "fire", "when": "restart", "margin_s": 30}}},
+  {"id": "timer", "case": "timer", "structure": "account-trigger",
+   "paths": {"P4": ["unit"]}, "truth": {"P4": {"oracle": "fire", "when": "period", "period_s": 60, "margin_s": 5}}},
+  {"id": "cron", "case": "cron", "structure": "account-trigger",
+   "paths": {"P4": ["cron"]}, "truth": {"P4": {"oracle": "fire", "when": "period", "period_s": 60, "margin_s": 5}}},
+  {"id": "at-job", "case": "at-job", "structure": "account-trigger",
+   "paths": {"P4": ["at"]}, "truth": {"P4": {"oracle": "fire", "when": "at", "after_plant_s": 150, "margin_s": 60}}},
+  {"id": "delegated", "case": "delegated", "structure": "holder-job",
+   "paths": {"P3": ["worker", "process"]}, "truth": {"P3": {"oracle": "pidfd"}}}
+ ],
+ "heartbeat_s": 0.2,
+ "grace_s": 0.6,
+ "checks_s": [0, 60, 300],
+ "restart_action": "restart of the agent account's user service manager"
+}

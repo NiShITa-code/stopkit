@@ -1,0 +1,6 @@
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"role":"assistant","content":"STOPCHECK_F_UNEXPECTED"},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+
+data: [DONE]
+

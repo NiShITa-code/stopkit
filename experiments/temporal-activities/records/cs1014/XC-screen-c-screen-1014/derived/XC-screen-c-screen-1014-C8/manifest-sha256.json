@@ -1,0 +1,115 @@
+{
+ "schema_version": 1,
+ "trial": "XC-screen-c-screen-1014-C8",
+ "condition": "C8",
+ "attempt": 1,
+ "created_utc": "2026-10-14T04:31:50+00:00",
+ "paths_relative_to": "temporal/results",
+ "raw_folders": [
+  "XC-screen-c-screen-1014-C8-20261014-042757"
+ ],
+ "raw_files": [
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/receiver.jsonl",
+   "bytes": 85318,
+   "sha256": "b4f1ccdb4034a43bad9e55158954d9a7a6dd5fb3da9411ddee28733347f55d89"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/receiver.out",
+   "bytes": 148,
+   "sha256": "0aeafd6011812236cd1b3e9800512b1d83ec562cec47afb1352f6ec6345f46b5"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/record.json",
+   "bytes": 1315231,
+   "sha256": "75693576f0ca3758542d055bcedf8521b3854531e181bb88507547d38b421fef"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/server-g1.log",
+   "bytes": 292,
+   "sha256": "b3c145527779380e3912275cb28533f346a9cb6bd52a123a2e398ec9f00d41b1"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/server-g2.log",
+   "bytes": 292,
+   "sha256": "b3c145527779380e3912275cb28533f346a9cb6bd52a123a2e398ec9f00d41b1"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/temporal.db",
+   "bytes": 819200,
+   "sha256": "ef11deae3af39ec873120f0b2ed90d0e49bbb59ec1f3a236c9a8d9029fd71898"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g1.jsonl",
+   "bytes": 1180,
+   "sha256": "e0543afe5287aaf5f5ced3c79f52f34913226ee596125803604190113bf97e32"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g1.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g2.jsonl",
+   "bytes": 2331,
+   "sha256": "79e294008b574ce12fa7f910fef4008aabb8b4fd625bde3a3a99d065786bbde9"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g2.out",
+   "bytes": 1465,
+   "sha256": "ffbd3e981ef86cf5e0beed99d5f484b5340a34ce9a63faf6dd0870a342177c07"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g3.jsonl",
+   "bytes": 1097,
+   "sha256": "69b0a131c18ddcd4063fed827d3bc71977c7531e59c8ba104f810d757b5cb5cc"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-target-g3.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-twin-g1.jsonl",
+   "bytes": 2976,
+   "sha256": "c5da8783fa2abacece7c014410b156f4882f4e4a6ed7c6a553a57c52b9f7a2f2"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-twin-g1.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-twin-g2.jsonl",
+   "bytes": 2100,
+   "sha256": "f8f060b73a5d6612ddad9d90817254515f6622c920643effbdf710869d439a68"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C8-20261014-042757/worker-twin-g2.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8",
+ "derived_files": [
+  {
+   "path": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8/scored_c.jsonl",
+   "bytes": 39851,
+   "sha256": "45ac7d6b40cbfc523c5cb4695fa81a917f27c2a91625289533a8b259795b0a98"
+  },
+  {
+   "path": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8/summary_c.md",
+   "bytes": 2556,
+   "sha256": "3ecdb711de9196ba175cacf582c125a55d3a1732a5d984861e360345c3943e3f"
+  }
+ ],
+ "scoring": {
+  "status": "scored",
+  "rows": 93,
+  "validity": "valid"
+ },
+ "scorer_sources": {
+  "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+  "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9"
+ }
+}

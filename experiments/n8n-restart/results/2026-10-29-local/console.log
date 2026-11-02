@@ -1,0 +1,411 @@
+wsl: Failed to start the systemd user session for 'root'. See journalctl for more details.
+1efd814b46613237736eed2b24478d649a20985d662ac4c51562253ea7e12af0  lib.sh
+f52ccc9e66a3d8b89977d1e4252be7715503c07c507902cc878b713ab2c7f630  p1_stop_after_restart.sh
+a44a789fed7b12d464527edbcdd58d33f64157681f2bb261a029ac9e5de18f03  run.sh
+4cff4acfe5a115489f64fa0e780ebce90bcdd6c2cb07d2f721c2d9e426cd7954  setup.sh
+40dc7a3b9b4ea5fe267e82b62cda667e171ddec6d6e830dd5c06a6076affa2ab  teardown.sh
+1ae5e9c0db552f244de305e019cdc0494fd021ede9ef7dabcfc2c06a590d9b02  sink.py
+start 2026-10-29T14:37:06Z
+### 2026-10-29T14:37:06Z  recording: n8n 2.41.7, stop after a main restart (reproduction of finding 1)
+### step 1: set up a private n8n (main + worker), Postgres, Redis and the sink
+14:38:09.480 main and worker ready
+14:38:12.337 set-up done: workflow TTYxidkkJvCdOM50 published
+### step 2: run the reproduction; lines starting with 'tick' are the agent's signals arriving at the sink
+n8n 2.41.7
+node v24.21.0
+postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+kernel 6.18.54.1-microsoft-standard-WSL2; host Admin
+== 14:38:12.415 Phase A (control): the stop goes to the main that enqueued the run
+    tick  14:38:15.655  from execution 1  (step 1)
+    tick  14:38:16.695  from execution 1  (step 2)
+14:38:16.760 run A is execution 1
+    tick  14:38:17.715  from execution 1  (step 3)
+    tick  14:38:19.082  from execution 1  (step 4)
+    tick  14:38:20.139  from execution 1  (step 5)
+    tick  14:38:21.202  from execution 1  (step 6)
+    tick  14:38:22.231  from execution 1  (step 7)
+    tick  14:38:23.268  from execution 1  (step 8)
+    tick  14:38:24.431  from execution 1  (step 9)
+    tick  14:38:25.674  from execution 1  (step 10)
+    tick  14:38:27.336  from execution 1  (step 11)
+    tick  14:38:28.372  from execution 1  (step 12)
+    tick  14:38:29.398  from execution 1  (step 13)
+    tick  14:38:30.433  from execution 1  (step 14)
+    tick  14:38:31.589  from execution 1  (step 15)
+    tick  14:38:32.603  from execution 1  (step 16)
+14:38:33.230 stop A reply: {"mode":"webhook","startedAt":"2026-10-29T14:38:14.436Z","stoppedAt":"2026-10-29T14:38:32.953Z","finished":false,"status":"canceled"} [HTTP 200]
+14:38:36.949 [+5s] exec 1 | API: canceled 2026-10-29T14:38:32.999Z | Postgres: canceled|2026-10-29 14:38:32.999+00 | Bull active: | sink ticks since stop: 1, last i=16 at +0.73 s
+14:39:01.956 [+30s] exec 1 | API: canceled 2026-10-29T14:38:32.999Z | Postgres: canceled|2026-10-29 14:38:32.999+00 | Bull active: | sink ticks since stop: 1, last i=16 at +0.73 s
+14:39:31.962 [+60s] exec 1 | API: canceled 2026-10-29T14:38:32.999Z | Postgres: canceled|2026-10-29 14:38:32.999+00 | Bull active: | sink ticks since stop: 1, last i=16 at +0.73 s
+== 14:39:33.429 Phase B: restart main, then stop
+    tick  14:39:37.592  from execution 2  (step 1)
+    tick  14:39:38.671  from execution 2  (step 2)
+14:39:39.413 run B is execution 2
+    tick  14:39:39.705  from execution 2  (step 3)
+    tick  14:39:40.729  from execution 2  (step 4)
+    tick  14:39:41.747  from execution 2  (step 5)
+    tick  14:39:42.769  from execution 2  (step 6)
+    tick  14:39:43.798  from execution 2  (step 7)
+    tick  14:39:44.806  from execution 2  (step 8)
+    tick  14:39:45.812  from execution 2  (step 9)
+    tick  14:39:46.826  from execution 2  (step 10)
+    tick  14:39:47.836  from execution 2  (step 11)
+    tick  14:39:48.847  from execution 2  (step 12)
+    tick  14:39:49.859  from execution 2  (step 13)
+    tick  14:39:50.906  from execution 2  (step 14)
+    tick  14:39:51.933  from execution 2  (step 15)
+    tick  14:39:52.958  from execution 2  (step 16)
+    tick  14:39:53.970  from execution 2  (step 17)
+    tick  14:39:54.983  from execution 2  (step 18)
+    tick  14:39:56.185  from execution 2  (step 19)
+    tick  14:39:57.257  from execution 2  (step 20)
+14:39:54.541 [before restart] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 17, last i=20 at +17.87 s
+    tick  14:39:58.282  from execution 2  (step 21)
+    tick  14:39:59.354  from execution 2  (step 22)
+    tick  14:40:00.417  from execution 2  (step 23)
+    tick  14:40:01.579  from execution 2  (step 24)
+    tick  14:40:02.671  from execution 2  (step 25)
+    tick  14:40:03.795  from execution 2  (step 26)
+    tick  14:40:04.883  from execution 2  (step 27)
+    tick  14:40:05.965  from execution 2  (step 28)
+    tick  14:40:07.091  from execution 2  (step 29)
+    tick  14:40:08.182  from execution 2  (step 30)
+    tick  14:40:09.254  from execution 2  (step 31)
+    tick  14:40:10.319  from execution 2  (step 32)
+    tick  14:40:11.367  from execution 2  (step 33)
+    tick  14:40:12.497  from execution 2  (step 34)
+    tick  14:40:13.517  from execution 2  (step 35)
+    tick  14:40:14.527  from execution 2  (step 36)
+    tick  14:40:15.536  from execution 2  (step 37)
+    tick  14:40:16.545  from execution 2  (step 38)
+    tick  14:40:17.631  from execution 2  (step 39)
+    tick  14:40:18.645  from execution 2  (step 40)
+    tick  14:40:19.668  from execution 2  (step 41)
+    tick  14:40:20.684  from execution 2  (step 42)
+    tick  14:40:21.708  from execution 2  (step 43)
+    tick  14:40:22.738  from execution 2  (step 44)
+    tick  14:40:23.769  from execution 2  (step 45)
+    tick  14:40:24.791  from execution 2  (step 46)
+    tick  14:40:25.803  from execution 2  (step 47)
+    tick  14:40:26.812  from execution 2  (step 48)
+    tick  14:40:27.847  from execution 2  (step 49)
+    tick  14:40:28.857  from execution 2  (step 50)
+    tick  14:40:29.867  from execution 2  (step 51)
+    tick  14:40:30.888  from execution 2  (step 52)
+    tick  14:40:31.900  from execution 2  (step 53)
+    tick  14:40:32.929  from execution 2  (step 54)
+    tick  14:40:33.935  from execution 2  (step 55)
+    tick  14:40:34.947  from execution 2  (step 56)
+    tick  14:40:35.962  from execution 2  (step 57)
+    tick  14:40:36.975  from execution 2  (step 58)
+    tick  14:40:38.016  from execution 2  (step 59)
+    tick  14:40:39.024  from execution 2  (step 60)
+    tick  14:40:40.040  from execution 2  (step 61)
+    tick  14:40:41.053  from execution 2  (step 62)
+    tick  14:40:42.063  from execution 2  (step 63)
+    tick  14:40:43.107  from execution 2  (step 64)
+    tick  14:40:44.128  from execution 2  (step 65)
+    tick  14:40:45.153  from execution 2  (step 66)
+    tick  14:40:46.170  from execution 2  (step 67)
+    tick  14:40:47.178  from execution 2  (step 68)
+    tick  14:40:48.218  from execution 2  (step 69)
+    tick  14:40:49.226  from execution 2  (step 70)
+    tick  14:40:50.235  from execution 2  (step 71)
+    tick  14:40:51.244  from execution 2  (step 72)
+    tick  14:40:52.267  from execution 2  (step 73)
+    tick  14:40:53.399  from execution 2  (step 74)
+    tick  14:40:54.414  from execution 2  (step 75)
+    tick  14:40:55.424  from execution 2  (step 76)
+    tick  14:40:56.439  from execution 2  (step 77)
+    tick  14:40:57.448  from execution 2  (step 78)
+    tick  14:40:58.559  from execution 2  (step 79)
+    tick  14:40:59.569  from execution 2  (step 80)
+    tick  14:41:00.601  from execution 2  (step 81)
+    tick  14:41:01.621  from execution 2  (step 82)
+    tick  14:41:02.643  from execution 2  (step 83)
+    tick  14:41:03.719  from execution 2  (step 84)
+    tick  14:41:04.741  from execution 2  (step 85)
+    tick  14:41:05.764  from execution 2  (step 86)
+    tick  14:41:06.783  from execution 2  (step 87)
+    tick  14:41:07.795  from execution 2  (step 88)
+14:41:08.041 main stop took 35.564 s; start to ready 34.577 s
+14:41:08.091 [after restart, before stop (ticks counted from run start)] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 86, last i=88 at +88.41 s
+    tick  14:41:08.864  from execution 2  (step 89)
+14:41:09.496 stop B reply: {"mode":"webhook","startedAt":"2026-10-29T14:39:35.067Z","stoppedAt":"2026-10-29T14:41:09.444Z","finished":false,"status":"canceled"} [HTTP 200]
+    tick  14:41:09.959  from execution 2  (step 90)
+    tick  14:41:11.796  from execution 2  (step 91)
+    tick  14:41:13.027  from execution 2  (step 92)
+    tick  14:41:14.043  from execution 2  (step 93)
+14:41:13.851 [+5s] exec 2 | API: canceled 2026-10-29T14:41:09.444Z | Postgres: canceled|2026-10-29 14:41:09.444+00 | Bull active: 2 | sink ticks since stop: 5, last i=93 at +5.21 s
+    tick  14:41:15.050  from execution 2  (step 94)
+    tick  14:41:16.061  from execution 2  (step 95)
+    tick  14:41:17.069  from execution 2  (step 96)
+    tick  14:41:18.076  from execution 2  (step 97)
+    tick  14:41:19.091  from execution 2  (step 98)
+    tick  14:41:20.098  from execution 2  (step 99)
+    tick  14:41:21.103  from execution 2  (step 100)
+    tick  14:41:22.114  from execution 2  (step 101)
+    tick  14:41:23.127  from execution 2  (step 102)
+    tick  14:41:24.138  from execution 2  (step 103)
+    tick  14:41:25.153  from execution 2  (step 104)
+    tick  14:41:26.160  from execution 2  (step 105)
+    tick  14:41:27.166  from execution 2  (step 106)
+    tick  14:41:28.173  from execution 2  (step 107)
+    tick  14:41:29.182  from execution 2  (step 108)
+    tick  14:41:30.188  from execution 2  (step 109)
+    tick  14:41:31.200  from execution 2  (step 110)
+    tick  14:41:32.207  from execution 2  (step 111)
+    tick  14:41:33.231  from execution 2  (step 112)
+    tick  14:41:34.240  from execution 2  (step 113)
+    tick  14:41:35.248  from execution 2  (step 114)
+    tick  14:41:36.260  from execution 2  (step 115)
+    tick  14:41:37.276  from execution 2  (step 116)
+    tick  14:41:38.287  from execution 2  (step 117)
+    tick  14:41:39.307  from execution 2  (step 118)
+14:41:38.869 [+30s] exec 2 | API: canceled 2026-10-29T14:41:09.444Z | Postgres: canceled|2026-10-29 14:41:09.444+00 | Bull active: 2 | sink ticks since stop: 30, last i=118 at +30.47 s
+    tick  14:41:40.320  from execution 2  (step 119)
+    tick  14:41:41.331  from execution 2  (step 120)
+    tick  14:41:42.342  from execution 2  (step 121)
+    tick  14:41:43.353  from execution 2  (step 122)
+    tick  14:41:44.358  from execution 2  (step 123)
+    tick  14:41:45.366  from execution 2  (step 124)
+    tick  14:41:46.373  from execution 2  (step 125)
+    tick  14:41:47.379  from execution 2  (step 126)
+    tick  14:41:48.386  from execution 2  (step 127)
+    tick  14:41:49.394  from execution 2  (step 128)
+    tick  14:41:50.401  from execution 2  (step 129)
+    tick  14:41:51.413  from execution 2  (step 130)
+    tick  14:41:52.422  from execution 2  (step 131)
+    tick  14:41:53.431  from execution 2  (step 132)
+    tick  14:41:54.443  from execution 2  (step 133)
+    tick  14:41:55.451  from execution 2  (step 134)
+    tick  14:41:56.460  from execution 2  (step 135)
+    tick  14:41:57.466  from execution 2  (step 136)
+    tick  14:41:58.784  from execution 2  (step 137)
+    tick  14:41:59.792  from execution 2  (step 138)
+    tick  14:42:00.880  from execution 2  (step 139)
+    tick  14:42:01.899  from execution 2  (step 140)
+    tick  14:42:02.912  from execution 2  (step 141)
+    tick  14:42:04.026  from execution 2  (step 142)
+    tick  14:42:05.039  from execution 2  (step 143)
+    tick  14:42:06.056  from execution 2  (step 144)
+    tick  14:42:07.088  from execution 2  (step 145)
+    tick  14:42:08.096  from execution 2  (step 146)
+    tick  14:42:09.103  from execution 2  (step 147)
+    tick  14:42:10.119  from execution 2  (step 148)
+14:42:08.985 [+60s] exec 2 | API: canceled 2026-10-29T14:41:09.444Z | Postgres: canceled|2026-10-29 14:41:09.444+00 | Bull active: 2 | sink ticks since stop: 59, last i=148 at +61.28 s
+    tick  14:42:11.131  from execution 2  (step 149)
+    tick  14:42:12.144  from execution 2  (step 150)
+    tick  14:42:13.159  from execution 2  (step 151)
+    tick  14:42:14.173  from execution 2  (step 152)
+    tick  14:42:15.186  from execution 2  (step 153)
+    tick  14:42:16.194  from execution 2  (step 154)
+    tick  14:42:17.340  from execution 2  (step 155)
+    tick  14:42:18.726  from execution 2  (step 156)
+    tick  14:42:19.732  from execution 2  (step 157)
+    tick  14:42:20.737  from execution 2  (step 158)
+    tick  14:42:21.743  from execution 2  (step 159)
+    tick  14:42:22.750  from execution 2  (step 160)
+    tick  14:42:23.755  from execution 2  (step 161)
+    tick  14:42:24.762  from execution 2  (step 162)
+    tick  14:42:25.769  from execution 2  (step 163)
+    tick  14:42:26.774  from execution 2  (step 164)
+    tick  14:42:27.782  from execution 2  (step 165)
+    tick  14:42:28.787  from execution 2  (step 166)
+    tick  14:42:29.801  from execution 2  (step 167)
+    tick  14:42:30.813  from execution 2  (step 168)
+    tick  14:42:31.821  from execution 2  (step 169)
+    tick  14:42:32.827  from execution 2  (step 170)
+    tick  14:42:33.834  from execution 2  (step 171)
+    tick  14:42:34.845  from execution 2  (step 172)
+    tick  14:42:35.853  from execution 2  (step 173)
+    tick  14:42:36.857  from execution 2  (step 174)
+    tick  14:42:37.862  from execution 2  (step 175)
+    tick  14:42:38.868  from execution 2  (step 176)
+    tick  14:42:39.874  from execution 2  (step 177)
+    tick  14:42:40.879  from execution 2  (step 178)
+    tick  14:42:41.882  from execution 2  (step 179)
+    tick  14:42:42.887  from execution 2  (step 180)
+    tick  14:42:43.903  from execution 2  (step 181)
+    tick  14:42:44.915  from execution 2  (step 182)
+    tick  14:42:45.924  from execution 2  (step 183)
+    tick  14:42:46.936  from execution 2  (step 184)
+    tick  14:42:47.943  from execution 2  (step 185)
+    tick  14:42:48.950  from execution 2  (step 186)
+    tick  14:42:49.955  from execution 2  (step 187)
+    tick  14:42:50.961  from execution 2  (step 188)
+    tick  14:42:51.966  from execution 2  (step 189)
+    tick  14:42:52.977  from execution 2  (step 190)
+    tick  14:42:53.983  from execution 2  (step 191)
+    tick  14:42:54.989  from execution 2  (step 192)
+    tick  14:42:55.998  from execution 2  (step 193)
+    tick  14:42:57.004  from execution 2  (step 194)
+    tick  14:42:58.010  from execution 2  (step 195)
+    tick  14:42:59.018  from execution 2  (step 196)
+    tick  14:43:00.029  from execution 2  (step 197)
+    tick  14:43:01.036  from execution 2  (step 198)
+    tick  14:43:02.042  from execution 2  (step 199)
+    tick  14:43:03.050  from execution 2  (step 200)
+    tick  14:43:04.070  from execution 2  (step 201)
+    tick  14:43:05.077  from execution 2  (step 202)
+    tick  14:43:06.091  from execution 2  (step 203)
+    tick  14:43:07.099  from execution 2  (step 204)
+    tick  14:43:08.115  from execution 2  (step 205)
+    tick  14:43:09.202  from execution 2  (step 206)
+    tick  14:43:10.224  from execution 2  (step 207)
+14:43:08.903 [+120s] exec 2 | API: canceled 2026-10-29T14:41:09.444Z | Postgres: canceled|2026-10-29 14:41:09.444+00 | Bull active: 2 | sink ticks since stop: 118, last i=207 at +121.39 s
+14:43:10.867 second stop on B: {"message":"Only running or waiting executions can be stopped and 2 is currently canceled"} [HTTP 409]
+== 14:43:10.889 waiting until 330 s after run B started (n8n's default task timeout is 300 s)
+    tick  14:43:11.231  from execution 2  (step 208)
+    tick  14:43:12.239  from execution 2  (step 209)
+    tick  14:43:13.246  from execution 2  (step 210)
+    tick  14:43:14.266  from execution 2  (step 211)
+    tick  14:43:15.273  from execution 2  (step 212)
+    tick  14:43:16.281  from execution 2  (step 213)
+    tick  14:43:17.288  from execution 2  (step 214)
+    tick  14:43:18.291  from execution 2  (step 215)
+    tick  14:43:19.302  from execution 2  (step 216)
+    tick  14:43:20.308  from execution 2  (step 217)
+    tick  14:43:21.315  from execution 2  (step 218)
+    tick  14:43:22.320  from execution 2  (step 219)
+    tick  14:43:23.332  from execution 2  (step 220)
+    tick  14:43:24.342  from execution 2  (step 221)
+    tick  14:43:25.347  from execution 2  (step 222)
+    tick  14:43:26.351  from execution 2  (step 223)
+    tick  14:43:27.356  from execution 2  (step 224)
+    tick  14:43:28.365  from execution 2  (step 225)
+    tick  14:43:29.374  from execution 2  (step 226)
+    tick  14:43:30.393  from execution 2  (step 227)
+    tick  14:43:31.406  from execution 2  (step 228)
+    tick  14:43:32.413  from execution 2  (step 229)
+    tick  14:43:33.421  from execution 2  (step 230)
+    tick  14:43:34.425  from execution 2  (step 231)
+    tick  14:43:35.431  from execution 2  (step 232)
+    tick  14:43:36.443  from execution 2  (step 233)
+    tick  14:43:37.454  from execution 2  (step 234)
+    tick  14:43:38.462  from execution 2  (step 235)
+    tick  14:43:39.489  from execution 2  (step 236)
+    tick  14:43:40.493  from execution 2  (step 237)
+    tick  14:43:41.496  from execution 2  (step 238)
+    tick  14:43:42.504  from execution 2  (step 239)
+    tick  14:43:43.511  from execution 2  (step 240)
+    tick  14:43:44.518  from execution 2  (step 241)
+    tick  14:43:45.524  from execution 2  (step 242)
+    tick  14:43:46.531  from execution 2  (step 243)
+    tick  14:43:47.536  from execution 2  (step 244)
+    tick  14:43:48.539  from execution 2  (step 245)
+    tick  14:43:49.552  from execution 2  (step 246)
+    tick  14:43:50.558  from execution 2  (step 247)
+    tick  14:43:51.579  from execution 2  (step 248)
+    tick  14:43:52.585  from execution 2  (step 249)
+    tick  14:43:53.590  from execution 2  (step 250)
+    tick  14:43:54.613  from execution 2  (step 251)
+    tick  14:43:55.622  from execution 2  (step 252)
+    tick  14:43:56.628  from execution 2  (step 253)
+    tick  14:43:57.633  from execution 2  (step 254)
+    tick  14:43:58.637  from execution 2  (step 255)
+    tick  14:43:59.651  from execution 2  (step 256)
+    tick  14:44:00.659  from execution 2  (step 257)
+    tick  14:44:01.664  from execution 2  (step 258)
+    tick  14:44:02.691  from execution 2  (step 259)
+    tick  14:44:03.707  from execution 2  (step 260)
+    tick  14:44:04.715  from execution 2  (step 261)
+    tick  14:44:05.723  from execution 2  (step 262)
+    tick  14:44:06.728  from execution 2  (step 263)
+    tick  14:44:07.755  from execution 2  (step 264)
+    tick  14:44:08.762  from execution 2  (step 265)
+    tick  14:44:09.769  from execution 2  (step 266)
+    tick  14:44:10.780  from execution 2  (step 267)
+    tick  14:44:11.822  from execution 2  (step 268)
+    tick  14:44:12.843  from execution 2  (step 269)
+    tick  14:44:13.868  from execution 2  (step 270)
+    tick  14:44:14.880  from execution 2  (step 271)
+    tick  14:44:15.890  from execution 2  (step 272)
+    tick  14:44:16.896  from execution 2  (step 273)
+    tick  14:44:17.901  from execution 2  (step 274)
+    tick  14:44:18.923  from execution 2  (step 275)
+    tick  14:44:19.929  from execution 2  (step 276)
+    tick  14:44:20.934  from execution 2  (step 277)
+    tick  14:44:21.943  from execution 2  (step 278)
+    tick  14:44:22.955  from execution 2  (step 279)
+    tick  14:44:23.986  from execution 2  (step 280)
+    tick  14:44:24.994  from execution 2  (step 281)
+    tick  14:44:26.001  from execution 2  (step 282)
+    tick  14:44:27.008  from execution 2  (step 283)
+    tick  14:44:28.019  from execution 2  (step 284)
+    tick  14:44:29.024  from execution 2  (step 285)
+    tick  14:44:30.032  from execution 2  (step 286)
+    tick  14:44:31.036  from execution 2  (step 287)
+    tick  14:44:32.043  from execution 2  (step 288)
+    tick  14:44:33.051  from execution 2  (step 289)
+    tick  14:44:34.067  from execution 2  (step 290)
+    tick  14:44:35.076  from execution 2  (step 291)
+    tick  14:44:36.083  from execution 2  (step 292)
+14:45:09.449 [run start +330s] exec 2 | API: canceled 2026-10-29T14:41:09.444Z | Postgres: canceled|2026-10-29 14:41:09.444+00 | Bull active: | sink ticks since stop: 204, last i=292 at +207.25 s
+sink ticks from run B in the 30 s before this read: 0
+== worker log lines naming a stop, abort, cancel or task timeout
+9:14:38:04.513   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+23:[33m - N8N_RUNNERS_TASK_TIMEOUT -> The default for this variable will be reduced from 300 (5 minutes) to 60 (1 minute) in a future version. Set it explicitly to keep your current task timeout.[39m
+52:14:38:05.189   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+104:14:38:07.860   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+137:14:38:32.808   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+139:14:38:33.034   [34mdebug[39m   [34mSave execution data to database for execution ID 1[39m { "executionId": "1", "workflowId": "TTYxidkkJvCdOM50", "finished": false, "stoppedAt": "2026-10-29T14: 38: 32.999Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+140:14:38:33.097   [31merror[39m   [31mTask cancelled: Task cancelled by user[39m { "file": "error-reporter.js", "function": "defaultReport" }
+142:14:38:33.366   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "tags": { }, "message": "Task cancelled:  Task cancelled by user", "stack": "Error:  Task cancelled:  Task cancelled by user\n    at LocalTaskRequester.cancelTask (/opt/n8n-2.41.7/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 245: 24)\n    at LocalTaskRequester.cancelTasks (/opt/n8n-2.41.7/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 223: 9)\n    at EventService.<anonymous> (/opt/n8n-2.41.7/node_modules/n8n/src/task-runners/task-runner-module.ts: 61: 24)\n    at EventService.emit (node: events: 526: 24)\n    at EventService.emit (/opt/n8n-2.41.7/node_modules/@n8n/backend-common/src/typed-emitter.ts: 39: 16)\n    at JobProcessor.cancelJob (/opt/n8n-2.41.7/node_modules/n8n/src/scaling/job-processor.ts: 567: 21)\n    at JobProcessor.stopJob (/opt/n8n-2.41.7/node_modules/n8n/src/scaling/job-processor.ts: 559: 8)\n    at Queue.<anonymous> (/opt/n8n-2.41.7/node_modules/n8n/src/scaling/scaling.service.ts: 460: 52)\n    at Queue.emit (node: events: 514: 28)\n    at Object.module.exports.emitSafe (/opt/n8n-2.41.7/node_modules/bull/lib/utils.js: 50: 20)" }, "workflowId": "TTYxidkkJvCdOM50", "file": "logger-proxy.js", "function": "exports.debug" }
+144:14:38:33.408   [31merror[39m   [31mWorker errored while running execution 1 (job 1)[39m { "scopes": ["scaling"], "error": { "name": "ManualExecutionCancelledError", "message": "The execution was cancelled manually", "stack": "ManualExecutionCancelledError:  The execution was cancelled manually\n    at JobProcessor.processJob (/opt/n8n-2.41.7/node_modules/n8n/src/scaling/job-processor.ts: 405: 7)\n    at processTicksAndRejections (node: internal/process/task_queues: 104: 5)\n    at Queue.<anonymous> (/opt/n8n-2.41.7/node_modules/n8n/src/scaling/scaling.service.ts: 181: 5)" }, "executionId": "1", "jobId": "1", "file": "scaling.service.js", "function": "reportJobProcessingError" }
+162:14:41:09.502   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+173:14:44:36.389   [33mwarn[39m    [33mTask runner timed out during task, restarting...[39m { "scopes": ["task-runner-js"], "file": "task-runner-process-base.js", "function": "restartIfOwnRunner" }
+174:14:44:36.422   [31merror[39m   [31mTask execution timed out after 300 seconds[39m { "file": "error-reporter.js", "function": "defaultReport" }
+176:14:44:36.613   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "description": "The task runner was taking too long on this task, so it was suspected of being unresponsive and restarted, and the task was aborted. You can try the following: <br/><br/>1. Optimize your script to prevent long-running tasks, e.g. by processing data in smaller batches.<br/>2. Ensure that all paths in your script are able to terminate, i.e. no infinite loops.<br/>3. If your task can reasonably take more than 300 seconds, increase the timeout using the N8N_RUNNERS_TASK_TIMEOUT environment variable.", "tags": { }, "message": "Task execution timed out after 300 seconds", "stack": "Error:  Task execution timed out after 300 seconds\n    at TaskBroker.handleTaskTimeout (/opt/n8n-2.41.7/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 647: 7)\n    at Timeout.<anonymous> (/opt/n8n-2.41.7/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 606: 15)\n    at listOnTimeout (node: internal/timers: 685: 17)\n    at processTimers (node: internal/timers: 618: 7)" }, "workflowId": "TTYxidkkJvCdOM50", "file": "logger-proxy.js", "function": "exports.debug" }
+178:14:44:36.643   [34mdebug[39m   [34mSave execution data to database for execution ID 2[39m { "executionId": "2", "workflowId": "TTYxidkkJvCdOM50", "finished": false, "stoppedAt": "2026-10-29T14: 44: 36.622Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+== main log lines naming recovery, crashed, stop or abort
+10:14:37:42.325   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+16:14:37:42.418   [33mwarn[39m    [33mMigrations in progress, please do NOT stop the process.[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+21:14:37:42.446   [32minfo[39m    [32mStarting migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+22:14:37:42.447   [32minfo[39m    [32mFinished migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+23:14:37:42.448   [32minfo[39m    [32mStarting migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+24:14:37:42.449   [32minfo[39m    [32mFinished migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+847:14:37:58.073   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+848:14:37:58.074   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+871:14:37:58.145   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+872:14:37:58.146   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+959:14:38:32.702   [34mdebug[39m   [34mCancelling execution[39m { "executionId": "1", "reason": "manual", "file": "active-executions.js", "function": "stopExecution" }
+960:14:38:32.740   [34mdebug[39m   [34mExecution cancelled[39m { "executionId": "1", "file": "active-executions.js", "function": "stopExecution" }
+962:14:38:32.949   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+963:14:38:32.981   [34mdebug[39m   [34mSent abort signal to worker[39m { "scopes": ["scaling"], "jobId": "1", "executionId": "1", "file": "scaling.service.js", "function": "stopJob" }
+981:14:40:00.362   [34mdebug[39m   [34mShutting down component "ScalingService.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+983:14:40:00.416   [34mdebug[39m   [34mQueue recovery stopped[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "stopQueueRecovery" }
+987:14:40:00.552   [34mdebug[39m   [34mShutting down component "DurableScheduler.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+989:14:40:01.040   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "file": "system-task-runner.js", "function": "stopTimers" }
+995:14:40:01.257   [34mdebug[39m   [34mStopped hard-deletion timer[39m { "scopes": ["pruning"], "file": "executions-pruning.service.js", "function": "stopPruning" }
+996:14:40:01.258   [34mdebug[39m   [34mShutting down component "WorkflowHistoryCompactionService.stopStartupCompaction()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1009:14:40:03.143   [34mdebug[39m   [34mShutting down component "TaskRunnerModule.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1010:14:40:03.546   [34mdebug[39m   [34mShutting down component "TaskRunnerProcessBase.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1014:14:40:05.299   [34mdebug[39m   [34mShutting down component "AgentTaskService.stopAll()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1015:14:40:05.625   [34mdebug[39m   [34mShutting down component "DiscordIntegration.stopAllGateways()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1018:14:40:05.836   [34mdebug[39m   [34mStopped outbox polling[39m { "scopes": ["workflow-publication"], "file": "workflow-publication-outbox-consumer.js", "function": "stopPolling" }
+1025:14:40:13.954   [34mdebug[39m   [34mStopped flushing timer[39m { "scopes": ["insights"], "file": "insights-collection.service.js", "function": "stopFlushingTimer" }
+1030:14:40:14.234   [32minfo[39m    [32m[runner:js] Task runner stopped[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+1031:14:40:14.657   [34mdebug[39m   [34mShutting down component "Telemetry.stopTracking()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1033:[32mStopping n8n...[39m { "file": "start.js", "function": "stopProcess" }
+1034:14:40:14.685   [34mdebug[39m   [34mStopped tracking waiting executions[39m { "scopes": ["waiting-executions"], "file": "wait-tracker.js", "function": "stopTracking" }
+1069:14:40:54.976   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+1337:14:41:07.446   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1338:14:41:07.518   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1339:14:41:07.524   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+1340:14:41:07.524   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1423:14:41:09.432   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+== Verdict (rule at the top of this script)
+control: stop A HTTP 200, ticks from A between +5 s and +60 s: 0 -> yes
+1. stop B HTTP 200, status canceled -> yes
+2. at +5 s API canceled, Postgres canceled -> yes
+3. ticks from B between +30 s and +60 s: 29 -> yes
+4. Bull active at +60 s: 2 -> yes
+P1 REPRODUCED
+### step 3: tear down and archive
+archived to /root/n8n-repro-20261029T144516Z.tgz
+### 2026-10-29T14:45:17Z  recording finished
+exit=0 end 2026-10-29T14:45:17Z
+ls: cannot access '/srv/n8n-repro': No such file or directory
+-rw-r--r-- 1 root root 44719 Oct 29 14:45 /root/n8n-repro-20261029T144516Z.tgz

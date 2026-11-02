@@ -1,0 +1,2872 @@
+{
+ "batch": "20261029T184003Z",
+ "integrity": {
+  "files_checked": 501,
+  "files_mismatched": [],
+  "clients_unchanged": true
+ },
+ "runs": [
+  {
+   "run_id": "p01-claude-2.1.308-esc",
+   "client": "claude-2.1.308",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299214.4209251,
+   "cancel": true,
+   "cancel_rel": 0.067,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p02-claude-2.1.308-bg-stop",
+   "client": "claude-2.1.308",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793299234.6570725,
+   "cancel": true,
+   "cancel_rel": 0.034,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task kkoqwmcaz and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"kkoqwmcaz\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: kkoqwmcaz (probe/slow)\\\",\\\"task_id\\\":\\\"kkoqwmcaz\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p03-codex-0.165.0-alpha.1-sigterm",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299254.5729005,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1611 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      13.984,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.0,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p04-claude-2.1.310-sigterm",
+   "client": "claude-2.1.310",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299280.9902265,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.011
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.014
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.1,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p05-claude-2.1.310-bg-stop",
+   "client": "claude-2.1.310",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793299301.7128477,
+   "cancel": true,
+   "cancel_rel": 0.039,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task k5y0d3lym and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"k5y0d3lym\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: k5y0d3lym (probe/slow)\\\",\\\"task_id\\\":\\\"k5y0d3lym\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p06-codex-0.164.0-sigterm",
+   "client": "codex-0.164.0",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299322.1682084,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1681 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      13.99,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.001,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p07-claude-2.1.308-esc",
+   "client": "claude-2.1.308",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299348.8432033,
+   "cancel": true,
+   "cancel_rel": 0.067,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p08-claude-2.1.308-sigterm",
+   "client": "claude-2.1.308",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299368.2043502,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.013
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.017
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.101,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p09-codex-0.164.0-timeout",
+   "client": "codex-0.164.0",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299391.5839934,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0044 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p10-codex-0.165.0-alpha.1-timeout",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299413.2489846,
+   "cancel": true,
+   "cancel_rel": 0.002,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0052 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p11-codex-0.164.0-timeout",
+   "client": "codex-0.164.0",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299435.5429878,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0036 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p12-claude-2.1.310-sigterm",
+   "client": "claude-2.1.310",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299455.2314343,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.011
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.015
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.101,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p13-claude-2.1.308-quit",
+   "client": "claude-2.1.308",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299475.650335,
+   "cancel": true,
+   "cancel_rel": 0.02,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.615
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.619
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.703,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p14-codex-0.165.0-alpha.1-esc",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299496.6060543,
+   "cancel": true,
+   "cancel_rel": 0.003,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "reason 'tool call response future dropped'",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p15-claude-2.1.308-sigterm",
+   "client": "claude-2.1.308",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299515.6081734,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.012
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.015
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.101,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p16-codex-0.165.0-alpha.1-timeout",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299538.344133,
+   "cancel": true,
+   "cancel_rel": 0.001,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0033 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p17-codex-0.164.0-timeout",
+   "client": "codex-0.164.0",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299560.6357443,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0036 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p18-codex-0.164.0-esc",
+   "client": "codex-0.164.0",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299581.0675154,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p19-codex-0.165.0-alpha.1-quit",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299600.9151268,
+   "cancel": true,
+   "cancel_rel": 0.504,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.602,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.602,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p20-claude-2.1.310-sigterm",
+   "client": "claude-2.1.310",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299627.66438,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.012
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.015
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.101,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p21-codex-0.165.0-alpha.1-quit",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299648.6158423,
+   "cancel": true,
+   "cancel_rel": 0.504,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.603,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.602,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p22-claude-2.1.310-timeout",
+   "client": "claude-2.1.310",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793299676.819978,
+   "cancel": true,
+   "cancel_rel": 0.027,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p23-claude-2.1.310-bg-stop",
+   "client": "claude-2.1.310",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793299697.0729363,
+   "cancel": true,
+   "cancel_rel": 0.039,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task kfs9drkwp and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"kfs9drkwp\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: kfs9drkwp (probe/slow)\\\",\\\"task_id\\\":\\\"kfs9drkwp\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p24-codex-0.164.0-quit",
+   "client": "codex-0.164.0",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299717.6091394,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.603,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p25-claude-2.1.310-control",
+   "client": "claude-2.1.310",
+   "path": "control",
+   "call_seen": true,
+   "t_stop": null,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": 13.957,
+   "markers_after_stop": null,
+   "work": "finished and replied",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "tool finished and result sent",
+     true
+    ],
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p26-claude-2.1.308-control",
+   "client": "claude-2.1.308",
+   "path": "control",
+   "call_seen": true,
+   "t_stop": null,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": 13.959,
+   "markers_after_stop": null,
+   "work": "finished and replied",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "tool finished and result sent",
+     true
+    ],
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p27-codex-0.164.0-quit",
+   "client": "codex-0.164.0",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299791.7566297,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.603,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.602,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p28-claude-2.1.308-sigterm",
+   "client": "claude-2.1.308",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793299818.6099257,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.016
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.024
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Resume this session"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.101,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p29-claude-2.1.310-quit",
+   "client": "claude-2.1.310",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299839.0873659,
+   "cancel": true,
+   "cancel_rel": 0.019,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.616
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.618
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.703,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p30-claude-2.1.310-quit",
+   "client": "claude-2.1.310",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299859.5826926,
+   "cancel": true,
+   "cancel_rel": 0.021,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.616
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.62
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.704,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p31-codex-0.165.0-alpha.1-quit",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299880.5450847,
+   "cancel": true,
+   "cancel_rel": 0.504,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.603,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.602,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p32-codex-0.164.0-esc",
+   "client": "codex-0.164.0",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299908.0634677,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p33-claude-2.1.310-esc",
+   "client": "claude-2.1.310",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793299927.1069443,
+   "cancel": true,
+   "cancel_rel": 0.069,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p34-codex-0.164.0-quit",
+   "client": "codex-0.164.0",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299947.4904914,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "stopped",
+    "Disconnected from this task",
+    "The current turn was stopped",
+    "Task is still running",
+    "Run in background",
+    "codex resume",
+    "Shutting down"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.602,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.602,
+     "menu",
+     "Down Down Enter (3. Exit)"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p35-codex-0.164.0-control",
+   "client": "codex-0.164.0",
+   "path": "control",
+   "call_seen": true,
+   "t_stop": null,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": 13.961,
+   "markers_after_stop": null,
+   "work": "finished and replied",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1718 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "tool finished and result sent",
+     true
+    ],
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p36-claude-2.1.308-quit",
+   "client": "claude-2.1.308",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793299998.1454115,
+   "cancel": true,
+   "cancel_rel": 0.017,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.615
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.618
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.703,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p37-claude-2.1.310-esc",
+   "client": "claude-2.1.310",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300018.62662,
+   "cancel": true,
+   "cancel_rel": 0.069,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p38-claude-2.1.308-timeout",
+   "client": "claude-2.1.308",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300039.2294993,
+   "cancel": true,
+   "cancel_rel": 0.034,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p39-codex-0.165.0-alpha.1-esc",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300059.1197588,
+   "cancel": true,
+   "cancel_rel": 0.003,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "reason 'tool call response future dropped'",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p40-codex-0.165.0-alpha.1-sigterm",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793300078.9130797,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1701 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      13.995,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.0,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p41-codex-0.165.0-alpha.1-sigterm",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793300105.8244634,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1748 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      14.007,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.001,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p42-claude-2.1.308-esc",
+   "client": "claude-2.1.308",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300132.5393503,
+   "cancel": true,
+   "cancel_rel": 0.07,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p43-codex-0.165.0-alpha.1-control",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "control",
+   "call_seen": true,
+   "t_stop": null,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": 13.955,
+   "markers_after_stop": null,
+   "work": "finished and replied",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1645 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "tool finished and result sent",
+     true
+    ],
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p44-claude-2.1.310-timeout",
+   "client": "claude-2.1.310",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300177.3903267,
+   "cancel": true,
+   "cancel_rel": 0.026,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p45-codex-0.164.0-sigterm",
+   "client": "codex-0.164.0",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793300197.8739226,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1640 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      13.988,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.0,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p46-claude-2.1.310-timeout",
+   "client": "claude-2.1.310",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300226.3769755,
+   "cancel": true,
+   "cancel_rel": 0.026,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p47-claude-2.1.308-timeout",
+   "client": "claude-2.1.308",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300246.9606469,
+   "cancel": true,
+   "cancel_rel": 0.034,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p48-claude-2.1.308-bg-stop",
+   "client": "claude-2.1.308",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793300266.9137628,
+   "cancel": true,
+   "cancel_rel": 0.018,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task kax936m47 and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"kax936m47\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: kax936m47 (probe/slow)\\\",\\\"task_id\\\":\\\"kax936m47\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p49-claude-2.1.310-esc",
+   "client": "claude-2.1.310",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300286.0024607,
+   "cancel": true,
+   "cancel_rel": 0.084,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p50-claude-2.1.308-quit",
+   "client": "claude-2.1.308",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793300304.7244446,
+   "cancel": true,
+   "cancel_rel": 0.016,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.616
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.619
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.703,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.603,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p51-codex-0.164.0-esc",
+   "client": "codex-0.164.0",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300326.2811272,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p52-codex-0.165.0-alpha.1-esc",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "esc",
+   "call_seen": true,
+   "t_stop": 1793300346.1484697,
+   "cancel": true,
+   "cancel_rel": 0.003,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "\"aborted by user after 1.2s\"",
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "Conversation interrupted",
+    "Error"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Esc"
+    ]
+   ],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "reason 'tool call response future dropped'",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p53-codex-0.164.0-sigterm",
+   "client": "codex-0.164.0",
+   "path": "sigterm",
+   "call_seen": true,
+   "t_stop": 1793300366.6380427,
+   "cancel": false,
+   "cancel_rel": null,
+   "cancel_reason": null,
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 15.1663 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"done\"}]",
+   "told_stop": null,
+   "shown": [
+    "Terminated"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": true,
+    "server_events_after_exit": [
+     "child_exited",
+     "result_sent"
+    ],
+    "requests_after_exit": [
+     [
+      13.989,
+      "text",
+      [
+       "slow"
+      ]
+     ]
+    ],
+    "markers_after_exit": 27
+   },
+   "client_exit_rel_action": 0.0,
+   "client_exit_code": 143,
+   "actions": [
+    [
+     0.0,
+     "signal",
+     "SIGTERM"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     true
+    ],
+    [
+     "SIGTERM to the server",
+     false
+    ],
+    [
+     "child killed",
+     false
+    ]
+   ]
+  },
+  {
+   "run_id": "p54-claude-2.1.310-bg-stop",
+   "client": "claude-2.1.310",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793300393.9392488,
+   "cancel": true,
+   "cancel_rel": 0.04,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task k5g6lnq12 and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"k5g6lnq12\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: k5g6lnq12 (probe/slow)\\\",\\\"task_id\\\":\\\"k5g6lnq12\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p55-claude-2.1.310-quit",
+   "client": "claude-2.1.310",
+   "path": "quit",
+   "call_seen": true,
+   "t_stop": 1793300413.8368888,
+   "cancel": true,
+   "cancel_rel": 0.021,
+   "cancel_reason": "AbortError: user-cancel",
+   "cancel_late": false,
+   "signals": [
+    [
+     "SIGINT",
+     0.616
+    ]
+   ],
+   "stdin_eof_rel": null,
+   "server_exit": [
+    "SIGINT",
+    0.619
+   ],
+   "result_sent_rel": null,
+   "markers_after_stop": 19,
+   "work": "NOT STOPPED",
+   "told_slow": null,
+   "told_stop": null,
+   "shown": [
+    "Interrupted",
+    "What should Claude do instead",
+    "Resume this session",
+    "Press Ctrl-C again to exit"
+   ],
+   "after_exit": {
+    "tool_finished_after_exit": false,
+    "server_events_after_exit": [],
+    "requests_after_exit": [],
+    "markers_after_exit": 26
+   },
+   "client_exit_rel_action": 0.704,
+   "client_exit_code": 0,
+   "actions": [
+    [
+     0.0,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.302,
+     "key",
+     "Ctrl+C"
+    ],
+    [
+     0.604,
+     "key",
+     "Ctrl+C"
+    ]
+   ],
+   "predictions": [
+    [
+     "no cancel",
+     false
+    ],
+    [
+     "SIGINT to the server first",
+     true
+    ],
+    [
+     "child survives",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p56-codex-0.165.0-alpha.1-timeout",
+   "client": "codex-0.165.0-alpha.1",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300436.5799136,
+   "cancel": true,
+   "cancel_rel": 0.002,
+   "cancel_reason": "tool call response future dropped",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"input_text\", \"text\": \"Wall time: 3.0047 seconds\\nOutput:\"}, {\"type\": \"input_text\", \"text\": \"tool call error: tool call failed for `probe/slow`\\n\\nCaused by:\\n    timed out awaiting tools/call after 3s\"}]",
+   "told_stop": null,
+   "shown": [
+    "timed out"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p57-claude-2.1.308-timeout",
+   "client": "claude-2.1.308",
+   "path": "timeout",
+   "call_seen": true,
+   "t_stop": 1793300457.7348278,
+   "cancel": true,
+   "cancel_rel": 0.028,
+   "cancel_reason": "SdkError: Request timed out",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "\"MCP server \\\"probe\\\" tool \\\"slow\\\" timed out after 3s\"",
+   "told_stop": null,
+   "shown": [],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "model gets a timeout error",
+     true
+    ]
+   ]
+  },
+  {
+   "run_id": "p58-claude-2.1.308-bg-stop",
+   "client": "claude-2.1.308",
+   "path": "bg-stop",
+   "call_seen": true,
+   "t_stop": 1793300477.7246716,
+   "cancel": true,
+   "cancel_rel": 0.02,
+   "cancel_reason": "AbortError: The operation was aborted.",
+   "cancel_late": false,
+   "signals": [],
+   "stdin_eof_rel": null,
+   "server_exit": null,
+   "result_sent_rel": null,
+   "markers_after_stop": 18,
+   "work": "NOT STOPPED",
+   "told_slow": "[{\"type\": \"text\", \"text\": \"MCP tool \\\"probe/slow\\\" is still running after 2s. It was moved to the background as task kevauwu19 and keeps running; you'll receive a notification with the result when it completes. You can keep working in the meantime. To stop it, use TaskStop with task_id \\\"kevauwu19\\\". Note: it does not survive exiting this session.\"}]",
+   "told_stop": "\"{\\\"message\\\":\\\"Successfully stopped task: kevauwu19 (probe/slow)\\\",\\\"task_id\\\":\\\"kevauwu19\\\",\\\"task_type\\\":\\\"mcp_task\\\",\\\"command\\\":\\\"probe/slow\\\"}\"",
+   "shown": [
+    "stopped",
+    "Stop Task"
+   ],
+   "client_exit_rel_action": null,
+   "client_exit_code": null,
+   "actions": [],
+   "predictions": [
+    [
+     "cancel sent",
+     true
+    ],
+    [
+     "TaskStop reports success",
+     true
+    ]
+   ]
+  }
+ ],
+ "mismatches": [],
+ "excluded": [],
+ "predictions": {
+  "claude-2.1.308 / bg-stop": {
+   "cancel sent": "3/3",
+   "TaskStop reports success": "3/3"
+  },
+  "claude-2.1.308 / control": {
+   "tool finished and result sent": "1/1",
+   "no cancel": "1/1"
+  },
+  "claude-2.1.308 / esc": {
+   "cancel sent": "3/3"
+  },
+  "claude-2.1.308 / quit": {
+   "no cancel": "0/3",
+   "SIGINT to the server first": "3/3",
+   "child survives": "3/3"
+  },
+  "claude-2.1.308 / sigterm": {
+   "no cancel": "3/3",
+   "SIGINT to the server first": "3/3",
+   "child survives": "3/3"
+  },
+  "claude-2.1.308 / timeout": {
+   "cancel sent": "3/3",
+   "model gets a timeout error": "3/3"
+  },
+  "claude-2.1.310 / bg-stop": {
+   "cancel sent": "3/3",
+   "TaskStop reports success": "3/3"
+  },
+  "claude-2.1.310 / control": {
+   "tool finished and result sent": "1/1",
+   "no cancel": "1/1"
+  },
+  "claude-2.1.310 / esc": {
+   "cancel sent": "3/3"
+  },
+  "claude-2.1.310 / quit": {
+   "no cancel": "0/3",
+   "SIGINT to the server first": "3/3",
+   "child survives": "3/3"
+  },
+  "claude-2.1.310 / sigterm": {
+   "no cancel": "3/3",
+   "SIGINT to the server first": "3/3",
+   "child survives": "3/3"
+  },
+  "claude-2.1.310 / timeout": {
+   "cancel sent": "3/3",
+   "model gets a timeout error": "3/3"
+  },
+  "codex-0.164.0 / control": {
+   "tool finished and result sent": "1/1",
+   "no cancel": "1/1"
+  },
+  "codex-0.164.0 / esc": {
+   "no cancel": "3/3"
+  },
+  "codex-0.164.0 / quit": {
+   "no cancel": "3/3",
+   "SIGTERM to the server": "0/3",
+   "child killed": "0/3"
+  },
+  "codex-0.164.0 / sigterm": {
+   "no cancel": "3/3",
+   "SIGTERM to the server": "0/3",
+   "child killed": "0/3"
+  },
+  "codex-0.164.0 / timeout": {
+   "no cancel": "3/3",
+   "model gets a timeout error": "3/3"
+  },
+  "codex-0.165.0-alpha.1 / control": {
+   "tool finished and result sent": "1/1",
+   "no cancel": "1/1"
+  },
+  "codex-0.165.0-alpha.1 / esc": {
+   "cancel sent": "3/3",
+   "reason 'tool call response future dropped'": "3/3"
+  },
+  "codex-0.165.0-alpha.1 / quit": {
+   "no cancel": "0/3",
+   "SIGTERM to the server": "0/3",
+   "child killed": "0/3"
+  },
+  "codex-0.165.0-alpha.1 / sigterm": {
+   "no cancel": "3/3",
+   "SIGTERM to the server": "0/3",
+   "child killed": "0/3"
+  },
+  "codex-0.165.0-alpha.1 / timeout": {
+   "cancel sent": "3/3"
+  }
+ }
+}

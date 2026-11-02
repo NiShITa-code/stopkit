@@ -1,0 +1,26 @@
+{
+ "call_ids": [
+  "call_stopcheck_f_1",
+  "call_stopcheck_f_hold",
+  "call_stopcheck_f_kill"
+ ],
+ "host": "127.0.0.1",
+ "kill_prompt": "StopCheck OpenClaw spike: stop the planted background command.",
+ "pid": 3956,
+ "port": 18766,
+ "prompt": "StopCheck OpenClaw spike: run the scripted command.",
+ "recorder": {
+  "host": "127.0.0.1",
+  "port": 18799,
+  "tag_pattern": "\\btag=(stopcheck-f-[0-9a-f]{8}-[a-z0-9]{1,16})\\b"
+ },
+ "scenarios": {
+  "stopcheck-f-canary": "A: exec background:true canary -> B on a running session",
+  "stopcheck-f-echo": "A: exec echo (foreground) -> B on the marker",
+  "stopcheck-f-hold": "A: background canary -> H: foreground hold (awaitResults) -> B",
+  "stopcheck-f-kill": "K: process kill of the session in history -> B on the reported kill"
+ },
+ "script_sha256": "719dce8b54de7e0a6e3b6100bcc1aa5d98c37734d609d627e6364aff11aa9d96",
+ "started_mono_raw": 28463.563804505,
+ "started_wall": 1791959745.3409727
+}

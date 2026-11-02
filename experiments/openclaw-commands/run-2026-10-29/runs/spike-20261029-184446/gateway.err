@@ -1,0 +1,37 @@
+[gateway] startup phase: entry.run-main-import starting total=370.1ms
+[gateway] startup phase: entry.run-main-import 143.7ms total=513.8ms start=370.1ms
+[gateway] startup phase: cli.main.gateway-run-select-environment starting total=1873.1ms
+[gateway] startup phase: cli.main.gateway-run-select-environment 1021.6ms total=2894.7ms start=1873.1ms
+[gateway] startup phase: cli.main.gateway-run-imports starting total=2934.0ms
+[gateway] startup phase: cli.main.gateway-run-imports 9.5ms total=2943.5ms start=2934.0ms
+[gateway] startup phase: cli.main.gateway-run-pre-bootstrap starting total=2957.3ms
+[gateway] startup phase: cli.main.gateway-run-pre-bootstrap 11.4ms total=2968.7ms start=2957.3ms
+[gateway] startup phase: cli.main.gateway-run-bootstrap starting total=2968.9ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness starting total=3181.9ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness 4.7ms total=3186.6ms start=3181.9ms agentCount=1 schemaProcessCount=0 schemaInspectionCount=0 schemaSnapshotCount=0
+[gateway] startup phase: cli.bootstrap.admission.database-readiness starting total=5053.5ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness 1214.4ms total=6267.9ms start=5053.5ms agentCount=1 schemaProcessCount=0 schemaInspectionCount=0 schemaSnapshotCount=0
+[gateway] startup phase: cli.main.gateway-run-bootstrap 12624.0ms total=15592.9ms start=2968.9ms
+[gateway] startup phase: gateway.server-start-import starting total=17857.4ms
+[gateway] startup phase: gateway.server-start-import 1111.9ms total=18969.3ms start=17857.4ms
+2026-10-29T18:45:59.684+00:00 [gateway] Older local CLI/SDK versions can bypass Gateway state mutation routing. Use matching CLI/SDK and Gateway versions; legacy direct writers remain supported.
+2026-10-29T18:46:12.033+00:00 [session-sqlite] slow SQLite reclamation Worker operation pid=3890 threadId=0 isMainThread=true reclamationKind=maintenance-plan workerThreadId=14 elapsedMs=4581 outcome=resolved
+2026-10-29T18:46:19.017+00:00 [fetch-timeout] fetch timeout after 15000ms (elapsed 15011ms) operation=fetchWithSsrFGuard url=https://catalog.openclaw.ai/models/v2/catalog.json
+2026-10-29T18:46:20.842+00:00 [memory] memory_index_chunks_vec not updated — semantic vector embeddings unavailable — no vector dimensions resolved. Vector recall degraded. Further duplicate warnings suppressed.
+2026-10-29T18:46:25.669+00:00 [fetch-timeout] fetch timeout after 5000ms (elapsed 5000ms) operation=fetchWithSsrFGuard url=https://clawhub.ai/v1/feeds/plugins
+2026-10-29T18:46:30.183+00:00 [memory] memory_index_chunks_vec not updated — semantic vector embeddings unavailable — no vector dimensions resolved. Vector recall degraded. Further duplicate warnings suppressed.
+2026-10-29T18:47:12.825+00:00 [diagnostic] lane task error: lane=main durationMs=8239 error="This operation was aborted" errorName=AbortError taskKind=turn sessionKey=agent:main:stopcheck-f-s3 runId=06525cde-4364-4618-abe7-122c59346cb4
+2026-10-29T18:47:12.828+00:00 [diagnostic] lane task error: lane=session:agent:main:stopcheck-f-s3 durationMs=8245 error="This operation was aborted" errorName=AbortError taskKind=turn sessionKey=agent:main:stopcheck-f-s3 runId=06525cde-4364-4618-abe7-122c59346cb4
+2026-10-29T18:47:12.831+00:00 [model-fallback/decision] model fallback chain stopped: reason=caller_signal_aborted candidate=standin/stopcheck-f-hold errorName=AbortError
+[state/agent-db] agent database clean-close receipt: active-leases
+2026-10-29T18:48:24.873+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:48:54.947+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:49:25.005+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:49:55.078+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:50:25.144+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:50:55.201+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:51:25.269+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:51:55.329+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:52:25.400+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:52:55.464+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-29T18:53:09.802+00:00 [gateway] active-work drain timeout reached; proceeding with shutdown: backgroundExecSessions=2

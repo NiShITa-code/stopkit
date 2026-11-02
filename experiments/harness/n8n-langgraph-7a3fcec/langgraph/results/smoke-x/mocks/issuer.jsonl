@@ -1,0 +1,32 @@
+{"event": "issuer_started", "port": 8770, "sock": "/run/stopcheck/374/issuer.sock", "trial": null, "wall": 1791469729.1732073, "mono": 24.445444358}
+{"event": "key_issued", "key_id": "SMOKEX-L1-t1", "key": "key_68472147e154ec07", "trial": "SMOKEX-L1-t1", "wall": 1791469743.5748415, "mono": 38.847079194}
+{"event": "token_minted", "key": "key_68472147e154ec07", "token": "tok_0cec4e13054aaa20", "exp": 1791470643.590308, "trial": "SMOKEX-L1-t1", "wall": 1791469743.590324, "mono": 38.862560879}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469743.650634, "mono": 38.922870735}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469744.7310815, "mono": 40.003318512}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469744.752807, "mono": 40.025043353}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469745.7810977, "mono": 41.053334673}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469745.8077295, "mono": 41.079966379}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469746.8332202, "mono": 42.119706318}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469746.8560133, "mono": 42.142496679}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469747.891771, "mono": 43.178255656}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469747.9180145, "mono": 43.204498142}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469748.9496658, "mono": 44.236149403}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469748.9732704, "mono": 44.259753962}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469750.0395494, "mono": 45.32603302}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469750.0634217, "mono": 45.349905387}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469751.1009405, "mono": 46.387424535}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469751.126024, "mono": 46.412507492}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469752.158273, "mono": 47.4447594}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469752.1805375, "mono": 47.46702106}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469753.214752, "mono": 48.501235447}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469753.2369976, "mono": 48.523481548}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469754.265988, "mono": 49.552472238}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469754.288172, "mono": 49.574655518}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469755.3355837, "mono": 50.612648287}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469755.3611894, "mono": 50.638253462}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469756.4164119, "mono": 51.693476017}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469756.4406257, "mono": 51.717689638}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469805.913616, "mono": 98.967379544}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469836.3427725, "mono": 126.576246359}
+{"event": "check", "credential": "tok_0cec4e13054aaa20", "valid": true, "why": "token valid (minted before any revocation of its key is not re-checked)", "trial": null, "wall": 1791469836.3686392, "mono": 126.602112798}
+{"event": "check", "credential": "key_68472147e154ec07", "valid": true, "why": "key valid", "trial": null, "wall": 1791469836.3893476, "mono": 126.622821638}

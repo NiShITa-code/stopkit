@@ -1,0 +1,26 @@
+# Experiment C trial XC-screen-c-screen-1014-C6 (C6): exploratory screen
+
+- validity / trial validity: valid - valid
+- FAC / headline O2 x by commit: UNKNOWN - no read makes the O2 claim (some reads not evaluable)
+- FAC / headline O1 x by commit: false all-clear - CANCELED at rel 0.185 s; 4 declared effects after
+- M2 / claim: CANCELED - first closed read: CANCELED at rel 0.185 s (poll-1)
+- M2 / terminal status: CANCELED - last watch read: CANCELED
+- M3 / final landed: no - no final effect by the end of the watch
+- M4 / duplicates: none - 1 execution(s); steps posted by >1 execution: []; final effects: 0
+- M4 / duplicates visible in Temporal: no duplicates - max pending attempt 1; ActivityTaskStarted attempts []; markers 0
+- history / history omits an execution that produced effects: yes - 1 of 1 executions not recorded (ActivityTaskStarted attempts []; markers 0)
+- pending_on_closed / a closed run lists a pending activity: yes - 9 of 9 closed reads list pending activities
+- events / five events: info - accepted=accepted, state_changed=poll-1, work_ceased=None (bounded quiet=True, computation unresolved), effects_closed=not closed (obligation closed), evidence_sufficient=True
+- verified_stop / verified stop: unresolved - unresolved (execution 086b9f2bbdce2c96 (attempt 1): no independent ending evidence (no final effect; its worker is not shown dead); pending work attempt 1 reads CANCEL_REQUESTED at the end of the watch; no closed execution accounts for it)
+- twin / twin control: pass - status COMPLETED; effects {'accepted': 1, 'progress': 20, 'final': 1}; executions 1; attempts [1]
+- M1 / by commit, from the cancel: effects after - 4 declared effects committed after; kinds {'progress': 4}
+- M1 / by initiation, from the cancel: effects after - 4 declared effects initiated after
+- M1 / ambiguous, from the cancel: info - 0 arrived during the call
+- restart / in-watch restart 1 (server): resumed - resumed [1 declared effect(s) continued through the outage]
+- restart / durability probe: stayed ended - stayed ended
+- C6 / precondition: CANCELED before the SIGTERM: pass - CANCELED at c6-pre-1
+- C6 / effects during the outage: info - 2 work effects between the SIGTERM and readiness
+- C6 / final landed: no - no final effect by the end of the watch
+- C6 / after the restart: CANCELED - pending after restart: [('work', 'CANCEL_REQUESTED', 1, None)]
+- C6 / last event ID across the restart: unchanged - last event ID 22 before the SIGTERM (+0), 22 after
+- wall/monotonic clock recomputed from receiver.jsonl: passed; harness recorded: passed [a guard: record schema 2 and later]

@@ -1,0 +1,1984 @@
+{
+ "schema_version": 1,
+ "status": "DRAFT for the operator's review; not frozen",
+ "predicted_state_means": "M2 state at the t_stop+180s read (end of the watch), scorer vocabulary",
+ "prior_exposure": "Before these predictions were written, these records were inspected: the spike and feasibility runs in n8n/SPIKE-RESULTS.md (10 Oct spike C1-C4 and feasibility2 K0-K9; 11 Oct feasibility3 setup checks F1-F3); the 11 Oct fast smoke runs (b0, B1, B2, B3, B4b, B5; n8n/SMOKE-RUNS-2026-10-11.md); the 12 Oct preflight smoke runs (B0, PC); and the 12-13 Oct full-length pilots (B0, PC, B1, and three invalid B1r pilots, one of which sent its stop). Conditions whose results were seen are marked '[prior exposure: ...]' in their basis; cells whose expectation was also seen in a feasibility run are marked '[seen in feasibility: SPIKE-RESULTS <check>]' (B.8). The predictions are prospective only for new screen trials.",
+ "configuration": {
+  "n8n": "2.41.7",
+  "node": "24.21.0",
+  "postgres": "postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)",
+  "redis": "Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92",
+  "package_lock_sha256": "51d059ff044ab1102304277381acde09099a60f0044a8190a7463398513e0249",
+  "EXECUTIONS_MODE": "queue",
+  "N8N_RUNNERS_MODE": "internal",
+  "N8N_RUNNERS_MAX_CONCURRENCY": "16",
+  "N8N_RUNNERS_TASK_TIMEOUT": "2070",
+  "worker_concurrency": 10,
+  "NODES_EXCLUDE": "[\"n8n-nodes-base.localFileTrigger\",\"n8n-nodes-base.readWriteFile\"]",
+  "N8N_GRACEFUL_SHUTDOWN_TIMEOUT": "30 (configured)",
+  "N8N_LOG_LEVEL": "info",
+  "queue_lock_s": "60 (default)",
+  "lock_renew_s": "10 (default)",
+  "stalled_interval_s": "30 (default)",
+  "queue_recovery_interval": "180 (default)"
+ },
+ "conditions": {
+  "B0": {
+   "prediction": "No intervention: every long-lived carrier keeps running, finite ones end at their designed time.",
+   "basis": "workload design (harness_b.build_cfg, workflows_b.build_agent); calibration for every other condition [prior exposure: 12-13 Oct full-length pilots, 12 Oct preflight smoke and 11 Oct fast smoke]",
+   "refutation": "a long-lived carrier silent before its designed end",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "the agent's own Code-node loop (workflows_b.agent_loop_js, n_steps); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "Execute Workflow child with a long Code loop (workflows_b.build_children, code_loop_js); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "second Execute Workflow child loop (workflows_b.build_children); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "AI Agent child driven by the scripted stub for the whole lifetime (workflows_b._ai_child, ai_steps; stub_model.py)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "the agent loop's copied-key call each pass (workflows_b.agent_loop_js)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "stored-credential child, one HTTP Request node run per item (workflows_b.cred_store_child, cred_store_n = lifetime)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "slow request held open for PRE+WATCH+120 s by the out child (harness_b.build_cfg out_seconds; workflows_b.out_slow_js), served until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "PC": {
+   "prediction": "Positive control: everything inside n8n's units ends; work held outside them survives: the queue in Redis, the cron unit, the stand-ins. The database still says running (no writer left).",
+   "basis": "systemd kill semantics measured 10-11 Oct (SPIKE-RESULTS F1); n8n/SOURCE-FACTS-2.41.7.md (Crash recovery: no worker/main left to write a status) [prior exposure: 12-13 Oct full-length pilots and 12 Oct preflight smoke]",
+   "refutation": "any n8n-unit carrier still active after +5 s, or the Redis backlog gone",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc) [seen in feasibility: SPIKE-RESULTS K7 (after SIGKILL of main's and the worker's process groups the killed execution never pinged again)]",
+     "refutation": "a ping or accepted effect from the agent execution after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +5 s"
+    },
+    "sched": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "main SIGKILLed: the leader main that fires schedule triggers is gone, and the harness reads the published flag only through the API (harness_b.snapshot), which is down (API_UNAVAILABLE_DUE_TO_INTERVENTION, B.4); with no flag and no firing analyze_b.m2_state's sched branch returns unknown",
+     "refutation": "the +180 s read has a successful workflow read (workflows_active recorded) or an n8n_sched ping in the last 5 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +5 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "no WaitTracker (wait-tracker.js runs only on the leader main, which is killed), so the row still reads waiting with a past waitTill, which analyze_b.m2_state scores unknown ('waiting but overdue')",
+     "refutation": "at +180 s the wait_long row reads other than waiting with a past waitTill, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group)",
+     "refutation": "a ping from the AI Agent child after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "both units SIGKILLed, so no n8n process is left to start or write the queued (new) rows, and their jobs stay in Bull's wait list in the surviving Redis; analyze_b._fanout_state reads armed on any new row",
+     "refutation": "no fanout row reads new or waiting at the +180 s read"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "Execute Command child in the worker unit's cgroup, was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group) [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a bg ping after +5 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "setsid does not leave the cgroup; was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group) [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a det ping after +5 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit [seen in feasibility: SPIKE-RESULTS F1 (stopping or SIGKILLing the worker unit left the private cron unit and its job running)]",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group)",
+     "refutation": "an accepted cred_store effect after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which was SIGKILLed with its whole cgroup (systemctl kill --kill-whom=all; KillMode=control-group); the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B1": {
+   "prediction": "n8n's stop on the agent execution ends only that execution: the status reads canceled at once while its children, OS processes, schedule and outside work continue.",
+   "basis": "execution.service.js stopInScalingMode: main holds the agent's queue execution in its ActiveExecutions and cancels it (active-executions.js stopExecution -> workflow-runner.js enqueueExecution onCancel -> scaling.service.js stopJob sends abort-job, which the worker's job processor applies), then stopDuringRun writes canceled; n8n/SOURCE-FACTS-2.41.7.md (Stop): children are separate executions started with wait-for-completion off [prior exposure: 12-13 Oct full-length pilots and 11 Oct fast smoke]",
+   "refutation": "loop_node, sub, ai_agent, cred_store, out, bg or det ends within the watch, or the agent pings after +2 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "execution.service.js stopInScalingMode: main holds the agent's queue execution in its ActiveExecutions and cancels it (active-executions.js stopExecution -> workflow-runner.js enqueueExecution onCancel -> scaling.service.js stopJob sends abort-job, which the worker's job processor applies), then stopDuringRun writes canceled [seen in feasibility: SPIKE-RESULTS C2, K3 (a running Code-node execution stopped by POST /executions/{id}/stop: no ping after the reply, status canceled)]",
+     "refutation": "an agent ping after +2 s"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "a separate child execution in the worker's own ActiveExecutions (workflow-execute-additional-data.js executeWorkflow, wait for completion off); the stop names only the agent id, and the worker's stop-execution handler (execution-stop.service.js handleStopExecution) touches only that id",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "a separate child execution in the worker's own ActiveExecutions (workflow-execute-additional-data.js executeWorkflow, wait for completion off); the stop names only the agent id, and the worker's stop-execution handler (execution-stop.service.js handleStopExecution) touches only that id",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "a separate child execution in the worker's own ActiveExecutions (workflow-execute-additional-data.js executeWorkflow, wait for completion off); the stop names only the agent id, and the worker's stop-execution handler (execution-stop.service.js handleStopExecution) touches only that id",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "made by the aborted agent loop (see loop_steps)",
+     "refutation": "an accepted cred_use effect after +2 s"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "a separate child execution in the worker's own ActiveExecutions (workflow-execute-additional-data.js executeWorkflow, wait for completion off); the stop names only the agent id, and the worker's stop-execution handler (execution-stop.service.js handleStopExecution) touches only that id",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the request is held by the separate out child: a separate child execution in the worker's own ActiveExecutions (workflow-execute-additional-data.js executeWorkflow, wait for completion off); the stop names only the agent id, and the worker's stop-execution handler (execution-stop.service.js handleStopExecution) touches only that id",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B1r": {
+   "prediction": "After main restarts, the stop reaches a main that does not hold the execution: only the database row changes to canceled while the agent's own loop keeps running (a false status); separately, the preparatory restart's start-up queue recovery marks the in-worker child rows (loop_node, sub, wait_short, ai_agent, out, cred_store) crashed while they keep running (wait_short until its designed end).",
+   "basis": "n8n/SOURCE-FACTS-2.41.7.md (Stop): 'If the main that receives the stop does not hold the execution ... only the database row changes'; execution.service.js stopInScalingMode: the restarted main does not hold the agent in its ActiveExecutions, so it neither aborts nor removes the job; its stop-execution message reaches only the worker's ActiveExecutions (execution-stop.service.js handleStopExecution), which hold in-process children, not queue-job runs (scaling/job-processor.js keeps those in runningJobs, verified 12 Oct); stopDuringRun still writes canceled (untested); scaling.service.js recoverFromQueue runs at the restarted leader main's start-up and marks new or running rows without an active or waiting Bull job crashed [prior exposure: three full-length pilots, none valid: 12 Oct, the preparatory restart failed on timing; 12-13 Oct night, main restarted and the stop was sent, but the trial was invalid (the schedule had no pre-stop firing) and its record may have been inspected; 13 Oct, main was not ready by its restart deadline, so no stop was sent]",
+   "refutation": "the agent's own loop stops pinging within the watch",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "execution.service.js stopInScalingMode: the restarted main does not hold the agent in its ActiveExecutions, so it neither aborts nor removes the job; its stop-execution message reaches only the worker's ActiveExecutions (execution-stop.service.js handleStopExecution), which hold in-process children, not queue-job runs (scaling/job-processor.js keeps those in runningJobs, verified 12 Oct); stopDuringRun still writes canceled (untested)",
+     "refutation": "no agent ping (exec = agent id) in the last 5 s before the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "separate child execution; its row reads crashed from the restarted main's queue recovery (scaling.service.js recoverFromQueue) although it runs on",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "separate child execution; its row reads crashed from the restarted main's queue recovery (scaling.service.js recoverFromQueue) although it runs on",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "separate child execution; its row reads crashed from the restarted main's queue recovery (scaling.service.js recoverFromQueue) although it runs on",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "made by the still-running agent loop (see loop_steps)",
+     "refutation": "no accepted cred_use effect in the last 5 s before the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "separate child execution; its row reads crashed from the restarted main's queue recovery (scaling.service.js recoverFromQueue) although it runs on",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "held by the separate out child; its row reads crashed from the restarted main's queue recovery (scaling.service.js recoverFromQueue) although it runs on",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B2": {
+   "prediction": "The global stop of queued, running and waiting executions ends all n8n executions, including run B and the queued backlog, but not the schedule, OS processes, the cron line or outside work, nor the out child's open request.",
+   "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution); n8n/SOURCE-FACTS-2.41.7.md (Stop; Listing) [prior exposure: 11 Oct fast smoke (the backlog starved the agent; that setup has since changed)]",
+   "refutation": "an execution that existed at the stop (declared set, excluding schedule firings after the stop) is active after +5 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from loop_steps after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from loop_node after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from sub after +5 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from wait_short after +5 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from wait_long after +5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from ai_agent after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution) [seen in feasibility: SPIKE-RESULTS C4, K6 (stopping one queued execution removed its job and it read canceled)]",
+     "refutation": "a ping or accepted effect from fanout after +5 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from cred_use after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from cred_store after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's request is a Code-node helpers.httpRequest RPC run by the worker without the execution's cancel signal (n8n-core request-helpers/factory.js httpRequest; only httpRequestWithAuthentication sets abortSignal); cancelling the task does not abort the in-flight call and the worker stays up, so the stand-in serves it until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "a slow_client_gone or slow_end event for the out request at or before the +180 s read"
+    }
+   }
+  },
+  "B2s": {
+   "prediction": "Stopping only running and waiting executions leaves the queued backlog to run afterwards.",
+   "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution); stoppable statuses are filtered by the request (execution.repository.js findByStopExecutionsFilter), so queued (new) rows are not in the filter",
+   "refutation": "queued backlog jobs cancelled without starting",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from loop_steps after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from loop_node after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from sub after +5 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from wait_short after +5 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from wait_long after +5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from ai_agent after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the queued (new) rows are outside the status filter (execution.repository.js findByStopExecutionsFilter); once the parked jobs, the agent and B are aborted the worker takes the queued jobs, which park 45 s and finish (natural end after the stop; M3 shows the activity)",
+     "refutation": "no backlog start ping after the stop, or a fanout row not ended at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from cred_use after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "executions.public.controller.js stopManyExecutions -> execution.service.js stopMany: the requested statuses (queued -> new), workflowId all, stop() per id; main stops the queue jobs it holds (scaling.service.js stopJob: remove if waiting, abort-job if active) and publishes stop-execution, which the worker applies to the children in its ActiveExecutions (execution-stop.service.js handleStopExecution)",
+     "refutation": "a ping or accepted effect from cred_store after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's request is a Code-node helpers.httpRequest RPC run by the worker without the execution's cancel signal (n8n-core request-helpers/factory.js httpRequest; only httpRequestWithAuthentication sets abortSignal); cancelling the task does not abort the in-flight call and the worker stays up, so the stand-in serves it until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "a slow_client_gone or slow_end event for the out request at or before the +180 s read"
+    }
+   }
+  },
+  "B3": {
+   "prediction": "Unpublishing the agent workflow stops new triggers only; every running execution continues.",
+   "basis": "workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob [prior exposure: 11 Oct fast smoke]",
+   "refutation": "loop_steps, loop_node, sub, ai_agent, cred_use, cred_store or out ends within the watch",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent execution runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the loop_node child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the sub child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the AI Agent child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent loop's copied-key calls runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the cred_store child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's open request runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B4a": {
+   "prediction": "Archiving the agent workflow stops new triggers only; every running execution continues.",
+   "basis": "workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+   "refutation": "loop_steps, loop_node, sub, ai_agent, cred_use, cred_store or out ends within the watch",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent execution runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the loop_node child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the sub child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the AI Agent child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent loop's copied-key calls runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the cred_store child runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's open request runs on: workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B4b": {
+   "prediction": "Archive then delete: deleting the workflow (once the retried delete succeeds) hard-deletes its execution rows (the agent reads 404) and stops nothing; every running execution continues.",
+   "basis": "workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; workflow.service.js archive() and deactivateWorkflow() (the public unpublish) remove triggers only (active-workflow-manager.js remove); no workflow-lifecycle code calls ExecutionService.stop, ActiveExecutions.stopExecution or stopJob; the delete is retried while n8n is still unpublishing (11 Oct smoke: HTTP 409 'still being unpublished'; harness_b.do_delete_wf_retry) [prior exposure: 11 Oct fast smoke (delete refused with HTTP 409)]",
+   "refutation": "loop_node, sub, ai_agent, cred_store, out, bg or det ends within the watch, or the agent stops pinging",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "workflow.service.js delete(): activeWorkflowManager.remove + executionPersistence.hardDeleteByWorkflowId; no stop call, so the queue job runs on while its row is deleted (GET 404)",
+     "refutation": "no agent ping (exec = agent id) in the last 5 s before the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the loop_node child runs on: workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; this child's own workflow and row are untouched",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the sub child runs on: workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; this child's own workflow and row are untouched",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the AI Agent child runs on: workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; this child's own workflow and row are untouched",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "made by the still-running agent loop (see loop_steps)",
+     "refutation": "no accepted cred_use effect in the last 5 s before the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the cred_store child runs on: workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; this child's own workflow and row are untouched",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's open request runs on: workflow.service.js delete() (public deleteForPublicApi, force): activeWorkflowManager.remove when active and executionPersistence.hardDeleteByWorkflowId for the agent workflow only; no stop call; this child's own workflow and row are untouched",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B5": {
+   "prediction": "Deleting the stored credential stops the next use of that stored credential but not the copied key.",
+   "basis": "HttpRequestV3.node.js calls getCredentials('httpHeaderAuth') per item; credentials-helper.js getDecrypted -> getCredentialsEntity reads the database each time; cred_use carries a copied key [prior exposure: 11 Oct fast smoke (credential path built in; since changed)]",
+   "refutation": "cred_store keeps making accepted header-credential calls after the deletion",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "the agent's own Code-node loop (workflows_b.agent_loop_js, n_steps); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "Execute Workflow child with a long Code loop (workflows_b.build_children, code_loop_js); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "second Execute Workflow child loop (workflows_b.build_children); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "AI Agent child driven by the scripted stub for the whole lifetime (workflows_b._ai_child, ai_steps; stub_model.py)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "the key is copied into the agent's own code (workflows_b.agent_loop_js); deletion cannot reach it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "each HTTP Request run looks the credential up in the database with no cache (credentials-helper.js getCredentialsEntity), so the next run throws CredentialNotFoundError and the child ends with error",
+     "refutation": "accepted cred_store effects after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "C",
+     "basis": "slow request held open for PRE+WATCH+120 s by the out child (harness_b.build_cfg out_seconds; workflows_b.out_slow_js), served until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B6a": {
+   "prediction": "Revoking the key at the stand-in issuer (without cascade) makes further calls refused; n8n work continues.",
+   "basis": "stand-in issuer semantics (mocks_b.IssuerState.revoke/check; OutsideState.act and job check the key); instrument check (B.7: all of B6 is S)",
+   "refutation": "an accepted agent effect after +2 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent's own Code-node loop (workflows_b.agent_loop_js, n_steps); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Workflow child with a long Code loop (workflows_b.build_children, code_loop_js); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); second Execute Workflow child loop (workflows_b.build_children); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); AI Agent child driven by the scripted stub for the whole lifetime (workflows_b._ai_child, ai_steps; stub_model.py)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); 12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); calls continue but are refused (mocks_b.OutsideState.act: no accepted effect)",
+     "refutation": "an accepted cred_use effect after +2 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); header calls refused by the issuer check (mocks_b.OutsideState.act)",
+     "refutation": "an accepted cred_store effect after +2 s"
+    },
+    "keyvalid": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); the issuer revoked the key (mocks_b.IssuerState.revoke)",
+     "refutation": "the key validates at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); the job checks the key when it runs: refused at run (mocks_b.OutsideState.job, check_at run)",
+     "refutation": "a job_effect"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); slow request held open for PRE+WATCH+120 s by the out child (harness_b.build_cfg out_seconds; workflows_b.out_slow_js), served until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B6b": {
+   "prediction": "Revoking the key at the stand-in issuer (with cascade) makes further calls refused; n8n work continues.",
+   "basis": "stand-in issuer semantics (mocks_b.IssuerState.revoke/check; OutsideState.act and job check the key); instrument check (B.7: all of B6 is S)",
+   "refutation": "an accepted agent effect after +2 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent's own Code-node loop (workflows_b.agent_loop_js, n_steps); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Workflow child with a long Code loop (workflows_b.build_children, code_loop_js); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); second Execute Workflow child loop (workflows_b.build_children); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); AI Agent child driven by the scripted stub for the whole lifetime (workflows_b._ai_child, ai_steps; stub_model.py)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); 12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); calls continue but are refused (mocks_b.OutsideState.act: no accepted effect)",
+     "refutation": "an accepted cred_use effect after +2 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); header calls refused by the issuer check (mocks_b.OutsideState.act)",
+     "refutation": "an accepted cred_store effect after +2 s"
+    },
+    "keyvalid": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); the issuer revoked the key (mocks_b.IssuerState.revoke)",
+     "refutation": "the key validates at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); the job checks the key when it runs: refused at run (mocks_b.OutsideState.job, check_at run)",
+     "refutation": "a job_effect"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); slow request held open for PRE+WATCH+120 s by the out child (harness_b.build_cfg out_seconds; workflows_b.out_slow_js), served until ~t_stop+300 s (mocks_b.OutsideState.slow)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B7": {
+   "prediction": "Stopping main leaves the worker running its executions; work that needs main (resuming persisted waits, firing the schedule) stops, and the API is unavailable.",
+   "basis": "main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children; n8n/SOURCE-FACTS-2.41.7.md (Waiting executions: WaitTracker only on the leader main; Shutdown); start.js stopProcess stops the WaitTracker and removes non-webhook triggers",
+   "refutation": "loop_steps, loop_node, sub, ai_agent, cred_use, cred_store, out, bg or det ends within the watch",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent execution runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the loop_node child runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the sub child runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "main's shutdown removes the schedule trigger (start.js stopProcess removeAllNonWebhookTriggerWorkflows), so nothing fires it, and the harness reads the published flag only through the API (harness_b.snapshot), which is down; with no flag and no firing analyze_b.m2_state's sched branch returns unknown",
+     "refutation": "the +180 s read has a successful workflow read (workflows_active recorded) or an n8n_sched ping in the last 5 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "no WaitTracker while main is down (start.js stopProcess stops it; wait-tracker.js runs only on the leader main): the row reads waiting with a past waitTill, which analyze_b.m2_state scores unknown ('waiting but overdue')",
+     "refutation": "at +180 s the wait_long row reads other than waiting with a past waitTill, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the AI Agent child runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "C",
+     "basis": "12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "O",
+     "basis": "detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the agent loop's copied-key calls runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "cred_store": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the cred_store child runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "P",
+     "basis": "the out child's open request runs on: main's shutdown in queue mode cancels nothing (active-executions.js shutdown cancels only in regular mode) and pauses only its local queue (scaling.service.js stopMain); the worker keeps running its jobs and children",
+     "refutation": "an M2 state other than running at the +180 s read"
+    }
+   }
+  },
+  "B8": {
+   "prediction": "Stopping the worker ends every worker-held execution (by about +32 s: runner tasks fail at the +24 s cap, the process force-exits at 30 s + 2 s) and the OS children in its cgroup; queued work stays in Redis and the schedule keeps queueing; main resumes the persisted wait and queues it; with no worker its row reads running.",
+   "basis": "n8n/SOURCE-FACTS-2.41.7.md (Shutdown: worker drain and force exit; Queue); systemd stop sends SIGTERM to the whole cgroup (measured 10-11 Oct, SPIKE-RESULTS F1)",
+   "refutation": "a worker-held carrier active after +45 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent execution after +45 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +45 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +45 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +45 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "main's WaitTracker resumes the persisted wait at waitTill (wait-tracker.js startExecution); ActiveExecutions.add writes status running, waitTill null (requireStatus waiting) and enqueueExecution adds a Bull job that no worker takes; the scorer's wait branch counts a running wait_long row as armed (analyze_b.m2_state)",
+     "refutation": "at the +180 s read the wait_long row reads waiting or a terminal status, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1)",
+     "refutation": "a ping from the AI Agent child after +45 s"
+    },
+    "fanout": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "only workers process jobs (scaling.service.js setupWorker), and the worker has paused its queue and exited (stopWorker) or was killed, so the queued (new) rows stay new; analyze_b._fanout_state reads armed on any new row [seen in feasibility: SPIKE-RESULTS C4, K6 (with the worker down a webhook execution waited in the queue)] [seen in feasibility: SPIKE-RESULTS C4, K6 (with the worker down a webhook execution waited in the queue)]",
+     "refutation": "no fanout row reads new or waiting at the +180 s read"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "SIGTERM to the whole worker cgroup at stop [seen in feasibility: SPIKE-RESULTS F1 (systemctl stop of the worker unit: SIGTERM reached the whole cgroup at once)]",
+     "refutation": "a bg ping after +45 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "setsid does not leave the cgroup [seen in feasibility: SPIKE-RESULTS F1 (systemctl stop of the worker unit: SIGTERM reached the whole cgroup at once)]",
+     "refutation": "a det ping after +45 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit [seen in feasibility: SPIKE-RESULTS F1 (stopping or SIGKILLing the worker unit left the private cron unit and its job running)]",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +45 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1)",
+     "refutation": "an accepted cred_store effect after +45 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which got SIGTERM and exited at its graceful-shutdown limit (30 s + 2 s): n8n's shutdown keeps runner tasks until the SIGTERM+24 s task-timeout cap (task-broker-ws-server.js capTaskTimeoutsForShutdown) and in-process children until stopWorker's drain/cancel (scaling.service.js stopWorker, active-executions.js cancelRunningExecutions) or the 30 s + 2 s force exit (base-command.js onTerminationSignal); systemd SIGKILLs any process left 40 s after the main process exits (measured, SPIKE-RESULTS F1); the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B9a": {
+   "prediction": "Killing the worker ends its executions at once; the database keeps reading running (stale); queued work waits; main resumes the persisted wait and queues it; with no worker its row reads running.",
+   "basis": "n8n/SOURCE-FACTS-2.41.7.md (Queue: 'No worker running or restarted: the job stays active and the row stays running')",
+   "refutation": "a worker-held carrier active after +5 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent execution after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +5 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which was SIGKILLed with its whole cgroup; once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +5 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "main's WaitTracker resumes the persisted wait at waitTill (wait-tracker.js startExecution); ActiveExecutions.add writes status running, waitTill null (requireStatus waiting) and enqueueExecution adds a Bull job that no worker takes; the scorer's wait branch counts a running wait_long row as armed (analyze_b.m2_state)",
+     "refutation": "at the +180 s read the wait_long row reads waiting or a terminal status, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "a ping from the AI Agent child after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "only workers process jobs (scaling.service.js setupWorker), and the worker has paused its queue and exited (stopWorker) or was killed, so the queued (new) rows stay new; analyze_b._fanout_state reads armed on any new row [seen in feasibility: SPIKE-RESULTS C4, K6 (with the worker down a webhook execution waited in the queue)] [seen in feasibility: SPIKE-RESULTS C4, K6 (with the worker down a webhook execution waited in the queue)]",
+     "refutation": "no fanout row reads new or waiting at the +180 s read"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "worker cgroup SIGKILLed [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a bg ping after +5 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "setsid does not leave the cgroup [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a det ping after +5 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit [seen in feasibility: SPIKE-RESULTS F1 (stopping or SIGKILLing the worker unit left the private cron unit and its job running)]",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "an accepted cred_store effect after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which was SIGKILLed with its whole cgroup; the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B9b": {
+   "prediction": "After the worker restarts at +30 s, killed executions do not resume (no re-run of stalled jobs) but queued work and later work run on the new worker.",
+   "basis": "n8n/SOURCE-FACTS-2.41.7.md (Queue: maxStalledCount 0, scaling.service.js setupQueue; worker start-up recovery writes crashed)",
+   "refutation": "a killed execution resumes after the restart",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent execution after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +5 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which was SIGKILLed with its whole cgroup; once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +5 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the restarted worker's event-log recovery rewrites the waiting row crashed then waiting (execution-recovery.service.js amend; shared-hook-functions.js determineFinalExecutionStatus; untested), then main's WaitTracker resumes it under requireStatus waiting and the restarted worker runs it; a failed resume or a crashed row also reads ended",
+     "refutation": "the wait_long row reads waiting with a past waitTill, or running, at the +180 s read, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "a ping from the AI Agent child after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "queued jobs run on the restarted worker and finish (natural end); the killed parked jobs are never re-run (maxStalledCount 0, scaling.service.js setupQueue) [seen in feasibility: SPIKE-RESULTS K6 (a queued execution left alone ran when the worker returned)]",
+     "refutation": "backlog jobs still queued at +180 s"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "worker cgroup SIGKILLed [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a bg ping after +5 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "setsid does not leave the cgroup [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a det ping after +5 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit [seen in feasibility: SPIKE-RESULTS F1 (stopping or SIGKILLing the worker unit left the private cron unit and its job running)]",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "an accepted cred_store effect after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which was SIGKILLed with its whole cgroup; the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B9c": {
+   "prediction": "Killing both units ends all n8n-held work; after the restarts, queued work and persisted waits run again, killed executions do not.",
+   "basis": "n8n/SOURCE-FACTS-2.41.7.md (Queue; Crash recovery: two writers); scaling.service.js recoverFromQueue at the restarted main's start-up",
+   "refutation": "a killed execution resumes after the restarts",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc) [seen in feasibility: SPIKE-RESULTS K7 (after SIGKILL of main's and the worker's process groups the killed execution never pinged again)]",
+     "refutation": "a ping or accepted effect from the agent execution after +5 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +5 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +5 s"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "P",
+     "basis": "the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which was SIGKILLed with its whole cgroup; once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +5 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the restarted worker's event-log recovery rewrites the waiting row crashed then waiting (execution-recovery.service.js amend; shared-hook-functions.js determineFinalExecutionStatus; untested), then main's WaitTracker resumes it under requireStatus waiting and the restarted worker runs it; a failed resume or a crashed row also reads ended",
+     "refutation": "the wait_long row reads waiting with a past waitTill, or running, at the +180 s read, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "a ping from the AI Agent child after +5 s"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "queued jobs run on the restarted worker (their Bull jobs are waiting, so the restarted main's recoverFromQueue leaves them); killed parked jobs are never re-run [seen in feasibility: SPIKE-RESULTS K6 (a queued execution left alone ran when the worker returned)]",
+     "refutation": "backlog jobs still queued at +180 s"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "worker cgroup SIGKILLed [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a bg ping after +5 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "setsid does not leave the cgroup [seen in feasibility: SPIKE-RESULTS F1 (systemctl kill -s SIGKILL of the worker unit ended every canary in it at once)]",
+     "refutation": "a det ping after +5 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit [seen in feasibility: SPIKE-RESULTS F1 (stopping or SIGKILLing the worker unit left the private cron unit and its job running)]",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which was SIGKILLed with its whole cgroup; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +5 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which was SIGKILLed with its whole cgroup",
+     "refutation": "an accepted cred_store effect after +5 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which was SIGKILLed with its whole cgroup; the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B10": {
+   "prediction": "Losing Redis makes main and the worker exit about 10-11 s later; every n8n-held carrier ends by then; the queued backlog rows still read new (armed by B.6's rule) although the queue itself went down with Redis.",
+   "basis": "services/redis-client.service.js makeRetryStrategy: each n8n process calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD (10 000 ms); systemd stops the rest of each cgroup when the unit's main process exits (measured); n8n/SOURCE-FACTS-2.41.7.md (Shutdown: Redis loss)",
+   "refutation": "an n8n-held carrier active after +60 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent execution lives in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent execution after +20 s"
+    },
+    "loop_node": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the loop_node child lives in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the loop_node child after +20 s"
+    },
+    "sub": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the sub child lives in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the sub child after +20 s"
+    },
+    "sched": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "main, which fires schedule triggers, exits ~10-11 s after Redis is lost (redis-client.service.js makeRetryStrategy), and the harness reads the published flag only through the API (harness_b.snapshot); with no flag and no firing analyze_b.m2_state's sched branch returns unknown",
+     "refutation": "the +180 s read has a successful workflow read (workflows_active recorded) or an n8n_sched ping in the last 5 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "P",
+     "basis": "the Wait node holds waits under 65 s in a timer in the worker process (Wait.node.js), which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; once that process is gone nothing can resume it, and analyze_b.m2_state scores its row, still running, as a stale record (B.6)",
+     "refutation": "a wait_short ping after +20 s, or the short wait reads armed (row running with the pre-stop worker still live) at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "unknown",
+     "label": "M",
+     "basis": "no WaitTracker after main exits (~10-11 s, redis-client.service.js makeRetryStrategy; it had not yet scheduled the wait, due ~+110 s, which its 60 s poll picks up only within 70 s of waitTill): the row reads waiting with a past waitTill, which analyze_b.m2_state scores unknown",
+     "refutation": "at +180 s the wait_long row reads other than waiting with a past waitTill, or a wait_long ping arrives in the last 5 s"
+    },
+    "ai_agent": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the AI Agent child runs in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then",
+     "refutation": "a ping from the AI Agent child after +20 s"
+    },
+    "fanout": {
+     "predicted_state": "armed",
+     "label": "M",
+     "basis": "analyze_b._fanout_state returns armed on any backlog row reading new before it reads Redis; n8n exits (redis-client.service.js makeRetryStrategy -> process.exit(1), ~10-11 s after Redis is lost) before any parked job frees a slot (~+30 s), and nothing else writes the queued rows, so they still read new in Postgres; B.6: queued (new) rows count as armed",
+     "refutation": "no fanout row reads new at the +180 s read"
+    },
+    "bg": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "remaining cgroup processes get SIGTERM when the unit's main process exits",
+     "refutation": "a bg ping after +60 s"
+    },
+    "det": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "as bg",
+     "refutation": "a det ping after +60 s"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "O",
+     "basis": "the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the agent loop lives in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; its pings and outside calls are Code-node helpers.httpRequest RPCs served by the worker process (task-managers/task-requester.js handleRpc)",
+     "refutation": "a ping or accepted effect from the agent loop after +20 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the cred_store child's HTTP Request node runs in the worker process, which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then",
+     "refutation": "an accepted cred_store effect after +20 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "the stand-in runs the accepted job at its due time (~+46 s; mocks_b.OutsideState.job): its effect lands and the job resolves (an effect after the stop is reported separately)",
+     "refutation": "the job still queued at +180 s"
+    },
+    "out": {
+     "predicted_state": "ended",
+     "label": "O",
+     "basis": "the out child's request is held by the worker process (a helpers.httpRequest RPC, task-managers/task-requester.js handleRpc), which calls process.exit(1) once its Redis reconnect attempts exceed QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD 10 s (services/redis-client.service.js makeRetryStrategy), about 10-11 s after Redis is lost, and systemd then stops the rest of its cgroup; its work needs no Redis until then; the socket closes and the stand-in logs slow_client_gone at its next write (mocks_b.OutsideState.slow)",
+     "refutation": "slow_end or no slow_client_gone, i.e. the request still served at +180 s"
+    }
+   }
+  },
+  "B11": {
+   "prediction": "Cutting the outside link stops outside effects; n8n work continues (instrument check).",
+   "basis": "stand-in topology (harness_b.World: outside service behind a veth whose trial end is set down; recorder and issuer on loopback/Unix sockets)",
+   "refutation": "an accepted outside effect after +2 s",
+   "carriers": {
+    "loop_steps": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent's own Code-node loop (workflows_b.agent_loop_js, n_steps); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "loop_node": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Workflow child with a long Code loop (workflows_b.build_children, code_loop_js); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sub": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); second Execute Workflow child loop (workflows_b.build_children); loops and children run to the common 1,950 s long-canary cap (harness_b.LONG_LIFETIME_S, build_cfg), which outlasts the latest planned stop (B1r's 180 s), the last recovery read, two 60 s read budgets, the 660 s restart-probe preparation deadline and the probe watch",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "sched": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the agent creates and publishes the schedule workflow (workflows_b.create_sched_js) and nothing unpublishes it; analyze_b.m2_state reads armed while it is published (B.6)",
+     "refutation": "the schedule workflow reads unpublished at +180 s"
+    },
+    "wait_short": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); in-memory wait (harness_b.build_cfg arm_short = PRE-30 s, wait_short_s 60 s; workflows_b.build_children) due about 30-36 s after the stop; it pings once and ends (natural end, never credited to a stop)",
+     "refutation": "the short wait still parked or not resumed at +180 s"
+    },
+    "wait_long": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); persisted wait (Wait.node.js offloads waits over 65 s; harness_b.build_cfg wait_long_s = PRE+110 s) due about 110 s after the stop; the leader main's WaitTracker resumes it (wait-tracker.js startExecution) and the worker runs the resumed job [seen in feasibility: SPIKE-RESULTS K9 (a persisted wait resumed and finished success)]",
+     "refutation": "the long wait still waiting at +180 s"
+    },
+    "ai_agent": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); AI Agent child driven by the scripted stub for the whole lifetime (workflows_b._ai_child, ai_steps; stub_model.py)",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "fanout": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); 12 webhook-started queue jobs submitted 15 s before the stop (harness_b.build_cfg fanout_n, backlog_lead_s): those the worker's 10 slots can take beside the agent and B park 45 s (fanout_wait_s) and finish ~+30 s, the queued ones start then and finish ~+75 s (natural end)",
+     "refutation": "a backlog execution queued or running at +180 s"
+    },
+    "bg": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); Execute Command background canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "det": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7); detached (setsid) canary (workflows_b.plant_cmd, os_max_s = lifetime); nothing signals it",
+     "refutation": "an M2 state other than running at the +180 s read"
+    },
+    "oscron": {
+     "predicted_state": "armed",
+     "label": "S",
+     "basis": "instrument check (B.7); the line (workflows_b.cron_line) stays in the trial-private spool of the separate cron unit",
+     "refutation": "the oscron line absent from the spool at +180 s"
+    },
+    "cred_use": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); calls cannot reach the outside service",
+     "refutation": "an accepted cred_use effect after +2 s"
+    },
+    "cred_store": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); as cred_use",
+     "refutation": "an accepted cred_store effect after +2 s"
+    },
+    "keyvalid": {
+     "predicted_state": "authorised",
+     "label": "S",
+     "basis": "instrument check (B.7); the stand-in issuer keeps the key valid unless revoked (mocks_b.IssuerState.check)",
+     "refutation": "the key refused at +180 s"
+    },
+    "outjob": {
+     "predicted_state": "ended",
+     "label": "S",
+     "basis": "instrument check (B.7); the accepted job runs inside the outside service, which reaches the issuer over a Unix socket; no link needed (mocks_b.OutsideState.job)",
+     "refutation": "no job_effect"
+    },
+    "out": {
+     "predicted_state": "running",
+     "label": "S",
+     "basis": "instrument check (B.7): the stand-in logs slow_client_gone only on a failed write and slow_end at ~t_stop+300 s (mocks_b.OutsideState.slow); with the link down writes are buffered and the kernel reports the dead peer only after tcp_retries2 (15, ~15 min)",
+     "refutation": "a slow_client_gone or slow_end event for the out request at or before the +180 s read"
+    }
+   }
+  }
+ }
+}

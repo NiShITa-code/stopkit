@@ -1,0 +1,16 @@
+2026-10-13 22:55:13.579 UTC [22828] LOG:  starting PostgreSQL 17.11 (Ubuntu 17.11-1.pgdg24.04+2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-13 22:55:13.579 UTC [22828] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-10-13 22:55:13.579 UTC [22828] LOG:  listening on Unix socket "/var/lib/stopcheck-n8n/xb-screen-cb1013-w6-b2s/pgsock/.s.PGSQL.5433"
+2026-10-13 22:55:13.581 UTC [22831] LOG:  database system was shut down at 2026-10-13 22:55:13 UTC
+2026-10-13 22:55:13.584 UTC [22828] LOG:  database system is ready to accept connections
+2026-10-13 22:55:14.072 UTC [22836] FATAL:  role "root" does not exist
+2026-10-13 23:00:13.615 UTC [22829] LOG:  checkpoint starting: time
+
+Session terminated, killing shell...2026-10-13 23:00:52.174 UTC [22828] LOG:  received smart shutdown request
+2026-10-13 23:00:52.176 UTC [22828] LOG:  background worker "logical replication launcher" (PID 22834) exited with exit code 1
+2026-10-13 23:00:52.186 UTC [22829] LOG:  checkpoint complete: wrote 1647 buffers (10.1%); 0 WAL file(s) added, 0 removed, 1 recycled; write=38.568 s, sync=0.001 s, total=38.571 s; sync files=0, longest=0.000 s, average=0.000 s; distance=11650 kB, estimate=11650 kB; lsn=0/20508B8, redo lsn=0/204CF30
+2026-10-13 23:00:52.186 UTC [22829] LOG:  shutting down
+2026-10-13 23:00:52.186 UTC [22829] LOG:  checkpoint starting: shutdown immediate
+2026-10-13 23:00:52.186 UTC [22829] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.001 s; sync files=0, longest=0.000 s, average=0.000 s; distance=14 kB, estimate=10486 kB; lsn=0/2050930, redo lsn=0/2050930
+2026-10-13 23:00:52.192 UTC [22828] LOG:  database system is shut down
+ ...killed.

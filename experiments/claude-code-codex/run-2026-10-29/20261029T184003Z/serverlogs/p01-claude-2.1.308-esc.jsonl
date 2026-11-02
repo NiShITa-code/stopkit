@@ -1,0 +1,8 @@
+{"t": 1793299209.6125693, "event": "start", "pid": 4317, "pgid": 4294, "sid": 4292, "ppid": 4294, "steps": 30}
+{"t": 1793299209.6151855, "event": "in", "method": "server/discover", "id": "server-discover-probe-1", "params": {"_meta": {"io.modelcontextprotocol/protocolVersion": "2026-07-28", "io.modelcontextprotocol/clientInfo": {"name": "claude-code", "title": "Claude Code", "version": "2.1.308", "description": "Anthropic's agentic coding tool", "websiteUrl": "https://claude.com/claude-code"}, "io.modelcontextprotocol/clientCapabilities": {"roots": {"listChanged": true}, "elicitation": {"form": {}, "url": {}}}}}}
+{"t": 1793299209.6434972, "event": "in", "method": "initialize", "id": 0, "params": {"protocolVersion": "2025-11-25", "capabilities": {"roots": {"listChanged": true}, "elicitation": {"form": {}, "url": {}}}, "clientInfo": {"name": "claude-code", "title": "Claude Code", "version": "2.1.308", "description": "Anthropic's agentic coding tool", "websiteUrl": "https://claude.com/claude-code"}}}
+{"t": 1793299209.6611316, "event": "in", "method": "notifications/initialized", "id": null, "params": null}
+{"t": 1793299209.6634686, "event": "in", "method": "tools/list", "id": 1, "params": null}
+{"t": 1793299213.2155282, "event": "in", "method": "tools/call", "id": 2, "params": {"name": "slow", "arguments": {"run_id": "p01-claude-2.1.308-esc"}, "_meta": {"claudecode/toolUseId": "toolu_5a09b36643954b69bddf08", "progressToken": 2}}}
+{"t": 1793299213.2207735, "event": "child_spawned", "pid": 4337, "pgid": 4294, "request_id": 2}
+{"t": 1793299214.488107, "event": "in", "method": "notifications/cancelled", "id": null, "params": {"requestId": 2, "reason": "AbortError: user-cancel"}}

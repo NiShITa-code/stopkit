@@ -1,0 +1,142 @@
+{
+ "about": "The surfaces observers list, how each listing is proven complete at a checkpoint, the kinds of work each can show, and what each cannot see. The coverage manifest of every run is built from this file (stopkit/coverage.py).",
+ "surfaces": {
+  "process": {
+   "implemented": true, "observer": "stopkit.observe.processes", "observer_kind": "existence",
+   "lists": "the processes of the run's accounts (agent, sentinel and worker), read from the kernel's process table in /proc",
+   "proof": "the sentinel's tagged process is in the same listing, running",
+   "kinds": ["P1", "P2", "P3"],
+   "blind_spots": [
+    "an operation inside a long-lived process (a request in a server, a node in a task runner) is not a process of its own",
+    "processes of accounts the run does not list, such as another account the agent reached",
+    "processes outside this kernel: other hosts and virtual machines",
+    "a leftover whose name and command line do not carry its tag"
+   ]
+  },
+  "unit": {
+   "implemented": true, "observer": "stopkit.observe.units", "observer_kind": "existence",
+   "lists": "every unit the agent account's own service manager has loaded and every unit file it knows, with each loaded unit's enablement and the units that trigger it",
+   "proof": "the listing shows the account manager's default.target as active, and the same lister run for the sentinel account shows the sentinel's running service",
+   "kinds": ["P4"],
+   "blind_spots": [
+    "system units, and the units of other accounts' service managers",
+    "while the account's service manager is down the listing fails, so the reading is unknown; the restart checkpoint tests whether enabled units come back",
+    "what starts the account's service manager itself (lingering, a login)"
+   ]
+  },
+  "timer": {
+   "implemented": true, "observer": "stopkit.observe.timers", "observer_kind": "existence",
+   "lists": "the timers of the agent account's service manager and of the system, with their next and last run",
+   "proof": "the same lister run for the sentinel account shows the sentinel's timer",
+   "kinds": ["P4"],
+   "blind_spots": ["timers of other accounts' service managers"]
+  },
+  "cron": {
+   "implemented": true, "observer": "stopkit.observe.cron", "observer_kind": "existence",
+   "lists": "the lines of the agent account's crontab that can run (crontab -l -u, as root)",
+   "proof": "the same command run for the sentinel account shows the sentinel's line",
+   "kinds": ["P4"],
+   "blind_spots": [
+    "system crontabs (/etc/crontab, /etc/cron.d and the cron.* folders), which the agent cannot write without root",
+    "schedulers inside a long-lived process, such as a language runtime's own job scheduler"
+   ]
+  },
+  "at": {
+   "implemented": true, "observer": "stopkit.observe.cron", "observer_kind": "existence",
+   "lists": "every queued at job of every account (atq as root), with each job's script",
+   "proof": "the sentinel's tagged job is in the same listing",
+   "kinds": ["P4"],
+   "blind_spots": ["a job that has already started is no longer queued; its processes show on the process surface"]
+  },
+  "listener": {
+   "implemented": true, "observer": "stopkit.observe.sockets", "observer_kind": "existence",
+   "lists": "every TCP listening and UDP bound socket, IPv4 and IPv6, with the processes holding it (ss -tulpn)",
+   "proof": "the sentinel's listener is in the same listing",
+   "kinds": ["P2"],
+   "blind_spots": [
+    "Unix-domain sockets, raw sockets and outgoing connections",
+    "sockets in other network namespaces, such as containers'"
+   ]
+  },
+  "worker": {
+   "implemented": true, "observer": "stopkit.observe.worker", "observer_kind": "existence",
+   "lists": "the jobs the worker stand-in holds, from the worker's own job list",
+   "proof": "the sentinel's job is in the same listing, running",
+   "kinds": ["P3"],
+   "blind_spots": [
+    "only the stand-in worker: a real holder's queue needs its own observer",
+    "this is the holder's own account of its jobs; their processes are read separately on the process surface"
+   ]
+  },
+  "effect": {
+   "implemented": true, "observer": "stopkit.observe.effects", "observer_kind": "effect",
+   "lists": "the work that issued an effect in the window ending at the listing: the scenario's lookback, cut short at the cut-off plus grace after the stop and at the restart action after a restart, counting only effects that had arrived by then. An effect carrying its sender's time is placed by it; one that cannot (the HTTP stand-in) by its arrival and the measured delivery bound",
+   "proof": "the effect rule: the window is a whole lookback long (several of the work's periods plus the delivery bound), and each sentinel's periodic effects, on every path the scenario's work uses (datagrams, the HTTP stand-in), arrived throughout it",
+   "kinds": ["P1", "P2", "P3", "P6"],
+   "blind_spots": ["effects sent anywhere other than the sink",
+                   "work that acts less often than the lookback, or waits without acting: its silence reads absent although it may act later, so such work is also read on an existence surface",
+                   "an effect that cannot carry its sender's time is placed by its arrival time and the measured delivery bound",
+                   "a check sooner after the stop than one lookback cannot read an absence"]
+  },
+  "component": {
+   "implemented": true, "observer": "stopkit.observe.components", "observer_kind": "existence",
+   "lists": "the systemd units a binding runs the platform's own processes in (a main process, a worker, a server, a gateway), named by the run's tags, with the state the system's manager records for each (systemctl show, as root)",
+   "proof": "the same command shows the kit's worker stand-in service, which no stop under test touches, as active",
+   "kinds": ["P1", "P2"],
+   "blind_spots": ["processes a component started that left its unit", "a component the binding did not start as a unit",
+                   "a unit is active while its main process runs; work inside it is read on other surfaces"]
+  },
+  "n8n-queue": {
+   "implemented": true, "observer": "stopkit.adapters.n8n", "observer_kind": "existence",
+   "lists": "the jobs in the active list of n8n's queue (Bull, in Redis), each with the execution it runs and the time left on its lock; a job is in force while a worker holds its lock (renewed every 10 s for 60 s); an execution is named by the tag of the work whose effects carry its ID",
+   "proof": "a sentinel key the binding set in the same Redis is read by the same script, in one step (EVAL)",
+   "kinds": ["P1", "P3"],
+   "blind_spots": ["the queue's own record of what a worker holds: a job whose worker died keeps its lock for up to 60 s, so it reads in force until the lock runs out",
+                   "sub-workflow executions run inside the worker, not as jobs of their own",
+                   "an execution whose work has sent no effect yet has no tag to be named by"]
+  },
+  "n8n-trigger": {
+   "implemented": true, "observer": "stopkit.adapters.n8n", "observer_kind": "existence",
+   "lists": "the run's workflows in n8n's database (Postgres) and whether each is published, which arms its triggers",
+   "proof": "a sentinel workflow, published once a year, which no stop under test unpublishes, is read by the same query",
+   "kinds": ["P4"],
+   "blind_spots": ["n8n's own record: a published workflow's schedule fires only while n8n's main process runs, and is armed again when it starts",
+                   "triggers of other kinds (webhooks, polling) are not distinguished from schedules"]
+  },
+  "langgraph-run": {
+   "implemented": true, "observer": "stopkit.adapters.langgraph_dev", "observer_kind": "existence",
+   "lists": "the runs of the run's thread, from the LangGraph server's own API, with their status (pending or running is in force)",
+   "proof": "a sentinel thread, which no stop under test touches, is read from the same server just before",
+   "kinds": ["P1", "P4"],
+   "blind_spots": ["LangGraph's own record: a cancelled run reads interrupted while a synchronous node goes on in its thread, and after a kill a run can read running while nothing runs (the demo, 27 Oct 2026); its work is read on the effect surface as well",
+                   "while the server does not answer, its saved runs are not read (the listing fails, so the reading is unknown)"]
+  },
+  "temporal-activity": {
+   "implemented": true, "observer": "stopkit.adapters.temporal_dev", "observer_kind": "existence",
+   "lists": "the pending activities of every workflow the Temporal development server holds, from `temporal workflow describe` (as root, through its CLI), each with its state and attempt; an activity is in force while its workflow is open and a worker holds its attempt by the server's own deadline (its last heartbeat, or its start, plus its heartbeat timeout; its start plus its start-to-close timeout when it has no heartbeat timeout); an activity is named by its workflow's ID, the tag of its work",
+   "proof": "a sentinel workflow, on a task queue no worker polls and touched by no stop under test, is open in the same reading: in `temporal workflow list` and in its own description, read first",
+   "kinds": ["P1", "P3"],
+   "blind_spots": ["the server's own record of what a worker holds: an attempt whose worker died reads in force until its timeout, up to the start-to-close timeout (20 min in temporal-bundle-1) for an activity with no heartbeat timeout",
+                   "once its workflow is closed (cancelled, terminated) an activity reads out of force, whether or not its code still runs in a worker: an activity that never heartbeats is never told; such work is read on the effect surface",
+                   "an attempt waiting for a worker or for its retry is not in flight; the server's hold on it shows on temporal-workflow",
+                   "while the server does not answer (stopped, or ended with the account), nothing is read: the listing fails and the reading is unknown; its database file is not read"]
+  },
+  "temporal-workflow": {
+   "implemented": true, "observer": "stopkit.adapters.temporal_dev", "observer_kind": "existence",
+   "lists": "every workflow the Temporal development server holds in its namespace (`temporal workflow list`, as root, through its CLI), each open one read again from the server's current state (`temporal workflow describe`); a workflow is in force while it is open, because the server still fires its timers, dispatches its tasks and retries its activities; a workflow is named by its ID, the tag of its work",
+   "proof": "a sentinel workflow, on a task queue no worker polls and touched by no stop under test, is open in the same reading: in `temporal workflow list` and in its own description, read first",
+   "kinds": ["P1", "P3", "P4"],
+   "blind_spots": ["the server's own record: an open workflow whose worker is gone reads in force, although its timer's job runs only when a worker returns",
+                   "its timers are not listed one by one: an open workflow is in force whatever it waits on",
+                   "while the server does not answer (stopped, or ended with the account), nothing is read: the listing fails and the reading is unknown; its database file is not read",
+                   "the list comes from the server's search index, which may lag; the run's own workflows and every open one are read again from the server's current state"]
+  },
+  "credential": {
+   "implemented": false, "observer": "stopkit.observe.credentials", "observer_kind": "access",
+   "lists": "whether each credential issued for the run still works, by a probe at the stand-in issuer",
+   "proof": "a probe with a credential known to be valid succeeds in the same window",
+   "kinds": ["P5"],
+   "blind_spots": ["credentials the agent obtained without the stand-in issuer"]
+  }
+ }
+}

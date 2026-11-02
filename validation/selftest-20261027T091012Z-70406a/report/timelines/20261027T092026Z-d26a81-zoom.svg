@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12">
+<title>Timeline of run 20261027T092026Z-d26a81, stop host.reference</title>
+<style>
+:root{--surface-1:#fcfcfb;--page:#f9f9f7;--text-primary:#0b0b0b;--text-secondary:#52514e;--muted:#898781;
+--grid:#e1e0d9;--axis:#c3c2b7;--series-1:#2a78d6;--series-2:#eb6834;--series-3:#1baf7a;--border:rgba(11,11,11,.10)}
+@media (prefers-color-scheme:dark){:root{--surface-1:#1a1a19;--page:#0d0d0d;
+--text-primary:#f0efec;--text-secondary:#c3c2b7;--grid:#2c2c2a;--axis:#383835;--series-1:#3987e5;--series-2:#d95926;
+--series-3:#199e70;--border:rgba(255,255,255,.10)}}
+:root.dark{--surface-1:#1a1a19;--page:#0d0d0d;--text-primary:#f0efec;--text-secondary:#c3c2b7;
+--grid:#2c2c2a;--axis:#383835;--series-1:#3987e5;--series-2:#d95926;--series-3:#199e70;--border:rgba(255,255,255,.10)}
+svg .bg{fill:var(--surface-1)}svg .ink{fill:var(--text-primary)}svg .ink2{fill:var(--text-secondary)}
+svg .mut{fill:var(--muted)}svg .grid{stroke:var(--grid)}svg .axis{stroke:var(--axis)}
+svg .band{fill:var(--grid);opacity:.55}svg .alive{fill:var(--series-1)}svg .fire{fill:var(--series-1);stroke:var(--surface-1);stroke-width:2}
+svg .eff{stroke:var(--series-2);stroke-width:2}svg .kitp{fill:var(--series-3);stroke:var(--surface-1);stroke-width:2}
+svg .kita{fill:var(--surface-1);stroke:var(--series-3);stroke-width:2}svg .kitu{fill:var(--surface-1);stroke:var(--muted);stroke-width:2}
+svg .vline{stroke:var(--text-primary);stroke-width:1}svg .vline2{stroke:var(--text-secondary);stroke-width:1}
+</style><rect class="bg" x="0" y="0" width="1000" height="400"/>
+<line class="grid" x1="210.0" x2="210.0" y1="58" y2="334"/>
+<text class="mut" x="210.0" y="350" text-anchor="middle">-0.5</text>
+<line class="grid" x1="320.6" x2="320.6" y1="58" y2="334"/>
+<text class="mut" x="320.6" y="350" text-anchor="middle">0</text>
+<line class="grid" x1="431.1" x2="431.1" y1="58" y2="334"/>
+<text class="mut" x="431.1" y="350" text-anchor="middle">0.5</text>
+<line class="grid" x1="541.7" x2="541.7" y1="58" y2="334"/>
+<text class="mut" x="541.7" y="350" text-anchor="middle">1</text>
+<line class="grid" x1="652.3" x2="652.3" y1="58" y2="334"/>
+<text class="mut" x="652.3" y="350" text-anchor="middle">1.5</text>
+<line class="grid" x1="762.9" x2="762.9" y1="58" y2="334"/>
+<text class="mut" x="762.9" y="350" text-anchor="middle">2</text>
+<line class="grid" x1="873.4" x2="873.4" y1="58" y2="334"/>
+<text class="mut" x="873.4" y="350" text-anchor="middle">2.5</text>
+<line class="grid" x1="984.0" x2="984.0" y1="58" y2="334"/>
+<text class="mut" x="984.0" y="350" text-anchor="middle">3</text>
+<text class="mut" x="984" y="366" text-anchor="end">seconds from the cut-off</text>
+<line class="vline" x1="320.6" x2="320.6" y1="4" y2="334"><title>cut-off: 0.000 s</title></line>
+<text class="ink" x="323.6" y="14">cut-off</text>
+<line class="vline2" x1="637.6" x2="637.6" y1="4" y2="334"><title>returned: 1.434 s</title></line>
+<text class="ink" x="640.6" y="14">returned</text>
+<rect class="band" x="210.0" y="58" width="89.1" height="276"><title>before check: -1.21 to -0.10 s</title></rect>
+<text class="ink2" x="210.0" y="52">before</text>
+<rect class="band" x="637.6" y="58" width="142.3" height="276"><title>0 s check: 1.43 to 2.08 s</title></rect>
+<text class="ink2" x="637.6" y="52">0 s</text>
+<text class="ink" x="8" y="83.0">agent (P1)</text>
+<line class="grid" x1="210" x2="984" y1="79.0" y2="79.0"/>
+<rect class="alive" x="210.0" y="75.0" width="355.0" height="8" rx="4"><title>agent: process alive from -35.59 s to 1.105 s</title></rect>
+<line class="eff" x1="542.8" x2="542.8" y1="70.0" y2="88.0"><title>agent: last effect the sink received, 1.005 s (3 after the cut-off plus grace)</title></line>
+<circle class="kita" cx="638.2" cy="79.0" r="4"><title>agent/P1 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="113.0">background (P2)</text>
+<line class="grid" x1="210" x2="984" y1="109.0" y2="109.0"/>
+<rect class="alive" x="210.0" y="105.0" width="355.0" height="8" rx="4"><title>background: process alive from -36.44 s to 1.105 s</title></rect>
+<line class="eff" x1="533.1" x2="533.1" y1="100.0" y2="118.0"><title>background: last effect the sink received, 0.961 s (2 after the cut-off plus grace)</title></line>
+<circle class="kita" cx="638.2" cy="109.0" r="4"><title>background/P2 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="143.0">listener (P2)</text>
+<line class="grid" x1="210" x2="984" y1="139.0" y2="139.0"/>
+<rect class="alive" x="210.0" y="135.0" width="355.3" height="8" rx="4"><title>listener: process alive from -36.42 s to 1.107 s</title></rect>
+<line class="eff" x1="537.7" x2="537.7" y1="130.0" y2="148.0"><title>listener: last effect the sink received, 0.982 s (2 after the cut-off plus grace)</title></line>
+<circle class="kita" cx="708.7" cy="139.0" r="4"><title>listener/P2 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="173.0">restarting-service (P2, P4)</text>
+<line class="grid" x1="210" x2="984" y1="169.0" y2="169.0"/>
+<rect class="alive" x="210.0" y="165.0" width="264.2" height="8" rx="4"><title>restarting-service: process alive from -36.04 s to 0.695 s</title></rect>
+<circle class="kita" cx="638.2" cy="169.0" r="4"><title>restarting-service/P2 at 0 s: kit read absent</title></circle>
+<rect class="alive" x="210.0" y="165.0" width="264.2" height="8" rx="4"><title>restarting-service: process alive from -36.04 s to 0.695 s</title></rect>
+<circle class="kita" cx="670.3" cy="176.0" r="4"><title>restarting-service/P4 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="203.0">transient-service (P2, P4)</text>
+<line class="grid" x1="210" x2="984" y1="199.0" y2="199.0"/>
+<rect class="alive" x="210.0" y="195.0" width="305.5" height="8" rx="4"><title>transient-service: process alive from -36.03 s to 0.881 s</title></rect>
+<line class="eff" x1="491.5" x2="491.5" y1="190.0" y2="208.0"><title>transient-service: last effect the sink received, 0.773 s (1 after the cut-off plus grace)</title></line>
+<circle class="kita" cx="638.2" cy="199.0" r="4"><title>transient-service/P2 at 0 s: kit read absent</title></circle>
+<rect class="alive" x="210.0" y="195.0" width="305.5" height="8" rx="4"><title>transient-service: process alive from -36.03 s to 0.881 s</title></rect>
+<circle class="kita" cx="670.3" cy="206.0" r="4"><title>transient-service/P4 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="233.0">timer (P4)</text>
+<line class="grid" x1="210" x2="984" y1="229.0" y2="229.0"/>
+<circle class="kita" cx="670.3" cy="229.0" r="4"><title>timer/P4 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="263.0">cron (P4)</text>
+<line class="grid" x1="210" x2="984" y1="259.0" y2="259.0"/>
+<circle class="kita" cx="703.3" cy="259.0" r="4"><title>cron/P4 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="293.0">at-job (P4)</text>
+<line class="grid" x1="210" x2="984" y1="289.0" y2="289.0"/>
+<circle class="kitp" cx="267.0" cy="289.0" r="5"><title>at-job/P4 at before: kit read present</title></circle>
+<circle class="kita" cx="775.8" cy="289.0" r="4"><title>at-job/P4 at 0 s: kit read absent</title></circle>
+<text class="ink" x="8" y="323.0">delegated (P3)</text>
+<line class="grid" x1="210" x2="984" y1="319.0" y2="319.0"/>
+<rect class="alive" x="210.0" y="315.0" width="349.1" height="8" rx="4"><title>delegated: process alive from -35.60 s to 1.079 s</title></rect>
+<line class="eff" x1="542.2" x2="542.2" y1="310.0" y2="328.0"><title>delegated: last effect the sink received, 1.002 s (3 after the cut-off plus grace)</title></line>
+<circle class="kita" cx="708.8" cy="319.0" r="4"><title>delegated/P3 at 0 s: kit read absent</title></circle>
+<rect class="alive" x="8" y="380" width="16" height="8" rx="4"/>
+<text class="ink2" x="30" y="388">process alive (truth)</text>
+<circle class="fire" cx="192" cy="384" r="5"/>
+<text class="ink2" x="206" y="388">trigger fired (truth)</text>
+<line class="eff" x1="368" x2="368" y1="376" y2="392"/>
+<text class="ink2" x="382" y="388">last effect after the stop (sink)</text>
+<circle class="kitp" cx="622" cy="384" r="5"/>
+<text class="ink2" x="636" y="388">kit: present</text>
+<circle class="kita" cx="740" cy="384" r="5"/>
+<text class="ink2" x="754" y="388">kit: absent</text>
+<path class="kitu" d="M851 379L856 384L851 389L846 384Z"/>
+<text class="ink2" x="865" y="388">kit: unknown</text>
+</svg>

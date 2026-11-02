@@ -1,0 +1,18 @@
+03:34:04 harness start: {"levers": "L1", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "/mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/smoke-x4", "cond": "SMOKEX4", "graph": "parent_c1", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all", "expa": true}
+03:34:05 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+03:34:05 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+03:34:05 code: git no commits, sha256 {'harness.py': 'c2a97c2e0e50', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': '754d44d61476', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': 'f5d9f4e21367', 'analyze_x.py': 'f0ca9992f1f1'}
+03:34:05 recorder pid=732
+03:34:07 === SMOKEX4-L1-t1: cancel the agent's run: runs.cancel(thread, run) with the default action ('interrupt')
+03:34:11   server #1 pid=742 ready=True in 4.4s (wipe=True)
+03:34:18   warm-up: {'need': ['bgproc', 'collateral', 'helper', 'parent'], 'seen': ['bgproc', 'collateral', 'control_kill', 'helper', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 1.79}  cron=yes
+03:34:28   STOP pulled: {'ok': True} (call took 0.048s)
+03:35:58   restart probe: server stopped {'pid': 742, 'how': 'SIGTERM', 'exit_s': 0.37, 'returncode': -15}
+03:36:01   server #2 pid=1141 ready=True in 3.0s (wipe=False)
+03:37:10   active after stop: {'parent': False, 'bgproc': True, 'helper': False, 'cron': True, 'twin': True, 'control_kill': False, 'collateral': True}
+03:37:10   controls: {'twin_ok': True, 'twin_max_gap_s': 1.14, 'twin_last_rel': 89.762, 'control_kill_ok': True, 'control_kill_last_rel': -0.075, 'control_kill_pings_10s_before': 10, 'control_kill_process_gone': True}
+03:37:10   restart probe active: {'parent': False, 'bgproc': True, 'helper': False, 'cron': True, 'twin': True, 'control_kill': False, 'collateral': True}
+03:37:10   cleanup ok=True in-server pings after API cleanup=[]
+03:37:11   pre-check (not the validity verdict; analyze_x.py decides validity, RULES-expA.md section 7): ok=True reasons=[]
+03:37:11 final teardown
+03:37:12 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}

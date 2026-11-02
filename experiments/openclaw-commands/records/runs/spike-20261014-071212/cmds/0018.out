@@ -1,0 +1,455 @@
+{
+  "ts": 1791962039225,
+  "path": "/var/lib/stopcheck-openclaw/runs/spike-20261014-071212/state/agents/main/agent/openclaw-agent.sqlite",
+  "count": 4,
+  "totalCount": 4,
+  "limitApplied": 100,
+  "nextOffset": null,
+  "hasMore": false,
+  "owners": [],
+  "defaults": {
+    "modelProvider": "standin",
+    "model": "stopcheck-f-echo",
+    "contextTokens": 96000,
+    "agentRuntime": {
+      "id": "openclaw",
+      "cloudPlacementSupported": true,
+      "cloudPlacementExecutionMode": "worker-turn",
+      "devicePlacement": {
+        "requiredNodeCommands": [],
+        "consumesWorkerSlot": true
+      },
+      "devicePlacementSupported": true,
+      "source": "model"
+    },
+    "thinkingLevels": [
+      {
+        "id": "off",
+        "label": "off"
+      },
+      {
+        "id": "ultra",
+        "label": "ultra"
+      }
+    ],
+    "thinkingOptions": [
+      "off",
+      "ultra"
+    ],
+    "thinkingDefault": "off",
+    "modelSelectionTarget": "session"
+  },
+  "sessions": [
+    {
+      "key": "agent:main:stopcheck-f-s3",
+      "visibility": "shared",
+      "permissionModePending": false,
+      "createdVia": "run",
+      "participants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "expandedParticipants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "participantCount": 1,
+      "createdAt": 1791962035242,
+      "kind": "direct",
+      "classification": "custom",
+      "agentId": "main",
+      "isMain": false,
+      "isBackground": false,
+      "displayName": "stopcheck-f-s3",
+      "updatedAt": 1791962035754,
+      "archived": false,
+      "pinned": false,
+      "unread": false,
+      "lastInteractionAt": 1791962035240,
+      "sessionId": "fc3c18bd-682a-464a-b953-5e0f7422ef6b",
+      "abortedLastRun": false,
+      "thinkingLevels": [
+        {
+          "id": "off",
+          "label": "off"
+        },
+        {
+          "id": "ultra",
+          "label": "ultra"
+        }
+      ],
+      "thinkingOptions": [
+        "off",
+        "ultra"
+      ],
+      "thinkingDefault": "off",
+      "effectiveFastMode": false,
+      "effectiveFastModeSource": "default",
+      "fastAutoOnSeconds": 60,
+      "totalTokensFresh": false,
+      "status": "running",
+      "startedAt": 1791962035749,
+      "effectiveResponseUsage": "off",
+      "effectiveQueueMode": "steer",
+      "modelProvider": "standin",
+      "model": "stopcheck-f-echo",
+      "activeModelProvider": "standin",
+      "activeModel": "scripted",
+      "modelOverrideSource": null,
+      "runtimeSelectionLocked": false,
+      "agentRuntime": {
+        "id": "openclaw",
+        "cloudPlacementSupported": true,
+        "cloudPlacementExecutionMode": "worker-turn",
+        "devicePlacement": {
+          "requiredNodeCommands": [],
+          "consumesWorkerSlot": true
+        },
+        "devicePlacementSupported": true,
+        "source": "model"
+      },
+      "contextTokens": 96000,
+      "snapshotAt": 1791962039225,
+      "placement": {
+        "state": "local",
+        "generation": 0,
+        "createdAtMs": 1791962035420,
+        "updatedAtMs": 1791962035420,
+        "stateChangedAtMs": 1791962035420
+      },
+      "hasActiveRun": true,
+      "sharingRole": "owner",
+      "sendDisabledReason": null
+    },
+    {
+      "key": "agent:main:stopcheck-f-skc",
+      "visibility": "shared",
+      "permissionModePending": false,
+      "createdVia": "run",
+      "participants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "expandedParticipants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "participantCount": 1,
+      "createdAt": 1791962012356,
+      "kind": "direct",
+      "classification": "direct",
+      "agentId": "main",
+      "isMain": false,
+      "isBackground": false,
+      "displayName": "stopcheck-f-skc",
+      "chatType": "direct",
+      "updatedAt": 1791962019181,
+      "archived": false,
+      "pinned": false,
+      "unread": true,
+      "lastInteractionAt": 1791962012993,
+      "lastActivityAt": 1791962013002,
+      "sessionId": "96d5a058-eaa8-4116-b097-a49fbff9e535",
+      "systemSent": true,
+      "abortedLastRun": false,
+      "thinkingLevels": [
+        {
+          "id": "off",
+          "label": "off"
+        },
+        {
+          "id": "ultra",
+          "label": "ultra"
+        }
+      ],
+      "thinkingOptions": [
+        "off",
+        "ultra"
+      ],
+      "thinkingDefault": "off",
+      "effectiveFastMode": false,
+      "effectiveFastModeSource": "default",
+      "fastAutoOnSeconds": 60,
+      "totalTokensFresh": false,
+      "status": "done",
+      "startedAt": 1791962019022,
+      "endedAt": 1791962019132,
+      "runtimeMs": 110,
+      "lastRunId": "87f8f79b-9cb2-42bb-926f-1cb6a58d1fd4",
+      "effectiveResponseUsage": "off",
+      "effectiveQueueMode": "steer",
+      "modelProvider": "standin",
+      "model": "stopcheck-f-echo",
+      "modelOverrideSource": null,
+      "runtimeSelectionLocked": false,
+      "agentRuntime": {
+        "id": "openclaw",
+        "cloudPlacementSupported": true,
+        "cloudPlacementExecutionMode": "worker-turn",
+        "devicePlacement": {
+          "requiredNodeCommands": [],
+          "consumesWorkerSlot": true
+        },
+        "devicePlacementSupported": true,
+        "source": "model"
+      },
+      "contextTokens": 96000,
+      "snapshotAt": 1791962039225,
+      "placement": {
+        "state": "local",
+        "generation": 0,
+        "createdAtMs": 1791962012533,
+        "updatedAtMs": 1791962019126,
+        "stateChangedAtMs": 1791962012533
+      },
+      "hasActiveRun": false,
+      "activeRunIds": [],
+      "sharingRole": "owner",
+      "sendDisabledReason": null
+    },
+    {
+      "key": "agent:main:stopcheck-f-s2",
+      "visibility": "shared",
+      "permissionModePending": false,
+      "createdVia": "run",
+      "participants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "expandedParticipants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "participantCount": 1,
+      "createdAt": 1791962001427,
+      "kind": "direct",
+      "classification": "custom",
+      "agentId": "main",
+      "isMain": false,
+      "isBackground": false,
+      "displayName": "stopcheck-f-s2",
+      "updatedAt": 1791962002600,
+      "archived": false,
+      "pinned": false,
+      "unread": true,
+      "lastInteractionAt": 1791962002589,
+      "lastActivityAt": 1791962002597,
+      "sessionId": "2e926b11-1f1f-43d8-bc23-22c2ee606d44",
+      "abortedLastRun": false,
+      "thinkingLevels": [
+        {
+          "id": "off",
+          "label": "off"
+        },
+        {
+          "id": "ultra",
+          "label": "ultra"
+        }
+      ],
+      "thinkingOptions": [
+        "off",
+        "ultra"
+      ],
+      "thinkingDefault": "off",
+      "effectiveFastMode": false,
+      "effectiveFastModeSource": "default",
+      "fastAutoOnSeconds": 60,
+      "totalTokensFresh": false,
+      "status": "done",
+      "startedAt": 1791962002081,
+      "endedAt": 1791962002597,
+      "runtimeMs": 516,
+      "lastRunId": "be3487da-6566-4ec2-9621-326c44b62fad",
+      "effectiveResponseUsage": "off",
+      "effectiveQueueMode": "steer",
+      "modelProvider": "standin",
+      "model": "stopcheck-f-echo",
+      "modelOverrideSource": null,
+      "runtimeSelectionLocked": false,
+      "agentRuntime": {
+        "id": "openclaw",
+        "cloudPlacementSupported": true,
+        "cloudPlacementExecutionMode": "worker-turn",
+        "devicePlacement": {
+          "requiredNodeCommands": [],
+          "consumesWorkerSlot": true
+        },
+        "devicePlacementSupported": true,
+        "source": "model"
+      },
+      "contextTokens": 96000,
+      "snapshotAt": 1791962039225,
+      "placement": {
+        "state": "local",
+        "generation": 0,
+        "createdAtMs": 1791962002115,
+        "updatedAtMs": 1791962002585,
+        "stateChangedAtMs": 1791962002115
+      },
+      "hasActiveRun": false,
+      "activeRunIds": [],
+      "sharingRole": "owner",
+      "sendDisabledReason": null
+    },
+    {
+      "key": "agent:main:stopcheck-f-s1",
+      "visibility": "shared",
+      "permissionModePending": false,
+      "createdVia": "run",
+      "participants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "expandedParticipants": [
+        {
+          "identity": {
+            "type": "observation",
+            "pluginId": null,
+            "accountId": null,
+            "senderKind": "unknown",
+            "id": "gateway-client"
+          }
+        }
+      ],
+      "participantCount": 1,
+      "createdAt": 1791961992814,
+      "kind": "direct",
+      "classification": "custom",
+      "agentId": "main",
+      "isMain": false,
+      "isBackground": false,
+      "displayName": "stopcheck-f-s1",
+      "updatedAt": 1791961999796,
+      "archived": false,
+      "pinned": false,
+      "unread": true,
+      "lastInteractionAt": 1791961999752,
+      "lastActivityAt": 1791961999788,
+      "sessionId": "e359101a-1226-4cbd-8155-4481a992c3ee",
+      "abortedLastRun": false,
+      "thinkingLevels": [
+        {
+          "id": "off",
+          "label": "off"
+        },
+        {
+          "id": "ultra",
+          "label": "ultra"
+        }
+      ],
+      "thinkingOptions": [
+        "off",
+        "ultra"
+      ],
+      "thinkingDefault": "off",
+      "effectiveFastMode": false,
+      "effectiveFastModeSource": "default",
+      "fastAutoOnSeconds": 60,
+      "totalTokensFresh": false,
+      "status": "done",
+      "startedAt": 1791961996608,
+      "endedAt": 1791961999788,
+      "runtimeMs": 3180,
+      "lastRunId": "7fe3dca4-49f8-474e-97b0-08958c4b6149",
+      "effectiveResponseUsage": "off",
+      "effectiveQueueMode": "steer",
+      "modelProvider": "standin",
+      "model": "stopcheck-f-echo",
+      "modelOverrideSource": null,
+      "runtimeSelectionLocked": false,
+      "agentRuntime": {
+        "id": "openclaw",
+        "cloudPlacementSupported": true,
+        "cloudPlacementExecutionMode": "worker-turn",
+        "devicePlacement": {
+          "requiredNodeCommands": [],
+          "consumesWorkerSlot": true
+        },
+        "devicePlacementSupported": true,
+        "source": "model"
+      },
+      "contextTokens": 96000,
+      "contextBudgetStatus": {
+        "schemaVersion": 1,
+        "source": "pre-prompt-estimate",
+        "updatedAt": 1791961998357,
+        "provider": "standin",
+        "model": "stopcheck-f-echo",
+        "route": "fits",
+        "shouldCompact": false,
+        "estimatedPromptTokens": 58312,
+        "contextTokenBudget": 96000,
+        "promptBudgetBeforeReserve": 76000,
+        "reserveTokens": 20000,
+        "effectiveReserveTokens": 20000,
+        "remainingPromptBudgetTokens": 17688,
+        "overflowTokens": 0,
+        "toolResultReducibleChars": 0,
+        "messageCount": 0,
+        "unwindowedMessageCount": 0,
+        "sessionId": "e359101a-1226-4cbd-8155-4481a992c3ee"
+      },
+      "snapshotAt": 1791962039225,
+      "placement": {
+        "state": "local",
+        "generation": 0,
+        "createdAtMs": 1791961996794,
+        "updatedAtMs": 1791961999717,
+        "stateChangedAtMs": 1791961996794
+      },
+      "hasActiveRun": false,
+      "activeRunIds": [],
+      "sharingRole": "owner",
+      "sendDisabledReason": null
+    }
+  ]
+}

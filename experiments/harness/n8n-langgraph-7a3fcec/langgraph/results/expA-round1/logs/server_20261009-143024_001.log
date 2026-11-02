@@ -1,0 +1,138 @@
+INFO:langgraph_api.cli:
+
+        Welcome to
+
+╦  ┌─┐┌┐┌┌─┐╔═╗┬─┐┌─┐┌─┐┬ ┬
+║  ├─┤││││ ┬║ ╦├┬┘├─┤├─┘├─┤
+╩═╝┴ ┴┘└┘└─┘╚═╝┴└─┴ ┴┴  ┴ ┴
+
+- 🚀 API: [36mhttp://127.0.0.1:2024[0m
+- 🎨 Studio UI: [36mhttps://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024[0m
+- 📚 API Docs: [36mhttp://127.0.0.1:2024/docs[0m
+
+This in-memory server is designed for development and testing.
+For production use, please use LangSmith Deployment.
+
+
+[2m2026-10-09T13:30:29.768406Z[0m [[32m[1minfo     [0m] [1mStarting dev persistence flush loop[0m [[0m[1m[34mlanggraph_runtime_inmem._persistence[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:29.886228Z[0m [[32m[1minfo     [0m] [1mUsing langgraph_runtime_inmem [0m [[0m[1m[34mlanggraph_runtime[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.059149Z[0m [[32m[1minfo     [0m] [1mUsing auth of type=noop       [0m [[0m[1m[34mlanggraph_api.auth.middleware[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.098608Z[0m [[32m[1minfo     [0m] [1mStarting In-Memory runtime with langgraph-api=0.15.1 and in-memory runtime=0.35.1[0m [[0m[1m[34mlanggraph_runtime_inmem.lifespan[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mlanggraph_runtime_inmem_version[0m=[35m0.35.1[0m [36mthread_name[0m=[35muvloop_0[0m [36mversion[0m=[35m0.15.1[0m
+[2m2026-10-09T13:30:30.238077Z[0m [[32m[1minfo     [0m] [1mOTel metrics reporter initialized[0m [[0m[1m[34mlanggraph_api.metrics_otlp[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mbackends[0m=[35m['prometheus'][0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmax_emitting_tier[0m=[35m2[0m [36mmetric_prefix[0m=[35mlg_api_[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.241243Z[0m [[32m[1minfo     [0m] [1mCaching importlib.metadata.packages_distributions()[0m [[0m[1m[34mlanggraph_api.graph[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.243018Z[0m [[32m[1minfo     [0m] [1mNo license key or control plane API key set, skipping metadata loop[0m [[0m[1m[34mlanggraph_api.metadata[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.245872Z[0m [[32m[1minfo     [0m] [1mStarting OTLP metrics collector loop[0m [[0m[1m[34mlanggraph_api.metrics_collector[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36minterval_secs[0m=[35m60[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.249442Z[0m [[32m[1minfo     [0m] [1mWorker stats                  [0m [[0m[1m[34mlanggraph_api.metrics_collector[0m][0m [36mactive[0m=[35m0[0m [36mapi_variant[0m=[35mlocal_dev[0m [36mavailable[0m=[35m10[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmax[0m=[35m10[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.288650Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.04485088599994924[0m [36mgraph_id[0m=[35mparent[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:30.332651Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.04149438300009933[0m [36mgraph_id[0m=[35mhelper[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.375237Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.04000911299999643[0m [36mgraph_id[0m=[35mtick[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:30.411798Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.03432243800011747[0m [36mgraph_id[0m=[35mparent_c1[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.453805Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.039616300000034244[0m [36mgraph_id[0m=[35mparent_c2s[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:30.488119Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.0322434100000919[0m [36mgraph_id[0m=[35mparent_c2a[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.523740Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.03353939699991315[0m [36mgraph_id[0m=[35mparent_x[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:30.555833Z[0m [[32m[1minfo     [0m] [1mImporting graph profiling     [0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed_seconds[0m=[35m0.029682360999913726[0m [36mgraph_id[0m=[35mcollateral[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmodule[0m=[35mNone[0m [36mname[0m=[35m_graph_from_spec[0m [36mpath[0m=[35m./agent_graphs.py[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.571556Z[0m [[32m[1minfo     [0m] [1mApplication started up in 1.954s[0m [[0m[1m[34mlanggraph_api.timing.timer[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36melapsed[0m=[35m1.954037291000077[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.599250Z[0m [[32m[1minfo     [0m] [1mStarting cron scheduler       [0m [[0m[1m[34mlanggraph_api.cron_scheduler[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:30.599743Z[0m [[32m[1minfo     [0m] [1mStarting queue with shared loop[0m [[0m[1m[34mlanggraph_runtime_inmem.queue[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:30.607290Z[0m [[32m[1minfo     [0m] [1mStarting 10 background workers[0m [[0m[1m[34mlanggraph_runtime_inmem.queue[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:30.609291Z[0m [[32m[1minfo     [0m] [1mWorker stats                  [0m [[0m[1m[34mlanggraph_runtime_inmem.queue[0m][0m [36mactive[0m=[35m0[0m [36mapi_variant[0m=[35mlocal_dev[0m [36mavailable[0m=[35m10[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmax[0m=[35m10[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:31.111808Z[0m [[32m[1minfo     [0m] [1mQueue stats                   [0m [[0m[1m[34mlanggraph_runtime_inmem.queue[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mn_pending[0m=[35m0[0m [36mn_running[0m=[35m0[0m [36mpending_runs_wait_time_max_secs[0m=[35mNone[0m [36mpending_runs_wait_time_med_secs[0m=[35mNone[0m [36mpending_unblocked_runs_wait_time_max_secs[0m=[35mNone[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:35.887660Z[0m [[32m[1minfo     [0m] [1mGetting auth instance: None   [0m [[0m[1m[34mlanggraph_api.auth.custom[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mlanggraph_auth[0m=[35mNone[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/threads/search[0m [36mrequest_id[0m=[35m5a440573-f42b-4915-aede-57bd23cefd08[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:35.970621Z[0m [[32m[1minfo     [0m] [1mCreated run                   [0m [[0m[1m[34mlanggraph_api.models.run[0m][0m [36mafter_seconds[0m=[35m0[0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35m9faff65b-04ad-5a27-ae97-2373319b3e1f[0m [36mcheckpoint_id[0m=[35mNone[0m [36mif_not_exists[0m=[35mreject[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmethod[0m=[35mPOST[0m [36mmultitask_strategy[0m=[35menqueue[0m [36mpath[0m=[35m/threads/{thread_id}/runs[0m [36mrequest_id[0m=[35mefb7e510-5bae-44be-adc9-9e9ae35f4129[0m [36mrun_create_ms[0m=[35m3[0m [36mrun_id[0m=[35m01a120db-c441-73a2-9ed6-fff7b9fb88c4[0m [36mrun_put_ms[0m=[35m0[0m [36mstream_mode[0m=[35m['values'][0m [36mstream_resumable[0m=[35mFalse[0m [36mtemporary[0m=[35mFalse[0m [36mthread_id[0m=[35m01a120db-c43b-7af0-ba34-941be47930d5[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:35.986126Z[0m [[32m[1minfo     [0m] [1mCreated run                   [0m [[0m[1m[34mlanggraph_api.models.run[0m][0m [36mafter_seconds[0m=[35m0[0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35mad551bfc-90f6-5680-8a5a-7da7a9d2d709[0m [36mcheckpoint_id[0m=[35mNone[0m [36mif_not_exists[0m=[35mreject[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mmethod[0m=[35mPOST[0m [36mmultitask_strategy[0m=[35menqueue[0m [36mpath[0m=[35m/threads/{thread_id}/runs[0m [36mrequest_id[0m=[35m9eaf8ed4-686b-411a-8120-a21173bef047[0m [36mrun_create_ms[0m=[35m2[0m [36mrun_id[0m=[35m01a120db-c451-7c33-9c72-b05dc0f168e7[0m [36mrun_put_ms[0m=[35m0[0m [36mstream_mode[0m=[35m['values'][0m [36mstream_resumable[0m=[35mFalse[0m [36mtemporary[0m=[35mFalse[0m [36mthread_id[0m=[35m01a120db-c44c-7a11-87f3-35d42debc606[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:36.619080Z[0m [[32m[1minfo     [0m] [1mStarting background run       [0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35m9faff65b-04ad-5a27-ae97-2373319b3e1f[0m [36mgraph_id[0m=[35mcollateral[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35mefb7e510-5bae-44be-adc9-9e9ae35f4129[0m [36mresumable[0m=[35mFalse[0m [36mrun_attempt[0m=[35m1[0m [36mrun_creation_ms[0m=[35m3[0m [36mrun_id[0m=[35m01a120db-c441-73a2-9ed6-fff7b9fb88c4[0m [36mrun_queue_ms[0m=[35m647[0m [36mrun_started_at[0m=[35m2026-10-09T13:30:36.618076+00:00[0m [36mrun_stream_start_ms[0m=[35m0[0m [36mtemporary[0m=[35mFalse[0m [36mthread_id[0m=[35m01a120db-c43b-7af0-ba34-941be47930d5[0m [36mthread_name[0m=[35muvloop_0[0m
+[2m2026-10-09T13:30:36.619884Z[0m [[32m[1minfo     [0m] [1mStarting background run       [0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35mad551bfc-90f6-5680-8a5a-7da7a9d2d709[0m [36mgraph_id[0m=[35mparent_c2a[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35m9eaf8ed4-686b-411a-8120-a21173bef047[0m [36mresumable[0m=[35mFalse[0m [36mrun_attempt[0m=[35m1[0m [36mrun_creation_ms[0m=[35m1[0m [36mrun_id[0m=[35m01a120db-c451-7c33-9c72-b05dc0f168e7[0m [36mrun_queue_ms[0m=[35m632[0m [36mrun_started_at[0m=[35m2026-10-09T13:30:36.618600+00:00[0m [36mrun_stream_start_ms[0m=[35m0[0m [36mtemporary[0m=[35mFalse[0m [36mthread_id[0m=[35m01a120db-c44c-7a11-87f3-35d42debc606[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:50.216136Z[0m [[32m[1minfo     [0m] [1mShutting down background workers[0m [[0m[1m[34mlanggraph_runtime_inmem.queue[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:50.228732Z[0m [[33m[1mwarning  [0m] [1mBackground run failed, will retry. Exception: <class 'asyncio.exceptions.CancelledError'>()[0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35m9faff65b-04ad-5a27-ae97-2373319b3e1f[0m [36mgraph_id[0m=[35mcollateral[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35mefb7e510-5bae-44be-adc9-9e9ae35f4129[0m [36mrun_attempt[0m=[35m1[0m [36mrun_completed_in_ms[0m=[35m14259[0m [36mrun_created_at[0m=[35m2026-10-09T13:30:35.970451+00:00[0m [36mrun_ended_at[0m=[35m2026-10-09T13:30:50.226256+00:00[0m [36mrun_exec_ms[0m=[35m13608[0m [36mrun_id[0m=[35m01a120db-c441-73a2-9ed6-fff7b9fb88c4[0m [36mrun_started_at[0m=[35m2026-10-09T13:30:36.618076+00:00[0m [36mrun_wait_time_ms[0m=[35m647[0m [36mthread_id[0m=[35m01a120db-c43b-7af0-ba34-941be47930d5[0m [36mthread_name[0m=[35muvloop_1[0m
+[2m2026-10-09T13:30:50.229492Z[0m [[33m[1mwarning  [0m] [1mBackground run failed, will retry. Exception: <class 'asyncio.exceptions.CancelledError'>()[0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35mad551bfc-90f6-5680-8a5a-7da7a9d2d709[0m [36mgraph_id[0m=[35mparent_c2a[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35m9eaf8ed4-686b-411a-8120-a21173bef047[0m [36mrun_attempt[0m=[35m1[0m [36mrun_completed_in_ms[0m=[35m14243[0m [36mrun_created_at[0m=[35m2026-10-09T13:30:35.985996+00:00[0m [36mrun_ended_at[0m=[35m2026-10-09T13:30:50.227145+00:00[0m [36mrun_exec_ms[0m=[35m13608[0m [36mrun_id[0m=[35m01a120db-c451-7c33-9c72-b05dc0f168e7[0m [36mrun_started_at[0m=[35m2026-10-09T13:30:36.618600+00:00[0m [36mrun_wait_time_ms[0m=[35m632[0m [36mthread_id[0m=[35m01a120db-c44c-7a11-87f3-35d42debc606[0m [36mthread_name[0m=[35muvloop_2[0m
+[2m2026-10-09T13:30:50.231976Z[0m [[33m[1mwarning  [0m] [1mRETRYING                      [0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35m9faff65b-04ad-5a27-ae97-2373319b3e1f[0m [36mgraph_id[0m=[35mcollateral[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35mefb7e510-5bae-44be-adc9-9e9ae35f4129[0m [36mrun_attempt[0m=[35m1[0m [36mrun_id[0m=[35m01a120db-c441-73a2-9ed6-fff7b9fb88c4[0m [36mthread_id[0m=[35m01a120db-c43b-7af0-ba34-941be47930d5[0m [36mthread_name[0m=[35muvloop_3[0m
+Traceback (most recent call last):
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker.py", line 183, in worker
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker.py", line 144, in wrap_user_errors
+    await consume(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 671, in consume
+    await _consume_inline(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 697, in _consume_inline
+    async for mode, payload in stream:
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker_runtime.py", line 205, in stream_run
+    async for mode, payload in stream:
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 533, in astream_state
+    event = await wait_if_not_done(anext(stream, sentinel), done)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/asyncio.py", line 86, in wait_if_not_done
+    async with asyncio.TaskGroup() as tg:
+  File "/usr/lib/python3.12/asyncio/taskgroups.py", line 134, in __aexit__
+    raise propagate_cancellation_error
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/asyncio.py", line 94, in wait_if_not_done
+    return await coro_task
+           ^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3440, in astream
+    async for _ in runner.atick(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 396, in atick
+    await arun_with_retry(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langchain_core/runnables/config.py", line 707, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+[2m2026-10-09T13:30:50.237173Z[0m [[33m[1mwarning  [0m] [1mRETRYING                      [0m [[0m[1m[34mlanggraph_api.worker[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36massistant_id[0m=[35mad551bfc-90f6-5680-8a5a-7da7a9d2d709[0m [36mgraph_id[0m=[35mparent_c2a[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mrequest_id[0m=[35m9eaf8ed4-686b-411a-8120-a21173bef047[0m [36mrun_attempt[0m=[35m1[0m [36mrun_id[0m=[35m01a120db-c451-7c33-9c72-b05dc0f168e7[0m [36mthread_id[0m=[35m01a120db-c44c-7a11-87f3-35d42debc606[0m [36mthread_name[0m=[35muvloop_1[0m
+Traceback (most recent call last):
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker.py", line 183, in worker
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker.py", line 144, in wrap_user_errors
+    await consume(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 671, in consume
+    await _consume_inline(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 697, in _consume_inline
+    async for mode, payload in stream:
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/worker_runtime.py", line 205, in stream_run
+    async for mode, payload in stream:
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/stream.py", line 533, in astream_state
+    event = await wait_if_not_done(anext(stream, sentinel), done)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/asyncio.py", line 86, in wait_if_not_done
+    async with asyncio.TaskGroup() as tg:
+  File "/usr/lib/python3.12/asyncio/taskgroups.py", line 134, in __aexit__
+    raise propagate_cancellation_error
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph_api/asyncio.py", line 94, in wait_if_not_done
+    return await coro_task
+           ^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3440, in astream
+    async for _ in runner.atick(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 396, in atick
+    await arun_with_retry(
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pilot-venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/work/agent-shutdown-test/stopcheck/langgraph/app/agent_graphs.py", line 363, in wait_tool_async
+    await asyncio.wait({waiter}, timeout=1.0)
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 464, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 550, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+[2m2026-10-09T13:30:50.264890Z[0m [[32m[1minfo     [0m] [1mShutting down remote graphs   [0m [[0m[1m[34mlanggraph_api.graph[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:50.268636Z[0m [[32m[1minfo     [0m] [1mStopping dev persistence flush loop[0m [[0m[1m[34mlanggraph_runtime_inmem._persistence[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mMainThread[0m
+[2m2026-10-09T13:30:50.270508Z[0m [[32m[1minfo     [0m] [1mdev persistence flush loop exiting[0m [[0m[1m[34mlanggraph_runtime_inmem._persistence[0m][0m [36mapi_variant[0m=[35mlocal_dev[0m [36mlanggraph_api_version[0m=[35m0.15.1[0m [36mthread_name[0m=[35mThread-1[0m

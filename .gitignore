@@ -1,0 +1,16 @@
+# The source archive the records are built from (experiments/scripts/build_data.py).
+/experiments/data/source/
+/.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+/.pytest_cache/
+/.ruff_cache/
+.DS_Store
+# Runs of the kit write their folders here by default.
+/results/*/
+# Runs of the client probe write their folders here.
+/experiments/claude-code-codex/results/
+/reports/
+# Test logins written by the setup scripts.
+*.env

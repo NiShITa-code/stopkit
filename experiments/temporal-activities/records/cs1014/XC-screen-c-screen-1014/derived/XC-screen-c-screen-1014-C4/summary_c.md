@@ -1,0 +1,23 @@
+# Experiment C trial XC-screen-c-screen-1014-C4 (C4): exploratory screen
+
+- validity / trial validity: valid - valid
+- FAC / headline O2 x by commit: no false all-clear - CANCELED at rel 10.051 s; 0 declared effects after
+- FAC / headline O1 x by commit: no false all-clear - CANCELED at rel 7.559 s; 0 declared effects after
+- M2 / claim: CANCELED - first closed read: CANCELED at rel 7.559 s (poll-16)
+- M2 / terminal status: CANCELED - last watch read: CANCELED
+- M3 / final landed: no - no final effect by the end of the watch
+- M4 / duplicates: none - 1 execution(s); steps posted by >1 execution: []; final effects: 0
+- M4 / duplicates visible in Temporal: no duplicates - max pending attempt 0; ActivityTaskStarted attempts []; markers 1
+- history / history omits an execution that produced effects: no - 0 of 1 executions not recorded (ActivityTaskStarted attempts []; markers 1)
+- pending_on_closed / a closed run lists a pending activity: no - 0 of 7 closed reads list pending activities
+- events / five events: info - accepted=accepted, state_changed=poll-1, work_ceased=None (bounded quiet=True, computation unresolved), effects_closed=not closed (obligation closed), evidence_sufficient=True
+- verified_stop / verified stop: unresolved - unresolved (execution d0bff7ce71f93d0e (attempt 1): no independent ending evidence (no final effect; its worker is not shown dead))
+- twin / twin control: pass - status COMPLETED; effects {'accepted': 1, 'progress': 20, 'final': 1}; executions 1; attempts [1]
+- M1 / by commit, from the cancel: effects after - 8 declared effects committed after; kinds {'progress': 8}
+- M1 / by initiation, from the cancel: effects after - 8 declared effects initiated after
+- M1 / ambiguous, from the cancel: info - 0 arrived during the call
+- restart / durability probe: stayed ended - stayed ended
+- C4 / stage 1: when the cancel reaches workflow code: (a) before the local activity finished - (a) before the local activity finished (decided by: acknowledgement)
+- C4 / server recorded the cancel request before the marker: yes - CancelRequested event 19, first MarkerRecorded event 23 (server write order; metadata)
+- C4 / stage 2: local activity stops without heartbeats: stopped - final=False; 0 effects more than 1.5 s after the acknowledgement
+- wall/monotonic clock recomputed from receiver.jsonl: passed; harness recorded: passed [a guard: record schema 2 and later]

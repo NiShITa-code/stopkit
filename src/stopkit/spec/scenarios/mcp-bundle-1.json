@@ -1,0 +1,21 @@
+{
+ "scenario": "mcp-bundle-1",
+ "binding": "mcp",
+ "description": "An MCP server with one tool call in progress: the server's own process, the request inside it, and the child process the request started and waits for. The server reports its process to the truth before it becomes the server (beat.py exec). The request is not a process of its own: it beats from a thread while the call is in progress and reports its end from the tool's exit hook, so it is read on the effect surface and by the beats oracle. The child is the kit's reporter, a process the truth watches. Checks start 3 s after the cut-off, the first moment the effect surface can read an absence (grace 0.6 s plus a lookback of 2 s, ten of the request's periods).",
+ "items": [
+  {"id": "server", "case": "agent", "structure": "server-main",
+   "paths": {"P1": ["process"]}, "truth": {"P1": {"oracle": "pidfd"}}},
+  {"id": "request", "case": "mcp-request", "structure": "server-request",
+   "paths": {"P1": ["effect"]}, "truth": {"P1": {"oracle": "beats"}}},
+  {"id": "child", "case": "mcp-child", "structure": "server-child",
+   "paths": {"P2": ["process"]}, "truth": {"P2": {"oracle": "pidfd"}}}
+ ],
+ "heartbeat_s": 0.2,
+ "grace_s": 0.6,
+ "checks_s": [3, 60, 300],
+ "effect_lookback_s": 2.0,
+ "effect_channels": ["datagram"],
+ "delivery_bound_s": 0.0,
+ "restart_action": "restart of the agent account's user service manager",
+ "restart_settle_s": 3.0
+}

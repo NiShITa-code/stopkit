@@ -1,0 +1,666 @@
+{"t": 1793299998.6607406, "mono": 2346.157095847, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "12924"}
+{"t": 1793299998.6859007, "mono": 2346.182255564, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "12925"}
+{"t": 1793299999.300231, "mono": 2346.796585722, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "12929"}
+{"t": 1793299999.6632318, "mono": 2347.159586883, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "12924"}
+{"t": 1793299999.6881442, "mono": 2347.184498984, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "12925"}
+{"t": 1793300000.235081, "mono": 2347.731435882, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300000.2482104, "mono": 2347.744565357, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300000.3029168, "mono": 2347.799271843, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "12929"}
+{"t": 1793300000.6659665, "mono": 2348.162321957, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "12924"}
+{"t": 1793300000.6904733, "mono": 2348.186827867, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "12925"}
+{"t": 1793300001.2429268, "mono": 2348.739281614, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300001.2519367, "mono": 2348.748291981, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300001.3048735, "mono": 2348.801228681, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "12929"}
+{"t": 1793300001.6680975, "mono": 2349.164452837, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "12924"}
+{"t": 1793300001.6927564, "mono": 2349.189111491, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "12925"}
+{"t": 1793300002.2493284, "mono": 2349.745683149, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300002.2554822, "mono": 2349.751837036, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300002.3069537, "mono": 2349.803308731, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "12929"}
+{"t": 1793300002.670282, "mono": 2350.166637025, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "12924"}
+{"t": 1793300002.6949084, "mono": 2350.191263278, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "12925"}
+{"t": 1793300003.2540994, "mono": 2350.750454435, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300003.2576437, "mono": 2350.75399865, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300003.3092656, "mono": 2350.805620401, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "12929"}
+{"t": 1793300003.6729333, "mono": 2351.169288116, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "12924"}
+{"t": 1793300003.6972282, "mono": 2351.193582997, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "12925"}
+{"t": 1793300004.261141, "mono": 2351.757495907, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300004.2624505, "mono": 2351.75880545, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300004.311449, "mono": 2351.807804101, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "12929"}
+{"t": 1793300004.6748831, "mono": 2352.171238015, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "12924"}
+{"t": 1793300004.6991768, "mono": 2352.195531795, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "12925"}
+{"t": 1793300005.2661572, "mono": 2352.762511777, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300005.2685783, "mono": 2352.764932947, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300005.3137074, "mono": 2352.810062614, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "12929"}
+{"t": 1793300005.6768754, "mono": 2353.1732301, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "12924"}
+{"t": 1793300005.7011201, "mono": 2353.197475594, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "12925"}
+{"t": 1793300006.269107, "mono": 2353.765462551, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300006.273986, "mono": 2353.770340873, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300006.3158886, "mono": 2353.812243498, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "12929"}
+{"t": 1793300006.679487, "mono": 2354.17584165, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "12924"}
+{"t": 1793300006.703558, "mono": 2354.199912907, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "12925"}
+{"t": 1793300007.2716215, "mono": 2354.767976183, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300007.2788968, "mono": 2354.775252123, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300007.318542, "mono": 2354.814897045, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "12929"}
+{"t": 1793300007.681503, "mono": 2355.177857951, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "12924"}
+{"t": 1793300007.7054179, "mono": 2355.201773288, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "12925"}
+{"t": 1793300008.2739878, "mono": 2355.770343467, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300008.2858918, "mono": 2355.782246771, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300008.320912, "mono": 2355.817266861, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "12929"}
+{"t": 1793300008.6836076, "mono": 2356.17996256, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "12924"}
+{"t": 1793300008.7071626, "mono": 2356.20351753, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "12925"}
+{"t": 1793300009.2769222, "mono": 2356.773276829, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300009.2911365, "mono": 2356.787491347, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300009.3229022, "mono": 2356.819257035, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "12929"}
+{"t": 1793300009.6859605, "mono": 2357.182315312, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "12924"}
+{"t": 1793300009.7089586, "mono": 2357.205313801, "canary": "control_kill", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "12925"}
+{"t": 1793300010.2802725, "mono": 2357.776627236, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300010.2956388, "mono": 2357.791993464, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300010.3247805, "mono": 2357.8211357, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "12929"}
+{"t": 1793300010.6881554, "mono": 2358.184510359, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "12924"}
+{"t": 1793300011.2832627, "mono": 2358.779617592, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300011.3005576, "mono": 2358.796912293, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300011.3267803, "mono": 2358.823135385, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "12929"}
+{"t": 1793300011.690243, "mono": 2359.18659783, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "12924"}
+{"t": 1793300012.2859588, "mono": 2359.78231359, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300012.3071296, "mono": 2359.803484307, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300012.3287294, "mono": 2359.825084407, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "12929"}
+{"t": 1793300012.6923652, "mono": 2360.188719837, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "12924"}
+{"t": 1793300013.2895012, "mono": 2360.785855893, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300013.311838, "mono": 2360.808192908, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300013.3308036, "mono": 2360.827158588, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "12929"}
+{"t": 1793300013.6943524, "mono": 2361.190707112, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "12924"}
+{"t": 1793300014.2909381, "mono": 2361.787292958, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300014.3167558, "mono": 2361.813110625, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300014.3327491, "mono": 2361.829104083, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "12929"}
+{"t": 1793300014.6963067, "mono": 2362.192661496, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "12924"}
+{"t": 1793300015.2929678, "mono": 2362.789322811, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300015.3221319, "mono": 2362.81848671, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300015.334862, "mono": 2362.831216871, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "12929"}
+{"t": 1793300015.6984057, "mono": 2363.194760517, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "12924"}
+{"t": 1793300016.2952754, "mono": 2363.791630396, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300016.3285632, "mono": 2363.824918043, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300016.3373156, "mono": 2363.83367065, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "12929"}
+{"t": 1793300016.700636, "mono": 2364.196990873, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "12924"}
+{"t": 1793300017.2968931, "mono": 2364.793248066, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300017.333588, "mono": 2364.829942693, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300017.3397107, "mono": 2364.836065687, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "12929"}
+{"t": 1793300017.7028232, "mono": 2365.199178097, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "12924"}
+{"t": 1793300018.299924, "mono": 2365.796278894, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300018.3390782, "mono": 2365.835433249, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300018.3422318, "mono": 2365.838586602, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "12929"}
+{"t": 1793300018.7049391, "mono": 2366.201294093, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "12924"}
+{"t": 1793300019.303108, "mono": 2366.799462844, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300019.3448281, "mono": 2366.841182934, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "12929"}
+{"t": 1793300019.3463252, "mono": 2366.842680317, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300019.7074027, "mono": 2367.203757687, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "12924"}
+{"t": 1793300020.3057156, "mono": 2367.802070561, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300020.3469667, "mono": 2367.843321536, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "12929"}
+{"t": 1793300020.3512337, "mono": 2367.847588745, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300020.709614, "mono": 2368.205969019, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "12924"}
+{"t": 1793300021.310502, "mono": 2368.806857379, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300021.3497808, "mono": 2368.846136046, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "12929"}
+{"t": 1793300021.3570557, "mono": 2368.853410904, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300021.7119842, "mono": 2369.208339386, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "12924"}
+{"t": 1793300022.3131988, "mono": 2369.809553932, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300022.3518534, "mono": 2369.848208266, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "12929"}
+{"t": 1793300022.3623981, "mono": 2369.85875315, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300022.7147806, "mono": 2370.211136167, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "12924"}
+{"t": 1793300023.317208, "mono": 2370.813563898, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300023.354768, "mono": 2370.851123197, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "12929"}
+{"t": 1793300023.3674994, "mono": 2370.863854157, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300023.7171073, "mono": 2371.213461987, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "12924"}
+{"t": 1793300024.3202548, "mono": 2371.816609679, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300024.3574471, "mono": 2371.853802067, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "12929"}
+{"t": 1793300024.3729484, "mono": 2371.869303298, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300024.7194607, "mono": 2372.21581534, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "12924"}
+{"t": 1793300025.3232093, "mono": 2372.81956482, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300025.3601847, "mono": 2372.856539712, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "12929"}
+{"t": 1793300025.3790858, "mono": 2372.875440908, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300025.7216747, "mono": 2373.218029531, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "12924"}
+{"t": 1793300026.325618, "mono": 2373.821972904, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300026.3622527, "mono": 2373.858607746, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "12929"}
+{"t": 1793300026.383728, "mono": 2373.880083208, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300026.7238245, "mono": 2374.220179329, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "12924"}
+{"t": 1793300027.3277652, "mono": 2374.824120169, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300027.3640616, "mono": 2374.860416583, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "12929"}
+{"t": 1793300027.388911, "mono": 2374.885266061, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300027.7259488, "mono": 2375.222303933, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "12924"}
+{"t": 1793300028.3293576, "mono": 2375.825712573, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300028.3663442, "mono": 2375.862698967, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "12929"}
+{"t": 1793300028.3939137, "mono": 2375.890268654, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300028.7280555, "mono": 2376.22441038, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "12924"}
+{"t": 1793300029.3310938, "mono": 2376.827448479, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300029.368429, "mono": 2376.864784001, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "12929"}
+{"t": 1793300029.3991349, "mono": 2376.895489709, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300029.7301533, "mono": 2377.226508251, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "12924"}
+{"t": 1793300030.3334167, "mono": 2377.82977186, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300030.370633, "mono": 2377.866987929, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "12929"}
+{"t": 1793300030.404044, "mono": 2377.90039887, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300030.7323313, "mono": 2378.228686093, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "12924"}
+{"t": 1793300031.3353872, "mono": 2378.831742293, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300031.3724308, "mono": 2378.868785743, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "12929"}
+{"t": 1793300031.4089117, "mono": 2378.905266361, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300031.7343378, "mono": 2379.230692425, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "12924"}
+{"t": 1793300032.3378038, "mono": 2379.834158903, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300032.3747575, "mono": 2379.871112516, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "12929"}
+{"t": 1793300032.4130943, "mono": 2379.909449215, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300032.7362795, "mono": 2380.2326344, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "12924"}
+{"t": 1793300033.339967, "mono": 2380.836321839, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300033.3773377, "mono": 2380.873692437, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "12929"}
+{"t": 1793300033.4179156, "mono": 2380.914270437, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300033.7385163, "mono": 2381.234871137, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "12924"}
+{"t": 1793300034.3428912, "mono": 2381.839246174, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300034.3799, "mono": 2381.876254758, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "12929"}
+{"t": 1793300034.4231555, "mono": 2381.919510462, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300034.7410378, "mono": 2382.237392923, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "12924"}
+{"t": 1793300035.345696, "mono": 2382.842051185, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300035.3819835, "mono": 2382.878338559, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "12929"}
+{"t": 1793300035.428921, "mono": 2382.925275847, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300035.7439957, "mono": 2383.240351188, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "12924"}
+{"t": 1793300036.3475916, "mono": 2383.843946947, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300036.384475, "mono": 2383.880830128, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "12929"}
+{"t": 1793300036.4344406, "mono": 2383.930795704, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300036.7458286, "mono": 2384.242183387, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "12924"}
+{"t": 1793300037.350224, "mono": 2384.846579002, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300037.3867006, "mono": 2384.883055379, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "12929"}
+{"t": 1793300037.4390612, "mono": 2384.935416025, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300037.7477102, "mono": 2385.244065084, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "12924"}
+{"t": 1793300038.3529165, "mono": 2385.849271861, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300038.3889363, "mono": 2385.885291118, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "12929"}
+{"t": 1793300038.4439363, "mono": 2385.940291201, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300038.7499025, "mono": 2386.246257385, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "12924"}
+{"t": 1793300039.3558457, "mono": 2386.852200532, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300039.390931, "mono": 2386.887285826, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "12929"}
+{"t": 1793300039.448947, "mono": 2386.945301989, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300039.7519605, "mono": 2387.248315473, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "12924"}
+{"t": 1793300040.3591657, "mono": 2387.855520561, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300040.3929067, "mono": 2387.88926177, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "12929"}
+{"t": 1793300040.4541323, "mono": 2387.950486983, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300040.7552116, "mono": 2388.251566374, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "12924"}
+{"t": 1793300041.3608394, "mono": 2388.857194289, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300041.395079, "mono": 2388.89143383, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "12929"}
+{"t": 1793300041.4587438, "mono": 2388.955098732, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300041.7578757, "mono": 2389.254230892, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "12924"}
+{"t": 1793300042.363624, "mono": 2389.859979265, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300042.3972886, "mono": 2389.893643287, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "12929"}
+{"t": 1793300042.4636798, "mono": 2389.960034619, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300042.7601368, "mono": 2390.256491587, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "12924"}
+{"t": 1793300043.3652148, "mono": 2390.861569628, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300043.3995998, "mono": 2390.895954794, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "12929"}
+{"t": 1793300043.4683943, "mono": 2390.964749168, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300043.7619698, "mono": 2391.258325083, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "12924"}
+{"t": 1793300044.3673048, "mono": 2391.863660032, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300044.4017572, "mono": 2391.89811203, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "12929"}
+{"t": 1793300044.474488, "mono": 2391.97084286, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300044.763956, "mono": 2392.260310719, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "12924"}
+{"t": 1793300045.36901, "mono": 2392.865364827, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300045.4039178, "mono": 2392.900273217, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "12929"}
+{"t": 1793300045.4791594, "mono": 2392.975514024, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300045.7662168, "mono": 2393.262571584, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "12924"}
+{"t": 1793300046.3714783, "mono": 2393.86783323, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300046.4058807, "mono": 2393.902235418, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "12929"}
+{"t": 1793300046.4841483, "mono": 2393.98050297, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300046.7687726, "mono": 2394.265127923, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "12924"}
+{"t": 1793300047.373752, "mono": 2394.870107096, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300047.408206, "mono": 2394.904561035, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "12929"}
+{"t": 1793300047.4889162, "mono": 2394.985271087, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300047.7708962, "mono": 2395.267250907, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "12924"}
+{"t": 1793300048.3768332, "mono": 2395.873187933, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300048.4103124, "mono": 2395.906667586, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "12929"}
+{"t": 1793300048.4935067, "mono": 2395.989861535, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300048.7729554, "mono": 2396.269310544, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "12924"}
+{"t": 1793300049.3787892, "mono": 2396.875143856, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300049.4122202, "mono": 2396.908575009, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "12929"}
+{"t": 1793300049.498195, "mono": 2396.994550038, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300049.7748432, "mono": 2397.271197826, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "12924"}
+{"t": 1793300050.3805768, "mono": 2397.876931712, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300050.414721, "mono": 2397.911076218, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "12929"}
+{"t": 1793300050.502862, "mono": 2397.999216823, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300050.7769296, "mono": 2398.273284378, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "12924"}
+{"t": 1793300051.3827374, "mono": 2398.879092555, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300051.4168563, "mono": 2398.9132112, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "12929"}
+{"t": 1793300051.5077205, "mono": 2399.004075509, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300051.7788823, "mono": 2399.27523734, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "12924"}
+{"t": 1793300052.3857584, "mono": 2399.882113722, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300052.419263, "mono": 2399.9156177, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "12929"}
+{"t": 1793300052.5135448, "mono": 2400.00989943, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300052.781926, "mono": 2400.278280989, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "12924"}
+{"t": 1793300053.387592, "mono": 2400.883947145, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300053.4217918, "mono": 2400.91814672, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "12929"}
+{"t": 1793300053.5189626, "mono": 2401.015317489, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300053.78409, "mono": 2401.280444796, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "12924"}
+{"t": 1793300054.39007, "mono": 2401.886424801, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300054.4241323, "mono": 2401.920487158, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "12929"}
+{"t": 1793300054.5243008, "mono": 2402.020655869, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300054.7861285, "mono": 2402.282483686, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "12924"}
+{"t": 1793300055.3925152, "mono": 2402.888870731, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300055.4261196, "mono": 2402.922474674, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "12929"}
+{"t": 1793300055.530398, "mono": 2403.02675299, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300055.7885673, "mono": 2403.284922447, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "12924"}
+{"t": 1793300056.3946211, "mono": 2403.890976645, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300056.428465, "mono": 2403.92482007, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "12929"}
+{"t": 1793300056.5360937, "mono": 2404.032448763, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300056.790784, "mono": 2404.287138961, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "12924"}
+{"t": 1793300057.3972166, "mono": 2404.893571478, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300057.4308646, "mono": 2404.927219366, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "12929"}
+{"t": 1793300057.540888, "mono": 2405.037242948, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300057.793271, "mono": 2405.289626216, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 60, "pid": "12924"}
+{"t": 1793300058.3996944, "mono": 2405.896049151, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300058.4330153, "mono": 2405.929370334, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 60, "pid": "12929"}
+{"t": 1793300058.5464807, "mono": 2406.042835793, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300058.7953126, "mono": 2406.291667532, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 61, "pid": "12924"}
+{"t": 1793300059.402683, "mono": 2406.89903804, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 60, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300059.4353147, "mono": 2406.931669488, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 61, "pid": "12929"}
+{"t": 1793300059.5530207, "mono": 2407.049375532, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 60, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300059.797624, "mono": 2407.293978939, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 62, "pid": "12924"}
+{"t": 1793300060.4045575, "mono": 2407.900912516, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 61, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300060.4371827, "mono": 2407.933537709, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 62, "pid": "12929"}
+{"t": 1793300060.5578837, "mono": 2408.054238535, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 61, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300060.7999668, "mono": 2408.296321771, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 63, "pid": "12924"}
+{"t": 1793300061.4064538, "mono": 2408.902808357, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 62, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300061.4392161, "mono": 2408.935571071, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 63, "pid": "12929"}
+{"t": 1793300061.5628078, "mono": 2409.059162615, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 62, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300061.801873, "mono": 2409.298227816, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 64, "pid": "12924"}
+{"t": 1793300062.408744, "mono": 2409.905099306, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 63, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300062.4412458, "mono": 2409.9376006, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 64, "pid": "12929"}
+{"t": 1793300062.5677106, "mono": 2410.06406541, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 63, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300062.804128, "mono": 2410.300482737, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 65, "pid": "12924"}
+{"t": 1793300063.4107022, "mono": 2410.907057108, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 64, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300063.4431105, "mono": 2410.939465522, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 65, "pid": "12929"}
+{"t": 1793300063.5729008, "mono": 2411.069255618, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 64, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300063.8060188, "mono": 2411.302373734, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 66, "pid": "12924"}
+{"t": 1793300064.4133766, "mono": 2411.909731225, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 65, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300064.4449801, "mono": 2411.941335395, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 66, "pid": "12929"}
+{"t": 1793300064.5774946, "mono": 2412.073849411, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 65, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300064.8084984, "mono": 2412.30485334, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 67, "pid": "12924"}
+{"t": 1793300065.4155447, "mono": 2412.911899626, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 66, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300065.446936, "mono": 2412.943290819, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 67, "pid": "12929"}
+{"t": 1793300065.5829432, "mono": 2413.079298739, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 66, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300065.8105109, "mono": 2413.306865715, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 68, "pid": "12924"}
+{"t": 1793300066.4177418, "mono": 2413.914096827, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 67, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300066.4488807, "mono": 2413.945235451, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 68, "pid": "12929"}
+{"t": 1793300066.587185, "mono": 2414.083539681, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 67, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300066.812275, "mono": 2414.308630386, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 69, "pid": "12924"}
+{"t": 1793300067.4209962, "mono": 2414.917351172, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 68, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300067.4508917, "mono": 2414.947246682, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 69, "pid": "12929"}
+{"t": 1793300067.5918095, "mono": 2415.088164385, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 68, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300067.8141978, "mono": 2415.310552676, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 70, "pid": "12924"}
+{"t": 1793300068.4241621, "mono": 2415.920516658, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 69, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300068.4527743, "mono": 2415.949129572, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 70, "pid": "12929"}
+{"t": 1793300068.5964258, "mono": 2416.09278086, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 69, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300068.8168018, "mono": 2416.313156794, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 71, "pid": "12924"}
+{"t": 1793300069.4261408, "mono": 2416.92249549, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 70, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300069.4549353, "mono": 2416.951290135, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 71, "pid": "12929"}
+{"t": 1793300069.6014047, "mono": 2417.097759443, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 70, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300069.818796, "mono": 2417.315150889, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 72, "pid": "12924"}
+{"t": 1793300070.428405, "mono": 2417.924759647, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 71, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300070.4568474, "mono": 2417.953202069, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 72, "pid": "12929"}
+{"t": 1793300070.606025, "mono": 2418.102379806, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 71, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300070.8208797, "mono": 2418.317234601, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 73, "pid": "12924"}
+{"t": 1793300071.4303696, "mono": 2418.9267246, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 72, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300071.4587338, "mono": 2418.955088686, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 73, "pid": "12929"}
+{"t": 1793300071.6109047, "mono": 2419.107259451, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 72, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300071.8227842, "mono": 2419.319139247, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 74, "pid": "12924"}
+{"t": 1793300072.4320548, "mono": 2419.928409478, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 73, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300072.460785, "mono": 2419.957139828, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 74, "pid": "12929"}
+{"t": 1793300072.615389, "mono": 2420.111743846, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 73, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300072.8249454, "mono": 2420.32130027, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 75, "pid": "12924"}
+{"t": 1793300073.4349606, "mono": 2420.931315723, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 74, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300073.4629183, "mono": 2420.959273511, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 75, "pid": "12929"}
+{"t": 1793300073.6200638, "mono": 2421.116418588, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 74, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300073.8268893, "mono": 2421.323244056, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 76, "pid": "12924"}
+{"t": 1793300074.4368205, "mono": 2421.933175458, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 75, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300074.464842, "mono": 2421.961196922, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 76, "pid": "12929"}
+{"t": 1793300074.6245275, "mono": 2422.120882211, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 75, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300074.8293872, "mono": 2422.325742284, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 77, "pid": "12924"}
+{"t": 1793300075.4398787, "mono": 2422.936233396, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 76, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300075.4667659, "mono": 2422.963120735, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 77, "pid": "12929"}
+{"t": 1793300075.6289036, "mono": 2423.12525868, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 76, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300075.831375, "mono": 2423.327729569, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 78, "pid": "12924"}
+{"t": 1793300076.4431183, "mono": 2423.939473235, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 77, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300076.4694057, "mono": 2423.965761187, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 78, "pid": "12929"}
+{"t": 1793300076.633832, "mono": 2424.13018706, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 77, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300076.8335035, "mono": 2424.329858488, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 79, "pid": "12924"}
+{"t": 1793300077.4452646, "mono": 2424.941619486, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 78, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300077.4718957, "mono": 2424.968250929, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 79, "pid": "12929"}
+{"t": 1793300077.638746, "mono": 2425.135102193, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 78, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300077.8357587, "mono": 2425.3321133, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 80, "pid": "12924"}
+{"t": 1793300078.4483035, "mono": 2425.9446582, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 79, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300078.4743307, "mono": 2425.970685706, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 80, "pid": "12929"}
+{"t": 1793300078.6432207, "mono": 2426.139575684, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 79, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300078.837805, "mono": 2426.334160062, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 81, "pid": "12924"}
+{"t": 1793300079.4508038, "mono": 2426.94715854, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 80, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300079.4766805, "mono": 2426.973035308, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 81, "pid": "12929"}
+{"t": 1793300079.6474156, "mono": 2427.143770504, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 80, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300079.8397036, "mono": 2427.33605863, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 82, "pid": "12924"}
+{"t": 1793300080.452296, "mono": 2427.94865082, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 81, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300080.4785802, "mono": 2427.974935072, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 82, "pid": "12929"}
+{"t": 1793300080.6519904, "mono": 2428.148345535, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 81, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300080.841545, "mono": 2428.337900381, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 83, "pid": "12924"}
+{"t": 1793300081.4542851, "mono": 2428.950639953, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 82, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300081.4805386, "mono": 2428.976893298, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 83, "pid": "12929"}
+{"t": 1793300081.6566453, "mono": 2429.153034246, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 82, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300081.8434136, "mono": 2429.339768699, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 84, "pid": "12924"}
+{"t": 1793300082.4570365, "mono": 2429.953392427, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 83, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300082.4828658, "mono": 2429.979221219, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 84, "pid": "12929"}
+{"t": 1793300082.6614537, "mono": 2430.157808673, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 83, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300082.8458703, "mono": 2430.342225557, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 85, "pid": "12924"}
+{"t": 1793300083.4592624, "mono": 2430.955617203, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 84, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300083.484864, "mono": 2430.981219218, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 85, "pid": "12929"}
+{"t": 1793300083.666214, "mono": 2431.162569065, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 84, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300083.8478956, "mono": 2431.344250624, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 86, "pid": "12924"}
+{"t": 1793300084.4607768, "mono": 2431.957132098, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 85, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300084.4870126, "mono": 2431.98336768, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 86, "pid": "12929"}
+{"t": 1793300084.6710973, "mono": 2432.167452167, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 85, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300084.8504233, "mono": 2432.346778419, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 87, "pid": "12924"}
+{"t": 1793300085.462309, "mono": 2432.958663663, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 86, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300085.4889925, "mono": 2432.98534717, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 87, "pid": "12929"}
+{"t": 1793300085.6758697, "mono": 2433.17222442, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 86, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300085.8528607, "mono": 2433.349215916, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 88, "pid": "12924"}
+{"t": 1793300086.4641519, "mono": 2433.960506617, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 87, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300086.4908223, "mono": 2433.987177549, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 88, "pid": "12929"}
+{"t": 1793300086.6805813, "mono": 2434.176936347, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 87, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300086.855256, "mono": 2434.351610853, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 89, "pid": "12924"}
+{"t": 1793300087.4669855, "mono": 2434.963340323, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 88, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300087.493255, "mono": 2434.989609802, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 89, "pid": "12929"}
+{"t": 1793300087.6853778, "mono": 2435.18173278, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 88, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300087.85746, "mono": 2435.353814707, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 90, "pid": "12924"}
+{"t": 1793300088.469849, "mono": 2435.966203932, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 89, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300088.495778, "mono": 2435.992132852, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 90, "pid": "12929"}
+{"t": 1793300088.6899574, "mono": 2436.186312197, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 89, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300088.8593724, "mono": 2436.35572727, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 91, "pid": "12924"}
+{"t": 1793300089.4720948, "mono": 2436.968449546, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 90, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300089.497837, "mono": 2436.994191846, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 91, "pid": "12929"}
+{"t": 1793300089.6953342, "mono": 2437.191688893, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 90, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300089.8618307, "mono": 2437.358185389, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 92, "pid": "12924"}
+{"t": 1793300090.4741998, "mono": 2437.970554842, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 91, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300090.4997983, "mono": 2437.996153104, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 92, "pid": "12929"}
+{"t": 1793300090.7001758, "mono": 2438.196530671, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 91, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300090.8639033, "mono": 2438.360257984, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 93, "pid": "12924"}
+{"t": 1793300091.47653, "mono": 2438.972885324, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 92, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300091.5018692, "mono": 2438.99822428, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 93, "pid": "12929"}
+{"t": 1793300091.7048855, "mono": 2439.201240194, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 92, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300091.865893, "mono": 2439.362247509, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 94, "pid": "12924"}
+{"t": 1793300092.4784844, "mono": 2439.974839501, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 93, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300092.5040395, "mono": 2440.000394143, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 94, "pid": "12929"}
+{"t": 1793300092.7097816, "mono": 2440.206136724, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 93, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300092.8678496, "mono": 2440.364204237, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 95, "pid": "12924"}
+{"t": 1793300093.481131, "mono": 2440.977485896, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 94, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300093.5063186, "mono": 2441.002673447, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 95, "pid": "12929"}
+{"t": 1793300093.7142155, "mono": 2441.210570134, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 94, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300093.8696816, "mono": 2441.366036687, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 96, "pid": "12924"}
+{"t": 1793300094.4832144, "mono": 2441.979569553, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 95, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300094.508273, "mono": 2442.004627808, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 96, "pid": "12929"}
+{"t": 1793300094.7189279, "mono": 2442.215282772, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 95, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300094.8718517, "mono": 2442.368206786, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 97, "pid": "12924"}
+{"t": 1793300095.4852667, "mono": 2442.981621505, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 96, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300095.5104954, "mono": 2443.006850752, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 97, "pid": "12929"}
+{"t": 1793300095.7246706, "mono": 2443.221025574, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 96, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300095.873942, "mono": 2443.37029691, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 98, "pid": "12924"}
+{"t": 1793300096.488064, "mono": 2443.984418618, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 97, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300096.5128186, "mono": 2444.009173495, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 98, "pid": "12929"}
+{"t": 1793300096.7290556, "mono": 2444.225410646, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 97, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300096.8764827, "mono": 2444.372837643, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 99, "pid": "12924"}
+{"t": 1793300097.490189, "mono": 2444.986544057, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 98, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300097.514895, "mono": 2445.011249665, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 99, "pid": "12929"}
+{"t": 1793300097.7337062, "mono": 2445.23006124, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 98, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300097.878634, "mono": 2445.374988704, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 100, "pid": "12924"}
+{"t": 1793300098.492424, "mono": 2445.988778656, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 99, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300098.516911, "mono": 2446.013265936, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 100, "pid": "12929"}
+{"t": 1793300098.7390475, "mono": 2446.235402318, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 99, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300098.880751, "mono": 2446.377105772, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 101, "pid": "12924"}
+{"t": 1793300099.4942412, "mono": 2446.990596086, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 100, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300099.5188358, "mono": 2447.015190466, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 101, "pid": "12929"}
+{"t": 1793300099.7443805, "mono": 2447.240735107, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 100, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300099.8828316, "mono": 2447.379186269, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 102, "pid": "12924"}
+{"t": 1793300100.4963746, "mono": 2447.992729393, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 101, "pid": "12912", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300100.5208144, "mono": 2448.017169272, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 102, "pid": "12929"}
+{"t": 1793300100.7493896, "mono": 2448.245744531, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 101, "pid": "12912", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300100.779635, "mono": 2448.275990002, "canary": "tool_event", "trial": "XA-C2A-S1-t1", "n": 0, "pid": "12912", "what": "kill_code_ran", "thread": "Thread-2 (tool_event)", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "variant": "C2a", "killed_process": "True", "steps": "101", "on": "asyncio.CancelledError", "ran_in": "MainThread"}
+{"t": 1793300100.8850045, "mono": 2448.381359493, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 103, "pid": "12924"}
+{"t": 1793300101.8872755, "mono": 2449.383630289, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 104, "pid": "12924"}
+{"t": 1793300102.8895686, "mono": 2450.385923605, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 105, "pid": "12924"}
+{"t": 1793300103.3980315, "mono": 2450.894386327, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "13498"}
+{"t": 1793300103.8920157, "mono": 2451.388370655, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 106, "pid": "12924"}
+{"t": 1793300104.3338149, "mono": 2451.830169819, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 102, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300104.3350112, "mono": 2451.831366737, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 1, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300104.400394, "mono": 2451.896748955, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "13498"}
+{"t": 1793300104.8941762, "mono": 2452.390531224, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 107, "pid": "12924"}
+{"t": 1793300105.3395658, "mono": 2452.835921056, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 2, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300105.3437502, "mono": 2452.840105322, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 103, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300105.4030287, "mono": 2452.899383799, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "13498"}
+{"t": 1793300105.8964012, "mono": 2453.392755981, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 108, "pid": "12924"}
+{"t": 1793300106.3422885, "mono": 2453.838643264, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 3, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300106.348796, "mono": 2453.845151117, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 104, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300106.4048352, "mono": 2453.901190219, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "13498"}
+{"t": 1793300106.8987486, "mono": 2454.395103907, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 109, "pid": "12924"}
+{"t": 1793300107.3446913, "mono": 2454.841045853, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 4, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300107.3538039, "mono": 2454.85015866, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 105, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300107.4068573, "mono": 2454.90321225, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "13498"}
+{"t": 1793300107.900912, "mono": 2455.397266935, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 110, "pid": "12924"}
+{"t": 1793300108.3470764, "mono": 2455.843431215, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 5, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300108.35892, "mono": 2455.855274944, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 106, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300108.4088638, "mono": 2455.905218663, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "13498"}
+{"t": 1793300108.9027936, "mono": 2456.399148589, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 111, "pid": "12924"}
+{"t": 1793300109.3511872, "mono": 2456.847542058, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 6, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300109.3640084, "mono": 2456.860363566, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 107, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300109.4109662, "mono": 2456.907321055, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "13498"}
+{"t": 1793300109.9046347, "mono": 2457.400989593, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 112, "pid": "12924"}
+{"t": 1793300110.3541791, "mono": 2457.850534025, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 7, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300110.3689253, "mono": 2457.865280218, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 108, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300110.4129953, "mono": 2457.909350193, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "13498"}
+{"t": 1793300110.906415, "mono": 2458.402770047, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 113, "pid": "12924"}
+{"t": 1793300111.356226, "mono": 2458.852580896, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 8, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300111.3737352, "mono": 2458.870090281, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 109, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300111.4150949, "mono": 2458.91144991, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "13498"}
+{"t": 1793300111.9086185, "mono": 2459.404973257, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 114, "pid": "12924"}
+{"t": 1793300112.3592904, "mono": 2459.855645442, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 9, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300112.3790498, "mono": 2459.875404607, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 110, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300112.417849, "mono": 2459.914203928, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "13498"}
+{"t": 1793300112.9110804, "mono": 2460.407435222, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 115, "pid": "12924"}
+{"t": 1793300113.360857, "mono": 2460.857211816, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 10, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300113.385372, "mono": 2460.881726663, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 111, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300113.4198549, "mono": 2460.916209903, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "13498"}
+{"t": 1793300113.9132826, "mono": 2461.409637623, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 116, "pid": "12924"}
+{"t": 1793300114.3622665, "mono": 2461.858621486, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 11, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300114.3903003, "mono": 2461.886655126, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 112, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300114.4223335, "mono": 2461.918688289, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "13498"}
+{"t": 1793300114.9153879, "mono": 2462.411742998, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 117, "pid": "12924"}
+{"t": 1793300115.3641658, "mono": 2462.860520758, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 12, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300115.395849, "mono": 2462.892204242, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 113, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300115.4250076, "mono": 2462.921362775, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "13498"}
+{"t": 1793300115.9179, "mono": 2463.414254862, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 118, "pid": "12924"}
+{"t": 1793300116.3675714, "mono": 2463.863926275, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 13, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300116.4008873, "mono": 2463.897242116, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 114, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300116.427573, "mono": 2463.923927777, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "13498"}
+{"t": 1793300116.9197874, "mono": 2464.416142427, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 119, "pid": "12924"}
+{"t": 1793300117.369742, "mono": 2464.866096688, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 14, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300117.4066331, "mono": 2464.902988111, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 115, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300117.430198, "mono": 2464.926552749, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "13498"}
+{"t": 1793300117.9222288, "mono": 2465.418583903, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 120, "pid": "12924"}
+{"t": 1793300118.3732738, "mono": 2465.869629029, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 15, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300118.4131284, "mono": 2465.909483231, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 116, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300118.4323668, "mono": 2465.928721864, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "13498"}
+{"t": 1793300118.9244769, "mono": 2466.420831871, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 121, "pid": "12924"}
+{"t": 1793300119.3756957, "mono": 2466.872050611, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 16, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300119.4189923, "mono": 2466.915347277, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 117, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300119.4348958, "mono": 2466.93125081, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "13498"}
+{"t": 1793300119.926583, "mono": 2467.422938223, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 122, "pid": "12924"}
+{"t": 1793300120.3794737, "mono": 2467.875828631, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 17, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300120.425497, "mono": 2467.921852118, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 118, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300120.4369895, "mono": 2467.933344671, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "13498"}
+{"t": 1793300120.9288812, "mono": 2468.425236342, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 123, "pid": "12924"}
+{"t": 1793300121.3821678, "mono": 2468.878522811, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 18, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300121.4320931, "mono": 2468.928448125, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 119, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300121.4393067, "mono": 2468.935661878, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "13498"}
+{"t": 1793300121.9309819, "mono": 2469.427336767, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 124, "pid": "12924"}
+{"t": 1793300122.3852577, "mono": 2469.881612546, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 19, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300122.43777, "mono": 2469.934125, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 120, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300122.4419253, "mono": 2469.93828019, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "13498"}
+{"t": 1793300122.9331868, "mono": 2470.429541796, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 125, "pid": "12924"}
+{"t": 1793300123.3887246, "mono": 2470.885079427, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 20, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300123.4444122, "mono": 2470.940768012, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 121, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300123.4458187, "mono": 2470.942173536, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "13498"}
+{"t": 1793300123.9352129, "mono": 2471.431567804, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 126, "pid": "12924"}
+{"t": 1793300124.3912559, "mono": 2471.887610831, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 21, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300124.4491441, "mono": 2471.945498987, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "13498"}
+{"t": 1793300124.4512942, "mono": 2471.947649246, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 122, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300124.9370885, "mono": 2472.433443368, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 127, "pid": "12924"}
+{"t": 1793300125.3935962, "mono": 2472.88995115, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 22, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300125.4520857, "mono": 2472.948440906, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "13498"}
+{"t": 1793300125.4581578, "mono": 2472.954512622, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 123, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300125.9390082, "mono": 2473.435363275, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 128, "pid": "12924"}
+{"t": 1793300126.3952682, "mono": 2473.891623078, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 23, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300126.454258, "mono": 2473.950612737, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "13498"}
+{"t": 1793300126.4644005, "mono": 2473.960755886, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 124, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300126.941592, "mono": 2474.437946939, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 129, "pid": "12924"}
+{"t": 1793300127.397479, "mono": 2474.893834192, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 24, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300127.4561155, "mono": 2474.952470362, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "13498"}
+{"t": 1793300127.4716961, "mono": 2474.968051369, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 125, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300127.9437304, "mono": 2475.440085383, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 130, "pid": "12924"}
+{"t": 1793300128.4003582, "mono": 2475.89671308, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 25, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300128.4580264, "mono": 2475.954381153, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "13498"}
+{"t": 1793300128.477305, "mono": 2475.973659714, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 126, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300128.9457834, "mono": 2476.442138128, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 131, "pid": "12924"}
+{"t": 1793300129.402372, "mono": 2476.89872711, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 26, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300129.460078, "mono": 2476.956433039, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "13498"}
+{"t": 1793300129.4838681, "mono": 2476.980222861, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 127, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300129.9477043, "mono": 2477.444059517, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 132, "pid": "12924"}
+{"t": 1793300130.404418, "mono": 2477.900772897, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 27, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300130.4620142, "mono": 2477.95836907, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "13498"}
+{"t": 1793300130.489287, "mono": 2477.985641779, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 128, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300130.949441, "mono": 2478.445796058, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 133, "pid": "12924"}
+{"t": 1793300131.4061797, "mono": 2478.902534442, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 28, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300131.4642196, "mono": 2478.960574443, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "13498"}
+{"t": 1793300131.4949734, "mono": 2478.991328252, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 129, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300131.9512622, "mono": 2479.447617074, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 134, "pid": "12924"}
+{"t": 1793300132.4082966, "mono": 2479.904651766, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 29, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300132.466155, "mono": 2479.962510044, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "13498"}
+{"t": 1793300132.5001512, "mono": 2479.996506184, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 130, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300132.9534478, "mono": 2480.449803181, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 135, "pid": "12924"}
+{"t": 1793300133.4108813, "mono": 2480.907236386, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 30, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300133.4685454, "mono": 2480.96490073, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "13498"}
+{"t": 1793300133.5048661, "mono": 2481.001221227, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 131, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300133.9555373, "mono": 2481.4518926, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 136, "pid": "12924"}
+{"t": 1793300134.4127853, "mono": 2481.909140307, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 31, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300134.4710946, "mono": 2481.967449302, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "13498"}
+{"t": 1793300134.5102878, "mono": 2482.006642682, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 132, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300134.9574642, "mono": 2482.453819175, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 137, "pid": "12924"}
+{"t": 1793300135.4159796, "mono": 2482.912334587, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 32, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300135.4734166, "mono": 2482.969771758, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "13498"}
+{"t": 1793300135.5158484, "mono": 2483.012203457, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 133, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300135.9596686, "mono": 2483.456023649, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 138, "pid": "12924"}
+{"t": 1793300136.4192393, "mono": 2483.91559424, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 33, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300136.4758976, "mono": 2483.972252412, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "13498"}
+{"t": 1793300136.5211983, "mono": 2484.017553166, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 134, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300136.9619153, "mono": 2484.458270001, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 139, "pid": "12924"}
+{"t": 1793300137.4218216, "mono": 2484.918176725, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 34, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300137.4780214, "mono": 2484.974376325, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "13498"}
+{"t": 1793300137.5257976, "mono": 2485.022152687, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 135, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300137.964163, "mono": 2485.460518383, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 140, "pid": "12924"}
+{"t": 1793300138.4246407, "mono": 2485.920996179, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 35, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300138.4799373, "mono": 2485.976292262, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "13498"}
+{"t": 1793300138.5311832, "mono": 2486.027538488, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 136, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300138.9663885, "mono": 2486.462743281, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 141, "pid": "12924"}
+{"t": 1793300139.4264257, "mono": 2486.922780358, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 36, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300139.4820242, "mono": 2486.978379337, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "13498"}
+{"t": 1793300139.5364964, "mono": 2487.032851167, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 137, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300139.9682348, "mono": 2487.464589434, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 142, "pid": "12924"}
+{"t": 1793300140.4276733, "mono": 2487.924028669, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 37, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300140.4842885, "mono": 2487.980643267, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "13498"}
+{"t": 1793300140.5418417, "mono": 2488.038197034, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 138, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300140.9700084, "mono": 2488.466363125, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 143, "pid": "12924"}
+{"t": 1793300141.4298217, "mono": 2488.926176617, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 38, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300141.4862504, "mono": 2488.982605855, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "13498"}
+{"t": 1793300141.5468543, "mono": 2489.04320912, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 139, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300141.9722607, "mono": 2489.468615422, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 144, "pid": "12924"}
+{"t": 1793300142.43161, "mono": 2489.927964903, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 39, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300142.4884255, "mono": 2489.984780236, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "13498"}
+{"t": 1793300142.5518665, "mono": 2490.048221704, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 140, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300142.9742131, "mono": 2490.470568443, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 145, "pid": "12924"}
+{"t": 1793300143.4327633, "mono": 2490.929118204, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 40, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300143.4903667, "mono": 2490.986721523, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "13498"}
+{"t": 1793300143.55673, "mono": 2491.053084965, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 141, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300143.9763103, "mono": 2491.472665216, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 146, "pid": "12924"}
+{"t": 1793300144.436275, "mono": 2491.932629605, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 41, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300144.4926822, "mono": 2491.989037212, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "13498"}
+{"t": 1793300144.561192, "mono": 2492.057546739, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 142, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300144.9783652, "mono": 2492.47472025, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 147, "pid": "12924"}
+{"t": 1793300145.4386783, "mono": 2492.935033126, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 42, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300145.494911, "mono": 2492.991265902, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "13498"}
+{"t": 1793300145.5654461, "mono": 2493.061800967, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 143, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300145.9804063, "mono": 2493.476761257, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 148, "pid": "12924"}
+{"t": 1793300146.4409568, "mono": 2493.937311864, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 43, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300146.4977813, "mono": 2493.994136069, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "13498"}
+{"t": 1793300146.5700653, "mono": 2494.066420217, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 144, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300146.9823358, "mono": 2494.47869054, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 149, "pid": "12924"}
+{"t": 1793300147.443533, "mono": 2494.93988782, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 44, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300147.500015, "mono": 2494.996370101, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "13498"}
+{"t": 1793300147.5758157, "mono": 2495.072170611, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 145, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300147.9843733, "mono": 2495.480728116, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 150, "pid": "12924"}
+{"t": 1793300148.445492, "mono": 2495.94184682, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 45, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300148.5021374, "mono": 2495.998492145, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "13498"}
+{"t": 1793300148.5812674, "mono": 2496.077622633, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 146, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300148.9862914, "mono": 2496.48264628, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 151, "pid": "12924"}
+{"t": 1793300149.4477532, "mono": 2496.944107976, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 46, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300149.5043194, "mono": 2497.00067417, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "13498"}
+{"t": 1793300149.5876315, "mono": 2497.08398623, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 147, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300149.9882634, "mono": 2497.484618256, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 152, "pid": "12924"}
+{"t": 1793300150.4496796, "mono": 2497.946034544, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 47, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300150.5062175, "mono": 2498.002572589, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "13498"}
+{"t": 1793300150.5928588, "mono": 2498.089213823, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 148, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300150.9901185, "mono": 2498.486473561, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 153, "pid": "12924"}
+{"t": 1793300151.4528997, "mono": 2498.949254982, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 48, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300151.5081396, "mono": 2499.004494283, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "13498"}
+{"t": 1793300151.5977328, "mono": 2499.09408802, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 149, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300151.991962, "mono": 2499.488316881, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 154, "pid": "12924"}
+{"t": 1793300152.4554496, "mono": 2499.951804401, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 49, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300152.510287, "mono": 2500.006642277, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "13498"}
+{"t": 1793300152.6028621, "mono": 2500.0992172, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 150, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300152.9937894, "mono": 2500.490144412, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 155, "pid": "12924"}
+{"t": 1793300153.4573128, "mono": 2500.953667592, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 50, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300153.5122473, "mono": 2501.008602397, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "13498"}
+{"t": 1793300153.6077542, "mono": 2501.104109053, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 151, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300153.9959562, "mono": 2501.492311268, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 156, "pid": "12924"}
+{"t": 1793300154.4603539, "mono": 2501.956708862, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 51, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300154.5143397, "mono": 2502.010694483, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "13498"}
+{"t": 1793300154.6123054, "mono": 2502.108660325, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 152, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300154.998218, "mono": 2502.494572746, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 157, "pid": "12924"}
+{"t": 1793300155.4625187, "mono": 2502.958873643, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 52, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300155.5166817, "mono": 2503.01303708, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "13498"}
+{"t": 1793300155.617109, "mono": 2503.113464056, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 153, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300156.0002453, "mono": 2503.496600194, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 158, "pid": "12924"}
+{"t": 1793300156.4641476, "mono": 2503.960502548, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 53, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300156.5185995, "mono": 2504.014954287, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "13498"}
+{"t": 1793300156.6219265, "mono": 2504.118281531, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 154, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300157.0023916, "mono": 2504.498746257, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 159, "pid": "12924"}
+{"t": 1793300157.4664748, "mono": 2504.962829752, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 54, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300157.5205908, "mono": 2505.016946153, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "13498"}
+{"t": 1793300157.6268954, "mono": 2505.123250126, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 155, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300158.0043328, "mono": 2505.500688093, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 160, "pid": "12924"}
+{"t": 1793300158.4688113, "mono": 2505.965166134, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 55, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300158.5227356, "mono": 2506.019090691, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "13498"}
+{"t": 1793300158.6316772, "mono": 2506.128032081, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 156, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300159.0063322, "mono": 2506.502687166, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 161, "pid": "12924"}
+{"t": 1793300159.4719367, "mono": 2506.968292046, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 56, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300159.5247593, "mono": 2507.021114334, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "13498"}
+{"t": 1793300159.636728, "mono": 2507.133083323, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 157, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300160.0088258, "mono": 2507.505180898, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 162, "pid": "12924"}
+{"t": 1793300160.4746192, "mono": 2507.970974054, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 57, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300160.5268877, "mono": 2508.023246212, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "13498"}
+{"t": 1793300160.641576, "mono": 2508.137930639, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 158, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300161.0110028, "mono": 2508.50735772, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 163, "pid": "12924"}
+{"t": 1793300161.4769473, "mono": 2508.973301872, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 58, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300161.5288155, "mono": 2509.025170471, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "13498"}
+{"t": 1793300161.6466155, "mono": 2509.14297072, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 159, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300162.0128767, "mono": 2509.509231666, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 164, "pid": "12924"}
+{"t": 1793300162.4800758, "mono": 2509.976431088, "canary": "parent", "trial": "XA-C2A-S1-t1", "n": 59, "pid": "13474", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "attempt": "1"}
+{"t": 1793300162.5309048, "mono": 2510.02725982, "canary": "bgproc", "trial": "XA-C2A-S1-t1", "n": 60, "pid": "13498"}
+{"t": 1793300162.6514301, "mono": 2510.147785073, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 160, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300163.0083685, "mono": 2510.504723053, "canary": "tool_event", "trial": "XA-C2A-S1-t1", "n": 0, "pid": "13474", "what": "kill_code_ran", "thread": "Thread-2 (tool_event)", "run": "01a18902-6796-7220-9b57-895fabdf93c2", "variant": "C2a", "killed_process": "True", "steps": "59", "on": "asyncio.CancelledError", "ran_in": "MainThread"}
+{"t": 1793300163.0151665, "mono": 2510.511521266, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 165, "pid": "12924"}
+{"t": 1793300163.6568758, "mono": 2511.153230634, "canary": "collateral", "trial": "XA-C2A-S1-t1", "n": 161, "pid": "13474", "run": "01a18902-678a-7d20-800e-0aa0b7ea6db7", "attempt": "1"}
+{"t": 1793300164.0178788, "mono": 2511.514233538, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 166, "pid": "12924"}
+{"t": 1793300165.0199132, "mono": 2512.516268142, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 167, "pid": "12924"}
+{"t": 1793300166.0221167, "mono": 2513.518471587, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 168, "pid": "12924"}
+{"t": 1793300167.0238962, "mono": 2514.520251271, "canary": "twin", "trial": "XA-C2A-S1-t1", "n": 169, "pid": "12924"}

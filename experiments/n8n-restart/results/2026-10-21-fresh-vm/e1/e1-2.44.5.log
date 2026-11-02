@@ -1,0 +1,270 @@
+=== 2.44.5 repeat 1 start 2026-10-21T10:16:32Z
+10:17:03.072 main and worker ready
+10:17:04.043 set-up done: workflow gKHZWaj84znAiirQ published
+n8n 2.44.5
+node v24.21.0
+postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+kernel 7.0.0-1014-gcp; host e1-n8n.europe-west1-b.c.shutdown-test-project-00.internal
+== 10:17:04.056 Phase A (control): the stop goes to the main that enqueued the run
+10:17:06.276 run A is execution 1
+10:17:21.379 stop A reply: {"mode":"webhook","startedAt":"2026-10-21T10:17:05.186Z","stoppedAt":"2026-10-21T10:17:21.359Z","finished":false,"status":"canceled"} [HTTP 200]
+10:17:26.288 [+5s] exec 1 | API: canceled 2026-10-21T10:17:21.360Z | Postgres: canceled|2026-10-21 10:17:21.36+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+10:17:51.288 [+30s] exec 1 | API: canceled 2026-10-21T10:17:21.360Z | Postgres: canceled|2026-10-21 10:17:21.36+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+10:18:21.288 [+60s] exec 1 | API: canceled 2026-10-21T10:17:21.360Z | Postgres: canceled|2026-10-21 10:17:21.36+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+== 10:18:21.510 Phase B: restart main, then stop
+10:18:22.650 run B is execution 2
+10:18:37.655 [before restart] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 15, last i=17 at +15.03 s
+10:19:20.909 main stop took 32.066 s; start to ready 10.971 s
+10:19:20.918 [after restart, before stop (ticks counted from run start)] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 58, last i=60 at +58.24 s
+10:19:21.242 stop B reply: {"mode":"webhook","startedAt":"2026-10-21T10:18:21.566Z","stoppedAt":"2026-10-21T10:19:21.226Z","finished":false,"status":"canceled"} [HTTP 200]
+10:19:26.165 [+5s] exec 2 | API: canceled 2026-10-21T10:19:21.226Z | Postgres: canceled|2026-10-21 10:19:21.226+00 | Bull active: 2 | sink ticks since stop: 5, last i=65 at +4.75 s
+10:19:51.165 [+30s] exec 2 | API: canceled 2026-10-21T10:19:21.226Z | Postgres: canceled|2026-10-21 10:19:21.226+00 | Bull active: 2 | sink ticks since stop: 30, last i=90 at +29.89 s
+10:20:21.166 [+60s] exec 2 | API: canceled 2026-10-21T10:19:21.226Z | Postgres: canceled|2026-10-21 10:19:21.226+00 | Bull active: 2 | sink ticks since stop: 60, last i=120 at +60.02 s
+10:21:21.166 [+120s] exec 2 | API: canceled 2026-10-21T10:19:21.226Z | Postgres: canceled|2026-10-21 10:19:21.226+00 | Bull active: 2 | sink ticks since stop: 119, last i=179 at +119.29 s
+10:21:21.475 second stop on B: {"message":"Only running or waiting executions can be stopped and 2 is currently canceled"} [HTTP 409]
+== 10:21:21.483 waiting until 330 s after run B started (n8n's default task timeout is 300 s)
+10:23:52.656 [run start +330s] exec 2 | API: canceled 2026-10-21T10:19:21.226Z | Postgres: canceled|2026-10-21 10:19:21.226+00 | Bull active: | sink ticks since stop: 239, last i=299 at +239.81 s
+sink ticks from run B in the 30 s before this read: 0
+== worker log lines naming a stop, abort, cancel or task timeout
+9:10:16:59.913   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+23:[33m - N8N_RUNNERS_TASK_TIMEOUT -> The default for this variable will be reduced from 300 (5 minutes) to 60 (1 minute) in a future version. Set it explicitly to keep your current task timeout.[39m
+52:10:17:00.404   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+107:10:17:01.844   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+152:10:17:21.333   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+154:10:17:21.363   [34mdebug[39m   [34mSave execution data to database for execution ID 1[39m { "executionId": "1", "workflowId": "gKHZWaj84znAiirQ", "finished": false, "stoppedAt": "2026-10-21T10: 17: 21.360Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+155:10:17:21.367   [31merror[39m   [31mTask cancelled: Task cancelled by user[39m { "file": "error-reporter.js", "function": "defaultReport" }
+157:10:17:21.400   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "tags": { }, "message": "Task cancelled:  Task cancelled by user", "stack": "Error:  Task cancelled:  Task cancelled by user\n    at LocalTaskRequester.cancelTask (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 245: 24)\n    at LocalTaskRequester.cancelTasks (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 223: 9)\n    at EventService.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-runner-module.ts: 61: 24)\n    at EventService.emit (node: events: 526: 24)\n    at EventService.emit (/opt/n8n-2.44.5/node_modules/@n8n/backend-common/src/typed-emitter.ts: 39: 16)\n    at JobProcessor.cancelJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 558: 21)\n    at JobProcessor.stopJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 550: 8)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 549: 52)\n    at Queue.emit (node: events: 514: 28)\n    at Object.module.exports.emitSafe (/opt/n8n-2.44.5/node_modules/bull/lib/utils.js: 50: 20)" }, "workflowId": "gKHZWaj84znAiirQ", "file": "logger-proxy.js", "function": "exports.debug" }
+159:10:17:21.403   [31merror[39m   [31mWorker errored while running execution 1 (job 1)[39m { "scopes": ["scaling"], "error": { "name": "ManualExecutionCancelledError", "message": "The execution was cancelled manually", "stack": "ManualExecutionCancelledError:  The execution was cancelled manually\n    at JobProcessor.runJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 396: 7)\n    at processTicksAndRejections (node: internal/process/task_queues: 104: 5)\n    at JobProcessor.processJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 120: 11)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 202: 5)" }, "executionId": "1", "jobId": "1", "file": "scaling.service.js", "function": "reportJobProcessingError" }
+170:10:19:21.213   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+171:10:23:21.590   [31merror[39m   [31m[runner:js] Task 2_mwsEJJ timed out[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+172:10:23:21.591   [33mwarn[39m    [33mTask runner timed out during task, restarting...[39m { "scopes": ["task-runner-js"], "file": "task-runner-process-base.js", "function": "restartIfOwnRunner" }
+173:10:23:21.593   [31merror[39m   [31mTask execution timed out after 300 seconds[39m { "file": "error-reporter.js", "function": "defaultReport" }
+175:10:23:21.605   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "description": "The task runner was taking too long on this task, so it was suspected of being unresponsive and restarted, and the task was aborted. You can try the following: <br/><br/>1. Optimize your script to prevent long-running tasks, e.g. by processing data in smaller batches.<br/>2. Ensure that all paths in your script are able to terminate, i.e. no infinite loops.<br/>3. If your task can reasonably take more than 300 seconds, increase the timeout using the N8N_RUNNERS_TASK_TIMEOUT environment variable.", "tags": { }, "message": "Task execution timed out after 300 seconds", "stack": "Error:  Task execution timed out after 300 seconds\n    at TaskBroker.handleTaskTimeout (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 659: 7)\n    at Timeout.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 618: 15)\n    at listOnTimeout (node: internal/timers: 685: 17)\n    at processTimers (node: internal/timers: 618: 7)" }, "workflowId": "gKHZWaj84znAiirQ", "file": "logger-proxy.js", "function": "exports.debug" }
+177:10:23:21.607   [34mdebug[39m   [34mSave execution data to database for execution ID 2[39m { "executionId": "2", "workflowId": "gKHZWaj84znAiirQ", "finished": false, "stoppedAt": "2026-10-21T10: 23: 21.606Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+== main log lines naming recovery, crashed, stop or abort
+10:10:16:42.329   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+16:10:16:42.404   [33mwarn[39m    [33mMigrations in progress, please do NOT stop the process.[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+21:10:16:42.423   [32minfo[39m    [32mStarting migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+22:10:16:42.425   [32minfo[39m    [32mFinished migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+23:10:16:42.426   [32minfo[39m    [32mStarting migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+24:10:16:42.427   [32minfo[39m    [32mFinished migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+934:10:16:53.666   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+935:10:16:53.667   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+965:10:16:53.742   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+966:10:16:53.742   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1063:10:17:21.330   [34mdebug[39m   [34mCancelling execution[39m { "executionId": "1", "reason": "manual", "file": "active-executions.js", "function": "stopExecution" }
+1064:10:17:21.332   [34mdebug[39m   [34mExecution cancelled[39m { "executionId": "1", "file": "active-executions.js", "function": "stopExecution" }
+1066:10:17:21.357   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+1067:10:17:21.361   [34mdebug[39m   [34mSent abort signal to worker[39m { "scopes": ["scaling"], "jobId": "1", "executionId": "1", "file": "scaling.service.js", "function": "stopJob" }
+1082:10:18:37.879   [34mdebug[39m   [34mShutting down component "ScalingService.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1084:10:18:37.880   [34mdebug[39m   [34mQueue recovery stopped[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "stopQueueRecovery" }
+1088:10:18:37.882   [34mdebug[39m   [34mShutting down component "DurableScheduler.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1093:10:18:37.883   [34mdebug[39m   [34mShutting down component "WorkflowHistoryCompactionService.stopStartupCompaction()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1105:10:18:37.887   [34mdebug[39m   [34mShutting down component "TaskRunnerModule.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1106:10:18:37.888   [34mdebug[39m   [34mShutting down component "TaskRunnerProcessBase.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1110:10:18:37.890   [34mdebug[39m   [34mShutting down component "AgentTaskService.stopAll()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1111:10:18:37.890   [34mdebug[39m   [34mShutting down component "DiscordIntegration.stopAllGateways()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1113:10:18:37.890   [34mdebug[39m   [34mShutting down component "AgentMessageQueueConsumer.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1115:10:18:37.891   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "leader_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1116:10:18:37.891   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "instance_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1118:10:18:37.892   [34mdebug[39m   [34mStopped outbox polling[39m { "scopes": ["workflow-publication"], "file": "workflow-publication-outbox-consumer.js", "function": "stopPolling" }
+1125:10:18:38.082   [34mdebug[39m   [34mStopped flushing timer[39m { "scopes": ["insights"], "file": "insights-collection.service.js", "function": "stopFlushingTimer" }
+1130:10:18:38.093   [32minfo[39m    [32m[runner:js] Task runner stopped[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+1131:10:18:38.104   [34mdebug[39m   [34mShutting down component "Telemetry.stopTracking()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1134:[32mStopping n8n...[39m { "file": "start.js", "function": "stopProcess" }
+1135:10:18:38.106   [34mdebug[39m   [34mStopped tracking waiting executions[39m { "scopes": ["waiting-executions"], "file": "wait-tracker.js", "function": "stopTracking" }
+1177:10:19:15.435   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+1459:10:19:19.944   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1460:10:19:19.981   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1461:10:19:19.985   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+1462:10:19:19.985   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1554:10:19:21.213   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+== Verdict (rule at the top of this script)
+control: stop A HTTP 200, ticks from A between +5 s and +60 s: 0 -> yes
+1. stop B HTTP 200, status canceled -> yes
+2. at +5 s API canceled, Postgres canceled -> yes
+3. ticks from B between +30 s and +60 s: 29 -> yes
+4. Bull active at +60 s: 2 -> yes
+P1 REPRODUCED
+=== 2.44.5 repeat 1 end 2026-10-21T10:23:54Z rc=0 archive=n8n-repro-20261021T102354Z.tgz
+=== 2.44.5 repeat 2 start 2026-10-21T10:23:54Z
+10:24:18.763 main and worker ready
+10:24:19.787 set-up done: workflow G4BYAfv5yJ8z21Yz published
+n8n 2.44.5
+node v24.21.0
+postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+kernel 7.0.0-1014-gcp; host e1-n8n.europe-west1-b.c.shutdown-test-project-00.internal
+== 10:24:19.800 Phase A (control): the stop goes to the main that enqueued the run
+10:24:22.012 run A is execution 1
+10:24:37.117 stop A reply: {"mode":"webhook","startedAt":"2026-10-21T10:24:20.926Z","stoppedAt":"2026-10-21T10:24:37.098Z","finished":false,"status":"canceled"} [HTTP 200]
+10:24:42.024 [+5s] exec 1 | API: canceled 2026-10-21T10:24:37.099Z | Postgres: canceled|2026-10-21 10:24:37.099+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.86 s
+10:25:07.024 [+30s] exec 1 | API: canceled 2026-10-21T10:24:37.099Z | Postgres: canceled|2026-10-21 10:24:37.099+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.86 s
+10:25:37.024 [+60s] exec 1 | API: canceled 2026-10-21T10:24:37.099Z | Postgres: canceled|2026-10-21 10:24:37.099+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.86 s
+== 10:25:37.248 Phase B: restart main, then stop
+10:25:38.386 run B is execution 2
+10:25:53.390 [before restart] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 15, last i=17 at +15.04 s
+10:26:42.157 main stop took 32.102 s; start to ready 16.445 s
+10:26:42.168 [after restart, before stop (ticks counted from run start)] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 63, last i=65 at +63.40 s
+10:26:42.522 stop B reply: {"mode":"webhook","startedAt":"2026-10-21T10:25:37.305Z","stoppedAt":"2026-10-21T10:26:42.507Z","finished":false,"status":"canceled"} [HTTP 200]
+10:26:47.448 [+5s] exec 2 | API: canceled 2026-10-21T10:26:42.507Z | Postgres: canceled|2026-10-21 10:26:42.507+00 | Bull active: 2 | sink ticks since stop: 5, last i=70 at +4.36 s
+10:27:12.449 [+30s] exec 2 | API: canceled 2026-10-21T10:26:42.507Z | Postgres: canceled|2026-10-21 10:26:42.507+00 | Bull active: 2 | sink ticks since stop: 30, last i=95 at +29.47 s
+10:27:42.448 [+60s] exec 2 | API: canceled 2026-10-21T10:26:42.507Z | Postgres: canceled|2026-10-21 10:26:42.507+00 | Bull active: 2 | sink ticks since stop: 60, last i=125 at +59.60 s
+10:28:42.449 [+120s] exec 2 | API: canceled 2026-10-21T10:26:42.507Z | Postgres: canceled|2026-10-21 10:26:42.507+00 | Bull active: 2 | sink ticks since stop: 120, last i=185 at +119.86 s
+10:28:42.747 second stop on B: {"message":"Only running or waiting executions can be stopped and 2 is currently canceled"} [HTTP 409]
+== 10:28:42.755 waiting until 330 s after run B started (n8n's default task timeout is 300 s)
+10:31:08.391 [run start +330s] exec 2 | API: canceled 2026-10-21T10:26:42.507Z | Postgres: canceled|2026-10-21 10:26:42.507+00 | Bull active: | sink ticks since stop: 234, last i=299 at +234.35 s
+sink ticks from run B in the 30 s before this read: 0
+== worker log lines naming a stop, abort, cancel or task timeout
+9:10:24:15.763   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+23:[33m - N8N_RUNNERS_TASK_TIMEOUT -> The default for this variable will be reduced from 300 (5 minutes) to 60 (1 minute) in a future version. Set it explicitly to keep your current task timeout.[39m
+52:10:24:16.276   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+107:10:24:17.691   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+152:10:24:37.074   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+154:10:24:37.103   [34mdebug[39m   [34mSave execution data to database for execution ID 1[39m { "executionId": "1", "workflowId": "G4BYAfv5yJ8z21Yz", "finished": false, "stoppedAt": "2026-10-21T10: 24: 37.099Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+155:10:24:37.106   [31merror[39m   [31mTask cancelled: Task cancelled by user[39m { "file": "error-reporter.js", "function": "defaultReport" }
+157:10:24:37.142   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "tags": { }, "message": "Task cancelled:  Task cancelled by user", "stack": "Error:  Task cancelled:  Task cancelled by user\n    at LocalTaskRequester.cancelTask (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 245: 24)\n    at LocalTaskRequester.cancelTasks (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 223: 9)\n    at EventService.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-runner-module.ts: 61: 24)\n    at EventService.emit (node: events: 526: 24)\n    at EventService.emit (/opt/n8n-2.44.5/node_modules/@n8n/backend-common/src/typed-emitter.ts: 39: 16)\n    at JobProcessor.cancelJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 558: 21)\n    at JobProcessor.stopJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 550: 8)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 549: 52)\n    at Queue.emit (node: events: 514: 28)\n    at Object.module.exports.emitSafe (/opt/n8n-2.44.5/node_modules/bull/lib/utils.js: 50: 20)" }, "workflowId": "G4BYAfv5yJ8z21Yz", "file": "logger-proxy.js", "function": "exports.debug" }
+159:10:24:37.146   [31merror[39m   [31mWorker errored while running execution 1 (job 1)[39m { "scopes": ["scaling"], "error": { "name": "ManualExecutionCancelledError", "message": "The execution was cancelled manually", "stack": "ManualExecutionCancelledError:  The execution was cancelled manually\n    at JobProcessor.runJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 396: 7)\n    at processTicksAndRejections (node: internal/process/task_queues: 104: 5)\n    at JobProcessor.processJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 120: 11)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 202: 5)" }, "executionId": "1", "jobId": "1", "file": "scaling.service.js", "function": "reportJobProcessingError" }
+170:10:26:42.495   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+171:10:30:37.327   [33mwarn[39m    [33mTask runner timed out during task, restarting...[39m { "scopes": ["task-runner-js"], "file": "task-runner-process-base.js", "function": "restartIfOwnRunner" }
+172:10:30:37.328   [31merror[39m   [31mTask execution timed out after 300 seconds[39m { "file": "error-reporter.js", "function": "defaultReport" }
+174:10:30:37.338   [31merror[39m   [31m[runner:js] Task LHCf_TzL timed out[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+175:10:30:37.342   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "description": "The task runner was taking too long on this task, so it was suspected of being unresponsive and restarted, and the task was aborted. You can try the following: <br/><br/>1. Optimize your script to prevent long-running tasks, e.g. by processing data in smaller batches.<br/>2. Ensure that all paths in your script are able to terminate, i.e. no infinite loops.<br/>3. If your task can reasonably take more than 300 seconds, increase the timeout using the N8N_RUNNERS_TASK_TIMEOUT environment variable.", "tags": { }, "message": "Task execution timed out after 300 seconds", "stack": "Error:  Task execution timed out after 300 seconds\n    at TaskBroker.handleTaskTimeout (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 659: 7)\n    at Timeout.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 618: 15)\n    at listOnTimeout (node: internal/timers: 685: 17)\n    at processTimers (node: internal/timers: 618: 7)" }, "workflowId": "G4BYAfv5yJ8z21Yz", "file": "logger-proxy.js", "function": "exports.debug" }
+177:10:30:37.343   [34mdebug[39m   [34mSave execution data to database for execution ID 2[39m { "executionId": "2", "workflowId": "G4BYAfv5yJ8z21Yz", "finished": false, "stoppedAt": "2026-10-21T10: 30: 37.342Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+== main log lines naming recovery, crashed, stop or abort
+10:10:24:01.417   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+16:10:24:01.479   [33mwarn[39m    [33mMigrations in progress, please do NOT stop the process.[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+21:10:24:01.497   [32minfo[39m    [32mStarting migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+22:10:24:01.498   [32minfo[39m    [32mFinished migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+23:10:24:01.500   [32minfo[39m    [32mStarting migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+24:10:24:01.500   [32minfo[39m    [32mFinished migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+934:10:24:11.327   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+935:10:24:11.327   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+965:10:24:11.395   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+966:10:24:11.396   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1063:10:24:37.071   [34mdebug[39m   [34mCancelling execution[39m { "executionId": "1", "reason": "manual", "file": "active-executions.js", "function": "stopExecution" }
+1064:10:24:37.072   [34mdebug[39m   [34mExecution cancelled[39m { "executionId": "1", "file": "active-executions.js", "function": "stopExecution" }
+1066:10:24:37.096   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+1067:10:24:37.100   [34mdebug[39m   [34mSent abort signal to worker[39m { "scopes": ["scaling"], "jobId": "1", "executionId": "1", "file": "scaling.service.js", "function": "stopJob" }
+1082:10:25:53.617   [34mdebug[39m   [34mShutting down component "ScalingService.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1084:10:25:53.618   [34mdebug[39m   [34mQueue recovery stopped[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "stopQueueRecovery" }
+1088:10:25:53.619   [34mdebug[39m   [34mShutting down component "DurableScheduler.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1093:10:25:53.621   [34mdebug[39m   [34mShutting down component "WorkflowHistoryCompactionService.stopStartupCompaction()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1105:10:25:53.626   [34mdebug[39m   [34mShutting down component "TaskRunnerModule.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1106:10:25:53.627   [34mdebug[39m   [34mShutting down component "TaskRunnerProcessBase.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1110:10:25:53.629   [34mdebug[39m   [34mShutting down component "AgentTaskService.stopAll()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1111:10:25:53.629   [34mdebug[39m   [34mShutting down component "DiscordIntegration.stopAllGateways()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1113:10:25:53.630   [34mdebug[39m   [34mShutting down component "AgentMessageQueueConsumer.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1115:10:25:53.631   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "leader_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1116:10:25:53.631   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "instance_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1118:10:25:53.632   [34mdebug[39m   [34mStopped outbox polling[39m { "scopes": ["workflow-publication"], "file": "workflow-publication-outbox-consumer.js", "function": "stopPolling" }
+1125:10:25:53.796   [34mdebug[39m   [34mStopped flushing timer[39m { "scopes": ["insights"], "file": "insights-collection.service.js", "function": "stopFlushingTimer" }
+1130:10:25:53.803   [32minfo[39m    [32m[runner:js] Task runner stopped[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+1131:10:25:53.814   [34mdebug[39m   [34mShutting down component "Telemetry.stopTracking()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1134:[32mStopping n8n...[39m { "file": "start.js", "function": "stopProcess" }
+1135:10:25:53.816   [34mdebug[39m   [34mStopped tracking waiting executions[39m { "scopes": ["waiting-executions"], "file": "wait-tracker.js", "function": "stopTracking" }
+1177:10:26:35.878   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+1459:10:26:41.316   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1460:10:26:41.371   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1461:10:26:41.375   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+1462:10:26:41.376   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1554:10:26:42.495   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+== Verdict (rule at the top of this script)
+control: stop A HTTP 200, ticks from A between +5 s and +60 s: 0 -> yes
+1. stop B HTTP 200, status canceled -> yes
+2. at +5 s API canceled, Postgres canceled -> yes
+3. ticks from B between +30 s and +60 s: 30 -> yes
+4. Bull active at +60 s: 2 -> yes
+P1 REPRODUCED
+=== 2.44.5 repeat 2 end 2026-10-21T10:31:10Z rc=0 archive=n8n-repro-20261021T103110Z.tgz
+=== 2.44.5 repeat 3 start 2026-10-21T10:31:10Z
+10:31:34.727 main and worker ready
+10:31:35.783 set-up done: workflow yELMzWSdQeBvC1RP published
+n8n 2.44.5
+node v24.21.0
+postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)
+Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92
+kernel 7.0.0-1014-gcp; host e1-n8n.europe-west1-b.c.shutdown-test-project-00.internal
+== 10:31:35.799 Phase A (control): the stop goes to the main that enqueued the run
+10:31:38.023 run A is execution 1
+10:31:53.134 stop A reply: {"mode":"webhook","startedAt":"2026-10-21T10:31:36.925Z","stoppedAt":"2026-10-21T10:31:53.115Z","finished":false,"status":"canceled"} [HTTP 200]
+10:31:58.038 [+5s] exec 1 | API: canceled 2026-10-21T10:31:53.113Z | Postgres: canceled|2026-10-21 10:31:53.113+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+10:32:23.035 [+30s] exec 1 | API: canceled 2026-10-21T10:31:53.113Z | Postgres: canceled|2026-10-21 10:31:53.113+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+10:32:53.035 [+60s] exec 1 | API: canceled 2026-10-21T10:31:53.113Z | Postgres: canceled|2026-10-21 10:31:53.113+00 | Bull active: | sink ticks since stop: 0, last i=16 at -0.87 s
+== 10:32:53.262 Phase B: restart main, then stop
+10:32:54.400 run B is execution 2
+10:33:09.405 [before restart] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 15, last i=17 at +15.03 s
+10:33:51.616 main stop took 32.067 s; start to ready 9.918 s
+10:33:51.625 [after restart, before stop (ticks counted from run start)] exec 2 | API: running None | Postgres: running| | Bull active: 2 | sink ticks since stop: 57, last i=59 at +57.23 s
+10:33:52.036 stop B reply: {"mode":"webhook","startedAt":"2026-10-21T10:32:53.322Z","stoppedAt":"2026-10-21T10:33:52.019Z","finished":false,"status":"canceled"} [HTTP 200]
+10:33:56.955 [+5s] exec 2 | API: canceled 2026-10-21T10:33:52.019Z | Postgres: canceled|2026-10-21 10:33:52.019+00 | Bull active: 2 | sink ticks since stop: 5, last i=64 at +4.70 s
+10:34:21.955 [+30s] exec 2 | API: canceled 2026-10-21T10:33:52.019Z | Postgres: canceled|2026-10-21 10:33:52.019+00 | Bull active: 2 | sink ticks since stop: 30, last i=89 at +29.83 s
+10:34:51.956 [+60s] exec 2 | API: canceled 2026-10-21T10:33:52.019Z | Postgres: canceled|2026-10-21 10:33:52.019+00 | Bull active: 2 | sink ticks since stop: 60, last i=119 at +59.96 s
+10:35:51.956 [+120s] exec 2 | API: canceled 2026-10-21T10:33:52.019Z | Postgres: canceled|2026-10-21 10:33:52.019+00 | Bull active: 2 | sink ticks since stop: 119, last i=178 at +119.22 s
+10:35:52.260 second stop on B: {"message":"Only running or waiting executions can be stopped and 2 is currently canceled"} [HTTP 409]
+== 10:35:52.268 waiting until 330 s after run B started (n8n's default task timeout is 300 s)
+10:38:24.406 [run start +330s] exec 2 | API: canceled 2026-10-21T10:33:52.019Z | Postgres: canceled|2026-10-21 10:33:52.019+00 | Bull active: | sink ticks since stop: 240, last i=299 at +240.74 s
+sink ticks from run B in the 30 s before this read: 0
+== worker log lines naming a stop, abort, cancel or task timeout
+9:10:31:32.117   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+23:[33m - N8N_RUNNERS_TASK_TIMEOUT -> The default for this variable will be reduced from 300 (5 minutes) to 60 (1 minute) in a future version. Set it explicitly to keep your current task timeout.[39m
+52:10:31:32.558   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+107:10:31:33.988   [34mdebug[39m   [34mRegistered a "stop-execution" event handler on ExecutionStopService#handleStopExecution[39m { "scopes": ["pubsub"], "file": "pubsub.registry.js", "function": "init" }
+152:10:31:53.083   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+154:10:31:53.116   [34mdebug[39m   [34mSave execution data to database for execution ID 1[39m { "executionId": "1", "workflowId": "yELMzWSdQeBvC1RP", "finished": false, "stoppedAt": "2026-10-21T10: 31: 53.113Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+155:10:31:53.119   [31merror[39m   [31mTask cancelled: Task cancelled by user[39m { "file": "error-reporter.js", "function": "defaultReport" }
+157:10:31:53.158   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "tags": { }, "message": "Task cancelled:  Task cancelled by user", "stack": "Error:  Task cancelled:  Task cancelled by user\n    at LocalTaskRequester.cancelTask (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 245: 24)\n    at LocalTaskRequester.cancelTasks (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-managers/task-requester.ts: 223: 9)\n    at EventService.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-runner-module.ts: 61: 24)\n    at EventService.emit (node: events: 526: 24)\n    at EventService.emit (/opt/n8n-2.44.5/node_modules/@n8n/backend-common/src/typed-emitter.ts: 39: 16)\n    at JobProcessor.cancelJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 558: 21)\n    at JobProcessor.stopJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 550: 8)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 549: 52)\n    at Queue.emit (node: events: 514: 28)\n    at Object.module.exports.emitSafe (/opt/n8n-2.44.5/node_modules/bull/lib/utils.js: 50: 20)" }, "workflowId": "yELMzWSdQeBvC1RP", "file": "logger-proxy.js", "function": "exports.debug" }
+159:10:31:53.161   [31merror[39m   [31mWorker errored while running execution 1 (job 1)[39m { "scopes": ["scaling"], "error": { "name": "ManualExecutionCancelledError", "message": "The execution was cancelled manually", "stack": "ManualExecutionCancelledError:  The execution was cancelled manually\n    at JobProcessor.runJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 396: 7)\n    at processTicksAndRejections (node: internal/process/task_queues: 104: 5)\n    at JobProcessor.processJob (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/job-processor.ts: 120: 11)\n    at Queue.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/scaling/scaling.service.ts: 202: 5)" }, "executionId": "1", "jobId": "1", "file": "scaling.service.js", "function": "reportJobProcessingError" }
+170:10:33:52.006   [34mdebug[39m   [34mReceived pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "subscriber.service.js", "function": "parseMessage" }
+171:10:37:53.342   [33mwarn[39m    [33mTask runner timed out during task, restarting...[39m { "scopes": ["task-runner-js"], "file": "task-runner-process-base.js", "function": "restartIfOwnRunner" }
+172:10:37:53.344   [31merror[39m   [31mTask execution timed out after 300 seconds[39m { "file": "error-reporter.js", "function": "defaultReport" }
+174:10:37:53.357   [31merror[39m   [31m[runner:js] Task FQjAEHFm timed out[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+175:10:37:53.363   [34mdebug[39m   [34mWorkflow execution finished with error[39m { "error": { "level": "warning", "shouldReport": false, "description": "The task runner was taking too long on this task, so it was suspected of being unresponsive and restarted, and the task was aborted. You can try the following: <br/><br/>1. Optimize your script to prevent long-running tasks, e.g. by processing data in smaller batches.<br/>2. Ensure that all paths in your script are able to terminate, i.e. no infinite loops.<br/>3. If your task can reasonably take more than 300 seconds, increase the timeout using the N8N_RUNNERS_TASK_TIMEOUT environment variable.", "tags": { }, "message": "Task execution timed out after 300 seconds", "stack": "Error:  Task execution timed out after 300 seconds\n    at TaskBroker.handleTaskTimeout (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 659: 7)\n    at Timeout.<anonymous> (/opt/n8n-2.44.5/node_modules/n8n/src/task-runners/task-broker/task-broker.service.ts: 618: 15)\n    at listOnTimeout (node: internal/timers: 685: 17)\n    at processTimers (node: internal/timers: 618: 7)" }, "workflowId": "yELMzWSdQeBvC1RP", "file": "logger-proxy.js", "function": "exports.debug" }
+177:10:37:53.364   [34mdebug[39m   [34mSave execution data to database for execution ID 2[39m { "executionId": "2", "workflowId": "yELMzWSdQeBvC1RP", "finished": false, "stoppedAt": "2026-10-21T10: 37: 53.363Z", "file": "shared-hook-functions.js", "function": "updateExistingExecution" }
+== main log lines naming recovery, crashed, stop or abort
+10:10:31:17.245   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+16:10:31:17.307   [33mwarn[39m    [33mMigrations in progress, please do NOT stop the process.[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+21:10:31:17.324   [32minfo[39m    [32mStarting migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+22:10:31:17.325   [32minfo[39m    [32mFinished migration CreateIndexStoppedAt1594828256133[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+23:10:31:17.326   [32minfo[39m    [32mStarting migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationStart" }
+24:10:31:17.327   [32minfo[39m    [32mFinished migration MakeStoppedAtNullable1607431743768[39m { "file": "migration-helpers.js", "function": "logMigrationEnd" }
+934:10:31:27.499   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+935:10:31:27.500   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+965:10:31:27.569   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+966:10:31:27.570   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1063:10:31:53.077   [34mdebug[39m   [34mCancelling execution[39m { "executionId": "1", "reason": "manual", "file": "active-executions.js", "function": "stopExecution" }
+1064:10:31:53.079   [34mdebug[39m   [34mExecution cancelled[39m { "executionId": "1", "file": "active-executions.js", "function": "stopExecution" }
+1066:10:31:53.114   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+1067:10:31:53.117   [34mdebug[39m   [34mSent abort signal to worker[39m { "scopes": ["scaling"], "jobId": "1", "executionId": "1", "file": "scaling.service.js", "function": "stopJob" }
+1082:10:33:09.638   [34mdebug[39m   [34mShutting down component "ScalingService.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1084:10:33:09.639   [34mdebug[39m   [34mQueue recovery stopped[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "stopQueueRecovery" }
+1088:10:33:09.640   [34mdebug[39m   [34mShutting down component "DurableScheduler.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1093:10:33:09.641   [34mdebug[39m   [34mShutting down component "WorkflowHistoryCompactionService.stopStartupCompaction()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1105:10:33:09.645   [34mdebug[39m   [34mShutting down component "TaskRunnerModule.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1106:10:33:09.646   [34mdebug[39m   [34mShutting down component "TaskRunnerProcessBase.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1110:10:33:09.648   [34mdebug[39m   [34mShutting down component "AgentTaskService.stopAll()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1111:10:33:09.648   [34mdebug[39m   [34mShutting down component "DiscordIntegration.stopAllGateways()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1113:10:33:09.648   [34mdebug[39m   [34mShutting down component "AgentMessageQueueConsumer.stop()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1115:10:33:09.649   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "leader_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1116:10:33:09.650   [34mdebug[39m   [34mStopped the in-memory system task timers[39m { "scopes": ["system-tasks"], "mode": "instance_timer", "file": "in-memory-system-task-runner.js", "function": "stop" }
+1118:10:33:09.650   [34mdebug[39m   [34mStopped outbox polling[39m { "scopes": ["workflow-publication"], "file": "workflow-publication-outbox-consumer.js", "function": "stopPolling" }
+1125:10:33:09.815   [34mdebug[39m   [34mStopped flushing timer[39m { "scopes": ["insights"], "file": "insights-collection.service.js", "function": "stopFlushingTimer" }
+1130:10:33:09.822   [32minfo[39m    [32m[runner:js] Task runner stopped[39m { "scopes": ["task-runner-js"], "file": "forward-to-logger.js" }
+1131:10:33:09.833   [34mdebug[39m   [34mShutting down component "Telemetry.stopTracking()"[39m { "file": "shutdown.service.js", "function": "shutdownComponent" }
+1134:[32mStopping n8n...[39m { "file": "start.js", "function": "stopProcess" }
+1135:10:33:09.835   [34mdebug[39m   [34mStopped tracking waiting executions[39m { "scopes": ["waiting-executions"], "file": "wait-tracker.js", "function": "stopTracking" }
+1177:10:33:47.084   [34mdebug[39m   [34mDatabase connection monitor started (pingIntervalSeconds=2, pingTimeoutMs=5000, recoveryThreshold=3)[39m { "file": "db-connection-monitor.js", "function": "start" }
+1459:10:33:51.492   [34mdebug[39m   [34mChecking for unsent event messages[39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1460:10:33:51.530   [34mdebug[39m   [34mStart logging into /srv/n8n-repro/n8n-main/.n8n/n8nEventLog.log [39m { "file": "message-event-bus.js", "function": "performStartupRecovery" }
+1461:10:33:51.533   [34mdebug[39m   [34mCompleted queue recovery check, no dangling executions[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "recoverFromQueue" }
+1462:10:33:51.534   [34mdebug[39m   [34mScheduled queue recovery check for next 180 min[39m { "scopes": ["scaling"], "file": "scaling.service.js", "function": "scheduleQueueRecovery" }
+1554:10:33:52.006   [34mdebug[39m   [34mPublished pubsub msg: stop-execution[39m { "scopes": ["scaling", "pubsub"], "msg": "stop-execution", "channel": "n8n: n8n.commands", "file": "publisher.service.js", "function": "publishCommand" }
+== Verdict (rule at the top of this script)
+control: stop A HTTP 200, ticks from A between +5 s and +60 s: 0 -> yes
+1. stop B HTTP 200, status canceled -> yes
+2. at +5 s API canceled, Postgres canceled -> yes
+3. ticks from B between +30 s and +60 s: 30 -> yes
+4. Bull active at +60 s: 2 -> yes
+P1 REPRODUCED
+=== 2.44.5 repeat 3 end 2026-10-21T10:38:26Z rc=0 archive=n8n-repro-20261021T103826Z.tgz

@@ -1,0 +1,109 @@
+{"t": 1791438910.0209687, "mono": 56.439966126, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 1, "pid": "723"}
+{"t": 1791438910.0252948, "mono": 56.444291293, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 1, "pid": "724"}
+{"t": 1791438910.7543805, "mono": 57.173377385, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 1, "pid": "727"}
+{"t": 1791438911.0270429, "mono": 57.446039986, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 2, "pid": "723"}
+{"t": 1791438911.029691, "mono": 57.448691394, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 2, "pid": "724"}
+{"t": 1791438911.6852129, "mono": 58.104209912, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 1, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438911.760521, "mono": 58.17951784, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 2, "pid": "727"}
+{"t": 1791438912.032448, "mono": 58.451444762, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 3, "pid": "723"}
+{"t": 1791438912.0358198, "mono": 58.454816349, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 3, "pid": "724"}
+{"t": 1791438912.5244865, "mono": 58.943483756, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 1, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438912.6967638, "mono": 59.11576021, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 2, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438912.7653532, "mono": 59.184349906, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 3, "pid": "727"}
+{"t": 1791438913.037507, "mono": 59.456503968, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 4, "pid": "723"}
+{"t": 1791438913.043168, "mono": 59.462164793, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 4, "pid": "724"}
+{"t": 1791438913.5350351, "mono": 59.954032141, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 2, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438913.708727, "mono": 60.127723521, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 3, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438913.769382, "mono": 60.188378687, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 4, "pid": "727"}
+{"t": 1791438914.044102, "mono": 60.463098575, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 5, "pid": "723"}
+{"t": 1791438914.0485036, "mono": 60.467500158, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 5, "pid": "724"}
+{"t": 1791438914.5453596, "mono": 60.96435652, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 3, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438914.724276, "mono": 61.14327408, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 4, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438914.7735498, "mono": 61.192546543, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 5, "pid": "727"}
+{"t": 1791438915.0507894, "mono": 61.469786022, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 6, "pid": "723"}
+{"t": 1791438915.0527136, "mono": 61.471710456, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 6, "pid": "724"}
+{"t": 1791438915.554556, "mono": 61.973552968, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 4, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438915.7394304, "mono": 62.158427285, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 5, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438915.7772746, "mono": 62.196271216, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 6, "pid": "727"}
+{"t": 1791438916.0565188, "mono": 62.475515669, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 7, "pid": "723"}
+{"t": 1791438916.0574858, "mono": 62.4764823, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 7, "pid": "724"}
+{"t": 1791438916.5654585, "mono": 62.984455082, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 5, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438916.7544537, "mono": 63.173450832, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 6, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438916.7817328, "mono": 63.200729665, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 7, "pid": "727"}
+{"t": 1791438917.0617738, "mono": 63.480770987, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 8, "pid": "723"}
+{"t": 1791438917.0628867, "mono": 63.481883051, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 8, "pid": "724"}
+{"t": 1791438917.574416, "mono": 63.993412594, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 6, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438917.7697434, "mono": 64.188739855, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 7, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438917.7855437, "mono": 64.204540626, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 8, "pid": "727"}
+{"t": 1791438918.0671513, "mono": 64.486148617, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 9, "pid": "723"}
+{"t": 1791438918.070673, "mono": 64.489669565, "canary": "control_kill", "trial": "SMOKE-L1-t1", "n": 9, "pid": "724"}
+{"t": 1791438918.5833738, "mono": 65.002370702, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 7, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438918.7956054, "mono": 65.214602214, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 9, "pid": "727"}
+{"t": 1791438919.076105, "mono": 65.495102369, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 10, "pid": "723"}
+{"t": 1791438919.1772811, "mono": 65.596277793, "canary": "parent", "trial": "SMOKE-L1-t1", "n": 8, "pid": "710", "run": "01a11a14-71a9-7f80-bc43-0aa5c24877c9", "attempt": "1"}
+{"t": 1791438919.596618, "mono": 66.015614849, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 8, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438919.8000088, "mono": 66.219005738, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 10, "pid": "727"}
+{"t": 1791438920.0812237, "mono": 66.500220585, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 11, "pid": "723"}
+{"t": 1791438920.6061754, "mono": 67.025172645, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 9, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438920.8055143, "mono": 67.224511137, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 11, "pid": "727"}
+{"t": 1791438921.086443, "mono": 67.505439681, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 12, "pid": "723"}
+{"t": 1791438921.6144607, "mono": 68.033457526, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 10, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438921.8097537, "mono": 68.228750411, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 12, "pid": "727"}
+{"t": 1791438922.0947714, "mono": 68.513768513, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 13, "pid": "723"}
+{"t": 1791438922.623189, "mono": 69.042185924, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 11, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438922.8143747, "mono": 69.2333716, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 13, "pid": "727"}
+{"t": 1791438923.0989437, "mono": 69.517940817, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 14, "pid": "723"}
+{"t": 1791438923.631566, "mono": 70.050563186, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 12, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438923.8184903, "mono": 70.237487175, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 14, "pid": "727"}
+{"t": 1791438924.1041498, "mono": 70.523147748, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 15, "pid": "723"}
+{"t": 1791438924.641417, "mono": 71.060414122, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 13, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438924.3439023, "mono": 71.242734047, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 15, "pid": "727"}
+{"t": 1791438924.6312804, "mono": 71.530111612, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 16, "pid": "723"}
+{"t": 1791438925.1709902, "mono": 72.069822306, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 14, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438925.348214, "mono": 72.247045286, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 16, "pid": "727"}
+{"t": 1791438925.6378686, "mono": 72.536700233, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 17, "pid": "723"}
+{"t": 1791438926.1801498, "mono": 73.078981242, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 15, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438926.3523736, "mono": 73.251204827, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 17, "pid": "727"}
+{"t": 1791438926.6423013, "mono": 73.541132853, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 18, "pid": "723"}
+{"t": 1791438927.1896996, "mono": 74.088533053, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 16, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438927.3567832, "mono": 74.255614663, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 18, "pid": "727"}
+{"t": 1791438927.647464, "mono": 74.54629685, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 19, "pid": "723"}
+{"t": 1791438928.2062893, "mono": 75.105121879, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 17, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438928.3632967, "mono": 75.262128374, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 19, "pid": "727"}
+{"t": 1791438928.6587214, "mono": 75.557553463, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 20, "pid": "723"}
+{"t": 1791438929.2276795, "mono": 76.126511196, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 18, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438929.3674703, "mono": 76.266301967, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 20, "pid": "727"}
+{"t": 1791438929.6688013, "mono": 76.567632849, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 21, "pid": "723"}
+{"t": 1791438930.2378442, "mono": 77.136675621, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 19, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438930.373679, "mono": 77.272510242, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 21, "pid": "727"}
+{"t": 1791438930.6761382, "mono": 77.574969727, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 22, "pid": "723"}
+{"t": 1791438931.2482636, "mono": 78.147095065, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 20, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438931.3802662, "mono": 78.279097713, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 22, "pid": "727"}
+{"t": 1791438931.681718, "mono": 78.580549478, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 23, "pid": "723"}
+{"t": 1791438932.2671468, "mono": 79.165978425, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 21, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438932.388114, "mono": 79.286945944, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 23, "pid": "727"}
+{"t": 1791438932.69032, "mono": 79.589151681, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 24, "pid": "723"}
+{"t": 1791438933.2848704, "mono": 80.18370211, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 22, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438933.393714, "mono": 80.292545378, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 24, "pid": "727"}
+{"t": 1791438933.6951227, "mono": 80.593953927, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 25, "pid": "723"}
+{"t": 1791438934.2996013, "mono": 81.198432883, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 23, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438934.3981395, "mono": 81.29697066, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 25, "pid": "727"}
+{"t": 1791438934.701761, "mono": 81.600592916, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 26, "pid": "723"}
+{"t": 1791438935.3079844, "mono": 82.206815889, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 24, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438935.4022725, "mono": 82.301104078, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 26, "pid": "727"}
+{"t": 1791438935.7086928, "mono": 82.607524764, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 27, "pid": "723"}
+{"t": 1791438936.3222773, "mono": 83.221111765, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 25, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438936.41025, "mono": 83.309082142, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 27, "pid": "727"}
+{"t": 1791438936.7153234, "mono": 83.614154971, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 28, "pid": "723"}
+{"t": 1791438937.3357313, "mono": 84.23456237, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 26, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438937.4151964, "mono": 84.314027634, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 28, "pid": "727"}
+{"t": 1791438937.7231307, "mono": 84.621962147, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 29, "pid": "723"}
+{"t": 1791438938.3509088, "mono": 85.24974, "canary": "helper", "trial": "SMOKE-L1-t1", "n": 27, "pid": "710", "run": "01a11a14-7480-7ce1-ab4a-10081525fc1c", "attempt": "1"}
+{"t": 1791438938.4268231, "mono": 85.325655051, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 29, "pid": "727"}
+{"t": 1791438938.7307968, "mono": 85.629628364, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 30, "pid": "723"}
+{"t": 1791438939.4361613, "mono": 86.334993135, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 30, "pid": "727"}
+{"t": 1791438939.7394788, "mono": 86.638310782, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 31, "pid": "723"}
+{"t": 1791438940.441691, "mono": 87.340524235, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 31, "pid": "727"}
+{"t": 1791438940.7465122, "mono": 87.645343416, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 32, "pid": "723"}
+{"t": 1791438941.4476566, "mono": 88.34648811, "canary": "bgproc", "trial": "SMOKE-L1-t1", "n": 32, "pid": "727"}
+{"t": 1791438941.754476, "mono": 88.653307552, "canary": "twin", "trial": "SMOKE-L1-t1", "n": 33, "pid": "723"}

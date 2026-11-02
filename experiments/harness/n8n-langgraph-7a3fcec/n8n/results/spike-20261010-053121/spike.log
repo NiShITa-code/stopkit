@@ -1,0 +1,26 @@
+05:31:23 started postgres pid 721
+05:31:23 postgres ready: True
+05:31:23 started valkey pid 737
+05:31:23 started recorder pid 738
+05:31:25 started twin pid 744
+05:31:25 started n8n-main pid 745
+05:31:51 n8n main healthy: True
+05:31:51 started n8n-worker pid 792
+05:31:59 n8n worker healthy: True
+05:31:59 owner setup: HTTP 200
+05:31:59 login: HTTP 200, cookie yes
+05:31:59 api key: HTTP 200, key yes
+05:31:59 create workflow: HTTP 200, id UI0QK3ERGwKLOJyu
+05:32:00 publish: HTTP 200 
+05:32:01 webhook: HTTP 200 after 1.1 s
+05:32:01 running execution: 1
+05:32:11 stop execution: HTTP 200 in 0.087 s: {'mode': 'webhook', 'startedAt': '2026-10-10T04:32:01.232Z', 'stoppedAt': '2026-10-10T04:32:11.385Z', 'finished': False, 'status': 'canceled'}
+05:32:44 C2: 10 pings before the stop, 0 after (last at None s); statuses [(0.13, 'canceled'), (0.66, 'canceled'), (1.19, 'canceled')] ... (10.15, 'canceled')
+05:32:46 stopped n8n-worker with SIGTERM in 2.02 s (rc -15)
+05:32:52 C4: queued 2, stop HTTP 200, status after canceled; bull keys 5 -> 2
+05:32:54 stopped valkey with SIGTERM in 2.02 s (rc -15)
+05:33:13 C3: twin 20 pings over 19.0 s, largest gap 1.015 s
+05:33:13 stopped twin with SIGTERM in 0.03 s (rc -15)
+05:33:13 stopped recorder with SIGTERM in 0.03 s (rc -15)
+05:33:15 stopped postgres with SIGTERM in 2.07 s (rc -15)
+05:33:15 report: /mnt/c/work/agent-shutdown-test/stopcheck/n8n/results/spike-20261010-053121/report.json; leftover processes: none

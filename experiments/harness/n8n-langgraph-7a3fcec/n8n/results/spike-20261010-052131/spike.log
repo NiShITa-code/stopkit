@@ -1,0 +1,25 @@
+05:21:33 started postgres pid 728
+05:21:33 postgres ready: True
+05:21:33 started valkey pid 742
+05:21:33 started recorder pid 744
+05:21:35 started twin pid 750
+05:21:35 started n8n-main pid 751
+05:22:05 n8n main healthy: True
+05:22:05 started n8n-worker pid 805
+05:25:14 n8n worker healthy: False
+05:25:15 owner setup: HTTP 200
+05:25:15 login: HTTP 200, cookie yes
+05:25:15 api key: HTTP 200, key yes
+05:25:15 create workflow: HTTP 200, id oxa27s8GMrNuD75v
+05:25:16 publish: HTTP 200 
+05:25:16 webhook: HTTP 404
+05:25:49 running execution: None
+05:25:59 stop execution: HTTP 400 in 0.030 s: {"message":"request/params/executionId must be a positive integer"}
+05:26:31 C2: 0 pings before the stop, 0 after (last at None s); statuses [(0.06, 400), (0.58, 400), (1.1, 400)] ... (9.93, 400)
+05:26:36 C4: queued None, stop HTTP None, status after None; bull keys 4 -> 4
+05:26:38 stopped valkey with SIGTERM in 2.02 s (rc -15)
+05:26:58 C3: twin 20 pings over 19.0 s, largest gap 1.007 s
+05:26:58 stopped twin with SIGTERM in 0.01 s (rc -15)
+05:26:59 stopped recorder with SIGTERM in 0.01 s (rc -15)
+05:27:01 stopped postgres with SIGTERM in 2.02 s (rc -15)
+05:27:01 report: /mnt/c/work/agent-shutdown-test/stopcheck/n8n/results/spike-20261010-052131/report.json; leftover processes: none

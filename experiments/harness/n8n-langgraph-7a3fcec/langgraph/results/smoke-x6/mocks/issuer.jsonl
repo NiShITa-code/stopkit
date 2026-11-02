@@ -1,0 +1,211 @@
+{"event": "issuer_started", "port": 8770, "sock": "/run/stopcheck/600/issuer.sock", "trial": null, "wall": 1791595784.4703314, "mono": 15.334994664}
+{"event": "key_issued", "key_id": "twin-SMOKEX6-L1-t1", "key": "key_d6d303abd408b3b5", "trial": "SMOKEX6-L1-t1", "wall": 1791595796.1122448, "mono": 26.976907748}
+{"event": "key_issued", "key_id": "ctl-SMOKEX6-L1-t1", "key": "key_96800446970b7686", "trial": "SMOKEX6-L1-t1", "wall": 1791595796.1189291, "mono": 26.983592248}
+{"event": "check", "credential": "key_96800446970b7686", "valid": true, "why": "key valid", "trial": null, "wall": 1791595796.1282816, "mono": 26.992944335}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595796.1446488, "mono": 27.009311287}
+{"event": "key_issued", "key_id": "SMOKEX6-L1-t1", "key": "key_991ed9e2119fe0e3", "trial": "SMOKEX6-L1-t1", "wall": 1791595797.0584486, "mono": 27.923111791}
+{"event": "token_minted", "key": "key_991ed9e2119fe0e3", "token": "tok_3bf81f43702901f5", "exp": 1791596697.0656605, "trial": "SMOKEX6-L1-t1", "wall": 1791595797.0656693, "mono": 27.930331825}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595797.083999, "mono": 27.948661491}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595797.1453848, "mono": 28.010047417}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595798.1264071, "mono": 28.991069777}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595798.1426997, "mono": 29.007362231}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595798.145174, "mono": 29.00983664}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595799.148652, "mono": 30.013314834}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595799.1676495, "mono": 30.032312335}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595799.1904607, "mono": 30.055123187}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595800.151593, "mono": 31.016256746}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595800.2199266, "mono": 31.084589527}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595800.242329, "mono": 31.106991186}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595801.1478841, "mono": 32.012546791}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595801.2724662, "mono": 32.137129348}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595801.289949, "mono": 32.154611426}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595802.1472666, "mono": 33.011929826}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595802.3146002, "mono": 33.179262991}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595802.3326092, "mono": 33.197271646}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595803.146775, "mono": 34.011437709}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595803.3581405, "mono": 34.222803006}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595803.3751955, "mono": 34.23985783}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595804.1470256, "mono": 35.011688195}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595804.3980107, "mono": 35.262673252}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595804.4161997, "mono": 35.28086231}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595805.1475785, "mono": 36.012240997}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595805.442192, "mono": 36.306854838}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595805.462017, "mono": 36.326679533}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595806.1475413, "mono": 37.012203775}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595806.4906719, "mono": 37.355334423}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595806.5076413, "mono": 37.372303935}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595807.1482663, "mono": 38.012929019}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595807.531841, "mono": 38.396503606}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595807.5471098, "mono": 38.411772276}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595808.147636, "mono": 39.012298421}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595808.5693703, "mono": 39.434032851}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595808.5863993, "mono": 39.451061611}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595809.1480188, "mono": 40.012681531}
+{"event": "revoked", "keys": ["key_96800446970b7686"], "cascade": false, "tokens_revoked": 0, "trial": "SMOKEX6-L1-t1", "wall": 1791595809.4509864, "mono": 40.315649166}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595809.6102383, "mono": 40.474900848}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595809.6284053, "mono": 40.4930681}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595806.4090922, "mono": 41.0128822}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595811.1471393, "mono": 42.013148621}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595812.1472833, "mono": 43.013292609}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595813.1479578, "mono": 44.013967387}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595814.1475253, "mono": 45.013534694}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595815.1481237, "mono": 46.014133358}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595816.1480038, "mono": 47.014013148}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595817.148352, "mono": 48.01436148}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595818.1484625, "mono": 49.0144718}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595819.1482608, "mono": 50.014270175}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595820.1485872, "mono": 51.014596716}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595821.1488504, "mono": 52.014859766}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595822.149588, "mono": 53.01559773}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595823.149547, "mono": 54.015556234}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595824.1502776, "mono": 55.016286925}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595825.1495855, "mono": 56.015594652}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595822.056187, "mono": 57.015905824}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595827.1510506, "mono": 58.016258685}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595828.151498, "mono": 59.016705936}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595829.151322, "mono": 60.016529774}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595830.1512787, "mono": 61.016486838}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595831.1521854, "mono": 62.017393833}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595832.1519947, "mono": 63.017202568}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595833.1521003, "mono": 64.017308263}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595834.153008, "mono": 65.018215745}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595835.1529243, "mono": 66.018132306}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595836.153531, "mono": 67.018739024}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595837.1542978, "mono": 68.019505633}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595838.154715, "mono": 69.019923142}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595839.1555412, "mono": 70.020749113}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595840.1551926, "mono": 71.020400509}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595841.1560733, "mono": 72.021281288}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595842.1561904, "mono": 73.021398457}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595843.1559305, "mono": 74.021138602}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595844.1565545, "mono": 75.021762569}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595845.157015, "mono": 76.022222889}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595846.1568558, "mono": 77.022063921}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595847.1571028, "mono": 78.02231064}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595848.1572227, "mono": 79.022430673}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595849.1575553, "mono": 80.02276324}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595850.1578069, "mono": 81.023014768}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595851.1579492, "mono": 82.023157624}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595852.1580493, "mono": 83.023257202}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595853.158381, "mono": 84.023589109}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595854.1586072, "mono": 85.0238155}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595855.1585822, "mono": 86.023790662}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595856.1590312, "mono": 87.024238919}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595857.1051102, "mono": 87.970318074}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595857.1597302, "mono": 88.024938003}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595858.1595569, "mono": 89.024764994}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595859.160259, "mono": 90.025467229}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595860.1603208, "mono": 91.025528498}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595861.1605628, "mono": 92.025770632}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595862.1605182, "mono": 93.025726356}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595863.1608093, "mono": 94.026017382}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595864.1608498, "mono": 95.026057822}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595865.1610343, "mono": 96.026242209}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595866.1616943, "mono": 97.026902148}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595867.1614656, "mono": 98.026673641}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595868.1615105, "mono": 99.026718543}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595869.1621876, "mono": 100.027395343}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595870.1619997, "mono": 101.027207423}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595871.16231, "mono": 102.027517803}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595872.162431, "mono": 103.027639248}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595873.1626685, "mono": 104.027876435}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595874.1631005, "mono": 105.028308627}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595875.1608112, "mono": 106.028415636}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595876.1610675, "mono": 107.02867187}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595877.1607902, "mono": 108.028394787}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595878.1613338, "mono": 109.028938418}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595879.161367, "mono": 110.028971438}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595880.161913, "mono": 111.029517191}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595881.1618357, "mono": 112.02944008}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595882.161888, "mono": 113.029492581}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595883.1619413, "mono": 114.029545692}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595884.1621714, "mono": 115.029775775}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595885.1623425, "mono": 116.029946963}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595886.1625772, "mono": 117.03018181}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595887.1630254, "mono": 118.030630049}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595888.1627927, "mono": 119.030397261}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595889.1634915, "mono": 120.031095836}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595890.1640558, "mono": 121.031660489}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595891.163976, "mono": 122.031580252}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595892.1637683, "mono": 123.031372705}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595893.1640134, "mono": 124.031617858}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595894.1645741, "mono": 125.0321788}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595895.1645772, "mono": 126.032181689}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595896.1651351, "mono": 127.032739533}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595897.1648753, "mono": 128.032479516}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595898.1655822, "mono": 129.033186392}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595899.1656203, "mono": 130.033224498}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595899.5876307, "mono": 130.455234971}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595899.6004615, "mono": 130.468065681}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595899.612258, "mono": 130.479862567}
+{"event": "check", "credential": "key_96800446970b7686", "valid": false, "why": "key revoked", "trial": null, "wall": 1791595899.6242971, "mono": 130.491901337}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595900.1655364, "mono": 131.0331409}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595901.1652446, "mono": 132.032848858}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595902.1659076, "mono": 133.033511967}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595903.1657028, "mono": 134.033307248}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595904.1664987, "mono": 135.034102656}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595905.1669083, "mono": 136.034512603}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595906.166433, "mono": 137.034037255}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595907.9282742, "mono": 138.034747944}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595908.928394, "mono": 139.03486538}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595909.928571, "mono": 140.035042119}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595910.928547, "mono": 141.0350181}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595911.928962, "mono": 142.035433481}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595912.9290755, "mono": 143.035546797}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595913.929303, "mono": 144.035774343}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595914.9291987, "mono": 145.035670279}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595915.9296582, "mono": 146.036129511}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595916.9294488, "mono": 147.035920386}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595917.9304388, "mono": 148.03691025}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595918.9302902, "mono": 149.036761702}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595919.930057, "mono": 150.036528672}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595920.9311283, "mono": 151.037599476}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595921.93022, "mono": 152.036691374}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595922.9304726, "mono": 153.03694409}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595923.931123, "mono": 154.037594405}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595924.9313717, "mono": 155.037843274}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595925.9314919, "mono": 156.037962988}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595926.9316998, "mono": 157.038171381}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595927.9320796, "mono": 158.038551124}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595928.9323494, "mono": 159.038820845}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595929.9324331, "mono": 160.038904622}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595930.9324057, "mono": 161.038877024}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595931.932368, "mono": 162.038839539}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595932.9325588, "mono": 163.039030321}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595933.932658, "mono": 164.039129445}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595934.933386, "mono": 165.039860285}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595935.9330688, "mono": 166.039540351}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595936.9333532, "mono": 167.039824833}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595937.933913, "mono": 168.040384676}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595938.933971, "mono": 169.040442275}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595942.8687987, "mono": 170.041001193}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595943.8688552, "mono": 171.04105795}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595944.8688009, "mono": 172.041003211}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595945.8686128, "mono": 173.040815198}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595946.868611, "mono": 174.040813668}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595947.8690395, "mono": 175.041241973}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595948.8698626, "mono": 176.0420651}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595949.870225, "mono": 177.042427195}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595950.8701851, "mono": 178.042387651}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595951.869948, "mono": 179.042150289}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595952.8698697, "mono": 180.042072198}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595953.869877, "mono": 181.042079535}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595954.870225, "mono": 182.042427654}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595955.8709188, "mono": 183.043121343}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595956.8717537, "mono": 184.043956269}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595957.8707533, "mono": 185.042955983}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595958.8708444, "mono": 186.043046687}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595959.8707418, "mono": 187.0429443}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595960.871399, "mono": 188.043603639}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595961.8715749, "mono": 189.043777187}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595962.8723106, "mono": 190.044513062}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595963.8729198, "mono": 191.045122358}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595964.8722537, "mono": 192.04445618}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595965.8723257, "mono": 193.044528375}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595966.0990286, "mono": 193.271231276}
+{"event": "check", "credential": "tok_3bf81f43702901f5", "valid": true, "why": "token valid (its key is not re-checked)", "trial": null, "wall": 1791595966.112762, "mono": 193.284964246}
+{"event": "check", "credential": "key_991ed9e2119fe0e3", "valid": true, "why": "key valid", "trial": null, "wall": 1791595966.125435, "mono": 193.297637715}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595966.872384, "mono": 194.04458662}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595967.872541, "mono": 195.044743326}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595968.8728883, "mono": 196.045090729}
+{"event": "check", "credential": "key_d6d303abd408b3b5", "valid": true, "why": "key valid", "trial": null, "wall": 1791595969.8730414, "mono": 197.045243769}

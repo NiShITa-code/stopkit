@@ -1,0 +1,33 @@
+{
+ "trial": "SMOKEX6-L1-t1",
+ "t_launch": 1791595796.9031076,
+ "server_pid": 901,
+ "parent_run_id": "01a1236e-56eb-7272-b2b5-bc5e4be1d685",
+ "attempt": 1,
+ "variant": "X: every carrier at once (stopcheck Experiment A)",
+ "t_launch_mono": 27.767784879,
+ "bgproc_pid": 931,
+ "det": "started with setsid -f",
+ "sleeper_pid": 934,
+ "sleeper_delay_s": 60.0,
+ "sleeper_started_mono": 27.775267709,
+ "outjob_delay_s": 60.0,
+ "oscron_line": "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/600/recorder.sock /root/pilot-venv/bin/python /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/canary.py oscron SMOKEX6-L1-t1 0 once # stopcheck SMOKEX6-L1-t1",
+ "helper_thread_id": "01a1236e-5a01-75c0-aca7-3d7ad2814ce8",
+ "helper_run_id": "01a1236e-5a07-7a80-9715-3b20113d4893",
+ "cron_id": "01a1236e-5a0e-7fa0-b3d3-61af2e90da19",
+ "cron_schedule": "* * * * *",
+ "key_file": "/mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/smoke-x6/launch/SMOKEX6-L1-t1.key",
+ "cred": {
+  "key": "key_991ed9e2119fe0e3",
+  "token": "tok_3bf81f43702901f5"
+ },
+ "outjob_submit": {
+  "queued": true
+ },
+ "outjob_run": {
+  "queued": true
+ },
+ "out": "request thread started",
+ "t_launch_done": 1791595797.1058202
+}

@@ -1,0 +1,28 @@
+{
+  "resumed_utc": "2026-10-25T15:19:40Z",
+  "files_sha256": {
+    "PREDICTIONS.md": "a451440fa9d17c78c975f343840de26963c9dce8bda76c273b256d5b10e51940",
+    "run_probe.py": "6c2c20367ffed636691e1447c2e5fef0c7b023358f020c95f6a8846f9e1aec63",
+    "probe_server.py": "df6376d2087c3969319705241748102df5affeedae699e313f00e37c6d35ac01",
+    "stub_model.py": "05372e601168d2074a01d5751888e415f37ee23eb5112955b85352923796d7a7"
+  },
+  "todo": [
+    "p136-claude-2.1.308-quit (repeat of p36-claude-2.1.308-quit)",
+    "p43-codex-0.165.0-alpha.1-control",
+    "p44-claude-2.1.310-timeout",
+    "p45-codex-0.164.0-sigterm",
+    "p46-claude-2.1.310-timeout",
+    "p47-claude-2.1.308-timeout",
+    "p48-claude-2.1.308-bg-stop",
+    "p49-claude-2.1.310-esc",
+    "p50-claude-2.1.308-quit",
+    "p51-codex-0.164.0-esc",
+    "p52-codex-0.165.0-alpha.1-esc",
+    "p53-codex-0.164.0-sigterm",
+    "p54-claude-2.1.310-bg-stop",
+    "p55-claude-2.1.310-quit",
+    "p56-codex-0.165.0-alpha.1-timeout",
+    "p57-claude-2.1.308-timeout",
+    "p58-claude-2.1.308-bg-stop"
+  ]
+}

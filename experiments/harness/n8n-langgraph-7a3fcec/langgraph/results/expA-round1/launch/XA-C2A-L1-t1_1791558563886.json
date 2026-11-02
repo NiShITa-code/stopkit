@@ -1,0 +1,10 @@
+{
+ "trial": "XA-C2A-L1-t1",
+ "t_launch": 1791558563.886712,
+ "server_pid": 39354,
+ "parent_run_id": "01a12136-3520-78e1-8aa0-7b3277452439",
+ "attempt": 1,
+ "variant": "C2a: async tool starts the process and waits on it within the step",
+ "bgproc_pid": 39373,
+ "t_launch_done": 1791558563.895759
+}

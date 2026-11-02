@@ -1,0 +1,7 @@
+# What the demo needs: LangGraph, and its development server (`langgraph dev`). Versions as the demo was run;
+# constraints.txt pins every other package to the version it was run with.
+langgraph==1.2.12
+langgraph-cli[inmem]==0.4.32
+langgraph-api==0.15.1
+langgraph-runtime-inmem==0.35.1
+langgraph-sdk==0.4.5

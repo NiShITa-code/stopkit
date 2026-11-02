@@ -1,0 +1,1 @@
+scored 33 trial(s), 33 valid; 1671 rows -> /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/expA-round1/scored_x.jsonl, /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/results/expA-round1/summary_x.md; analyze_x.py sha256 f28e692ce6a1, cells sha256 2a0b37ba28a5

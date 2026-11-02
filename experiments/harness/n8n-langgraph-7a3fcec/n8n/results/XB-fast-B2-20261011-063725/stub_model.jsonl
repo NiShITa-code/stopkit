@@ -1,0 +1,4 @@
+{"method": "POST", "path": "/v1/chat/completions", "stream": false, "model": "stub-model", "tools": ["ping_tool"], "tool_results_so_far": 0, "finish": "tool_calls", "t": 1791697143.0390718, "mono": 899.245202787}
+{"method": "POST", "path": "/v1/chat/completions", "stream": false, "model": "stub-model", "tools": ["ping_tool"], "tool_results_so_far": 1, "finish": "tool_calls", "t": 1791697144.5338116, "mono": 900.739939466}
+{"method": "POST", "path": "/v1/chat/completions", "stream": false, "model": "stub-model", "tools": ["ping_tool"], "tool_results_so_far": 2, "finish": "tool_calls", "t": 1791697145.63064, "mono": 901.836766215}
+{"method": "POST", "path": "/v1/chat/completions", "stream": false, "model": "stub-model", "tools": ["ping_tool"], "tool_results_so_far": 3, "finish": "tool_calls", "t": 1791697146.7652123, "mono": 902.971338469}

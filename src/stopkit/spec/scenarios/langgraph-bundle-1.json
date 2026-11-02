@@ -1,0 +1,24 @@
+{
+ "scenario": "langgraph-bundle-1",
+ "binding": "langgraph",
+ "description": "LangGraph's development server running one background run of the binding's agent (langgraph_app/graph.py): the server's own process, the run's main task (a synchronous node acting every half second, inside the server's process), a helper the run started in a session of its own, and a crontab line it added. The server reports its process to the truth before it becomes the server (beat.py exec); the main task reports from inside the server's process (stopkit_report.py). Grace is 1 s (two of the task's periods); the effect surface looks back 3 s, so checks start 5 s after the cut-off. The restart action stands in for a reboot: the server's process killed if it runs, a new server started in the same folder.",
+ "items": [
+  {"id": "server", "case": "lg-server", "structure": "platform-component", "restart_read": false,
+   "paths": {"P1": ["component"]}, "truth": {"P1": {"oracle": "pidfd"}}},
+  {"id": "run", "case": "lg-run", "structure": "platform-execution",
+   "paths": {"P1": ["effect", "langgraph-run"]}, "truth": {"P1": {"oracle": "beats"}}},
+  {"id": "helper", "case": "lg-helper", "structure": "agent-detached",
+   "paths": {"P2": ["process"]}, "truth": {"P2": {"oracle": "pidfd"}}},
+  {"id": "cron", "case": "lg-cron", "structure": "account-trigger",
+   "paths": {"P4": ["cron"]}, "truth": {"P4": {"oracle": "fire", "when": "period", "period_s": 60, "margin_s": 5}}}
+ ],
+ "heartbeat_s": 0.2,
+ "grace_s": 1.0,
+ "checks_s": [5, 60, 120],
+ "effect_lookback_s": 3.0,
+ "effect_channels": ["datagram"],
+ "delivery_bound_s": 0.0,
+ "restart_action": "a reboot of the server: its process killed if it still runs, a new server started in the same folder and waited for until it answers",
+ "restart_settle_s": 15.0,
+ "ready_timeout_s": 120.0
+}

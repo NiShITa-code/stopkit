@@ -1,0 +1,115 @@
+{
+ "schema_version": 1,
+ "trial": "XB-screen-cb1013-w6-B2s",
+ "condition": "B2s",
+ "attempt": 1,
+ "created_utc": "2026-10-13T23:00:54+00:00",
+ "paths_relative_to": "n8n/results",
+ "raw_folders": [
+  "XB-screen-cb1013-w6-B2s-20261013-225510-436673413"
+ ],
+ "raw_files": [
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/issuer.jsonl",
+   "bytes": 78174,
+   "sha256": "878e8e148c1ce6124c7ddf7abcedcf2c46e0523b943455855c1cf23ffde6bc2d"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/outside.jsonl",
+   "bytes": 104534,
+   "sha256": "4e817440ece2d9873d4b68c3162f76720e02582a81fd0fe5785654705823f243"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/pings.jsonl",
+   "bytes": 471187,
+   "sha256": "707bf3d9a7c4b9eed9f4de6045d6268039a7735bef0ae3de2415767011d437a8"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/record.json",
+   "bytes": 171570,
+   "sha256": "530f854970983af423372f98d7f4b66ba092cb597b2db95089f1a3e68ace790f"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/stub_model.jsonl",
+   "bytes": 15737,
+   "sha256": "e6d4d83c081d2024f7eff913f3f8d26f9a5c6faf2442475844fcd5ffa3ec0d4f"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/killed_control.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/main.log",
+   "bytes": 43927,
+   "sha256": "947d32787c4e48f91f27ec7a5132a41bd258beb1b888e7d5d20beacb99aecff3"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/mocks.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/postgres.log",
+   "bytes": 1792,
+   "sha256": "00a2c6d1fe299c3d66b6dad9dd30f927cc1f02ff6bca278b64ad057a9ce60d84"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/recorder.log",
+   "bytes": 198,
+   "sha256": "8a488b55990a56a0653f879824d8926515f6cb0ab9efc56d35a262024f6dc294"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/redis.log",
+   "bytes": 1417,
+   "sha256": "89139c444761f1167c2667997dcdc9959f11f48f3cb36c0f13fdc8ce9e740169"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/stub.log",
+   "bytes": 1233,
+   "sha256": "8ad66244ccd58ceb544c5896abb0107eca93c3f881ff136ebaacd59bb66e4aa7"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/untouched_twin.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/logs/worker.log",
+   "bytes": 11447,
+   "sha256": "919a5c822293fbdc90f955f51101561660470fe580a54edb1d34c7a3f4fed289"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/mocks/issuer.jsonl",
+   "bytes": 78174,
+   "sha256": "878e8e148c1ce6124c7ddf7abcedcf2c46e0523b943455855c1cf23ffde6bc2d"
+  },
+  {
+   "path": "XB-screen-cb1013-w6-B2s-20261013-225510-436673413/mocks/outside.jsonl",
+   "bytes": 104534,
+   "sha256": "4e817440ece2d9873d4b68c3162f76720e02582a81fd0fe5785654705823f243"
+  }
+ ],
+ "derived_folder": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s",
+ "derived_files": [
+  {
+   "path": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s/scored_b.jsonl",
+   "bytes": 87775,
+   "sha256": "9859a1275218ce53d170d350f8713f5ed17e0a7ebe4575597ed6a50f2014e4af"
+  },
+  {
+   "path": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s/summary_b.md",
+   "bytes": 2394,
+   "sha256": "8ae96375c79916d3fdb7a5fc99e58a1ef6f7c6f1728ea744b146e960dfe56bd3"
+  }
+ ],
+ "scoring": {
+  "status": "scored",
+  "rows": 211,
+  "validity": "valid"
+ },
+ "scorer_sources": {
+  "n8n/analyze_b.py": "653aa70d284aa7c656b16f9c1bbbe96017edd98061022ad022af85c8424a7d5b",
+  "n8n/clockwall_b.py": "4c2e0039d3eaa7419d1da647bc50804013c179d7f94105785fcbb549ab1a42bc"
+ }
+}

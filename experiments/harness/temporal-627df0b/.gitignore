@@ -1,0 +1,29 @@
+# Raw output of runs still in progress stays out of git.
+# Frozen snapshots, smoke trials and the freeze record go in, so every result can be tied to its raw data.
+*/results/*
+!langgraph/results/expA-round1/
+!langgraph/results/expA-round1-rev6-posthoc/
+!langgraph/results/smoke/
+!langgraph/results/smoke-x*/
+!langgraph/results/expA/
+langgraph/results/expA/*
+!langgraph/results/expA/FREEZE.json
+!langgraph/results/expA/FREEZE-NOTES.txt
+!langgraph/results/expA/frozen/
+!langgraph/results/expA/batch.log
+!langgraph/results/expA-rev6/
+langgraph/results/expA-rev6/*
+!langgraph/results/expA-rev6/FREEZE.json
+**/.langgraph_api/
+__pycache__/
+*.pyc
+# n8n test values (throwaway, local only) and the API key the spike creates
+n8n/n8n-test.env
+n8n/*.secret
+# n8n feasibility runs (not scored trials): kept as the raw data behind n8n/SPIKE-RESULTS.md
+!n8n/results/
+!n8n/results/spike-*/
+!n8n/results/feasibility2-*/
+!n8n/results/feasibility3-*/
+# n8n fast-mode smoke runs (11 Oct): exploratory plumbing runs, kept so their original outputs survive re-scoring (n8n/SMOKE-RUNS-2026-10-11.md)
+!n8n/results/XB-fast-*/

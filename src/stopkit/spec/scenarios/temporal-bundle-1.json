@@ -1,0 +1,26 @@
+{
+ "scenario": "temporal-bundle-1",
+ "binding": "temporal",
+ "description": "Temporal's development server (CLI 1.9.1, Server 1.32.0, its state in a database file of the run's own) and a worker on temporalio 1.34.0, each in a system unit started through the kit's reporter (beat.py exec). Three workflows, started through Temporal's client API: one whose activity heartbeats after each effect, one whose activity never heartbeats (both act every half second for ten minutes and report from inside the worker's process, ending from their finally blocks), and one that waits on a durable timer of 10 s and then runs an activity whose job reports one fire (beat.py fire), again and again. The activities are read on the effect surface and on the server's own record of which attempts a worker holds; the timer on the server's record of open workflows; both proven by a sentinel workflow on a task queue no worker polls. Grace is 1 s (two of the activities' periods) and the effect surface looks back 3 s. The timer reads absent only after a whole period plus margin (40 s) without a fire, so the checks start 45 s after the cut-off; the last, 120 s after it, falls long before the activities end by themselves (10 min) or reach their start-to-close timeout (20 min). The margin (30 s) also covers the restart action, which the timer's restart window starts with. The restart action stops the worker and the server and starts both again on the same database, each waited for until ready; the server and the worker are not read after it, since it starts them itself.",
+ "items": [
+  {"id": "server", "case": "temporal-server", "structure": "platform-component", "restart_read": false,
+   "paths": {"P1": ["component"]}, "truth": {"P1": {"oracle": "pidfd"}}},
+  {"id": "worker", "case": "temporal-worker", "structure": "platform-worker", "restart_read": false,
+   "paths": {"P1": ["component"]}, "truth": {"P1": {"oracle": "pidfd"}}},
+  {"id": "hb", "case": "temporal-hb", "structure": "platform-execution",
+   "paths": {"P1": ["effect", "temporal-activity"]}, "truth": {"P1": {"oracle": "beats"}}},
+  {"id": "nh", "case": "temporal-nh", "structure": "platform-execution",
+   "paths": {"P1": ["effect", "temporal-activity"]}, "truth": {"P1": {"oracle": "beats"}}},
+  {"id": "timer", "case": "temporal-timer", "structure": "platform-trigger",
+   "paths": {"P4": ["temporal-workflow"]}, "truth": {"P4": {"oracle": "fire", "when": "period", "period_s": 10, "margin_s": 30}}}
+ ],
+ "heartbeat_s": 0.2,
+ "grace_s": 1.0,
+ "checks_s": [45, 80, 120],
+ "effect_lookback_s": 3.0,
+ "effect_channels": ["datagram"],
+ "delivery_bound_s": 0.0,
+ "restart_action": "the worker and the development server stopped, then the server started again on the same database file and waited for until it answers, then the worker, waited for until it has run a workflow",
+ "restart_settle_s": 5.0,
+ "ready_timeout_s": 90.0
+}

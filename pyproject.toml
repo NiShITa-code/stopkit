@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stopkit"
+dynamic = ["version"]
+description = "Checks from outside whether stopping an AI agent stopped its work."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+stopkit = "stopkit.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "stopkit.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+stopkit = ["spec/*.json", "spec/scenarios/*.json", "adapters/*.sh", "adapters/langgraph_app/*", "adapters/temporal_app/*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+# The records and the frozen code the trials ran are kept as recorded; the examples and the set-up are not linted.
+extend-exclude = [
+    "experiments/harness",
+    "experiments/data",
+    "experiments/setup",
+    "experiments/n8n-queue-mode",
+    "experiments/n8n-restart",
+    "experiments/langgraph-controls",
+    "experiments/temporal-activities",
+    "experiments/openclaw-commands",
+    "experiments/claude-code-codex",
+    "validation",
+    "setup",
+    "examples",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# The kit's code and its unit tests (all of tests/ but test_packaging.py) keep their own style: they are held to the correctness rules and not restyled.
+"src/stopkit/**" = ["E501", "E702", "E731", "E741", "UP", "B", "I001", "F401"]
+"tests/test_[a-oq-z]*.py" = ["E501", "E702", "E731", "E741", "UP", "B", "I001", "F401"]
+"tests/test_p[b-z]*.py" = ["E501", "E702", "E731", "E741", "UP", "B", "I001", "F401"]
+"tests/helpers.py" = ["E501", "E702", "E731", "E741", "UP", "B", "I001", "F401"]
+"tests/__init__.py" = ["E501", "E702", "E731", "E741", "UP", "B", "I001", "F401"]
+
+[tool.ruff.format]
+exclude = ["src/stopkit/**", "tests/test_[a-oq-z]*.py", "tests/test_p[b-z]*.py", "tests/helpers.py", "tests/__init__.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "experiments/tests"]

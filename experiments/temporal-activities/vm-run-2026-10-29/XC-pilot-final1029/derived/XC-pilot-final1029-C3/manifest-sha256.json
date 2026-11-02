@@ -1,0 +1,105 @@
+{
+ "schema_version": 1,
+ "trial": "XC-pilot-final1029-C3",
+ "condition": "C3",
+ "attempt": 1,
+ "created_utc": "2026-10-29T20:02:54+00:00",
+ "paths_relative_to": "temporal/results",
+ "raw_folders": [
+  "XC-pilot-final1029-C3-20261029-195857"
+ ],
+ "raw_files": [
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/receiver.jsonl",
+   "bytes": 86594,
+   "sha256": "7e77f27983b9a55bbbbb407e88c9e48c67cd2018104caff1eca59024298f1d39"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/receiver.out",
+   "bytes": 143,
+   "sha256": "65b9d66295ac875d873804d1b96e93e7111007e6e1f7a9341ad6d13caa106099"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/record.json",
+   "bytes": 960288,
+   "sha256": "4263f2d894f74d18a790e9934bf37b729756553e9549bf717f6c4136c7bbb1fe"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/server-g1.log",
+   "bytes": 287,
+   "sha256": "d7de70a31467357df67858e15aedb45b1f602ebc91f9417ac694fd3b510fb590"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/server-g2.log",
+   "bytes": 287,
+   "sha256": "d7de70a31467357df67858e15aedb45b1f602ebc91f9417ac694fd3b510fb590"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/temporal.db",
+   "bytes": 811008,
+   "sha256": "4e347eb1d3a9bba49cccfcfbdd235a546e9eda29d6fec98d29e1e8134776c354"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-target-g1.jsonl",
+   "bytes": 2899,
+   "sha256": "3a9187e83f6935078e19cba4923f91145d60a120fccc4d74f53337437f2bd3a7"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-target-g1.out",
+   "bytes": 771,
+   "sha256": "8093e423da0e2805bc5a48ed68084a7194b72dcc9d46290f67d14e494f5073ee"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-target-g2.jsonl",
+   "bytes": 1065,
+   "sha256": "c6b67d11b6905f5099312d796df5ff18eea6295f40e6947220fec3d700d969bc"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-target-g2.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-twin-g1.jsonl",
+   "bytes": 2881,
+   "sha256": "7ca5f95f775380af2f42570713ac99139f2a2fd39ba2edc89adda81743c34c96"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-twin-g1.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-twin-g2.jsonl",
+   "bytes": 2035,
+   "sha256": "133fe721371650fb1ecef16d57990d9fb2bff9bc246dd692a00f64ac1c82d43d"
+  },
+  {
+   "path": "XC-pilot-final1029-C3-20261029-195857/worker-twin-g2.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "derived_folder": "XC-pilot-final1029/derived/XC-pilot-final1029-C3",
+ "derived_files": [
+  {
+   "path": "XC-pilot-final1029/derived/XC-pilot-final1029-C3/scored_c.jsonl",
+   "bytes": 20625,
+   "sha256": "4562dd08ccd36a12cb06664c0d247d637f242c269b7c0aeefc50ef27e38d2cd4"
+  },
+  {
+   "path": "XC-pilot-final1029/derived/XC-pilot-final1029-C3/summary_c.md",
+   "bytes": 2021,
+   "sha256": "0c93675d3ed65e214e7cad534082ef9bf3c9a99e89715340dd71b4ddc2414e9a"
+  }
+ ],
+ "scoring": {
+  "status": "scored",
+  "rows": 54,
+  "validity": "valid"
+ },
+ "scorer_sources": {
+  "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+  "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9"
+ }
+}

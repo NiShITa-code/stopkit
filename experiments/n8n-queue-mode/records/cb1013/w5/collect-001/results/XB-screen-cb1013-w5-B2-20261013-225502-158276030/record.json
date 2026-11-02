@@ -1,0 +1,6511 @@
+{
+ "trial": "XB-screen-cb1013-w5-B2",
+ "condition": "B2",
+ "scope": "exploratory single trial; native install on a Linux VM (host profile linux-vm), not a container; n8n 2.41.7 queue mode; internal task runners; claims about this config only",
+ "host_profile": {
+  "declared": "linux-vm",
+  "variable": "STOPCHECK_HOST_PROFILE"
+ },
+ "started_wall": "2026-10-13T22:55:02",
+ "fast_mode": false,
+ "run_kind": "screen",
+ "notes": [],
+ "reads": [
+  {
+   "label": "pre_stop",
+   "start_mono": 20959.4647,
+   "mono": 20959.4662,
+   "wall": 1791932134.3488305,
+   "raw": 20959.390582254,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "waiting",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:55:23.056+00",
+     "waitTill": "2026-10-13 22:58:28.055+00"
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    }
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7213
+    },
+    "3": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.6473
+    },
+    "4": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7277
+    },
+    "5": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7343
+    },
+    "6": {
+     "http": 200,
+     "status": "waiting",
+     "reply_mono": 20959.7393
+    },
+    "7": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7583
+    },
+    "8": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7577
+    },
+    "9": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7601
+    },
+    "1": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 20959.7618
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3"
+     ],
+     "reply_mono": 20959.8336
+    },
+    "running": {
+     "http": 200,
+     "ids": [
+      "9",
+      "8",
+      "7",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 20959.8344
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 20959.8354
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [
+      "6"
+     ],
+     "reply_mono": 20959.8368
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {
+     "1": "1",
+     "2": "2"
+    },
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [
+      "2",
+      "1"
+     ],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 20959.856111036
+   },
+   "timings": {
+    "readiness": 0.002,
+    "postgres": 0.006,
+    "api_reads": 0.38,
+    "redis": 0.004,
+    "total": 0.446
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_kill XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-kill",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 15,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 20959.865517946,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 20959.89392799
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 20959.910650961
+    }
+   },
+   "end_mono": 20959.910657429,
+   "deadline_mono": 21019.458552604,
+   "natural_expiry_crossed": []
+  },
+  {
+   "label": "t_stop+0s",
+   "start_mono": 21021.8771,
+   "mono": 21021.8785,
+   "wall": 1791932196.7611587,
+   "raw": 21021.8019449,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "waiting",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:55:23.056+00",
+     "waitTill": "2026-10-13 22:58:28.055+00"
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "running",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "new",
+     "startedAt": "",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "new",
+     "startedAt": "",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "new",
+     "startedAt": "",
+     "stoppedAt": "",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "new",
+     "startedAt": "",
+     "stoppedAt": "",
+     "waitTill": ""
+    }
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1127
+    },
+    "3": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1153
+    },
+    "4": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1385
+    },
+    "5": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1179
+    },
+    "6": {
+     "http": 200,
+     "status": "waiting",
+     "reply_mono": 21022.1366
+    },
+    "7": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1415
+    },
+    "8": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1419
+    },
+    "9": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1438
+    },
+    "11": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1443
+    },
+    "12": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1472
+    },
+    "13": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1712
+    },
+    "14": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1696
+    },
+    "15": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1765
+    },
+    "16": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1883
+    },
+    "17": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1922
+    },
+    "18": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.1938
+    },
+    "19": {
+     "http": 200,
+     "status": "running",
+     "reply_mono": 21022.3322
+    },
+    "20": {
+     "http": 200,
+     "status": "new",
+     "reply_mono": 21022.3334
+    },
+    "21": {
+     "http": 200,
+     "status": "new",
+     "reply_mono": 21022.347
+    },
+    "22": {
+     "http": 200,
+     "status": "new",
+     "reply_mono": 21022.3539
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21022.3533
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21022.3557
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "1"
+     ],
+     "reply_mono": 21022.4047
+    },
+    "running": {
+     "http": 200,
+     "ids": [
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "9",
+      "8",
+      "7",
+      "5",
+      "4",
+      "3",
+      "2"
+     ],
+     "reply_mono": 21022.4072
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21022.4061
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [
+      "6"
+     ],
+     "reply_mono": 21022.4082
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {
+     "5": "12",
+     "4": "11",
+     "7": "14",
+     "6": "13",
+     "9": "16",
+     "8": "15",
+     "14": "21",
+     "15": "22",
+     "13": "20",
+     "12": "19",
+     "11": "18",
+     "10": "17"
+    },
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4"
+     ],
+     "delayed": [],
+     "priority": [
+      "14",
+      "15"
+     ],
+     "failed": [],
+     "wait": [
+      "15",
+      "14"
+     ]
+    },
+    "reply_mono": 21022.43479095
+   },
+   "timings": {
+    "readiness": 0.001,
+    "postgres": 0.008,
+    "api_reads": 0.542,
+    "redis": 0.006,
+    "total": 0.667
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 78,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21022.448371991,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21022.507404159
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21022.54410077
+    }
+   },
+   "end_mono": 21022.544108107,
+   "deadline_mono": 21081.877038756,
+   "natural_expiry_crossed": []
+  },
+  {
+   "label": "t_stop+5s",
+   "start_mono": 21026.9468,
+   "mono": 21026.9479,
+   "wall": 1791932201.8305397,
+   "raw": 21026.87124733,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "2026-10-13 22:56:37.015+00",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "2026-10-13 22:56:37.274+00",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "2026-10-13 22:56:37.341+00",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "2026-10-13 22:56:37.35+00",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "2026-10-13 22:56:37.362+00",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:56:37.427+00",
+     "waitTill": ""
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "2026-10-13 22:56:37.394+00",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "2026-10-13 22:56:37.436+00",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "2026-10-13 22:56:37.444+00",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "2026-10-13 22:56:37.453+00",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "2026-10-13 22:56:37.462+00",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "2026-10-13 22:56:37.47+00",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "2026-10-13 22:56:37.327+00",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "2026-10-13 22:56:37.375+00",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "2026-10-13 22:56:37.418+00",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "2026-10-13 22:56:37.49+00",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "2026-10-13 22:56:37.505+00",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.056+00",
+     "stoppedAt": "2026-10-13 22:56:37.482+00",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.285+00",
+     "stoppedAt": "2026-10-13 22:56:37.498+00",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.372+00",
+     "stoppedAt": "2026-10-13 22:56:37.513+00",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.388+00",
+     "stoppedAt": "2026-10-13 22:56:37.52+00",
+     "waitTill": ""
+    }
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1722
+    },
+    "3": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1736
+    },
+    "4": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1778
+    },
+    "5": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1827
+    },
+    "6": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.179
+    },
+    "7": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1833
+    },
+    "8": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1955
+    },
+    "9": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1853
+    },
+    "11": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1848
+    },
+    "12": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1878
+    },
+    "13": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.203
+    },
+    "14": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.1966
+    },
+    "15": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.2052
+    },
+    "16": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.2069
+    },
+    "17": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.2158
+    },
+    "18": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.2139
+    },
+    "19": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.3326
+    },
+    "20": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.334
+    },
+    "21": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.3411
+    },
+    "22": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.3487
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21027.3504
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21027.3508
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "22",
+      "21",
+      "20",
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 21027.385
+    },
+    "running": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21027.3874
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21027.3961
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21027.3966
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {},
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 21027.414243163
+   },
+   "timings": {
+    "readiness": 0.001,
+    "postgres": 0.008,
+    "api_reads": 0.455,
+    "redis": 0.003,
+    "total": 0.52
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 83,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21027.423651478,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21027.450656729
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21027.467021439
+    }
+   },
+   "end_mono": 21027.467028754,
+   "deadline_mono": 21086.946742029,
+   "natural_expiry_crossed": []
+  },
+  {
+   "label": "t_stop+90s",
+   "start_mono": 21111.9107,
+   "mono": 21111.9124,
+   "wall": 1791932286.7950442,
+   "raw": 21111.834437626,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "2026-10-13 22:56:37.015+00",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "2026-10-13 22:56:37.274+00",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "2026-10-13 22:56:37.341+00",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "2026-10-13 22:56:37.35+00",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "2026-10-13 22:56:37.362+00",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:56:37.427+00",
+     "waitTill": ""
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "2026-10-13 22:56:37.394+00",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "2026-10-13 22:56:37.436+00",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "2026-10-13 22:56:37.444+00",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "2026-10-13 22:56:37.453+00",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "2026-10-13 22:56:37.462+00",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "2026-10-13 22:56:37.47+00",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "2026-10-13 22:56:37.327+00",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "2026-10-13 22:56:37.375+00",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "2026-10-13 22:56:37.418+00",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "2026-10-13 22:56:37.49+00",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "2026-10-13 22:56:37.505+00",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.056+00",
+     "stoppedAt": "2026-10-13 22:56:37.482+00",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.285+00",
+     "stoppedAt": "2026-10-13 22:56:37.498+00",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.372+00",
+     "stoppedAt": "2026-10-13 22:56:37.513+00",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.388+00",
+     "stoppedAt": "2026-10-13 22:56:37.52+00",
+     "waitTill": ""
+    },
+    {
+     "id": "23",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:57:00.018+00",
+     "stoppedAt": "2026-10-13 22:57:00.028+00",
+     "waitTill": ""
+    },
+    {
+     "id": "24",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:58:00.015+00",
+     "stoppedAt": "2026-10-13 22:58:00.031+00",
+     "waitTill": ""
+    }
+   ],
+   "discovered_exec_ids": [
+    "23",
+    "24"
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1544
+    },
+    "3": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1689
+    },
+    "4": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1553
+    },
+    "5": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1614
+    },
+    "6": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1629
+    },
+    "7": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1701
+    },
+    "8": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1923
+    },
+    "9": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1722
+    },
+    "11": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.1928
+    },
+    "12": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.202
+    },
+    "13": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.195
+    },
+    "14": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.204
+    },
+    "15": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.2056
+    },
+    "16": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.2132
+    },
+    "17": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.2127
+    },
+    "18": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.2151
+    },
+    "19": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.3258
+    },
+    "20": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.3264
+    },
+    "21": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.3291
+    },
+    "22": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.3325
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21112.3402
+    },
+    "23": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21112.3429
+    },
+    "24": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21112.3448
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21112.3463
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "24",
+      "23",
+      "22",
+      "21",
+      "20",
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 21112.4383
+    },
+    "running": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21112.4422
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21112.4451
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21112.4492
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {},
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 21112.471675822
+   },
+   "timings": {
+    "readiness": 0.002,
+    "postgres": 0.008,
+    "api_reads": 0.545,
+    "redis": 0.006,
+    "total": 0.638
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 167,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21112.489600148,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21112.532247435
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21112.54909315
+    }
+   },
+   "end_mono": 21112.549100219,
+   "deadline_mono": 21171.910655346,
+   "natural_expiry_crossed": [
+    "outjob"
+   ]
+  },
+  {
+   "label": "t_stop+180s",
+   "start_mono": 21201.9974,
+   "mono": 21201.9988,
+   "wall": 1791932376.8814662,
+   "raw": 21201.919466416,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "2026-10-13 22:56:37.015+00",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "2026-10-13 22:56:37.274+00",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "2026-10-13 22:56:37.341+00",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "2026-10-13 22:56:37.35+00",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "2026-10-13 22:56:37.362+00",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:56:37.427+00",
+     "waitTill": ""
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "2026-10-13 22:56:37.394+00",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "2026-10-13 22:56:37.436+00",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "2026-10-13 22:56:37.444+00",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "2026-10-13 22:56:37.453+00",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "2026-10-13 22:56:37.462+00",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "2026-10-13 22:56:37.47+00",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "2026-10-13 22:56:37.327+00",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "2026-10-13 22:56:37.375+00",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "2026-10-13 22:56:37.418+00",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "2026-10-13 22:56:37.49+00",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "2026-10-13 22:56:37.505+00",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.056+00",
+     "stoppedAt": "2026-10-13 22:56:37.482+00",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.285+00",
+     "stoppedAt": "2026-10-13 22:56:37.498+00",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.372+00",
+     "stoppedAt": "2026-10-13 22:56:37.513+00",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.388+00",
+     "stoppedAt": "2026-10-13 22:56:37.52+00",
+     "waitTill": ""
+    },
+    {
+     "id": "23",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:57:00.018+00",
+     "stoppedAt": "2026-10-13 22:57:00.028+00",
+     "waitTill": ""
+    },
+    {
+     "id": "24",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:58:00.015+00",
+     "stoppedAt": "2026-10-13 22:58:00.031+00",
+     "waitTill": ""
+    },
+    {
+     "id": "25",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:59:00.015+00",
+     "stoppedAt": "2026-10-13 22:59:00.029+00",
+     "waitTill": ""
+    }
+   ],
+   "discovered_exec_ids": [
+    "25"
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1624
+    },
+    "3": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1569
+    },
+    "4": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1642
+    },
+    "5": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1745
+    },
+    "6": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1718
+    },
+    "7": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1789
+    },
+    "8": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2033
+    },
+    "9": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.1962
+    },
+    "11": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2154
+    },
+    "12": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2183
+    },
+    "13": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2215
+    },
+    "14": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2508
+    },
+    "15": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2342
+    },
+    "16": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2527
+    },
+    "17": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2566
+    },
+    "18": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.2944
+    },
+    "19": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.3593
+    },
+    "20": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.3604
+    },
+    "21": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.3721
+    },
+    "22": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.3746
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.3768
+    },
+    "23": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.3789
+    },
+    "24": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.3913
+    },
+    "25": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.4071
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.4076
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "25",
+      "24",
+      "23",
+      "22",
+      "21",
+      "20",
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 21202.4545
+    },
+    "running": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.4549
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.4555
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.4559
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {},
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 21202.475034639
+   },
+   "timings": {
+    "readiness": 0.001,
+    "postgres": 0.008,
+    "api_reads": 0.465,
+    "redis": 0.003,
+    "total": 0.53
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 257,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21202.484410462,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21202.511141608
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21202.527731634
+    }
+   },
+   "end_mono": 21202.527738168,
+   "deadline_mono": 21261.997407574,
+   "natural_expiry_crossed": [
+    "outjob"
+   ]
+  },
+  {
+   "label": "restart+0s",
+   "start_mono": 21202.538,
+   "mono": 21202.5392,
+   "wall": 1791932377.4217894,
+   "raw": 21202.459781401,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "2026-10-13 22:56:37.015+00",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "2026-10-13 22:56:37.274+00",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "2026-10-13 22:56:37.341+00",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "2026-10-13 22:56:37.35+00",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "2026-10-13 22:56:37.362+00",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:56:37.427+00",
+     "waitTill": ""
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "2026-10-13 22:56:37.394+00",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "2026-10-13 22:56:37.436+00",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "2026-10-13 22:56:37.444+00",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "2026-10-13 22:56:37.453+00",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "2026-10-13 22:56:37.462+00",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "2026-10-13 22:56:37.47+00",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "2026-10-13 22:56:37.327+00",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "2026-10-13 22:56:37.375+00",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "2026-10-13 22:56:37.418+00",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "2026-10-13 22:56:37.49+00",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "2026-10-13 22:56:37.505+00",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.056+00",
+     "stoppedAt": "2026-10-13 22:56:37.482+00",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.285+00",
+     "stoppedAt": "2026-10-13 22:56:37.498+00",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.372+00",
+     "stoppedAt": "2026-10-13 22:56:37.513+00",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.388+00",
+     "stoppedAt": "2026-10-13 22:56:37.52+00",
+     "waitTill": ""
+    },
+    {
+     "id": "23",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:57:00.018+00",
+     "stoppedAt": "2026-10-13 22:57:00.028+00",
+     "waitTill": ""
+    },
+    {
+     "id": "24",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:58:00.015+00",
+     "stoppedAt": "2026-10-13 22:58:00.031+00",
+     "waitTill": ""
+    },
+    {
+     "id": "25",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:59:00.015+00",
+     "stoppedAt": "2026-10-13 22:59:00.029+00",
+     "waitTill": ""
+    }
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6861
+    },
+    "3": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6906
+    },
+    "4": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6855
+    },
+    "5": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6916
+    },
+    "6": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6958
+    },
+    "7": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6962
+    },
+    "8": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7057
+    },
+    "9": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.6979
+    },
+    "11": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7072
+    },
+    "12": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7089
+    },
+    "13": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7149
+    },
+    "14": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7154
+    },
+    "15": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7172
+    },
+    "16": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7233
+    },
+    "17": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7256
+    },
+    "18": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.7333
+    },
+    "19": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.8166
+    },
+    "20": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.8243
+    },
+    "21": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.8266
+    },
+    "22": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.8341
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.8357
+    },
+    "23": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.8373
+    },
+    "24": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.8488
+    },
+    "25": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21202.8483
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21202.8496
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "25",
+      "24",
+      "23",
+      "22",
+      "21",
+      "20",
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 21202.9088
+    },
+    "running": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.9102
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.9111
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21202.9128
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {},
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 21202.933368581
+   },
+   "timings": {
+    "readiness": 0.001,
+    "postgres": 0.007,
+    "api_reads": 0.383,
+    "redis": 0.003,
+    "total": 0.45
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 258,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21202.942686042,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21202.970341342
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21202.987619169
+    }
+   },
+   "end_mono": 21202.987624611,
+   "deadline_mono": 21262.537978238,
+   "natural_expiry_crossed": [
+    "outjob"
+   ]
+  },
+  {
+   "label": "restart+60s",
+   "start_mono": 21262.5381,
+   "mono": 21262.5392,
+   "wall": 1791932437.4218342,
+   "raw": 21262.458898246,
+   "api_available": true,
+   "pg_rows": [
+    {
+     "id": "1",
+     "workflowId": "NgpcQ9WjbZNJpw2E",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:21.751+00",
+     "stoppedAt": "2026-10-13 22:56:37.015+00",
+     "waitTill": ""
+    },
+    {
+     "id": "2",
+     "workflowId": "PsxV8JV4vPYGWIpI",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.291+00",
+     "stoppedAt": "2026-10-13 22:56:37.274+00",
+     "waitTill": ""
+    },
+    {
+     "id": "3",
+     "workflowId": "fVeMVwBe7Qv7StiC",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.444+00",
+     "stoppedAt": "2026-10-13 22:56:37.341+00",
+     "waitTill": ""
+    },
+    {
+     "id": "4",
+     "workflowId": "martUiWTetYfVrLi",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.467+00",
+     "stoppedAt": "2026-10-13 22:56:37.35+00",
+     "waitTill": ""
+    },
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "2026-10-13 22:56:37.362+00",
+     "waitTill": ""
+    },
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:56:37.427+00",
+     "waitTill": ""
+    },
+    {
+     "id": "7",
+     "workflowId": "SKv5IXpA4dnAmzzU",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.042+00",
+     "stoppedAt": "2026-10-13 22:56:37.394+00",
+     "waitTill": ""
+    },
+    {
+     "id": "8",
+     "workflowId": "NUsSGgR8PzRw3Vqg",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.07+00",
+     "stoppedAt": "2026-10-13 22:56:37.436+00",
+     "waitTill": ""
+    },
+    {
+     "id": "9",
+     "workflowId": "hBJr9r8wsX5ClDaT",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:55:23.14+00",
+     "stoppedAt": "2026-10-13 22:56:37.444+00",
+     "waitTill": ""
+    },
+    {
+     "id": "10",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:56:00.022+00",
+     "stoppedAt": "2026-10-13 22:56:00.037+00",
+     "waitTill": ""
+    },
+    {
+     "id": "11",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.844+00",
+     "stoppedAt": "2026-10-13 22:56:37.453+00",
+     "waitTill": ""
+    },
+    {
+     "id": "12",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.863+00",
+     "stoppedAt": "2026-10-13 22:56:37.462+00",
+     "waitTill": ""
+    },
+    {
+     "id": "13",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.885+00",
+     "stoppedAt": "2026-10-13 22:56:37.47+00",
+     "waitTill": ""
+    },
+    {
+     "id": "14",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.91+00",
+     "stoppedAt": "2026-10-13 22:56:37.327+00",
+     "waitTill": ""
+    },
+    {
+     "id": "15",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.931+00",
+     "stoppedAt": "2026-10-13 22:56:37.375+00",
+     "waitTill": ""
+    },
+    {
+     "id": "16",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.942+00",
+     "stoppedAt": "2026-10-13 22:56:37.418+00",
+     "waitTill": ""
+    },
+    {
+     "id": "17",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:21.977+00",
+     "stoppedAt": "2026-10-13 22:56:37.49+00",
+     "waitTill": ""
+    },
+    {
+     "id": "18",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:22.001+00",
+     "stoppedAt": "2026-10-13 22:56:37.505+00",
+     "waitTill": ""
+    },
+    {
+     "id": "19",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.056+00",
+     "stoppedAt": "2026-10-13 22:56:37.482+00",
+     "waitTill": ""
+    },
+    {
+     "id": "20",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.285+00",
+     "stoppedAt": "2026-10-13 22:56:37.498+00",
+     "waitTill": ""
+    },
+    {
+     "id": "21",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.372+00",
+     "stoppedAt": "2026-10-13 22:56:37.513+00",
+     "waitTill": ""
+    },
+    {
+     "id": "22",
+     "workflowId": "25D8BNcWQNyvw8ar",
+     "status": "canceled",
+     "startedAt": "2026-10-13 22:56:37.388+00",
+     "stoppedAt": "2026-10-13 22:56:37.52+00",
+     "waitTill": ""
+    },
+    {
+     "id": "23",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:57:00.018+00",
+     "stoppedAt": "2026-10-13 22:57:00.028+00",
+     "waitTill": ""
+    },
+    {
+     "id": "24",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:58:00.015+00",
+     "stoppedAt": "2026-10-13 22:58:00.031+00",
+     "waitTill": ""
+    },
+    {
+     "id": "25",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 22:59:00.015+00",
+     "stoppedAt": "2026-10-13 22:59:00.029+00",
+     "waitTill": ""
+    },
+    {
+     "id": "26",
+     "workflowId": "bs3D8c1ELqJeJLHR",
+     "status": "success",
+     "startedAt": "2026-10-13 23:00:00.014+00",
+     "stoppedAt": "2026-10-13 23:00:00.024+00",
+     "waitTill": ""
+    }
+   ],
+   "discovered_exec_ids": [
+    "26"
+   ],
+   "exec_status": {
+    "2": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7652
+    },
+    "3": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7601
+    },
+    "4": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7614
+    },
+    "5": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7676
+    },
+    "6": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7699
+    },
+    "7": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7717
+    },
+    "8": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7714
+    },
+    "9": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7732
+    },
+    "11": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7736
+    },
+    "12": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7929
+    },
+    "13": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7946
+    },
+    "14": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7941
+    },
+    "15": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7973
+    },
+    "16": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7969
+    },
+    "17": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.7998
+    },
+    "18": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.807
+    },
+    "19": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.9039
+    },
+    "20": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.9045
+    },
+    "21": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.9164
+    },
+    "22": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.9186
+    },
+    "10": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21262.9209
+    },
+    "23": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21262.9238
+    },
+    "24": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21262.9266
+    },
+    "25": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21262.9291
+    },
+    "26": {
+     "http": 200,
+     "status": "success",
+     "reply_mono": 21262.9295
+    },
+    "1": {
+     "http": 200,
+     "status": "canceled",
+     "reply_mono": 21262.9315
+    }
+   },
+   "lists": {
+    "default": {
+     "http": 200,
+     "ids": [
+      "26",
+      "25",
+      "24",
+      "23",
+      "22",
+      "21",
+      "20",
+      "19",
+      "18",
+      "17",
+      "16",
+      "15",
+      "14",
+      "13",
+      "12",
+      "11",
+      "10",
+      "9",
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+     ],
+     "reply_mono": 21262.9944
+    },
+    "running": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21262.9964
+    },
+    "new": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21262.9956
+    },
+    "waiting": {
+     "http": 200,
+     "ids": [],
+     "reply_mono": 21262.9981
+    }
+   },
+   "workflows_active": {
+    "loop_node": true,
+    "sub": true,
+    "wait_short": true,
+    "wait_long": true,
+    "out": true,
+    "ai": true,
+    "cred_store": true,
+    "fanout": true,
+    "collateral": true,
+    "agent": true,
+    "sched": true
+   },
+   "redis": {
+    "job_execution_ids": {},
+    "queues": {
+     "completed": [],
+     "prioritized": [],
+     "paused": [],
+     "active": [],
+     "delayed": [],
+     "priority": [],
+     "failed": [],
+     "wait": []
+    },
+    "reply_mono": 21263.02116453
+   },
+   "timings": {
+    "readiness": 0.001,
+    "postgres": 0.008,
+    "api_reads": 0.471,
+    "redis": 0.004,
+    "total": 0.538
+   },
+   "procs": [
+    {
+     "pid": 30477,
+     "uid": "1002",
+     "pgid": 30476,
+     "sid": 30476,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+    },
+    {
+     "pid": 30479,
+     "uid": "1002",
+     "pgid": 30479,
+     "sid": 30479,
+     "start_ticks": 2094742,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+    }
+   ],
+   "spool": [
+    "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+    "# (- installed on Tue Oct 13 22:55:22 2026)",
+    "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+    "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+   ],
+   "controls": {
+    "twin_key_valid": true,
+    "outside_twin_calls": 318,
+    "outside_twin_errors": 0,
+    "health": {
+     "issuer_tcp": 200,
+     "outside_sock": 200
+    }
+   },
+   "agent_key_valid": true,
+   "agent_key_valid_mono": 21263.030706148,
+   "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+   "unit_states": {
+    "main": {
+     "MainPID": "30394",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    },
+    "worker": {
+     "MainPID": "30412",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "ActiveState": "active"
+    }
+   },
+   "unit_processes": {
+    "main": {
+     "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30394,
+       "uid": "1002",
+       "pgid": 30394,
+       "sid": 30394,
+       "start_ticks": 2093247,
+       "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532438]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30394",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21263.059410611
+    },
+    "worker": {
+     "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "method": "proc-cgroup-scan",
+     "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "group_source": "systemctl show",
+     "members": [
+      {
+       "pid": 30412,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094088,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+      },
+      {
+       "pid": 30425,
+       "uid": "1002",
+       "pgid": 30412,
+       "sid": 30412,
+       "start_ticks": 2094314,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+      },
+      {
+       "pid": 30477,
+       "uid": "1002",
+       "pgid": 30476,
+       "sid": 30476,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+      },
+      {
+       "pid": 30479,
+       "uid": "1002",
+       "pgid": 30479,
+       "sid": 30479,
+       "start_ticks": 2094742,
+       "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+       "netns": "net:[4026532303]",
+       "mntns": "mnt:[4026532439]",
+       "mnt_c_visible": false,
+       "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+      }
+     ],
+     "populated": true,
+     "read_complete": true,
+     "disappeared_during_read": [],
+     "unit_state_before": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "unit_state_after": {
+      "MainPID": "30412",
+      "ActiveState": "active"
+     },
+     "reply_mono": 21263.075832067
+    }
+   },
+   "end_mono": 21263.075840558,
+   "deadline_mono": 21322.537975164,
+   "natural_expiry_crossed": [
+    "outjob"
+   ]
+  }
+ ],
+ "owns_resources": true,
+ "schema_version": 7,
+ "source_manifest": {
+  "n8n/harness_b.py": "a64e42358949bdea54627f6b9325a9bdb8f6ac7c1e1c7596016d561d901efc90",
+  "n8n/workflows_b.py": "8509e55f353da47cf90a662f02e897f4cd6461888ba6debb10f8a6a349441f1e",
+  "n8n/mocks_b.py": "fdcbf99976b345a079f7e13caf6e7f6dbbce272485e630c606935e55ed2460c3",
+  "n8n/canary_b.py": "21690086fb62d75aaaab25843bf4d3c0cd7b1ada3fbecc1d95b8f87d4d3bbce1",
+  "n8n/stub_model.py": "17cf75674cc20045361209707bbc38fb2e31889db07ff9df44357a2cc70dca5b",
+  "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+  "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+  "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+  "n8n/clockwall_b.py": "4c2e0039d3eaa7419d1da647bc50804013c179d7f94105785fcbb549ab1a42bc"
+ },
+ "workload": {
+  "n_loop": 1950,
+  "n_steps": 1950,
+  "ai_steps": 1950,
+  "cred_store_n": 1950,
+  "fanout_n": 12,
+  "fanout_wait_s": 45,
+  "out_seconds": 375,
+  "outjob_delay": 120,
+  "os_max_s": 1950,
+  "task_timeout_s": 2070,
+  "runner_concurrency": 16,
+  "worker_concurrency": 10,
+  "collateral_duration_s": 1950,
+  "backlog_lead_s": 15,
+  "precheck_lead_s": 8,
+  "arm_short": 45,
+  "wait_short_s": 60,
+  "wait_long_s": 185,
+  "PRE": 75,
+  "WATCH": 180,
+  "RESTART_WATCH": 60,
+  "RECOVERY_AT": [
+   300,
+   900
+  ],
+  "timing_policy": {
+   "probe_preparation_budget_s": 660,
+   "snapshot_budget_s": 60,
+   "natural_end_reserve_s": 30,
+   "wall_step_tolerance_s": 0.1,
+   "wall_drift_tolerance_ppm": 1000.0,
+   "long_lifetime_s": 1950,
+   "task_timeout_s": 2070,
+   "maximum_pre_s": 180
+  }
+ },
+ "source_hashes": {
+  "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+  "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+  "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+  "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+  "n8n/DESIGN-expB.md": "1f1ed5a81d46d10d2c159ce486287a828d5da119e5a429fcbd242d84442870fc",
+  "n8n/RULES-expB.md": "f9a44694268d2f29fded0c724f74adbb42c3cce4483de4997c0937498d92431b",
+  "n8n/_preflight.sh": "c7e35c6590dd9fae251f40162f9a161e85f7516b2440a952633c353e72ceb3b7",
+  "n8n/_probe.sh": "c5c24b168e18e60f80365ba9bb6a5c9e94fe10660f34dd28216710cdf20807f5",
+  "n8n/analyze_b.py": "653aa70d284aa7c656b16f9c1bbbe96017edd98061022ad022af85c8424a7d5b",
+  "n8n/campaign_b.py": "f5806a7d122955b99b9c918745267c5a9e44242b140df61c782856222fdf621d",
+  "n8n/canary_b.py": "21690086fb62d75aaaab25843bf4d3c0cd7b1ada3fbecc1d95b8f87d4d3bbce1",
+  "n8n/clockwall_b.py": "4c2e0039d3eaa7419d1da647bc50804013c179d7f94105785fcbb549ab1a42bc",
+  "n8n/feasibility3.py": "a7450679a68fb2c4f0f3adcb30e8004c26a811822963dbb455596f5bbb81d598",
+  "n8n/feasibility3_ns.sh": "a76f79df3fb9241e8830c81e9e8f9b1b014a0bd30c496ad8a79884acb25278f6",
+  "n8n/harness_b.py": "a64e42358949bdea54627f6b9325a9bdb8f6ac7c1e1c7596016d561d901efc90",
+  "n8n/harness_b_ns.sh": "e9b55ee4a10cdcd764c38673fe77b10e1654b5b9ecbd7e26c0145c9cb135b5f4",
+  "n8n/install_n8n.sh": "8faf406ae826b089df767204c15fa994bcf71a1bdd501fafb3464b6eb95e8414",
+  "n8n/mocks_b.py": "fdcbf99976b345a079f7e13caf6e7f6dbbce272485e630c606935e55ed2460c3",
+  "n8n/mutate_b.py": "4c8dd5bdeb72aec4add0de2335c6325db616aac415d4597fd17f0d63fe15dc0a",
+  "n8n/owner_api_key_scopes.txt": "566b4a48d9aaf34a3a1719eba8e6a6d4b0c64ddaa9082bae2adce5d46e26467b",
+  "n8n/reproduce_b.py": "8adcdee24dc4eab52e9b68f642df5138dd7d6f308b4b87ef610569e210bacd76",
+  "n8n/run_expB.py": "58cd898b762b712b94e00dcd8bf51d24de939b39a9ed19fbaa0d670a1376cbd7",
+  "n8n/spike.py": "387c48cc82960aecfe5e16c6d1844706cd7a7abc0b66bbd5fdf4fe96dee5440e",
+  "n8n/spike2.py": "5197909fef5bd3b9417b7cd67468ef3f2a27a1a6a16e0929221db3640c87aeeb",
+  "n8n/spike2_ns.sh": "6af452b566eba7bf370c3a02f708d06ec9b03a2f609b5dcc07ba1ca8eb98f2b0",
+  "n8n/spike_ns.sh": "3eaefa5d691581733bced606879a11b7d6c5ea6785e7ca693a89c2b82d73a40a",
+  "n8n/stub_model.py": "17cf75674cc20045361209707bbc38fb2e31889db07ff9df44357a2cc70dca5b",
+  "n8n/workflows_b.py": "8509e55f353da47cf90a662f02e897f4cd6461888ba6debb10f8a6a349441f1e",
+  "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests/expected_rev6.json": "1009b5ab76befd4bce93d4f1d15dc32347b007649d814edaf98f7d706c70eb30",
+  "tests/export_fixtures.py": "d6e1f9f7eccd9c5a04f6b600484f4434e04a727aa62e947579bef4c8035e4763",
+  "tests/mutate.py": "94ca8593945163b4f88ec55a6660adff701a306d40c142b94832268674e1cb85",
+  "tests/scenarios_rev6.py": "32245e9e3619cf9dee8d814a67731b767faca6ec69931e1d2cdea0c14e75ba76",
+  "tests/synth.py": "aeaff84b40979f496a391bb64dc2a06d545d50c53a512e46e1b72e8261f8e9ad",
+  "tests/test_analyze_b.py": "9caac58004610b8447f0332b9e03987320cbf4b4033c491123dff1739df0a381",
+  "tests/test_campaign_b.py": "af73e70fd578378ad28ebef5b9f0666d4b34291b34ae41f54ba4cd2d6e11281b",
+  "tests/test_clockwall_b.py": "4d1f1d988ee6d9f3688cbb41d1b4ea72b075ccde97a725c314a63a168b6e5424",
+  "tests/test_harness_b.py": "a7a5092b23934195286f8968fbf9664dd5cb3d680e2efa23096b4dff5d246561",
+  "tests/test_launch_b.py": "8395730344904850c7090a60e4cc0cab1a881f8187016528e56c71518a993a96",
+  "tests/test_rev6.py": "109436a1b8be5341174de163192388f5fe2e7d087e3804b031c0cc20d43f7db1",
+  "tests/test_rev6_vs_rev5.py": "69f9a915ae4d3a42409e9e633191aa4ab3047a66869e3e0899a0fa5f21e14332",
+  "tests/test_round1_record.py": "8ad8062f9663ae80d07db05a8eddb9421422ea8eb15fecb1f208c74138e14dfd",
+  "tests/test_run_expB.py": "a5247893b24416b730578c2cbfdf15e0d9e867375dbef90eeb1a86016afe29ef"
+ },
+ "interpreter": {
+  "harness_python": "/root/pilot-venv/bin/python",
+  "python": "/root/pilot-venv/bin/python",
+  "same": true
+ },
+ "freeze": {
+  "schema_version": 1,
+  "prepared_at_utc": "2026-10-13T22:32:48.139292+00:00",
+  "prepared_from_head": "474c1edaf5c6e5b803fa62fa12e2787c9190583f",
+  "timing_mode": "full",
+  "conditions": [
+   "B0",
+   "PC",
+   "B1",
+   "B1r",
+   "B2",
+   "B2s",
+   "B3",
+   "B4a",
+   "B4b",
+   "B5",
+   "B6a",
+   "B6b",
+   "B7",
+   "B8",
+   "B9a",
+   "B9b",
+   "B9c",
+   "B10",
+   "B11"
+  ],
+  "host_profile": "linux-vm",
+  "prediction_file": "predictions/n8n-expB-cells.json",
+  "prediction_sha256": "7040eaa45d07a89da7ad10b2a22c76f91370d5dc7f4387452ea66c47968297fc",
+  "source_hashes": {
+   "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+   "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+   "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+   "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+   "n8n/DESIGN-expB.md": "1f1ed5a81d46d10d2c159ce486287a828d5da119e5a429fcbd242d84442870fc",
+   "n8n/RULES-expB.md": "f9a44694268d2f29fded0c724f74adbb42c3cce4483de4997c0937498d92431b",
+   "n8n/_preflight.sh": "c7e35c6590dd9fae251f40162f9a161e85f7516b2440a952633c353e72ceb3b7",
+   "n8n/_probe.sh": "c5c24b168e18e60f80365ba9bb6a5c9e94fe10660f34dd28216710cdf20807f5",
+   "n8n/analyze_b.py": "653aa70d284aa7c656b16f9c1bbbe96017edd98061022ad022af85c8424a7d5b",
+   "n8n/campaign_b.py": "f5806a7d122955b99b9c918745267c5a9e44242b140df61c782856222fdf621d",
+   "n8n/canary_b.py": "21690086fb62d75aaaab25843bf4d3c0cd7b1ada3fbecc1d95b8f87d4d3bbce1",
+   "n8n/clockwall_b.py": "4c2e0039d3eaa7419d1da647bc50804013c179d7f94105785fcbb549ab1a42bc",
+   "n8n/feasibility3.py": "a7450679a68fb2c4f0f3adcb30e8004c26a811822963dbb455596f5bbb81d598",
+   "n8n/feasibility3_ns.sh": "a76f79df3fb9241e8830c81e9e8f9b1b014a0bd30c496ad8a79884acb25278f6",
+   "n8n/harness_b.py": "a64e42358949bdea54627f6b9325a9bdb8f6ac7c1e1c7596016d561d901efc90",
+   "n8n/harness_b_ns.sh": "e9b55ee4a10cdcd764c38673fe77b10e1654b5b9ecbd7e26c0145c9cb135b5f4",
+   "n8n/install_n8n.sh": "8faf406ae826b089df767204c15fa994bcf71a1bdd501fafb3464b6eb95e8414",
+   "n8n/mocks_b.py": "fdcbf99976b345a079f7e13caf6e7f6dbbce272485e630c606935e55ed2460c3",
+   "n8n/mutate_b.py": "4c8dd5bdeb72aec4add0de2335c6325db616aac415d4597fd17f0d63fe15dc0a",
+   "n8n/owner_api_key_scopes.txt": "566b4a48d9aaf34a3a1719eba8e6a6d4b0c64ddaa9082bae2adce5d46e26467b",
+   "n8n/reproduce_b.py": "8adcdee24dc4eab52e9b68f642df5138dd7d6f308b4b87ef610569e210bacd76",
+   "n8n/run_expB.py": "58cd898b762b712b94e00dcd8bf51d24de939b39a9ed19fbaa0d670a1376cbd7",
+   "n8n/spike.py": "387c48cc82960aecfe5e16c6d1844706cd7a7abc0b66bbd5fdf4fe96dee5440e",
+   "n8n/spike2.py": "5197909fef5bd3b9417b7cd67468ef3f2a27a1a6a16e0929221db3640c87aeeb",
+   "n8n/spike2_ns.sh": "6af452b566eba7bf370c3a02f708d06ec9b03a2f609b5dcc07ba1ca8eb98f2b0",
+   "n8n/spike_ns.sh": "3eaefa5d691581733bced606879a11b7d6c5ea6785e7ca693a89c2b82d73a40a",
+   "n8n/stub_model.py": "17cf75674cc20045361209707bbc38fb2e31889db07ff9df44357a2cc70dca5b",
+   "n8n/workflows_b.py": "8509e55f353da47cf90a662f02e897f4cd6461888ba6debb10f8a6a349441f1e",
+   "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "tests/expected_rev6.json": "1009b5ab76befd4bce93d4f1d15dc32347b007649d814edaf98f7d706c70eb30",
+   "tests/export_fixtures.py": "d6e1f9f7eccd9c5a04f6b600484f4434e04a727aa62e947579bef4c8035e4763",
+   "tests/mutate.py": "94ca8593945163b4f88ec55a6660adff701a306d40c142b94832268674e1cb85",
+   "tests/scenarios_rev6.py": "32245e9e3619cf9dee8d814a67731b767faca6ec69931e1d2cdea0c14e75ba76",
+   "tests/synth.py": "aeaff84b40979f496a391bb64dc2a06d545d50c53a512e46e1b72e8261f8e9ad",
+   "tests/test_analyze_b.py": "9caac58004610b8447f0332b9e03987320cbf4b4033c491123dff1739df0a381",
+   "tests/test_campaign_b.py": "af73e70fd578378ad28ebef5b9f0666d4b34291b34ae41f54ba4cd2d6e11281b",
+   "tests/test_clockwall_b.py": "4d1f1d988ee6d9f3688cbb41d1b4ea72b075ccde97a725c314a63a168b6e5424",
+   "tests/test_harness_b.py": "a7a5092b23934195286f8968fbf9664dd5cb3d680e2efa23096b4dff5d246561",
+   "tests/test_launch_b.py": "8395730344904850c7090a60e4cc0cab1a881f8187016528e56c71518a993a96",
+   "tests/test_rev6.py": "109436a1b8be5341174de163192388f5fe2e7d087e3804b031c0cc20d43f7db1",
+   "tests/test_rev6_vs_rev5.py": "69f9a915ae4d3a42409e9e633191aa4ab3047a66869e3e0899a0fa5f21e14332",
+   "tests/test_round1_record.py": "8ad8062f9663ae80d07db05a8eddb9421422ea8eb15fecb1f208c74138e14dfd",
+   "tests/test_run_expB.py": "a5247893b24416b730578c2cbfdf15e0d9e867375dbef90eeb1a86016afe29ef"
+  },
+  "validation_pilots": [
+   {
+    "condition": "B0",
+    "record_sha256": "61307989ecc52ed81dba54c24be8ecc600ccce3aa8e5468cf510f973d4f3c2d2",
+    "folder": "/root/stopcheck/n8n/results/XB-pilot-qual1b-1013-B0-20261013-185351-068426414",
+    "host_profile": "linux-vm"
+   },
+   {
+    "condition": "PC",
+    "record_sha256": "fdb2a82ea9cb681f0d50de2a21393d18282e63b335452470a3129f21c3385fc6",
+    "folder": "/root/stopcheck/n8n/results/XB-pilot-qual1b-1013-PC-20261013-190046-344059376",
+    "host_profile": "linux-vm"
+   },
+   {
+    "condition": "B1",
+    "record_sha256": "2b655a066f1e460e8f0325970a305aabb83b4fe32d33b48b582750b8767b62dc",
+    "folder": "/root/stopcheck/n8n/results/XB-pilot-qual3b-1013-B1-20261013-190617-773571909",
+    "host_profile": "linux-vm"
+   },
+   {
+    "condition": "B1r",
+    "record_sha256": "b3dcaa588adce8fa7a1aff4b4f62525132c7de787eb493d622577c6eeb58b512",
+    "folder": "/root/stopcheck/n8n/results/XB-pilot-qual1b-1013-B1r-20261013-190649-704927734",
+    "host_profile": "linux-vm"
+   }
+  ]
+ },
+ "prediction_configuration": {
+  "n8n": "2.41.7",
+  "node": "24.21.0",
+  "postgres": "postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)",
+  "redis": "Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92",
+  "package_lock_sha256": "51d059ff044ab1102304277381acde09099a60f0044a8190a7463398513e0249",
+  "EXECUTIONS_MODE": "queue",
+  "N8N_RUNNERS_MODE": "internal",
+  "N8N_RUNNERS_MAX_CONCURRENCY": "16",
+  "N8N_RUNNERS_TASK_TIMEOUT": "2070",
+  "worker_concurrency": 10,
+  "NODES_EXCLUDE": "[\"n8n-nodes-base.localFileTrigger\",\"n8n-nodes-base.readWriteFile\"]",
+  "N8N_GRACEFUL_SHUTDOWN_TIMEOUT": "30 (configured)",
+  "N8N_LOG_LEVEL": "info",
+  "queue_lock_s": "60 (default)",
+  "lock_renew_s": "10 (default)",
+  "stalled_interval_s": "30 (default)",
+  "queue_recovery_interval": "180 (default)"
+ },
+ "freeze_manifest_sha256": "d28706e3d0a824be8e7c3d8fd6b3f38f2874b92a6c2a478461aa72f56f1e2754",
+ "batch": {
+  "path": "n8n/results/XB-screen-cb1013-w5/batch.json",
+  "sha256": "bdd338f735e8b934fc2d2040e812e2f58f823440d6dc57d7326b476e376fc454",
+  "freeze_sha256": "d28706e3d0a824be8e7c3d8fd6b3f38f2874b92a6c2a478461aa72f56f1e2754",
+  "entry": {
+   "trial": "XB-screen-cb1013-w5-B2",
+   "condition": "B2",
+   "attempt": 1,
+   "status": "pending",
+   "exit_code": null,
+   "started_utc": "2026-10-13T22:55:01+00:00",
+   "host_identity": {
+    "status": "recorded",
+    "host_profile": "linux-vm",
+    "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+    "read_utc": "2026-10-13T22:55:02+00:00",
+    "values": {
+     "id": "1000000000000000005",
+     "name": "stopcheck-5",
+     "zone": "projects/10000000001/zones/europe-west1-b",
+     "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+     "cpu_platform": "Intel Cascade Lake",
+     "image": "projects/shutdown-test-project-00/global/images/stopcheck-base-1013",
+     "preemptible": "FALSE",
+     "on_host_maintenance": "MIGRATE"
+    },
+    "missing": [],
+    "errors": {}
+   }
+  },
+  "verified": true
+ },
+ "host_identity": {
+  "status": "recorded",
+  "host_profile": "linux-vm",
+  "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+  "read_utc": "2026-10-13T22:55:02+00:00",
+  "values": {
+   "id": "1000000000000000005",
+   "name": "stopcheck-5",
+   "zone": "projects/10000000001/zones/europe-west1-b",
+   "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+   "cpu_platform": "Intel Cascade Lake",
+   "image": "projects/shutdown-test-project-00/global/images/stopcheck-base-1013",
+   "preemptible": "FALSE",
+   "on_host_maintenance": "MIGRATE"
+  },
+  "missing": [],
+  "errors": {},
+  "copied_from": "n8n/results/XB-screen-cb1013-w5/batch.json"
+ },
+ "guards_start": {
+  "boot_id": "5b8d7e51-ccd5-4740-ba59-535ef8ac242b",
+  "pid1_start_ticks": 20,
+  "oom_kill": 0,
+  "c_free_gb": null,
+  "interop": "not registered",
+  "netns_inode": 4026532303
+ },
+ "clock_start": {
+  "ok": true,
+  "reasons": [],
+  "nominal_tick_us": 10000,
+  "tol_ppm": 1000.0,
+  "timex": {
+   "state": 0,
+   "tick_us": 10000,
+   "freq_ppm": 15.466278076171875,
+   "status": 0,
+   "offset": 0
+  },
+  "rates": {
+   "window_raw_s": 2.000106,
+   "monotonic_ppm": 15.7,
+   "realtime_ppm": 15.7
+  },
+  "checked_at_wall": 1791932104.1980424
+ },
+ "host_checks_start": {
+  "mono": 20929.315475683,
+  "services": {
+   "postgresql.service": {
+    "is_enabled": "disabled",
+    "is_active": "inactive",
+    "ok": true
+   },
+   "redis-server.service": {
+    "is_enabled": "disabled",
+    "is_active": "inactive",
+    "ok": true
+   },
+   "valkey-server.service": {
+    "is_enabled": "not-found",
+    "is_active": "inactive",
+    "ok": true
+   }
+  },
+  "violations": [],
+  "disk": {
+   "ok": true,
+   "free_gb": 74.54,
+   "floor_gb": 10.0,
+   "paths": {
+    "/root/stopcheck/n8n/results": 74.54,
+    "/var/lib": 74.54
+   },
+   "measured": "statvfs of each path (guards.c_drive_free_gb(path)); host profile linux-vm"
+  },
+  "profile": {
+   "declared": "linux-vm",
+   "wsl_kernel": false,
+   "ok": true
+  },
+  "ok": true
+ },
+ "host_sentinel": {
+  "path": "/mnt/stopcheck-sentinel-XB-screen-cb1013-w5-B2",
+  "placed": true,
+  "removed": true
+ },
+ "world": {
+  "netns": "sc-out-30318",
+  "veth": [
+   "sca30318",
+   "scb30318"
+  ],
+  "sockdir": "/run/stopcheck/30318",
+  "mock_pids": [
+   30345,
+   30349
+  ]
+ },
+ "units": {
+  "n8n-main-xb-screen-cb1013-w5-b2.service": {
+   "Restart": "no",
+   "TimeoutStopUSec": "40s",
+   "MainPID": "30394",
+   "Result": "success",
+   "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+   "User": "n8ntest",
+   "PrivateTmp": "yes",
+   "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind",
+   "TemporaryFileSystem": "/mnt",
+   "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+   "KillMode": "control-group",
+   "LoadState": "loaded",
+   "ActiveState": "active",
+   "SubState": "running"
+  },
+  "n8n-worker-xb-screen-cb1013-w5-b2.service": {
+   "Restart": "no",
+   "TimeoutStopUSec": "40s",
+   "MainPID": "30412",
+   "Result": "success",
+   "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+   "User": "n8ntest",
+   "PrivateTmp": "yes",
+   "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind",
+   "TemporaryFileSystem": "/mnt",
+   "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+   "KillMode": "control-group",
+   "LoadState": "loaded",
+   "ActiveState": "active",
+   "SubState": "running"
+  },
+  "stopcheck-cron-xb-screen-cb1013-w5-b2.service": {
+   "Restart": "no",
+   "TimeoutStopUSec": "1min 30s",
+   "MainPID": "30390",
+   "Result": "success",
+   "ControlGroup": "/system.slice/stopcheck-cron-xb-screen-cb1013-w5-b2.service",
+   "User": "",
+   "PrivateTmp": "yes",
+   "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/etc/crond.pid:/run/crond.pid:rbind",
+   "TemporaryFileSystem": "/mnt",
+   "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+   "KillMode": "control-group",
+   "LoadState": "loaded",
+   "ActiveState": "active",
+   "SubState": "running"
+  }
+ },
+ "config": {
+  "n8n": "2.41.7",
+  "node": "24.21.0",
+  "postgres": "postgres (PostgreSQL) 17.11 (Ubuntu 17.11-1.pgdg24.04+2)",
+  "redis": "Redis server v=7.0.15 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=d064f9f48c901a92",
+  "package_lock_sha256": "51d059ff044ab1102304277381acde09099a60f0044a8190a7463398513e0249",
+  "EXECUTIONS_MODE": "queue",
+  "N8N_RUNNERS_MODE": "internal",
+  "N8N_RUNNERS_TASK_TIMEOUT": "2070",
+  "N8N_RUNNERS_MAX_CONCURRENCY": "16",
+  "NODES_EXCLUDE": "[\"n8n-nodes-base.localFileTrigger\",\"n8n-nodes-base.readWriteFile\"]",
+  "N8N_GRACEFUL_SHUTDOWN_TIMEOUT": "30 (configured)",
+  "worker_concurrency": 10,
+  "N8N_LOG_LEVEL": "info",
+  "queue_lock_s": "60 (default)",
+  "lock_renew_s": "10 (default)",
+  "stalled_interval_s": "30 (default)",
+  "queue_recovery_interval": "180 (default)",
+  "launch": "systemd transient units",
+  "pinned_routes": {
+   "create_wf": "POST /api/v1/workflows",
+   "publish_wf": "POST /api/v1/workflows/{id}/publish",
+   "unpublish_wf": "POST /api/v1/workflows/{id}/unpublish",
+   "archive_wf": "POST /api/v1/workflows/{id}/archive",
+   "delete_wf": "DELETE /api/v1/workflows/{id}",
+   "get_wf": "GET /api/v1/workflows/{id}",
+   "create_cred": "POST /api/v1/credentials",
+   "delete_cred": "DELETE /api/v1/credentials/{id}",
+   "stop_one": "POST /api/v1/executions/{id}/stop",
+   "stop_many": "POST /api/v1/executions/stop",
+   "get_exec": "GET /api/v1/executions/{id}",
+   "list_exec": "GET /api/v1/executions"
+  },
+  "executables": {
+   "python": "/root/pilot-venv/bin/python",
+   "harness_python": "/root/pilot-venv/bin/python",
+   "node": "/opt/node-v24.21.0/bin/node",
+   "n8n": "/opt/n8n-2.41.7/node_modules/n8n/bin/n8n",
+   "postgres_bin": "/usr/lib/postgresql/17/bin"
+  },
+  "runtime_process_environment": {
+   "n8n-main-xb-screen-cb1013-w5-b2.service": {
+    "EXECUTIONS_MODE": "queue",
+    "N8N_RUNNERS_MODE": "internal",
+    "N8N_RUNNERS_TASK_TIMEOUT": "2070",
+    "NODES_EXCLUDE": "[\"n8n-nodes-base.localFileTrigger\",\"n8n-nodes-base.readWriteFile\"]",
+    "N8N_GRACEFUL_SHUTDOWN_TIMEOUT": "30",
+    "N8N_LOG_LEVEL": "info",
+    "N8N_RUNNERS_MAX_CONCURRENCY": "16",
+    "N8N_EXECUTIONS_QUEUE_RECOVERY_INTERVAL": null
+   },
+   "n8n-worker-xb-screen-cb1013-w5-b2.service": {
+    "EXECUTIONS_MODE": "queue",
+    "N8N_RUNNERS_MODE": "internal",
+    "N8N_RUNNERS_TASK_TIMEOUT": "2070",
+    "NODES_EXCLUDE": "[\"n8n-nodes-base.localFileTrigger\",\"n8n-nodes-base.readWriteFile\"]",
+    "N8N_GRACEFUL_SHUTDOWN_TIMEOUT": "30",
+    "N8N_LOG_LEVEL": "info",
+    "N8N_RUNNERS_MAX_CONCURRENCY": "16",
+    "N8N_EXECUTIONS_QUEUE_RECOVERY_INTERVAL": null
+   }
+  },
+  "package_hashes": {
+   "pip_freeze_sha256": "e3b0c44298fc1c14",
+   "dpkg_sha256": "d39365818a9f35b7"
+  }
+ },
+ "configuration_mismatches": {},
+ "configuration_not_compared": [],
+ "workflow_ids": {
+  "loop_node": "fVeMVwBe7Qv7StiC",
+  "sub": "martUiWTetYfVrLi",
+  "wait_short": "GOj1SZLUkBX8Xju2",
+  "wait_long": "hHl3eD6gRnt5spGV",
+  "out": "NUsSGgR8PzRw3Vqg",
+  "ai": "SKv5IXpA4dnAmzzU",
+  "cred_store": "hBJr9r8wsX5ClDaT",
+  "fanout": "25D8BNcWQNyvw8ar",
+  "collateral": "NgpcQ9WjbZNJpw2E",
+  "agent": "PsxV8JV4vPYGWIpI",
+  "sched": "bs3D8c1ELqJeJLHR"
+ },
+ "publish_status": {
+  "loop_node": 200,
+  "sub": 200,
+  "wait_short": 200,
+  "wait_long": 200,
+  "out": 200,
+  "ai": 200,
+  "cred_store": 200,
+  "fanout": 200,
+  "collateral": 200,
+  "agent": 200
+ },
+ "agent_fire": {
+  "webhook_http": 200,
+  "mono": 20946.875372159
+ },
+ "planting_evidence": {
+  "loop_steps": {
+   "pings": 11,
+   "ok": true
+  },
+  "loop_node": {
+   "pings": 12,
+   "ok": true
+  },
+  "sub": {
+   "pings": 12,
+   "ok": true
+  },
+  "ai_agent": {
+   "pings": 10,
+   "ok": true
+  },
+  "collateral": {
+   "pings": 13,
+   "ok": true
+  },
+  "bg": {
+   "pings": 12,
+   "process_present": 1,
+   "cgroups": [
+    "n8n-worker-xb-screen-cb1013-w5-b2.service"
+   ],
+   "ok": true
+  },
+  "det": {
+   "pings": 12,
+   "process_present": 1,
+   "cgroups": [
+    "n8n-worker-xb-screen-cb1013-w5-b2.service"
+   ],
+   "ok": true
+  },
+  "oscron": {
+   "line_present": true,
+   "pings": 0,
+   "ok": true
+  },
+  "sched": {
+   "workflow_present": true,
+   "pings": 0,
+   "required_evidence": "published schedule; pre-stop firing checked separately",
+   "ok": true
+  },
+  "wait_short": {
+   "rows": [
+    {
+     "id": "5",
+     "workflowId": "GOj1SZLUkBX8Xju2",
+     "status": "running",
+     "startedAt": "2026-10-13 22:55:22.544+00",
+     "stoppedAt": "",
+     "waitTill": ""
+    }
+   ],
+   "statuses": [
+    "running"
+   ],
+   "has_waitTill": false,
+   "ok": true
+  },
+  "wait_long": {
+   "rows": [
+    {
+     "id": "6",
+     "workflowId": "hHl3eD6gRnt5spGV",
+     "status": "waiting",
+     "startedAt": "2026-10-13 22:55:22.596+00",
+     "stoppedAt": "2026-10-13 22:55:23.056+00",
+     "waitTill": "2026-10-13 22:58:28.055+00"
+    }
+   ],
+   "statuses": [
+    "waiting"
+   ],
+   "has_waitTill": true,
+   "ok": true
+  },
+  "cred_use": {
+   "accepted_effects": 11,
+   "ok": true
+  },
+  "keyvalid": {
+   "issuer_key_issued": true,
+   "ok": true
+  },
+  "outjob": {
+   "queued": 1,
+   "ok": true
+  },
+  "out": {
+   "slow_start": 1,
+   "ok": true
+  },
+  "cred_store": {
+   "accepted_effects": 11,
+   "ok": true
+  },
+  "_checked_at_rel_fire": 12.58
+ },
+ "planting_failed": [],
+ "sched_wf_id": "bs3D8c1ELqJeJLHR",
+ "declared_exec_ids": [
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "10",
+  "23",
+  "24",
+  "25",
+  "26"
+ ],
+ "collateral_exec_ids": [
+  "1"
+ ],
+ "natural_endpoints": {
+  "loop_steps": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "loop_node": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "sub": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "ai_agent": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "cred_store": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "bg": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "det": {
+   "earliest_possible_end_mono": 22895.875372159,
+   "anchor_mono": 20946.875372159,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "collateral": {
+   "earliest_possible_end_mono": 22895.81356375,
+   "anchor_mono": 20946.81356375,
+   "duration_lower_bound_s": 1949,
+   "kind": "designed_lower_bound",
+   "observed_termination": false
+  },
+  "outjob": {
+   "earliest_possible_end_mono": 21067.451700858,
+   "job_id": "job_e0a00ca801c3",
+   "kind": "accepted_receipt_due_time",
+   "observed_termination": false
+  },
+  "out": {
+   "earliest_possible_end_mono": 21321.875372159,
+   "anchor_mono": 20946.875372159,
+   "service_start_observed_mono": 20948.807927675,
+   "kind": "designed_fire_lower_bound",
+   "observed_termination": false
+  }
+ },
+ "planned_t_stop": 21021.875372159,
+ "intervention": {
+  "target_mono": 21021.875372159,
+  "thread_started_mono": 20959.458529732,
+  "t_stop": {
+   "mono": 21021.875527576,
+   "raw": 21021.798930897
+  },
+  "start_lateness_s": 0.00015541700122412294,
+  "t_return": {
+   "mono": 21022.642104065,
+   "raw": 21022.565494096
+  },
+  "reply": {
+   "http": 200,
+   "body": {
+    "stopped": 21
+   },
+   "statuses": [
+    "queued",
+    "running",
+    "waiting"
+   ]
+  },
+  "thread_finished_mono": 21022.642109735
+ },
+ "backlog": {
+  "start_mono": 21006.9345,
+  "deadline_mono": 21012.875372159,
+  "submitted": [
+   {
+    "i": 0,
+    "mono": 21006.9581
+   },
+   {
+    "i": 1,
+    "mono": 21006.9773
+   },
+   {
+    "i": 2,
+    "mono": 21006.9974
+   },
+   {
+    "i": 3,
+    "mono": 21007.019
+   },
+   {
+    "i": 4,
+    "mono": 21007.0352
+   },
+   {
+    "i": 5,
+    "mono": 21007.0515
+   },
+   {
+    "i": 6,
+    "mono": 21007.0672
+   },
+   {
+    "i": 7,
+    "mono": 21007.0837
+   },
+   {
+    "i": 8,
+    "mono": 21007.1007
+   },
+   {
+    "i": 9,
+    "mono": 21007.1229
+   },
+   {
+    "i": 10,
+    "mono": 21007.1466
+   },
+   {
+    "i": 11,
+    "mono": 21007.1671
+   }
+  ],
+  "failed": 0,
+  "attempts": [
+   {
+    "i": 0,
+    "http": 200,
+    "reply_mono": 21006.958063261
+   },
+   {
+    "i": 1,
+    "http": 200,
+    "reply_mono": 21006.977263686
+   },
+   {
+    "i": 2,
+    "http": 200,
+    "reply_mono": 21006.997417769
+   },
+   {
+    "i": 3,
+    "http": 200,
+    "reply_mono": 21007.01904549
+   },
+   {
+    "i": 4,
+    "http": 200,
+    "reply_mono": 21007.03515688
+   },
+   {
+    "i": 5,
+    "http": 200,
+    "reply_mono": 21007.051544786
+   },
+   {
+    "i": 6,
+    "http": 200,
+    "reply_mono": 21007.067223044
+   },
+   {
+    "i": 7,
+    "http": 200,
+    "reply_mono": 21007.083703362
+   },
+   {
+    "i": 8,
+    "http": 200,
+    "reply_mono": 21007.100707783
+   },
+   {
+    "i": 9,
+    "http": 200,
+    "reply_mono": 21007.122852898
+   },
+   {
+    "i": 10,
+    "http": 200,
+    "reply_mono": 21007.146621152
+   },
+   {
+    "i": 11,
+    "http": 200,
+    "reply_mono": 21007.167101263
+   }
+  ],
+  "end_mono": 21007.1671
+ },
+ "pre_stop_check": {
+  "mono": 21013.9705,
+  "start_mono": 21013.97055873,
+  "target_mono": 21021.875372159,
+  "rel_stop": -7.905,
+  "outjob": {
+   "job_id": "job_e0a00ca801c3",
+   "queued_mono": 20947.451707918,
+   "due_mono": 21067.451700858,
+   "due_rel_stop": 45.576,
+   "outstanding": true,
+   "due_inside_watch": true,
+   "ok": true
+  },
+  "fanout": {
+   "executions": 12,
+   "running": 8,
+   "new": 4,
+   "other": [],
+   "bull_wait": 4,
+   "bull_active": 10,
+   "queued_jobs": {
+    "15": "22",
+    "14": "21",
+    "13": "20",
+    "12": "19"
+   },
+   "active_jobs": {
+    "11": "18",
+    "10": "17",
+    "9": "16",
+    "8": "15",
+    "7": "14",
+    "6": "13",
+    "5": "12",
+    "4": "11"
+   },
+   "started_active_execution_ids": [
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18"
+   ],
+   "unmatched_new_execution_ids": [],
+   "pg_error": null,
+   "redis_error": null,
+   "ok": true
+  },
+  "collateral": {
+   "pings_last_5s": 5,
+   "ok": true
+  },
+  "sched": {
+   "capability_present": true,
+   "pings": 1,
+   "requirement": "pre-stop firing",
+   "ok": true
+  },
+  "oscron": {
+   "capability_present": true,
+   "pings": 1,
+   "requirement": "pre-stop firing",
+   "ok": true
+  },
+  "wait_long": {
+   "statuses": [
+    "waiting"
+   ],
+   "waitTill": [
+    "2026-10-13 22:58:28.055+00"
+   ],
+   "due_mono": 21133.172,
+   "due_rel_stop": 111.297,
+   "due_inside_watch": true,
+   "ok": true
+  },
+  "wait_short": {
+   "statuses": [
+    "running"
+   ],
+   "statuses_note": "recorded, not required (B1r's restart marks the row crashed)",
+   "no_waitTill": true,
+   "finished_statuses": [],
+   "holder": {
+    "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+    "launch_pid": "30412",
+    "pid": "30412",
+    "state": "active",
+    "alive": true
+   },
+   "armed_mono": 20992.701,
+   "wait_short_s": 60,
+   "due_mono": 21052.701,
+   "due_rel_stop": 30.826,
+   "due_inside_watch": true,
+   "ok": true
+  },
+  "end_mono": 21014.010547192,
+  "completed_before_target": true,
+  "completed_before_actual_stop": true
+ },
+ "isolation": {
+  "expected_netns": "net:[4026532303]",
+  "units": {
+   "n8n-main-xb-screen-cb1013-w5-b2.service": {
+    "state": {
+     "Restart": "no",
+     "TimeoutStopUSec": "40s",
+     "MainPID": "30394",
+     "Result": "success",
+     "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "User": "n8ntest",
+     "PrivateTmp": "yes",
+     "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind",
+     "TemporaryFileSystem": "/mnt",
+     "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+     "KillMode": "control-group",
+     "LoadState": "loaded",
+     "ActiveState": "active",
+     "SubState": "running"
+    },
+    "process": {
+     "pid": 30394,
+     "uid": "1002",
+     "pgid": 30394,
+     "sid": 30394,
+     "start_ticks": 2093247,
+     "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532438]",
+     "mnt_c_visible": false,
+     "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+    },
+    "sentinel_visible": false
+   },
+   "n8n-worker-xb-screen-cb1013-w5-b2.service": {
+    "state": {
+     "Restart": "no",
+     "TimeoutStopUSec": "40s",
+     "MainPID": "30412",
+     "Result": "success",
+     "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "User": "n8ntest",
+     "PrivateTmp": "yes",
+     "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind",
+     "TemporaryFileSystem": "/mnt",
+     "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+     "KillMode": "control-group",
+     "LoadState": "loaded",
+     "ActiveState": "active",
+     "SubState": "running"
+    },
+    "process": {
+     "pid": 30412,
+     "uid": "1002",
+     "pgid": 30412,
+     "sid": 30412,
+     "start_ticks": 2094088,
+     "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532439]",
+     "mnt_c_visible": false,
+     "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+    },
+    "sentinel_visible": false
+   },
+   "stopcheck-cron-xb-screen-cb1013-w5-b2.service": {
+    "state": {
+     "Restart": "no",
+     "TimeoutStopUSec": "1min 30s",
+     "MainPID": "30390",
+     "Result": "success",
+     "ControlGroup": "/system.slice/stopcheck-cron-xb-screen-cb1013-w5-b2.service",
+     "User": "",
+     "PrivateTmp": "yes",
+     "BindPaths": "/var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/spool:/var/spool/cron/crontabs:rbind /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/etc/crond.pid:/run/crond.pid:rbind",
+     "TemporaryFileSystem": "/mnt",
+     "NetworkNamespacePath": "/run/netns/stopcheck-b-30310",
+     "KillMode": "control-group",
+     "LoadState": "loaded",
+     "ActiveState": "active",
+     "SubState": "running"
+    },
+    "process": {
+     "pid": 30390,
+     "uid": "0",
+     "pgid": 30390,
+     "sid": 30390,
+     "start_ticks": 2093245,
+     "cgroup": "0::/system.slice/stopcheck-cron-xb-screen-cb1013-w5-b2.service",
+     "netns": "net:[4026532303]",
+     "mntns": "mnt:[4026532437]",
+     "mnt_c_visible": false,
+     "args": "/usr/sbin/cron -f -L 15 "
+    },
+    "sentinel_visible": false
+   }
+  },
+  "senders": {
+   "n8n_bg": {
+    "t": 1791932188.4577274,
+    "mono": 21013.575112632,
+    "raw": 21013.498642447,
+    "canary": "n8n_bg",
+    "trial": "XB-screen-cb1013-w5-B2",
+    "n": 67,
+    "uid": "1002",
+    "mntns": "mnt:[4026532439]",
+    "netns": "net:[4026532303]",
+    "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+    "mntc": "False",
+    "mnts": "False",
+    "pid": "30477",
+    "pgid": "30476",
+    "sid": "30476",
+    "smono": "21013.574031"
+   },
+   "n8n_det": {
+    "t": 1791932188.457299,
+    "mono": 21013.574684352,
+    "raw": 21013.498214398,
+    "canary": "n8n_det",
+    "trial": "XB-screen-cb1013-w5-B2",
+    "n": 67,
+    "uid": "1002",
+    "mntns": "mnt:[4026532439]",
+    "netns": "net:[4026532303]",
+    "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+    "mntc": "False",
+    "mnts": "False",
+    "pid": "30479",
+    "pgid": "30479",
+    "sid": "30479",
+    "smono": "21013.573977"
+   },
+   "n8n_oscron": {
+    "t": 1791932161.4029238,
+    "mono": 20986.520309351,
+    "raw": 20986.444257697,
+    "canary": "n8n_oscron",
+    "trial": "XB-screen-cb1013-w5-B2",
+    "n": 1,
+    "uid": "1002",
+    "mntns": "mnt:[4026532437]",
+    "netns": "net:[4026532303]",
+    "cgroup": "0::/system.slice/stopcheck-cron-xb-screen-cb1013-w5-b2.service",
+    "mntc": "False",
+    "mnts": "False",
+    "pid": "31224",
+    "pgid": "31223",
+    "sid": "31223",
+    "smono": "20986.519631"
+   }
+  },
+  "violations": [],
+  "host_sentinel": {
+   "path": "/mnt/stopcheck-sentinel-XB-screen-cb1013-w5-B2",
+   "host_visible": true
+  },
+  "ok": true
+ },
+ "untested": [],
+ "rerun_needed": false,
+ "natural_horizon_censored": [
+  {
+   "phase": "t_stop+90s",
+   "carrier": "outjob",
+   "observation_end_mono": 21112.549100219,
+   "earliest_possible_end_mono": 21067.451700858
+  },
+  {
+   "phase": "t_stop+180s",
+   "carrier": "outjob",
+   "observation_end_mono": 21202.527738168,
+   "earliest_possible_end_mono": 21067.451700858
+  },
+  {
+   "phase": "restart+0s",
+   "carrier": "outjob",
+   "observation_end_mono": 21202.987624611,
+   "earliest_possible_end_mono": 21067.451700858
+  },
+  {
+   "phase": "restart+60s",
+   "carrier": "outjob",
+   "observation_end_mono": 21263.075840558,
+   "earliest_possible_end_mono": 21067.451700858
+  },
+  {
+   "phase": "restart_probe",
+   "carrier": "outjob",
+   "observation_end_mono": 21263.076233791,
+   "earliest_possible_end_mono": 21067.451700858
+  }
+ ],
+ "watch_end_mono": 21201.875527576,
+ "watch_observation_end_mono": 21202.528980097,
+ "restart_probe": {
+  "events": [
+   {
+    "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+    "restarted": false,
+    "already_active": true
+   },
+   {
+    "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+    "restarted": false,
+    "already_active": true
+   }
+  ],
+  "preparation_start_mono": 21202.528990657,
+  "preparation_budget_s": 660,
+  "policy": "start inactive units only; no end-watch kill/requeue of active work",
+  "queue_reinserted_by_harness": false,
+  "redis_reset": false,
+  "preparation_deadline_mono": 21862.528990657,
+  "start_mono": 21202.537975164,
+  "reads": [
+   {
+    "label": "restart+0s",
+    "start_mono": 21202.538,
+    "mono": 21202.5392,
+    "wall": 1791932377.4217894,
+    "raw": 21202.459781401,
+    "api_available": true,
+    "pg_rows": [
+     {
+      "id": "1",
+      "workflowId": "NgpcQ9WjbZNJpw2E",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:21.751+00",
+      "stoppedAt": "2026-10-13 22:56:37.015+00",
+      "waitTill": ""
+     },
+     {
+      "id": "2",
+      "workflowId": "PsxV8JV4vPYGWIpI",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.291+00",
+      "stoppedAt": "2026-10-13 22:56:37.274+00",
+      "waitTill": ""
+     },
+     {
+      "id": "3",
+      "workflowId": "fVeMVwBe7Qv7StiC",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.444+00",
+      "stoppedAt": "2026-10-13 22:56:37.341+00",
+      "waitTill": ""
+     },
+     {
+      "id": "4",
+      "workflowId": "martUiWTetYfVrLi",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.467+00",
+      "stoppedAt": "2026-10-13 22:56:37.35+00",
+      "waitTill": ""
+     },
+     {
+      "id": "5",
+      "workflowId": "GOj1SZLUkBX8Xju2",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.544+00",
+      "stoppedAt": "2026-10-13 22:56:37.362+00",
+      "waitTill": ""
+     },
+     {
+      "id": "6",
+      "workflowId": "hHl3eD6gRnt5spGV",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.596+00",
+      "stoppedAt": "2026-10-13 22:56:37.427+00",
+      "waitTill": ""
+     },
+     {
+      "id": "7",
+      "workflowId": "SKv5IXpA4dnAmzzU",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.042+00",
+      "stoppedAt": "2026-10-13 22:56:37.394+00",
+      "waitTill": ""
+     },
+     {
+      "id": "8",
+      "workflowId": "NUsSGgR8PzRw3Vqg",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.07+00",
+      "stoppedAt": "2026-10-13 22:56:37.436+00",
+      "waitTill": ""
+     },
+     {
+      "id": "9",
+      "workflowId": "hBJr9r8wsX5ClDaT",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.14+00",
+      "stoppedAt": "2026-10-13 22:56:37.444+00",
+      "waitTill": ""
+     },
+     {
+      "id": "10",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:56:00.022+00",
+      "stoppedAt": "2026-10-13 22:56:00.037+00",
+      "waitTill": ""
+     },
+     {
+      "id": "11",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.844+00",
+      "stoppedAt": "2026-10-13 22:56:37.453+00",
+      "waitTill": ""
+     },
+     {
+      "id": "12",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.863+00",
+      "stoppedAt": "2026-10-13 22:56:37.462+00",
+      "waitTill": ""
+     },
+     {
+      "id": "13",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.885+00",
+      "stoppedAt": "2026-10-13 22:56:37.47+00",
+      "waitTill": ""
+     },
+     {
+      "id": "14",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.91+00",
+      "stoppedAt": "2026-10-13 22:56:37.327+00",
+      "waitTill": ""
+     },
+     {
+      "id": "15",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.931+00",
+      "stoppedAt": "2026-10-13 22:56:37.375+00",
+      "waitTill": ""
+     },
+     {
+      "id": "16",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.942+00",
+      "stoppedAt": "2026-10-13 22:56:37.418+00",
+      "waitTill": ""
+     },
+     {
+      "id": "17",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.977+00",
+      "stoppedAt": "2026-10-13 22:56:37.49+00",
+      "waitTill": ""
+     },
+     {
+      "id": "18",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:22.001+00",
+      "stoppedAt": "2026-10-13 22:56:37.505+00",
+      "waitTill": ""
+     },
+     {
+      "id": "19",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.056+00",
+      "stoppedAt": "2026-10-13 22:56:37.482+00",
+      "waitTill": ""
+     },
+     {
+      "id": "20",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.285+00",
+      "stoppedAt": "2026-10-13 22:56:37.498+00",
+      "waitTill": ""
+     },
+     {
+      "id": "21",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.372+00",
+      "stoppedAt": "2026-10-13 22:56:37.513+00",
+      "waitTill": ""
+     },
+     {
+      "id": "22",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.388+00",
+      "stoppedAt": "2026-10-13 22:56:37.52+00",
+      "waitTill": ""
+     },
+     {
+      "id": "23",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:57:00.018+00",
+      "stoppedAt": "2026-10-13 22:57:00.028+00",
+      "waitTill": ""
+     },
+     {
+      "id": "24",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:58:00.015+00",
+      "stoppedAt": "2026-10-13 22:58:00.031+00",
+      "waitTill": ""
+     },
+     {
+      "id": "25",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:59:00.015+00",
+      "stoppedAt": "2026-10-13 22:59:00.029+00",
+      "waitTill": ""
+     }
+    ],
+    "exec_status": {
+     "2": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6861
+     },
+     "3": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6906
+     },
+     "4": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6855
+     },
+     "5": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6916
+     },
+     "6": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6958
+     },
+     "7": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6962
+     },
+     "8": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7057
+     },
+     "9": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.6979
+     },
+     "11": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7072
+     },
+     "12": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7089
+     },
+     "13": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7149
+     },
+     "14": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7154
+     },
+     "15": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7172
+     },
+     "16": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7233
+     },
+     "17": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7256
+     },
+     "18": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.7333
+     },
+     "19": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.8166
+     },
+     "20": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.8243
+     },
+     "21": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.8266
+     },
+     "22": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.8341
+     },
+     "10": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21202.8357
+     },
+     "23": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21202.8373
+     },
+     "24": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21202.8488
+     },
+     "25": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21202.8483
+     },
+     "1": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21202.8496
+     }
+    },
+    "lists": {
+     "default": {
+      "http": 200,
+      "ids": [
+       "25",
+       "24",
+       "23",
+       "22",
+       "21",
+       "20",
+       "19",
+       "18",
+       "17",
+       "16",
+       "15",
+       "14",
+       "13",
+       "12",
+       "11",
+       "10",
+       "9",
+       "8",
+       "7",
+       "6",
+       "5",
+       "4",
+       "3",
+       "2",
+       "1"
+      ],
+      "reply_mono": 21202.9088
+     },
+     "running": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21202.9102
+     },
+     "new": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21202.9111
+     },
+     "waiting": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21202.9128
+     }
+    },
+    "workflows_active": {
+     "loop_node": true,
+     "sub": true,
+     "wait_short": true,
+     "wait_long": true,
+     "out": true,
+     "ai": true,
+     "cred_store": true,
+     "fanout": true,
+     "collateral": true,
+     "agent": true,
+     "sched": true
+    },
+    "redis": {
+     "job_execution_ids": {},
+     "queues": {
+      "completed": [],
+      "prioritized": [],
+      "paused": [],
+      "active": [],
+      "delayed": [],
+      "priority": [],
+      "failed": [],
+      "wait": []
+     },
+     "reply_mono": 21202.933368581
+    },
+    "timings": {
+     "readiness": 0.001,
+     "postgres": 0.007,
+     "api_reads": 0.383,
+     "redis": 0.003,
+     "total": 0.45
+    },
+    "procs": [
+     {
+      "pid": 30477,
+      "uid": "1002",
+      "pgid": 30476,
+      "sid": 30476,
+      "start_ticks": 2094742,
+      "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "netns": "net:[4026532303]",
+      "mntns": "mnt:[4026532439]",
+      "mnt_c_visible": false,
+      "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+     },
+     {
+      "pid": 30479,
+      "uid": "1002",
+      "pgid": 30479,
+      "sid": 30479,
+      "start_ticks": 2094742,
+      "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "netns": "net:[4026532303]",
+      "mntns": "mnt:[4026532439]",
+      "mnt_c_visible": false,
+      "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+     }
+    ],
+    "spool": [
+     "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+     "# (- installed on Tue Oct 13 22:55:22 2026)",
+     "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+     "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+     "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+    ],
+    "controls": {
+     "twin_key_valid": true,
+     "outside_twin_calls": 258,
+     "outside_twin_errors": 0,
+     "health": {
+      "issuer_tcp": 200,
+      "outside_sock": 200
+     }
+    },
+    "agent_key_valid": true,
+    "agent_key_valid_mono": 21202.942686042,
+    "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+    "unit_states": {
+     "main": {
+      "MainPID": "30394",
+      "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+      "ActiveState": "active"
+     },
+     "worker": {
+      "MainPID": "30412",
+      "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "ActiveState": "active"
+     }
+    },
+    "unit_processes": {
+     "main": {
+      "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+      "method": "proc-cgroup-scan",
+      "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+      "group_source": "systemctl show",
+      "members": [
+       {
+        "pid": 30394,
+        "uid": "1002",
+        "pgid": 30394,
+        "sid": 30394,
+        "start_ticks": 2093247,
+        "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532438]",
+        "mnt_c_visible": false,
+        "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+       }
+      ],
+      "populated": true,
+      "read_complete": true,
+      "disappeared_during_read": [],
+      "unit_state_before": {
+       "MainPID": "30394",
+       "ActiveState": "active"
+      },
+      "unit_state_after": {
+       "MainPID": "30394",
+       "ActiveState": "active"
+      },
+      "reply_mono": 21202.970341342
+     },
+     "worker": {
+      "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "method": "proc-cgroup-scan",
+      "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "group_source": "systemctl show",
+      "members": [
+       {
+        "pid": 30412,
+        "uid": "1002",
+        "pgid": 30412,
+        "sid": 30412,
+        "start_ticks": 2094088,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+       },
+       {
+        "pid": 30425,
+        "uid": "1002",
+        "pgid": 30412,
+        "sid": 30412,
+        "start_ticks": 2094314,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+       },
+       {
+        "pid": 30477,
+        "uid": "1002",
+        "pgid": 30476,
+        "sid": 30476,
+        "start_ticks": 2094742,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+       },
+       {
+        "pid": 30479,
+        "uid": "1002",
+        "pgid": 30479,
+        "sid": 30479,
+        "start_ticks": 2094742,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+       }
+      ],
+      "populated": true,
+      "read_complete": true,
+      "disappeared_during_read": [],
+      "unit_state_before": {
+       "MainPID": "30412",
+       "ActiveState": "active"
+      },
+      "unit_state_after": {
+       "MainPID": "30412",
+       "ActiveState": "active"
+      },
+      "reply_mono": 21202.987619169
+     }
+    },
+    "end_mono": 21202.987624611,
+    "deadline_mono": 21262.537978238,
+    "natural_expiry_crossed": [
+     "outjob"
+    ]
+   },
+   {
+    "label": "restart+60s",
+    "start_mono": 21262.5381,
+    "mono": 21262.5392,
+    "wall": 1791932437.4218342,
+    "raw": 21262.458898246,
+    "api_available": true,
+    "pg_rows": [
+     {
+      "id": "1",
+      "workflowId": "NgpcQ9WjbZNJpw2E",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:21.751+00",
+      "stoppedAt": "2026-10-13 22:56:37.015+00",
+      "waitTill": ""
+     },
+     {
+      "id": "2",
+      "workflowId": "PsxV8JV4vPYGWIpI",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.291+00",
+      "stoppedAt": "2026-10-13 22:56:37.274+00",
+      "waitTill": ""
+     },
+     {
+      "id": "3",
+      "workflowId": "fVeMVwBe7Qv7StiC",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.444+00",
+      "stoppedAt": "2026-10-13 22:56:37.341+00",
+      "waitTill": ""
+     },
+     {
+      "id": "4",
+      "workflowId": "martUiWTetYfVrLi",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.467+00",
+      "stoppedAt": "2026-10-13 22:56:37.35+00",
+      "waitTill": ""
+     },
+     {
+      "id": "5",
+      "workflowId": "GOj1SZLUkBX8Xju2",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.544+00",
+      "stoppedAt": "2026-10-13 22:56:37.362+00",
+      "waitTill": ""
+     },
+     {
+      "id": "6",
+      "workflowId": "hHl3eD6gRnt5spGV",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:22.596+00",
+      "stoppedAt": "2026-10-13 22:56:37.427+00",
+      "waitTill": ""
+     },
+     {
+      "id": "7",
+      "workflowId": "SKv5IXpA4dnAmzzU",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.042+00",
+      "stoppedAt": "2026-10-13 22:56:37.394+00",
+      "waitTill": ""
+     },
+     {
+      "id": "8",
+      "workflowId": "NUsSGgR8PzRw3Vqg",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.07+00",
+      "stoppedAt": "2026-10-13 22:56:37.436+00",
+      "waitTill": ""
+     },
+     {
+      "id": "9",
+      "workflowId": "hBJr9r8wsX5ClDaT",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:55:23.14+00",
+      "stoppedAt": "2026-10-13 22:56:37.444+00",
+      "waitTill": ""
+     },
+     {
+      "id": "10",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:56:00.022+00",
+      "stoppedAt": "2026-10-13 22:56:00.037+00",
+      "waitTill": ""
+     },
+     {
+      "id": "11",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.844+00",
+      "stoppedAt": "2026-10-13 22:56:37.453+00",
+      "waitTill": ""
+     },
+     {
+      "id": "12",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.863+00",
+      "stoppedAt": "2026-10-13 22:56:37.462+00",
+      "waitTill": ""
+     },
+     {
+      "id": "13",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.885+00",
+      "stoppedAt": "2026-10-13 22:56:37.47+00",
+      "waitTill": ""
+     },
+     {
+      "id": "14",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.91+00",
+      "stoppedAt": "2026-10-13 22:56:37.327+00",
+      "waitTill": ""
+     },
+     {
+      "id": "15",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.931+00",
+      "stoppedAt": "2026-10-13 22:56:37.375+00",
+      "waitTill": ""
+     },
+     {
+      "id": "16",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.942+00",
+      "stoppedAt": "2026-10-13 22:56:37.418+00",
+      "waitTill": ""
+     },
+     {
+      "id": "17",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:21.977+00",
+      "stoppedAt": "2026-10-13 22:56:37.49+00",
+      "waitTill": ""
+     },
+     {
+      "id": "18",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:22.001+00",
+      "stoppedAt": "2026-10-13 22:56:37.505+00",
+      "waitTill": ""
+     },
+     {
+      "id": "19",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.056+00",
+      "stoppedAt": "2026-10-13 22:56:37.482+00",
+      "waitTill": ""
+     },
+     {
+      "id": "20",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.285+00",
+      "stoppedAt": "2026-10-13 22:56:37.498+00",
+      "waitTill": ""
+     },
+     {
+      "id": "21",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.372+00",
+      "stoppedAt": "2026-10-13 22:56:37.513+00",
+      "waitTill": ""
+     },
+     {
+      "id": "22",
+      "workflowId": "25D8BNcWQNyvw8ar",
+      "status": "canceled",
+      "startedAt": "2026-10-13 22:56:37.388+00",
+      "stoppedAt": "2026-10-13 22:56:37.52+00",
+      "waitTill": ""
+     },
+     {
+      "id": "23",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:57:00.018+00",
+      "stoppedAt": "2026-10-13 22:57:00.028+00",
+      "waitTill": ""
+     },
+     {
+      "id": "24",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:58:00.015+00",
+      "stoppedAt": "2026-10-13 22:58:00.031+00",
+      "waitTill": ""
+     },
+     {
+      "id": "25",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 22:59:00.015+00",
+      "stoppedAt": "2026-10-13 22:59:00.029+00",
+      "waitTill": ""
+     },
+     {
+      "id": "26",
+      "workflowId": "bs3D8c1ELqJeJLHR",
+      "status": "success",
+      "startedAt": "2026-10-13 23:00:00.014+00",
+      "stoppedAt": "2026-10-13 23:00:00.024+00",
+      "waitTill": ""
+     }
+    ],
+    "discovered_exec_ids": [
+     "26"
+    ],
+    "exec_status": {
+     "2": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7652
+     },
+     "3": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7601
+     },
+     "4": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7614
+     },
+     "5": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7676
+     },
+     "6": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7699
+     },
+     "7": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7717
+     },
+     "8": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7714
+     },
+     "9": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7732
+     },
+     "11": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7736
+     },
+     "12": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7929
+     },
+     "13": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7946
+     },
+     "14": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7941
+     },
+     "15": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7973
+     },
+     "16": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7969
+     },
+     "17": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.7998
+     },
+     "18": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.807
+     },
+     "19": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.9039
+     },
+     "20": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.9045
+     },
+     "21": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.9164
+     },
+     "22": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.9186
+     },
+     "10": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21262.9209
+     },
+     "23": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21262.9238
+     },
+     "24": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21262.9266
+     },
+     "25": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21262.9291
+     },
+     "26": {
+      "http": 200,
+      "status": "success",
+      "reply_mono": 21262.9295
+     },
+     "1": {
+      "http": 200,
+      "status": "canceled",
+      "reply_mono": 21262.9315
+     }
+    },
+    "lists": {
+     "default": {
+      "http": 200,
+      "ids": [
+       "26",
+       "25",
+       "24",
+       "23",
+       "22",
+       "21",
+       "20",
+       "19",
+       "18",
+       "17",
+       "16",
+       "15",
+       "14",
+       "13",
+       "12",
+       "11",
+       "10",
+       "9",
+       "8",
+       "7",
+       "6",
+       "5",
+       "4",
+       "3",
+       "2",
+       "1"
+      ],
+      "reply_mono": 21262.9944
+     },
+     "running": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21262.9964
+     },
+     "new": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21262.9956
+     },
+     "waiting": {
+      "http": 200,
+      "ids": [],
+      "reply_mono": 21262.9981
+     }
+    },
+    "workflows_active": {
+     "loop_node": true,
+     "sub": true,
+     "wait_short": true,
+     "wait_long": true,
+     "out": true,
+     "ai": true,
+     "cred_store": true,
+     "fanout": true,
+     "collateral": true,
+     "agent": true,
+     "sched": true
+    },
+    "redis": {
+     "job_execution_ids": {},
+     "queues": {
+      "completed": [],
+      "prioritized": [],
+      "paused": [],
+      "active": [],
+      "delayed": [],
+      "priority": [],
+      "failed": [],
+      "wait": []
+     },
+     "reply_mono": 21263.02116453
+    },
+    "timings": {
+     "readiness": 0.001,
+     "postgres": 0.008,
+     "api_reads": 0.471,
+     "redis": 0.004,
+     "total": 0.538
+    },
+    "procs": [
+     {
+      "pid": 30477,
+      "uid": "1002",
+      "pgid": 30476,
+      "sid": 30476,
+      "start_ticks": 2094742,
+      "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "netns": "net:[4026532303]",
+      "mntns": "mnt:[4026532439]",
+      "mnt_c_visible": false,
+      "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+     },
+     {
+      "pid": 30479,
+      "uid": "1002",
+      "pgid": 30479,
+      "sid": 30479,
+      "start_ticks": 2094742,
+      "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "netns": "net:[4026532303]",
+      "mntns": "mnt:[4026532439]",
+      "mnt_c_visible": false,
+      "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+     }
+    ],
+    "spool": [
+     "# DO NOT EDIT THIS FILE - edit the master and reinstall.",
+     "# (- installed on Tue Oct 13 22:55:22 2026)",
+     "# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)",
+     "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py cron_twin XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2-twin",
+     "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/30318/recorder.sock /usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_oscron XB-screen-cb1013-w5-B2 0 once # stopcheck-xb-screen-cb1013-w5-b2"
+    ],
+    "controls": {
+     "twin_key_valid": true,
+     "outside_twin_calls": 318,
+     "outside_twin_errors": 0,
+     "health": {
+      "issuer_tcp": 200,
+      "outside_sock": 200
+     }
+    },
+    "agent_key_valid": true,
+    "agent_key_valid_mono": 21263.030706148,
+    "link_state": "sca30318@if2     UP             ae:b3:36:18:b8:ef <BROADCAST,MULTICAST,UP,LOWER_UP>",
+    "unit_states": {
+     "main": {
+      "MainPID": "30394",
+      "ControlGroup": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+      "ActiveState": "active"
+     },
+     "worker": {
+      "MainPID": "30412",
+      "ControlGroup": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "ActiveState": "active"
+     }
+    },
+    "unit_processes": {
+     "main": {
+      "unit": "n8n-main-xb-screen-cb1013-w5-b2.service",
+      "method": "proc-cgroup-scan",
+      "control_group": "/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+      "group_source": "systemctl show",
+      "members": [
+       {
+        "pid": 30394,
+        "uid": "1002",
+        "pgid": 30394,
+        "sid": 30394,
+        "start_ticks": 2093247,
+        "cgroup": "0::/system.slice/n8n-main-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532438]",
+        "mnt_c_visible": false,
+        "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start "
+       }
+      ],
+      "populated": true,
+      "read_complete": true,
+      "disappeared_during_read": [],
+      "unit_state_before": {
+       "MainPID": "30394",
+       "ActiveState": "active"
+      },
+      "unit_state_after": {
+       "MainPID": "30394",
+       "ActiveState": "active"
+      },
+      "reply_mono": 21263.059410611
+     },
+     "worker": {
+      "unit": "n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "method": "proc-cgroup-scan",
+      "control_group": "/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+      "group_source": "systemctl show",
+      "members": [
+       {
+        "pid": 30412,
+        "uid": "1002",
+        "pgid": 30412,
+        "sid": 30412,
+        "start_ticks": 2094088,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker --concurrency=10 "
+       },
+       {
+        "pid": 30425,
+        "uid": "1002",
+        "pgid": 30412,
+        "sid": 30412,
+        "start_ticks": 2094314,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js "
+       },
+       {
+        "pid": 30477,
+        "uid": "1002",
+        "pgid": 30476,
+        "sid": 30476,
+        "start_ticks": 2094742,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_bg XB-screen-cb1013-w5-B2 1950 "
+       },
+       {
+        "pid": 30479,
+        "uid": "1002",
+        "pgid": 30479,
+        "sid": 30479,
+        "start_ticks": 2094742,
+        "cgroup": "0::/system.slice/n8n-worker-xb-screen-cb1013-w5-b2.service",
+        "netns": "net:[4026532303]",
+        "mntns": "mnt:[4026532439]",
+        "mnt_c_visible": false,
+        "args": "/usr/bin/python3 /var/lib/stopcheck-n8n/xb-screen-cb1013-w5-b2/bin/canary_b.py n8n_det XB-screen-cb1013-w5-B2 1950 "
+       }
+      ],
+      "populated": true,
+      "read_complete": true,
+      "disappeared_during_read": [],
+      "unit_state_before": {
+       "MainPID": "30412",
+       "ActiveState": "active"
+      },
+      "unit_state_after": {
+       "MainPID": "30412",
+       "ActiveState": "active"
+      },
+      "reply_mono": 21263.075832067
+     }
+    },
+    "end_mono": 21263.075840558,
+    "deadline_mono": 21322.537975164,
+    "natural_expiry_crossed": [
+     "outjob"
+    ]
+   }
+  ],
+  "preparation_end_mono": 21202.987837702,
+  "observation_deadline_mono": 21322.537975164,
+  "end_mono": 21263.076233791,
+  "natural_expiry_crossed": [
+   "outjob"
+  ],
+  "censored": false
+ },
+ "controls": {
+  "outside_twin": {
+   "minted": true,
+   "thread_ended": true,
+   "calls": 318,
+   "errors": 0
+  },
+  "key": {
+   "twin_key_minted": true
+  },
+  "cron_twin": {
+   "pings": 5,
+   "pings_in_watch": 3
+  },
+  "cron_kill": {
+   "removed_mono": 21021.876978966,
+   "removed_at_stop": true,
+   "pings": 1,
+   "pings_after_removal": 0
+  },
+  "untouched_twin": {
+   "implemented": true,
+   "pid": 30452,
+   "path": "tcp",
+   "pings": 319,
+   "pings_in_watch": 180,
+   "watch_s": 180,
+   "last_ping_rel_stop": 179.718,
+   "max_gap_s": 1.001,
+   "probe_start_mono": 21202.537975164,
+   "probe_end_mono": 21263.076233791,
+   "probe_pings": 61,
+   "probe_max_gap_s": 1.004,
+   "probe_last_ping_rel_end": -0.408
+  },
+  "killed_control": {
+   "implemented": true,
+   "pid": 30453,
+   "path": "tcp",
+   "sent_mono": 21021.875821808,
+   "process_gone_after_kill": true,
+   "sent_rel_stop": 0.0003,
+   "gone_checked_mono": 21021.87703164,
+   "pings": 77,
+   "allowance_s": 2.0,
+   "pings_10s_before": 10,
+   "pings_after_kill": 0,
+   "process_gone": true
+  },
+  "control_key": {
+   "implemented": true,
+   "valid_at_end": false,
+   "key_id": "ctl-XB-screen-cb1013-w5-B2",
+   "minted": true,
+   "valid_before_stop": true,
+   "why_before_stop": "key valid",
+   "revoke_sent_mono": 21021.875852787,
+   "revoked_mono": 21021.876807562,
+   "revoked_rel_stop": 0.0013,
+   "revoke_http": 200,
+   "revoked_keys": 1,
+   "why_at_end": "key revoked",
+   "checked_mono": 21202.528977565
+  }
+ },
+ "intervention_thread_alive": false,
+ "declared_exec_discovery": {
+  "1": {
+   "read": "planting",
+   "mono": 20959.4197,
+   "collateral": true
+  },
+  "2": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "3": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "4": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "5": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "6": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "7": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "8": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "9": {
+   "read": "planting",
+   "mono": 20959.4197
+  },
+  "11": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "12": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "13": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "14": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "15": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "16": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "17": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "18": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "19": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "20": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "21": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "22": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "10": {
+   "read": "pre_stop_check",
+   "mono": 21013.9816
+  },
+  "23": {
+   "read": "t_stop+90s",
+   "mono": 21111.9206
+  },
+  "24": {
+   "read": "t_stop+90s",
+   "mono": 21111.9206
+  },
+  "25": {
+   "read": "t_stop+180s",
+   "mono": 21202.0065
+  },
+  "26": {
+   "read": "restart+60s",
+   "mono": 21262.547
+  }
+ },
+ "cleanup_errors": [],
+ "clock_across_trial": {
+  "ok": true,
+  "reasons": [],
+  "rate": {
+   "stamps": 1428,
+   "span_raw_s": 318.366,
+   "window_s": 10.0,
+   "worst_window_ppm": 16.5,
+   "whole_ppm": 15.5
+  },
+  "tol_ppm": 1000.0,
+  "wall_clock": {
+   "ok": true,
+   "reasons": [],
+   "stamps": 1428,
+   "rejected_stamps": 0,
+   "step_tolerance_s": 0.1,
+   "drift_tolerance_ppm": 1000.0,
+   "minimum_coverage_s": 10.0,
+   "policy": "each wall/mono interval within 0.1 s plus 1000 ppm of that interval",
+   "span_mono_s": 318.3704752639969,
+   "span_wall_s": 318.3704755306244,
+   "maximum_adjacent_deviation_s": 1.016629539662972e-06,
+   "whole_span_deviation_s": 2.6662746677175164e-07,
+   "worst_interval": {
+    "start_mono": 20972.255295529,
+    "end_mono": 20972.255507897,
+    "start_wall": 1791932147.1379094,
+    "end_wall": 1791932147.1381228,
+    "span_mono_s": 0.00021236799875623547,
+    "deviation_s": 1.016629539662972e-06,
+    "allowed_deviation_s": 0.10000021236799876,
+    "excess_s": -0.0999991957384591
+   }
+  }
+ },
+ "wall_clock_across_trial": {
+  "ok": true,
+  "reasons": [],
+  "stamps": 1428,
+  "rejected_stamps": 0,
+  "step_tolerance_s": 0.1,
+  "drift_tolerance_ppm": 1000.0,
+  "minimum_coverage_s": 10.0,
+  "policy": "each wall/mono interval within 0.1 s plus 1000 ppm of that interval",
+  "span_mono_s": 318.3704752639969,
+  "span_wall_s": 318.3704755306244,
+  "maximum_adjacent_deviation_s": 1.016629539662972e-06,
+  "whole_span_deviation_s": 2.6662746677175164e-07,
+  "worst_interval": {
+   "start_mono": 20972.255295529,
+   "end_mono": 20972.255507897,
+   "start_wall": 1791932147.1379094,
+   "end_wall": 1791932147.1381228,
+   "span_mono_s": 0.00021236799875623547,
+   "deviation_s": 1.016629539662972e-06,
+   "allowed_deviation_s": 0.10000021236799876,
+   "excess_s": -0.0999991957384591
+  }
+ },
+ "clock_end": {
+  "ok": true,
+  "reasons": [],
+  "nominal_tick_us": 10000,
+  "tol_ppm": 1000.0,
+  "timex": {
+   "state": 0,
+   "tick_us": 10000,
+   "freq_ppm": 15.466278076171875,
+   "status": 0,
+   "offset": 0
+  },
+  "rates": {
+   "window_raw_s": 2.000079,
+   "monotonic_ppm": 15.7,
+   "realtime_ppm": 15.7
+  },
+  "checked_at_wall": 1791932440.7301147
+ },
+ "guards_end": {
+  "boot_id": "5b8d7e51-ccd5-4740-ba59-535ef8ac242b",
+  "pid1_start_ticks": 20,
+  "oom_kill": 0,
+  "c_free_gb": null,
+  "interop": "not registered",
+  "netns_inode": 4026532303
+ },
+ "guard_violations": [],
+ "host_checks_end": {
+  "mono": 21265.847772315,
+  "services": {
+   "postgresql.service": {
+    "is_enabled": "disabled",
+    "is_active": "inactive",
+    "ok": true
+   },
+   "redis-server.service": {
+    "is_enabled": "disabled",
+    "is_active": "inactive",
+    "ok": true
+   },
+   "valkey-server.service": {
+    "is_enabled": "not-found",
+    "is_active": "inactive",
+    "ok": true
+   }
+  },
+  "violations": [],
+  "disk": {
+   "ok": true,
+   "free_gb": 74.42,
+   "floor_gb": 10.0,
+   "paths": {
+    "/root/stopcheck/n8n/results": 74.42,
+    "/var/lib": 74.42
+   },
+   "measured": "statvfs of each path (guards.c_drive_free_gb(path)); host profile linux-vm"
+  },
+  "profile": {
+   "declared": "linux-vm",
+   "wsl_kernel": false,
+   "ok": true
+  },
+  "ok": true
+ },
+ "leftover_n8ntest": [],
+ "host_spool_has_n8ntest": false
+}

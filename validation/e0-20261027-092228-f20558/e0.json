@@ -1,0 +1,632 @@
+{
+ "bench": {
+  "effects_log": "effects.jsonl",
+  "heartbeat_s": 0.2,
+  "sentinel_tag": "stopkit-sentinel-beat",
+  "sha256": {
+   "beat.py": "df3706b3d44c389321936aae71a1778613e3122a7bbdfc4c743d502004c66251",
+   "effect_sink.py": "1d4bfe4dde9aebfb16b5cd2895a559ecdd0330ddb27de9828d3db5f3a2bf798e",
+   "truth_recorder.py": "d209fca967f03eefb1055fd42e56fefa1df6c30d8f4743eded3ca62d3302e29a"
+  },
+  "truth_log": "truth.jsonl",
+  "uids": [
+   59900,
+   59901,
+   59902
+  ]
+ },
+ "bench_exit": {
+  "recorder": 0,
+  "sentinel": -15,
+  "sink": 0
+ },
+ "format": "stopkit-e0/1",
+ "git_commit": "release-candidate",
+ "git_dirty": "0",
+ "kit_version": "0.4.0.dev1",
+ "parts": {
+  "blocked": {
+   "longest_report_gap_s": 3.113,
+   "passed": true,
+   "problems": [],
+   "reading_while_stopped": "present"
+  },
+  "channel": {
+   "exit_recorded_without_socket": true,
+   "passed": true,
+   "problems": [],
+   "reading_with_channel_cut": "indefinite",
+   "status_after_recorder_died": "failed"
+  },
+  "exit": {
+   "bound_s": 0.05,
+   "exit_latency_s": {
+    "max": 0.002586,
+    "median": 0.001291,
+    "min": 0.000918,
+    "n": 30,
+    "p95": 0.002338
+   },
+   "passed": true,
+   "problems": [],
+   "trials": [
+    {
+     "exit_after_send": 0.001475,
+     "exit_after_stamp": 0.001525,
+     "exits": 1,
+     "hello_after_launch": 0.163133,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15009.515858155,
+      15009.51590849
+     ],
+     "n": 0,
+     "pid": 6671,
+     "signals": {
+      "blocked": [],
+      "caught": [],
+      "comm": "python3",
+      "ignored": []
+     },
+     "spawned": 15008.850261957,
+     "tag": "stopkit-e0-20261027-092228-f20558-x0"
+    },
+    {
+     "exit_after_send": 0.001169,
+     "exit_after_stamp": 0.00124,
+     "exits": 1,
+     "hello_after_launch": 0.140427,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15010.163592708,
+      15010.163663903
+     ],
+     "n": 1,
+     "pid": 6672,
+     "spawned": 15009.518034388,
+     "tag": "stopkit-e0-20261027-092228-f20558-x1"
+    },
+    {
+     "exit_after_send": 0.001525,
+     "exit_after_stamp": 0.001583,
+     "exits": 1,
+     "hello_after_launch": 0.105159,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15010.790160283,
+      15010.790217682
+     ],
+     "n": 2,
+     "pid": 6673,
+     "spawned": 15010.165488453,
+     "tag": "stopkit-e0-20261027-092228-f20558-x2"
+    },
+    {
+     "exit_after_send": 0.002586,
+     "exit_after_stamp": 0.002785,
+     "exits": 1,
+     "hello_after_launch": 0.127189,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15011.440703935,
+      15011.440902403
+     ],
+     "n": 3,
+     "pid": 6674,
+     "spawned": 15010.792911029,
+     "tag": "stopkit-e0-20261027-092228-f20558-x3"
+    },
+    {
+     "exit_after_send": 0.001159,
+     "exit_after_stamp": 0.001211,
+     "exits": 1,
+     "hello_after_launch": 0.11423,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15012.072411638,
+      15012.072464157
+     ],
+     "n": 4,
+     "pid": 6677,
+     "spawned": 15011.445075383,
+     "tag": "stopkit-e0-20261027-092228-f20558-x4"
+    },
+    {
+     "exit_after_send": 0.001225,
+     "exit_after_stamp": 0.001284,
+     "exits": 1,
+     "hello_after_launch": 0.096856,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15012.680796112,
+      15012.680855335
+     ],
+     "n": 5,
+     "pid": 6678,
+     "spawned": 15012.074926029,
+     "tag": "stopkit-e0-20261027-092228-f20558-x5"
+    },
+    {
+     "exit_after_send": 0.001812,
+     "exit_after_stamp": 0.00189,
+     "exits": 1,
+     "hello_after_launch": 0.113449,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15013.311239594,
+      15013.311317132
+     ],
+     "n": 6,
+     "pid": 6679,
+     "spawned": 15012.683570237,
+     "tag": "stopkit-e0-20261027-092228-f20558-x6"
+    },
+    {
+     "exit_after_send": 0.001571,
+     "exit_after_stamp": 0.001676,
+     "exits": 1,
+     "hello_after_launch": 0.105064,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15013.921942512,
+      15013.922047351
+     ],
+     "n": 7,
+     "pid": 6680,
+     "spawned": 15013.315429602,
+     "tag": "stopkit-e0-20261027-092228-f20558-x7"
+    },
+    {
+     "exit_after_send": 0.0013,
+     "exit_after_stamp": 0.001342,
+     "exits": 1,
+     "hello_after_launch": 0.115994,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15014.556169937,
+      15014.556212177
+     ],
+     "n": 8,
+     "pid": 6681,
+     "spawned": 15013.925987254,
+     "tag": "stopkit-e0-20261027-092228-f20558-x8"
+    },
+    {
+     "exit_after_send": 0.000918,
+     "exit_after_stamp": 0.00096,
+     "exits": 1,
+     "hello_after_launch": 0.112892,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15015.188839177,
+      15015.188881127
+     ],
+     "n": 9,
+     "pid": 6682,
+     "spawned": 15014.559867799,
+     "tag": "stopkit-e0-20261027-092228-f20558-x9"
+    },
+    {
+     "exit_after_send": 0.001178,
+     "exit_after_stamp": 0.001227,
+     "exits": 1,
+     "hello_after_launch": 0.16713,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15015.863496996,
+      15015.86354655
+     ],
+     "n": 10,
+     "pid": 6683,
+     "spawned": 15015.191650843,
+     "tag": "stopkit-e0-20261027-092228-f20558-x10"
+    },
+    {
+     "exit_after_send": 0.001378,
+     "exit_after_stamp": 0.001441,
+     "exits": 1,
+     "hello_after_launch": 0.117283,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15016.515774566,
+      15016.515837556
+     ],
+     "n": 11,
+     "pid": 6684,
+     "spawned": 15015.887356845,
+     "tag": "stopkit-e0-20261027-092228-f20558-x11"
+    },
+    {
+     "exit_after_send": 0.001436,
+     "exit_after_stamp": 0.001493,
+     "exits": 1,
+     "hello_after_launch": 0.107633,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15017.131560063,
+      15017.131616541
+     ],
+     "n": 12,
+     "pid": 6685,
+     "spawned": 15016.520142997,
+     "tag": "stopkit-e0-20261027-092228-f20558-x12"
+    },
+    {
+     "exit_after_send": 0.00117,
+     "exit_after_stamp": 0.001244,
+     "exits": 1,
+     "hello_after_launch": 0.089777,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15017.744218999,
+      15017.744293096
+     ],
+     "n": 13,
+     "pid": 6686,
+     "spawned": 15017.135855417,
+     "tag": "stopkit-e0-20261027-092228-f20558-x13"
+    },
+    {
+     "exit_after_send": 0.00153,
+     "exit_after_stamp": 0.001576,
+     "exits": 1,
+     "hello_after_launch": 0.120921,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15018.401240575,
+      15018.401286463
+     ],
+     "n": 14,
+     "pid": 6687,
+     "spawned": 15017.770640714,
+     "tag": "stopkit-e0-20261027-092228-f20558-x14"
+    },
+    {
+     "exit_after_send": 0.001329,
+     "exit_after_stamp": 0.001381,
+     "exits": 1,
+     "hello_after_launch": 0.088532,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15019.015465462,
+      15019.01551699
+     ],
+     "n": 15,
+     "pid": 6688,
+     "spawned": 15018.406326937,
+     "tag": "stopkit-e0-20261027-092228-f20558-x15"
+    },
+    {
+     "exit_after_send": 0.001049,
+     "exit_after_stamp": 0.001106,
+     "exits": 1,
+     "hello_after_launch": 0.100947,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15019.629783288,
+      15019.629840096
+     ],
+     "n": 16,
+     "pid": 6689,
+     "spawned": 15019.019495115,
+     "tag": "stopkit-e0-20261027-092228-f20558-x16"
+    },
+    {
+     "exit_after_send": 0.001702,
+     "exit_after_stamp": 0.001778,
+     "exits": 1,
+     "hello_after_launch": 0.101746,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15020.243381129,
+      15020.243457214
+     ],
+     "n": 17,
+     "pid": 6690,
+     "spawned": 15019.633429201,
+     "tag": "stopkit-e0-20261027-092228-f20558-x17"
+    },
+    {
+     "exit_after_send": 0.001121,
+     "exit_after_stamp": 0.001168,
+     "exits": 1,
+     "hello_after_launch": 0.101556,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15020.878530718,
+      15020.878578048
+     ],
+     "n": 18,
+     "pid": 6691,
+     "spawned": 15020.268809097,
+     "tag": "stopkit-e0-20261027-092228-f20558-x18"
+    },
+    {
+     "exit_after_send": 0.001161,
+     "exit_after_stamp": 0.001209,
+     "exits": 1,
+     "hello_after_launch": 0.098808,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15021.495736411,
+      15021.495784242
+     ],
+     "n": 19,
+     "pid": 6692,
+     "spawned": 15020.883301904,
+     "tag": "stopkit-e0-20261027-092228-f20558-x19"
+    },
+    {
+     "exit_after_send": 0.001282,
+     "exit_after_stamp": 0.001352,
+     "exits": 1,
+     "hello_after_launch": 0.101074,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15022.110079731,
+      15022.110148993
+     ],
+     "n": 20,
+     "pid": 6693,
+     "spawned": 15021.499827509,
+     "tag": "stopkit-e0-20261027-092228-f20558-x20"
+    },
+    {
+     "exit_after_send": 0.001021,
+     "exit_after_stamp": 0.001082,
+     "exits": 1,
+     "hello_after_launch": 0.096927,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15022.72813497,
+      15022.728195335
+     ],
+     "n": 21,
+     "pid": 6694,
+     "spawned": 15022.115358309,
+     "tag": "stopkit-e0-20261027-092228-f20558-x21"
+    },
+    {
+     "exit_after_send": 0.00112,
+     "exit_after_stamp": 0.001165,
+     "exits": 1,
+     "hello_after_launch": 0.091966,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15023.346198926,
+      15023.346244122
+     ],
+     "n": 22,
+     "pid": 6695,
+     "spawned": 15022.733171328,
+     "tag": "stopkit-e0-20261027-092228-f20558-x22"
+    },
+    {
+     "exit_after_send": 0.001363,
+     "exit_after_stamp": 0.001456,
+     "exits": 1,
+     "hello_after_launch": 0.094687,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15023.964804829,
+      15023.964897636
+     ],
+     "n": 23,
+     "pid": 6696,
+     "spawned": 15023.35164873,
+     "tag": "stopkit-e0-20261027-092228-f20558-x23"
+    },
+    {
+     "exit_after_send": 0.001703,
+     "exit_after_stamp": 0.001793,
+     "exits": 1,
+     "hello_after_launch": 0.099856,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15024.581538699,
+      15024.58162846
+     ],
+     "n": 24,
+     "pid": 6697,
+     "spawned": 15023.96963809,
+     "tag": "stopkit-e0-20261027-092228-f20558-x24"
+    },
+    {
+     "exit_after_send": 0.001664,
+     "exit_after_stamp": 0.00175,
+     "exits": 1,
+     "hello_after_launch": 0.093191,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15025.201712823,
+      15025.201798055
+     ],
+     "n": 25,
+     "pid": 6698,
+     "spawned": 15024.587764537,
+     "tag": "stopkit-e0-20261027-092228-f20558-x25"
+    },
+    {
+     "exit_after_send": 0.001052,
+     "exit_after_stamp": 0.001113,
+     "exits": 1,
+     "hello_after_launch": 0.127252,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15025.841607982,
+      15025.841668668
+     ],
+     "n": 26,
+     "pid": 6699,
+     "spawned": 15025.209817465,
+     "tag": "stopkit-e0-20261027-092228-f20558-x26"
+    },
+    {
+     "exit_after_send": 0.00118,
+     "exit_after_stamp": 0.001233,
+     "exits": 1,
+     "hello_after_launch": 0.101125,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15026.462525494,
+      15026.462578435
+     ],
+     "n": 27,
+     "pid": 6700,
+     "spawned": 15025.847946747,
+     "tag": "stopkit-e0-20261027-092228-f20558-x27"
+    },
+    {
+     "exit_after_send": 0.001183,
+     "exit_after_stamp": 0.001233,
+     "exits": 1,
+     "hello_after_launch": 0.135086,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15027.128546782,
+      15027.128596877
+     ],
+     "n": 28,
+     "pid": 6701,
+     "spawned": 15026.489807182,
+     "tag": "stopkit-e0-20261027-092228-f20558-x28"
+    },
+    {
+     "exit_after_send": 0.002338,
+     "exit_after_stamp": 0.002454,
+     "exits": 1,
+     "hello_after_launch": 0.116649,
+     "hello_pid_matches": true,
+     "kill_sent": [
+      15027.772385781,
+      15027.772502272
+     ],
+     "n": 29,
+     "pid": 6702,
+     "spawned": 15027.133933906,
+     "tag": "stopkit-e0-20261027-092228-f20558-x29"
+    }
+   ]
+  },
+  "fires": {
+   "margins_s": {
+    "cron": 5,
+    "timer-1s": 5,
+    "timer-default": 60
+   },
+   "passed": true,
+   "problems": [],
+   "triggers": {
+    "at": {
+     "atq": "39\tTue Oct 26 02:33:00 2027 a stopkit-sentinel\n59\tTue Oct 27 09:24:00 2026 a stopkit-agent",
+     "fires": 1,
+     "offset_after_minute_s": [
+      0.473
+     ],
+     "planted_wall": 1793092975.8419344
+    },
+    "cron": {
+     "fires": 4,
+     "offset_after_minute_s": [
+      1.993,
+      2.167,
+      1.369,
+      1.553
+     ]
+    },
+    "timer-1s": {
+     "fires": 4,
+     "offset_after_minute_s": [
+      1.067,
+      1.35,
+      1.283,
+      1.35
+     ]
+    },
+    "timer-default": {
+     "fires": 4,
+     "offset_after_minute_s": [
+      1.123,
+      1.341,
+      1.285,
+      1.35
+     ]
+    }
+   }
+  },
+  "launch": {
+   "passed": true,
+   "problems": [],
+   "signals": {
+    "blocked": [],
+    "caught": [],
+    "comm": "python3",
+    "ignored": []
+   }
+  },
+  "survive": {
+   "longest_sentinel_gap_s": 0.2,
+   "longest_tick_gap_s": 0.5,
+   "passed": true,
+   "problems": [],
+   "seconds": 3.6,
+   "stops": [
+    [
+     "kill the scope",
+     "systemctl stop stopkit-e0-20261027-092228-f20558-902.scope: exit code 0; the scope is now inactive"
+    ],
+    [
+     "kill every process of the account",
+     "no process of the account is left"
+    ],
+    [
+     "start the account manager again",
+     "exit code 0"
+    ],
+    [
+     "restart the account manager",
+     "exit code 0"
+    ]
+   ]
+  },
+  "timing": {
+   "delivery_s": {
+    "max": 0.001171,
+    "median": 0.000397,
+    "min": 0.000222,
+    "n": 90,
+    "p95": 0.000607
+   },
+   "effects_differ": [],
+   "heartbeat_jitter_s": {
+    "max": 0.000611,
+    "median": 0.000161,
+    "min": 2e-06,
+    "n": 60,
+    "p95": 0.000544
+   },
+   "last_effect_unreported_at_the_kill": [],
+   "launch_to_hello_s": {
+    "max": 0.16713,
+    "median": 0.105111,
+    "min": 0.088532,
+    "n": 30,
+    "p95": 0.163133
+   },
+   "passed": true,
+   "problems": []
+  }
+ },
+ "passed": true,
+ "platform": {
+  "boot_id": "127bfbad-3860-4d3a-a73c-9533f13f1c30",
+  "kernel": "6.18.54.1-microsoft-standard-WSL2",
+  "os": "Ubuntu 24.04.1 LTS",
+  "python": "3.12.3",
+  "systemd": "255",
+  "wsl": true
+ },
+ "run_id": "20261027-092228-f20558",
+ "spec_version": "1.0.0-rc1",
+ "trials": 30
+}

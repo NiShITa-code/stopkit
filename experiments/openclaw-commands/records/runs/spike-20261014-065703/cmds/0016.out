@@ -1,0 +1,88 @@
+{
+  "events": [
+    {
+      "schemaVersion": 1,
+      "sequence": 8,
+      "eventId": "5c36fd79-7732-4a00-a948-964bcf6bcc20",
+      "sourceSequence": 14,
+      "occurredAt": 1791961093305,
+      "redaction": "metadata_only",
+      "agentId": "main",
+      "sessionKey": "agent:main:stopcheck-f-s2",
+      "sessionId": "c71ea770-50b3-4370-99ce-ed271b83f5f8",
+      "runId": "1e7f277e-f23a-4ca8-85f6-59349fbc80b9",
+      "kind": "agent_run",
+      "action": "agent.run.finished",
+      "status": "succeeded",
+      "eventType": "agent_run",
+      "actor": {
+        "type": "agent",
+        "id": "main"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "sequence": 7,
+      "eventId": "99e0ca79-59ab-44f4-a068-3c5a51a4576d",
+      "sourceSequence": 4,
+      "occurredAt": 1791961093163,
+      "redaction": "metadata_only",
+      "agentId": "main",
+      "sessionKey": "agent:main:stopcheck-f-s2",
+      "sessionId": "c71ea770-50b3-4370-99ce-ed271b83f5f8",
+      "runId": "1e7f277e-f23a-4ca8-85f6-59349fbc80b9",
+      "kind": "tool_action",
+      "toolCallId": "sha256:7bf4501ec6582de36a99daa430cc9d8591f25f06db387b6717a1bad20839899c",
+      "toolName": "exec",
+      "action": "tool.action.finished",
+      "status": "succeeded",
+      "eventType": "tool_action",
+      "actor": {
+        "type": "agent",
+        "id": "main"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "sequence": 6,
+      "eventId": "c8e74f98-9e4f-4a88-b1e1-abe91daf4ede",
+      "sourceSequence": 3,
+      "occurredAt": 1791961093134,
+      "redaction": "metadata_only",
+      "agentId": "main",
+      "sessionKey": "agent:main:stopcheck-f-s2",
+      "sessionId": "c71ea770-50b3-4370-99ce-ed271b83f5f8",
+      "runId": "1e7f277e-f23a-4ca8-85f6-59349fbc80b9",
+      "kind": "tool_action",
+      "toolCallId": "sha256:7bf4501ec6582de36a99daa430cc9d8591f25f06db387b6717a1bad20839899c",
+      "toolName": "exec",
+      "action": "tool.action.started",
+      "status": "started",
+      "eventType": "tool_action",
+      "actor": {
+        "type": "agent",
+        "id": "main"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "sequence": 5,
+      "eventId": "5edc4cc8-128c-4fec-8fc3-f3d665ae46f5",
+      "sourceSequence": 1,
+      "occurredAt": 1791961093011,
+      "redaction": "metadata_only",
+      "agentId": "main",
+      "sessionKey": "agent:main:stopcheck-f-s2",
+      "sessionId": "c71ea770-50b3-4370-99ce-ed271b83f5f8",
+      "runId": "1e7f277e-f23a-4ca8-85f6-59349fbc80b9",
+      "kind": "agent_run",
+      "action": "agent.run.started",
+      "status": "started",
+      "eventType": "agent_run",
+      "actor": {
+        "type": "agent",
+        "id": "main"
+      }
+    }
+  ]
+}

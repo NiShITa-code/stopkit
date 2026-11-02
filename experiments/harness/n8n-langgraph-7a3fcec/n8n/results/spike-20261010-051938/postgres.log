@@ -1,0 +1,15 @@
+2026-10-10 05:19:40.914 BST [738] LOG:  starting PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 05:19:40.917 BST [738] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-10-10 05:19:40.919 BST [738] LOG:  listening on Unix socket "/var/lib/stopcheck-n8n/spike/pgsock/.s.PGSQL.5433"
+2026-10-10 05:19:40.926 BST [741] LOG:  database system was shut down at 2026-10-10 05:19:40 BST
+2026-10-10 05:19:40.934 BST [738] LOG:  database system is ready to accept connections
+2026-10-10 05:19:41.397 BST [746] FATAL:  role "root" does not exist
+2026-10-10 05:20:07.668 BST [784] LOG:  could not receive data from client: Connection reset by peer
+
+Session terminated, killing shell...2026-10-10 05:20:09.646 BST [738] LOG:  received smart shutdown request
+2026-10-10 05:20:09.653 BST [738] LOG:  background worker "logical replication launcher" (PID 744) exited with exit code 1
+2026-10-10 05:20:09.667 BST [739] LOG:  shutting down
+2026-10-10 05:20:09.668 BST [739] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 05:20:09.709 BST [739] LOG:  checkpoint complete: wrote 1445 buffers (8.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.030 s, sync=0.001 s, total=0.041 s; sync files=0, longest=0.000 s, average=0.000 s; distance=10778 kB, estimate=10778 kB; lsn=0/1F75CA8, redo lsn=0/1F75CA8
+2026-10-10 05:20:09.732 BST [738] LOG:  database system is shut down
+ ...killed.

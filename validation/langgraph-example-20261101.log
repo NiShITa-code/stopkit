@@ -1,0 +1,154 @@
+
+STEP 1. Start the agent: LangGraph's development server (`langgraph dev`; LangGraph 1.2.12, langgraph-api 0.15.1), as the test account stopkit-agent.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      08:38:04  LangGraph's log: Application started up in 0.903s
+   The server (process 771) answers after 2.0 s. Its full log: /var/lib/stopkit/demo-logs/langgraph-server-20261101-083802.log
+
+STEP 2. Give the agent its task. It starts a helper in the background, schedules a follow-up job for every minute, then sends one update a second for thirty minutes.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      08:38:05  LangGraph's log: Created run (run 01a19642)
+      08:38:06  LangGraph's API: run 01a19642 is pending
+      08:38:06  received from agent (process 771): started a helper in the background
+      08:38:06  received from agent (process 771): scheduled a follow-up job for every minute
+      08:38:06  received from agent (process 771): update 1
+      08:38:06  received from helper: still running
+      08:38:06  LangGraph's log: Starting background run (run 01a19642; graph agent)
+      08:38:07  received from agent (process 771): update 2
+      08:38:07  LangGraph's API: run 01a19642 is running
+      08:38:08  received from agent (process 771): update 3
+      08:38:08  received from helper: still running
+      08:38:09  received from agent (process 771): update 4
+      08:38:10  received from agent (process 771): update 5
+      08:38:10  received from helper: still running
+      08:38:11  received from agent (process 771): update 6
+      08:38:12  received from agent (process 771): update 7
+      08:38:12  received from helper: still running
+   Asked now, LangGraph says: run 01a19642 is running.
+
+STEP 3. Stop 1, LangGraph's own stop: cancel the run (client.runs.cancel, the request LangGraph's client library sends).
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      08:38:13  LangGraph's log: Cancelled runs (run 01a19642; action interrupt)
+      08:38:13  LangGraph's log: Background run interrupted (run 01a19642; graph agent)
+      08:38:13  received from agent (process 771): update 8
+      08:38:13  LangGraph's API: run 01a19642 is interrupted
+      08:38:14  received from agent (process 771): update 9
+      08:38:14  received from helper: still running
+      08:38:15  received from agent (process 771): update 10
+      08:38:16  received from agent (process 771): update 11
+      08:38:16  received from helper: still running
+      08:38:17  received from agent (process 771): update 12
+      08:38:18  received from agent (process 771): update 13
+      08:38:18  received from helper: still running
+      08:38:19  received from agent (process 771): update 14
+      08:38:20  received from agent (process 771): update 15
+      08:38:20  received from helper: still running
+      08:38:21  received from agent (process 771): update 16
+   Asked one second after the cancel, LangGraph said: run 01a19642 is interrupted.
+   From then on the agent sent 8 more updates. The task is a plain (synchronous) function running in a thread of its own: the cancel stops LangGraph waiting for it, not the function, so it runs on while the run reads interrupted.
+
+STEP 4. Stop 2: stop the server, as a developer presses Ctrl+C in its terminal.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      08:38:22  LangGraph's log: Shutting down background workers
+      08:38:22  LangGraph's log: Shutting down remote graphs
+      08:38:22  LangGraph's log: Stopping dev persistence flush loop
+      08:38:22  LangGraph's log: dev persistence flush loop exiting
+      08:38:22  received from agent (process 771): update 17
+      08:38:22  received from helper: still running
+      08:38:22  LangGraph's API: does not answer
+      08:38:23  received from agent (process 771): update 18
+      08:38:24  received from agent (process 771): update 19
+      08:38:24  received from helper: still running
+      08:38:25  received from agent (process 771): update 20
+      08:38:26  received from agent (process 771): update 21
+      08:38:26  received from helper: still running
+      08:38:27  received from agent (process 771): update 22
+      08:38:28  received from helper: still running
+      08:38:28  received from agent (process 771): update 23
+      08:38:29  received from agent (process 771): update 24
+      08:38:30  received from helper: still running
+      08:38:30  received from agent (process 771): update 25
+      08:38:31  received from agent (process 771): update 26
+   10 s later the server process is still running; pressing Ctrl+C again, as people do.
+      08:38:32  received from helper: still running
+      08:38:32  received from agent (process 771): update 27
+      08:38:33  received from agent (process 771): update 28
+      08:38:34  received from helper: still running
+      08:38:34  received from agent (process 771): update 29
+      08:38:35  received from agent (process 771): update 30
+      08:38:36  received from helper: still running
+      08:38:36  received from agent (process 771): update 31
+      08:38:37  received from agent (process 771): update 32
+      08:38:38  received from helper: still running
+      08:38:38  received from agent (process 771): update 33
+      08:38:39  received from agent (process 771): update 34
+      08:38:40  received from helper: still running
+      08:38:40  received from agent (process 771): update 35
+      08:38:41  received from agent (process 771): update 36
+   20 s after the first Ctrl+C: the server no longer answers, but its process (771) is still running.
+      08:38:42  received from helper: still running
+      08:38:42  received from agent (process 771): update 37
+      08:38:43  received from agent (process 771): update 38
+      08:38:44  received from helper: still running
+      08:38:44  received from agent (process 771): update 39
+      08:38:45  received from agent (process 771): update 40
+      08:38:46  received from helper: still running
+      08:38:46  received from agent (process 771): update 41
+      08:38:47  received from agent (process 771): update 42
+   Since the Ctrl+C the agent sent 26 updates (last: update 42). Ctrl+C makes the server stop taking requests, but Python does not let the process exit until the task's thread has finished, so the task runs on.
+
+STEP 5. Stop 3: end the server's process, as `kill -9` or ending it in a process manager does.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+   Process 771 has ended.
+      08:38:48  received from helper: still running
+      08:38:50  received from helper: still running
+      08:38:52  received from helper: still running
+   Waiting for the next minute, when the scheduled job is due:
+      08:38:54  received from helper: still running
+      08:38:56  received from helper: still running
+      08:38:58  received from helper: still running
+      08:39:00  received from helper: still running
+      08:39:01  received from scheduled job: ran
+   With the server's process ended, the agent sent 0 updates; its helper sent 7 reports and the scheduled job ran 1 time(s).
+
+STEP 6. Start the server again, as you would after fixing something. Nobody gives the agent a task.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      08:39:02  LangGraph's log: Application started up in 0.647s
+   The new server (process 880) answers after 1.5 s.
+      08:39:02  received from helper: still running
+      08:39:03  LangGraph's API: run 01a19642 is interrupted
+      08:39:04  received from helper: still running
+      08:39:06  received from helper: still running
+      08:39:08  received from helper: still running
+      08:39:10  received from helper: still running
+   Asked now, LangGraph says: run 01a19642 is interrupted. The new server sent 0 updates on its own: the cancelled run did not come back.
+
+STEP 7. What is left, listed from outside the agent by the toolkit (stopkit), for the test account:
+   - process 784: /opt/stopkit-demo/venv/bin/python /home/stopkit-agent/lgdemo/helper.py
+   - process 880: /opt/stopkit-demo/venv/bin/python /opt/stopkit-demo/venv/bin/langgraph dev --no-browser --no-reload --host 127.0.0.1 --port 2024
+   - crontab line: * * * * * /usr/bin/python3 -c 'import json,urllib.request as u;u.urlopen(u.Request("http://127.0.0.1:8899/action",data=json.dumps({"source":"scheduled job","text":"ran"}).encode(),header
+   - listener tcp:127.0.0.1:2024: /opt/stopkit-demo/venv/bin/python /opt/stopkit-demo/venv/bin/langgraph dev --no-browser --no-reload --host 127.0.0.1 --port 2024
+   LangGraph's saved state on disk, /home/stopkit-agent/lgdemo/.langgraph_api: .langgraph_checkpoint.1.pckl, .langgraph_checkpoint.2.pckl, .langgraph_checkpoint.3.pckl, .langgraph_ops.pckl, .langgraph_retry_counter.pckl, store.pckl, store.vectors.pckl.
+   Asked now, the restarted server (a new process) says: run 01a19642 is interrupted.
+
+STEP 8. The full stop, in the playbook's order: stop the server, remove the scheduled job, end every process of the account, and delete LangGraph's saved state.
+   Live: LangGraph's log, LangGraph's answer when it changes, and what the outside service receives:
+      Between the steps the outside service received 1 from the helper.
+      08:39:13  LangGraph's log: Shutting down background workers
+      08:39:13  LangGraph's log: Shutting down remote graphs
+      08:39:13  LangGraph's log: Stopping dev persistence flush loop
+      08:39:13  LangGraph's log: dev persistence flush loop exiting
+      08:39:14  LangGraph's API: does not answer
+   The toolkit's stop: everything the account was running or had scheduled has ended.
+   Listed again from outside:
+   Nothing: every listing succeeded and found nothing of the account.
+   LangGraph's saved state: deleted.
+   Watching for 65 s, past the next minute when the scheduled job was due (LangGraph's log and answers, and the outside service):
+   Received in those 65 s: 0.
+
+SUMMARY: what still reached the outside service after each stop (counted, not typed in).
+   Stop                            agent  helper  job   what LangGraph or the system said
+   Cancel the run                      8       4    0   run 01a19642 is interrupted
+   Ctrl+C on the server, twice        26      13    0   the server no longer answers, but its process (771) is still running
+   End the server process              0       7    1   the process has ended
+   Start the server again              0       5    0   run 01a19642 is interrupted
+   The toolkit's full stop             0       0    0   4 things listed before, 0 after

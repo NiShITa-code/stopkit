@@ -1,0 +1,875 @@
+{
+  "schema_version": 2,
+  "run_kind": "screen",
+  "batch_id": "c-screen-1014",
+  "conditions": [
+    "C2",
+    "C0-LA",
+    "C1",
+    "C2w",
+    "C5",
+    "PC",
+    "C3",
+    "C0-NH",
+    "C4",
+    "C3w",
+    "C5n",
+    "C8",
+    "C7l",
+    "C6",
+    "C0-HB",
+    "C7"
+  ],
+  "seed": 20261012,
+  "host_profile": "linux-vm",
+  "source_hashes": {
+    "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+    "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+    "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+    "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+    "temporal/DESIGN-expC.md": "55d551e7750c3428efc642ce7d34107b411e46ab5b37978a7e8c434f76fc6f72",
+    "temporal/RULES-expC.md": "113b93b47b2b1e8a88be686fb7d76acf47fc4c471a3de0e686dbb4e1810e2cdc",
+    "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+    "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9",
+    "temporal/harness_c.py": "a6f7012f48c7f9590122e80ef9684ed0497432d25a151d4801a95e643cbb4f47",
+    "temporal/jobs_c.py": "e6ea3276dbec2bd29ad32d2f57986b1794ca8db2b2af5719ab58c40eac92046d",
+    "temporal/mutate_c.py": "2bc5b480fd89ed4a5ed3bfce176e662668f69cee2df0fcc6d3eeca87ba10de6d",
+    "temporal/receiver_c.py": "68dcb5af3ef4a8ba0a60a36771342b808f727a0abcdc860fecdbe8c8ee404b7e",
+    "temporal/run_expC.py": "106b79da93bff83ed5ba8c7f0139d094dd3e72e5db1f4d3a1566b153570f9d2a",
+    "tests/test_analyze_c.py": "1a22aaf68c692516fadb5f8f2413231081dcefba69421898717c635027932db0",
+    "tests/test_clockwall_c.py": "932a19d8667462b9767dee5d35dad3c5d7fcf4f31af9df31ea25c1c02554ba49",
+    "tests/test_harness_c.py": "4dbca62a08e9a0d8b25ac98f48bb0f761de0238d8629b3eddea39696044e242b",
+    "tests/test_runner_c.py": "0747f2977c61ccb9e25551d71e294bfffcde7434c7a26dcd5aae54dbf22535d2"
+  },
+  "trials": [
+    {
+      "trial": "XC-screen-c-screen-1014-C2",
+      "condition": "C2",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:16:26+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:16:26+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:20:20+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C2-20261014-031626",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:20:20+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C2-20261014-031626"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2/scored_c.jsonl": "42facd8a0ff1f74593fcd65909802e1668ab4ba03c6f369a3041ccb565cabdda",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2/summary_c.md": "be1524518c396804133c17ffc8aba2264d62b021435267e7ae34bc286e365587"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2/manifest-sha256.json",
+        "manifest_sha256": "28838fc14d591da216352c276a90c2018068997ba949996f710226139fff267b"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C0-LA",
+      "condition": "C0-LA",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:20:22+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:20:22+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:24:16+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C0-LA-20261014-032023",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:24:16+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C0-LA-20261014-032023"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-LA",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-LA/scored_c.jsonl": "34bc468b72e988acb5d5b58c45c3586b0efd9c65d8944303c132fc83b82d7194",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-LA/summary_c.md": "e38cba46464c2afa20807a0949247f00f47e77674271e24a702020f1d1bfb169"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-LA/manifest-sha256.json",
+        "manifest_sha256": "c190655e0698a17d79f8c475daacdca80ffcab1a50905e2950baefe4de7d1f73"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C1",
+      "condition": "C1",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:24:18+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:24:18+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:27:48+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C1-20261014-032419",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:27:49+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C1-20261014-032419"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C1",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C1/scored_c.jsonl": "5d40e74836532956bb574997ebd8ec31a048425646c88f8737247fd6e53e20b7",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C1/summary_c.md": "7a9751c353c27453c0d469b4f6f5c25b6a9e62a2e6c840b1c01bc62311c1fc7e"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C1/manifest-sha256.json",
+        "manifest_sha256": "281f5c8a9d6096087c13c35f4a0849a248bac480c3b83cc8009c525ef0fa1b5d"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C2w",
+      "condition": "C2w",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:27:51+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:27:51+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:31:45+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C2w-20261014-032751",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:31:45+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C2w-20261014-032751"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2w",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2w/scored_c.jsonl": "b50e21036159a2aa9afa70b8d5f6391feaa1c1fbf3e68778061dd253de922e4d",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2w/summary_c.md": "60f15bad1e9f700be7e9d8a7a535ac785ea5d142b89fbe791dbda276eacca657"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C2w/manifest-sha256.json",
+        "manifest_sha256": "5dad27f11be5b8f6745fc6be8205fd8938d83ca39b627718b735b24ed11f6038"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C5",
+      "condition": "C5",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:31:47+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:31:47+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:35:41+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C5-20261014-033148",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:35:41+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C5-20261014-033148"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5/scored_c.jsonl": "9c65a40349a2cf2790336a8c4cb0e2c0d74011012a8d5088cf837581d4a3391b",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5/summary_c.md": "4c0ebb0dbbbd6f5cd514f4034ffc51880539210029b6a11035554dd9a6a104cc"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5/manifest-sha256.json",
+        "manifest_sha256": "53658b8c8291d03d3bbd9a33b25406dc90895b8b717352004b0d525ff419a1b8"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-PC",
+      "condition": "PC",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:35:43+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:35:44+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:39:37+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-PC-20261014-033544",
+      "scored_valid": true,
+      "validity": "valid",
+      "pc_gate": "pass",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T03:39:37+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-PC-20261014-033544"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-PC",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-PC/scored_c.jsonl": "e8d4700cabc70300f39a0d17607cca5e748ed8ccfbf59cff2ba5a9f0aefb1eca",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-PC/summary_c.md": "0fe2e2c2bfe9d64ab81d7ff4484dc896fe2ce2e289ef4fd9c564305679909dbe"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-PC/manifest-sha256.json",
+        "manifest_sha256": "9f08a2ef11eb790d638a71081637282750599566bf1cf585e879040262f939bc"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C3",
+      "condition": "C3",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T03:39:39+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T03:39:40+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T03:43:33+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C3-20261014-033940",
+      "scored_valid": false,
+      "validity": "INVALID: readiness and capability jobs",
+      "accepted": false,
+      "export": {
+        "exported_utc": "2026-10-14T03:43:34+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C3-20261014-033940"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "INVALID: readiness and capability jobs",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3/scored_c.jsonl": "aa0fef9d30099512cf8ceca6cf6a952d6fbbc049911e83fe626aa64ce07e1fb2",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3/summary_c.md": "a2034697ee288f9dd1c668a0406e2217d2a1aa1d8f987842295b7b8575e6e157"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3/manifest-sha256.json",
+        "manifest_sha256": "4f0e14d7ed20c0da4a569cba6c7d6b4c62c6af994af6c8835ed69d270e9a8166"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C3-a2",
+      "condition": "C3",
+      "attempt": 2,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:08:15+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:08:15+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "rerun_of": "XC-screen-c-screen-1014-C3",
+      "ended_utc": "2026-10-14T04:12:09+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C3-a2-20261014-040816",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:12:09+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C3-a2-20261014-040816"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3-a2",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3-a2/scored_c.jsonl": "9d63058e3378140da1b13520fff20d6771f57398c47ebdac182404d95ac29604",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3-a2/summary_c.md": "8f5240dd44003e0c936f32f2004c234310ad01e83cebbdf13258dce76b7967ba"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3-a2/manifest-sha256.json",
+        "manifest_sha256": "033b7afe9210a1839ce6b1a5926843fcd824e20ac07772bdd16a271820f5f09d"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C0-NH",
+      "condition": "C0-NH",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:12:11+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:12:11+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:16:05+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C0-NH-20261014-041212",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:16:05+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C0-NH-20261014-041212"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-NH",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-NH/scored_c.jsonl": "a49bcaa0b4223eb4339c3e3be2a231f6e4ef6b8263b7371ab92662509b8db715",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-NH/summary_c.md": "e0bac1ebab4a67de0c00138f1f65cd157a91e3133abdc26832d0fe458e3268c8"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-NH/manifest-sha256.json",
+        "manifest_sha256": "4c4dee71c5a6b611caaef94c490f622ca3c3638fb783a926217f4e5b748af760"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C4",
+      "condition": "C4",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:16:07+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:16:07+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:20:01+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C4-20261014-041608",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:20:01+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C4-20261014-041608"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4/scored_c.jsonl": "207564cee2b14b69fe535f1ae049b93192b2bfa35f0766ce62c4ecf5ca95cf6a",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4/summary_c.md": "8d73d09c74fa4b532f8cd92e0add9d64cdb0a9c2b8dd1594a1c7b9bb1c060b3c"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4/manifest-sha256.json",
+        "manifest_sha256": "d4ad9e3ecc9aa8d47ba37ba286cf64155ea461b9405ab7b3792cf86edda63a06"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C3w",
+      "condition": "C3w",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:20:03+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:20:03+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:23:58+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C3w-20261014-042004",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:23:58+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C3w-20261014-042004"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3w",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3w/scored_c.jsonl": "1e30b2e0f337c871027826bb70ccf9ca2f37a25656a37f14766d6b6d678fa1dd",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3w/summary_c.md": "75693694c82ddbc1e3f5d225abfd2c5ec119a418b75898d12c681c22c1ccd7e3"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C3w/manifest-sha256.json",
+        "manifest_sha256": "df5a527a2b4854df2cb4a0d2898a5591afd931535c8bcde64a09027e7223b6e4"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C5n",
+      "condition": "C5n",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:24:00+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:24:00+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:27:54+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C5n-20261014-042400",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:27:54+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C5n-20261014-042400"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5n",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5n/scored_c.jsonl": "3f2c902ba08da38ff2733756bef40a43dd742a465777792e3d1004928b77c719",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5n/summary_c.md": "e8d7f7a95078f4047b1da0eaa33f24268656de2a62702135760e43b8e71bd5fb"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C5n/manifest-sha256.json",
+        "manifest_sha256": "de242d26087e306159d8d83b2ad652b444f20fcec176ad3ef66ae550f4e2aeab"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C8",
+      "condition": "C8",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:27:56+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:27:56+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:31:50+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C8-20261014-042757",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:31:50+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C8-20261014-042757"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8/scored_c.jsonl": "45ac7d6b40cbfc523c5cb4695fa81a917f27c2a91625289533a8b259795b0a98",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8/summary_c.md": "3ecdb711de9196ba175cacf582c125a55d3a1732a5d984861e360345c3943e3f"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C8/manifest-sha256.json",
+        "manifest_sha256": "4b58fd296f8c383761e826e3db3bc88f5219358d250d71c38fa3138e1b6938a2"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C7l",
+      "condition": "C7l",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:31:52+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:31:52+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:35:46+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C7l-20261014-043153",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:35:46+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C7l-20261014-043153"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7l",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7l/scored_c.jsonl": "2d265356763ebe1cc9c98f2e8fa51dc4d205b1bfc339f292abd68c49a3846f16",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7l/summary_c.md": "3db7bcddd80f459379fece9d67a1f2074b9a4fcfc22574a257f19e92196464de"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7l/manifest-sha256.json",
+        "manifest_sha256": "68090414824ee3213171bb84622401461517f0ab8f6d0e4c4430a7b412b86b16"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C6",
+      "condition": "C6",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:35:48+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:35:48+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:39:42+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C6-20261014-043549",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:39:42+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C6-20261014-043549"
+        ],
+        "raw_files": 15,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C6",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C6/scored_c.jsonl": "5f0c53605ca950a5a92483f0699b1e2f7162713687a7f45229abfa7a172038e9",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C6/summary_c.md": "06df1140608b3458cda5b3f441952e0e9069a72b0ed3e33331290435a26513b4"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C6/manifest-sha256.json",
+        "manifest_sha256": "766281b2920b6532a7020577b7d2bc95ff6363aa3460b718fcdc45b3d4b85e29"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C0-HB",
+      "condition": "C0-HB",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:39:44+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:39:44+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:43:39+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C0-HB-20261014-043945",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:43:39+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C0-HB-20261014-043945"
+        ],
+        "raw_files": 14,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-HB",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-HB/scored_c.jsonl": "338770ab53445f84aa51b74368dde89a27f94a82526bf13bd049418d14846542",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-HB/summary_c.md": "553f1d7a3b4191f704fbf8c390242992b611beb5020b5993de10a08c4ea5c520"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C0-HB/manifest-sha256.json",
+        "manifest_sha256": "cefc8de7eeec0715d720a1f7c22612c1872e2bd0505a060666a02ee84b3774d9"
+      }
+    },
+    {
+      "trial": "XC-screen-c-screen-1014-C7",
+      "condition": "C7",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-14T04:43:41+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-14T04:43:41+00:00",
+        "values": {
+          "id": "7204554732917165456",
+          "name": "stopcheck-7",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20261009",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-14T04:47:35+00:00",
+      "record": "/root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C7-20261014-044342",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-14T04:47:35+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XC-screen-c-screen-1014-C7-20261014-044342"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7",
+        "reports": {
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7/scored_c.jsonl": "9acbf129eaea79b670bd6a66a65e1f85f0ac2d2838d4e0a5e7029b429bbc567d",
+          "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7/summary_c.md": "7c96d52b7dfbbd396d267503ffee4e84af5454594e1bbdd0eb831a17d739dc5e"
+        },
+        "manifest": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C7/manifest-sha256.json",
+        "manifest_sha256": "f46286293e10ae70ded91294d24f6271f536ddc6a7bab84eff34374ae6f53ca5"
+      }
+    }
+  ],
+  "incomplete": [],
+  "completed": true,
+  "stopped_reason": null,
+  "stops": [
+    {
+      "utc": "2026-10-14T03:43:34+00:00",
+      "reason": "XC-screen-c-screen-1014-C3 is invalid by the scorer: INVALID: readiness and capability jobs"
+    }
+  ],
+  "freeze_sha256": "652d27e013d0013c9bc3ddbba6fcee0d931d8c1c4735ff98548d791ec5bc5934",
+  "pc_gate": "passed"
+}

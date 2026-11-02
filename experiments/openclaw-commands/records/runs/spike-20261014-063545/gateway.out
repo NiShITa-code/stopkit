@@ -1,0 +1,48 @@
+2026-10-14T06:36:35.294+00:00 [gateway] loading configuration…
+2026-10-14T06:36:35.324+00:00 [gateway] resolving authentication…
+2026-10-14T06:36:35.329+00:00 [gateway] starting...
+2026-10-14T06:36:35.892+00:00 [gateway] shutdown budget at startup: drain=315000ms shutdown=325000ms reserve=10000ms exitMargin=5000ms; source=Gateway stop policy=330000ms
+2026-10-14T06:36:36.029+00:00 [gateway] spawn broker ready pid=4183
+2026-10-14T06:36:36.855+00:00 [gateway] startup phase: process.bootstrap 9155.8ms total=9155.8ms
+2026-10-14T06:36:37.370+00:00 [gateway] startup phase: state.schema-preflight starting total=9671.8ms
+2026-10-14T06:36:37.731+00:00 [gateway] startup phase: state.schema-preflight 360.7ms total=10032.5ms
+2026-10-14T06:36:37.764+00:00 [gateway] startup phase: config.auth starting total=10064.8ms
+2026-10-14T06:36:37.871+00:00 [gateway] startup phase: config.auth 107.4ms total=10172.2ms
+2026-10-14T06:36:39.287+00:00 [gateway] startup phase: startup.maintenance starting total=11588.5ms
+2026-10-14T06:36:39.316+00:00 [gateway] startup phase: startup.maintenance 29.5ms total=11617.9ms
+2026-10-14T06:36:40.050+00:00 [gateway] starting HTTP server...
+2026-10-14T06:36:40.299+00:00 [health-monitor] started (interval: 300s, startup-grace: 60s, channel-connect-grace: 120s)
+2026-10-14T06:36:41.481+00:00 [gateway] startup phase: http.bound 0.0ms total=13782.0ms
+2026-10-14T06:36:42.365+00:00 [gateway] agent model: standin/stopcheck-f-echo (thinking=off, fast=off)
+2026-10-14T06:36:42.365+00:00 [gateway] http server listening (14 plugins: anthropic, browser, canvas, cua-computer, device-pair, file-transfer, geolocation, github, linux-node, memory-core, ollama, openai, talk-voice, xai; 6.5s)
+2026-10-14T06:36:42.366+00:00 [gateway] log file: /tmp/openclaw/openclaw-2026-10-14.log
+2026-10-14T06:36:42.368+00:00 [gateway] native runtime: {"pid":4027,"platform":"linux","arch":"x64","node":"24.21.0","v8":"13.6.233.17-node.53","uv":"1.52.1","openssl":"3.5.8","sqlite":"3.53.4","sqliteClose":{"explicitSqliteCloseReleasesNativeResources":true,"decided":true,"reason":"Node runtime"}}
+2026-10-14T06:36:42.369+00:00 [gateway] worker startup state: {"workerCount":6,"workerLifecycle":[{"script":"other","started":1,"retired":[{"reason":"exit","count":1}]},{"script":"gateway-state-owner-heartbeat.worker.js","started":2,"retired":[{"reason":"exit","count":1}]},{"script":"sqlite-store.worker.js","started":1,"retired":[]},{"script":"openclaw-state-lease-heartbeat.worker.js","started":1,"retired":[]},{"script":"worker-native-lifecycle.worker.js","started":1,"retired":[]},{"script":"openclaw-state-read.worker.js","started":2,"retired":[]}],"compute":{"limit":3,"active":0,"waitingPools":0,"pendingTasks":0,"pendingBytes":0}}
+2026-10-14T06:36:42.431+00:00 [gateway] starting channels and sidecars...
+2026-10-14T06:36:44.078+00:00 [plugins] memory-core: created managed dreaming cron job.
+2026-10-14T06:36:44.083+00:00 [gateway] startup outcomes: internal-hooks=skipped (not-configured); internal-startup-hook=skipped (no-handlers-loaded); gateway-start-hooks=scheduled; gmail-watcher=skipped (hooks-disabled); gmail-model=skipped (not-configured)
+2026-10-14T06:36:44.086+00:00 [gateway] ready
+2026-10-14T06:36:44.101+00:00 [gateway] startup phase: ready 9.1ms total=16402.6ms
+2026-10-14T06:36:44.135+00:00 [heartbeat] started
+2026-10-14T06:36:49.106+00:00 [ws] ⇄ res ✓ agent 3020ms runId=e2c22823-273d-494b-91b8-0ef09759a8e5 bytes=234 conn=8b1046e8…c21d id=2:460cda38-d…e60a
+2026-10-14T06:36:53.622+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:36:53.625+00:00 [agents/agent-command] [agent] run e2c22823-273d-494b-91b8-0ef09759a8e5 ended with stopReason=stop
+2026-10-14T06:36:55.826+00:00 [ws] ⇄ res ✓ agent 508ms runId=4758454e-e5b1-4daa-8202-ff1a9c00d6c7 bytes=234 conn=c80341cb…f789 id=2:740680fe-0…2718
+2026-10-14T06:36:56.541+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:36:56.542+00:00 [agents/agent-command] [agent] run 4758454e-e5b1-4daa-8202-ff1a9c00d6c7 ended with stopReason=stop
+2026-10-14T06:36:59.858+00:00 [gateway] remote model catalog refresh failed
+2026-10-14T06:37:06.969+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:37:06.972+00:00 [agents/agent-command] [agent] run 8ad7f985-6aa0-419c-bbc6-eacf21476fe4 ended with stopReason=stop
+2026-10-14T06:37:29.353+00:00 [ws] ⇄ res ✓ agent 65ms runId=b7361b44-8144-413f-9307-fc062868144f bytes=234 conn=da8e9541…e866 id=2:1aa068e7-6…de0b
+2026-10-14T06:37:30.059+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:37:30.061+00:00 [agents/agent-command] [agent] run b7361b44-8144-413f-9307-fc062868144f ended with stopReason=stop
+2026-10-14T06:38:30.385+00:00 [gateway] sessions.abort requested: actor=cli device=unknown-device ip=unknown-ip conn=b33143c5-c6f0-4b41-ad6e-0ca4149ba964 session=agent:main:stopcheck-f-s3 runId=none
+2026-10-14T06:38:45.266+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:38:45.268+00:00 [agents/agent-command] [agent] run 52364bd2-a4e7-4c6a-9bf6-716ec8a5614a ended with stopReason=stop
+2026-10-14T06:38:51.794+00:00 [ws] ⇄ res ✓ agent 70ms runId=97e7d87e-c8a9-41c4-8ea1-c5202115652d bytes=235 conn=c92b2f39…13d1 id=2:972684e4-e…b121
+2026-10-14T06:38:52.366+00:00 STOPCHECK_F_UNEXPECTED
+2026-10-14T06:38:52.368+00:00 [agents/agent-command] [agent] run 97e7d87e-c8a9-41c4-8ea1-c5202115652d ended with stopReason=stop
+2026-10-14T06:39:10.558+00:00 [admission] closed: stop (SIGTERM)
+2026-10-14T06:39:10.558+00:00 [gateway] received SIGTERM; shutting down
+2026-10-14T06:39:10.561+00:00 [gateway] shutdown budget at shutdown: drain=315000ms shutdown=325000ms reserve=10000ms exitMargin=5000ms; source=Gateway stop policy=330000ms
+2026-10-14T06:39:10.565+00:00 [gateway] draining active work before stop with timeout 315000ms: backgroundExecSessions=2

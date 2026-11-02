@@ -1,0 +1,10 @@
+{
+ "trial": "XA-C2S-S2-t1",
+ "t_launch": 1791559793.7243967,
+ "server_pid": 44434,
+ "parent_run_id": "01a12148-f97e-7613-8a6f-d3aeaf2785fb",
+ "attempt": 1,
+ "variant": "C2s: sync tool starts the process and waits on it within the step",
+ "bgproc_pid": 44451,
+ "t_launch_done": 1791559793.72577
+}

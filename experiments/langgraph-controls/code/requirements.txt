@@ -1,0 +1,9 @@
+# The Python packages of LangGraph round 1, at the versions its run_meta.json records: LangGraph, its development
+# server (`langgraph dev`), its client library, and matplotlib, which the harness's record lists too.
+# constraints.txt pins every other package. Used as: pip install -r requirements.txt -c constraints.txt
+langgraph==1.2.12
+langgraph-cli[inmem]==0.4.32
+langgraph-api==0.15.1
+langgraph-runtime-inmem==0.35.1
+langgraph-sdk==0.4.5
+matplotlib==3.11.2

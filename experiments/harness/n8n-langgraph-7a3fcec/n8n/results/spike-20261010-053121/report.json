@@ -1,0 +1,295 @@
+{
+ "started": "2026-10-10T05:31:21",
+ "checks": {
+  "webhook_registered_after_s": 1.1,
+  "C1_memory_during_execution": [
+   {
+    "pid": 415,
+    "ppid": 413,
+    "user": "root",
+    "rss_mb": 3.3,
+    "args": "bash -c bash /mnt/c/work/agent-shutdown-test/stopcheck/n8n/spike_ns.sh > /tmp/spike4.out 2>&1; grep -E 'C2:|C4:|C3:|webhook|leftover|healthy"
+   },
+   {
+    "pid": 509,
+    "ppid": 415,
+    "user": "root",
+    "rss_mb": 23.0,
+    "args": "/root/pilot-venv/bin/python -u /mnt/c/work/agent-shutdown-test/stopcheck/n8n/spike.py"
+   },
+   {
+    "pid": 721,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 3.9,
+    "args": "runuser -u postgres -- /usr/lib/postgresql/16/bin/postgres -D /var/lib/stopcheck-n8n/spike/pg -c listen_addresses=127.0.0.1 -p 5433 -c unix_"
+   },
+   {
+    "pid": 723,
+    "ppid": 721,
+    "user": "postgres",
+    "rss_mb": 29.8,
+    "args": "/usr/lib/postgresql/16/bin/postgres -D /var/lib/stopcheck-n8n/spike/pg -c listen_addresses=127.0.0.1 -p 5433 -c unix_socket_directories=/var"
+   },
+   {
+    "pid": 724,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 6.0,
+    "args": "postgres: checkpointer "
+   },
+   {
+    "pid": 725,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 8.6,
+    "args": "postgres: background writer "
+   },
+   {
+    "pid": 727,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 10.0,
+    "args": "postgres: walwriter "
+   },
+   {
+    "pid": 728,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 8.7,
+    "args": "postgres: autovacuum launcher "
+   },
+   {
+    "pid": 729,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 8.1,
+    "args": "postgres: logical replication launcher "
+   },
+   {
+    "pid": 737,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 3.9,
+    "args": "runuser -u valkey -- valkey-server --bind 127.0.0.1 --port 6380 --save  --appendonly no --dir /var/lib/stopcheck-n8n/spike/valkey"
+   },
+   {
+    "pid": 738,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 19.8,
+    "args": "/root/pilot-venv/bin/python /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/recorder.py --out /mnt/c/work/agent-shutdown-test/stopcheck/"
+   },
+   {
+    "pid": 739,
+    "ppid": 737,
+    "user": "valkey",
+    "rss_mb": 13.8,
+    "args": "valkey-server 127.0.0.1:6380"
+   },
+   {
+    "pid": 744,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 21.2,
+    "args": "/root/pilot-venv/bin/python /mnt/c/work/agent-shutdown-test/stopcheck/langgraph/canary.py twin SPIKE"
+   },
+   {
+    "pid": 745,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 3.8,
+    "args": "runuser -u nobody -- env -i HOME=/var/lib/stopcheck-n8n/spike/n8n PATH=/opt/node-v24.21.0/bin:/usr/bin:/bin LANG=C.UTF-8 DB_TYPE=postgresdb "
+   },
+   {
+    "pid": 746,
+    "ppid": 745,
+    "user": "nobody",
+    "rss_mb": 410.2,
+    "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n start"
+   },
+   {
+    "pid": 771,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 52.0,
+    "args": "postgres: postgres n8n 127.0.0.1(48998) idle"
+   },
+   {
+    "pid": 774,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 29.1,
+    "args": "postgres: postgres n8n 127.0.0.1(49008) idle"
+   },
+   {
+    "pid": 792,
+    "ppid": 509,
+    "user": "root",
+    "rss_mb": 3.8,
+    "args": "runuser -u nobody -- env -i HOME=/var/lib/stopcheck-n8n/spike/n8n PATH=/opt/node-v24.21.0/bin:/usr/bin:/bin LANG=C.UTF-8 DB_TYPE=postgresdb "
+   },
+   {
+    "pid": 793,
+    "ppid": 792,
+    "user": "nobody",
+    "rss_mb": 295.9,
+    "args": "/opt/node-v24.21.0/bin/node /opt/n8n-2.41.7/node_modules/n8n/bin/n8n worker"
+   },
+   {
+    "pid": 812,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 23.6,
+    "args": "postgres: postgres n8n 127.0.0.1(56574) idle"
+   },
+   {
+    "pid": 813,
+    "ppid": 793,
+    "user": "nobody",
+    "rss_mb": 150.3,
+    "args": "node --disallow-code-generation-from-strings --disable-proto=delete /opt/n8n-2.41.7/node_modules/@n8n/task-runner/dist/start.js"
+   },
+   {
+    "pid": 827,
+    "ppid": 723,
+    "user": "postgres",
+    "rss_mb": 22.6,
+    "args": "postgres: postgres n8n 127.0.0.1(56580) idle"
+   }
+  ],
+  "C2_code_node_stop": {
+   "pings_before_stop": 10,
+   "pings_after_stop": 0,
+   "last_after_stop_rel": null,
+   "smono_present": false,
+   "smono_error": "ReferenceError: process is not defined",
+   "stop_http": 200,
+   "stop_reply_s": 0.087,
+   "status_after_stop": [
+    [
+     0.13,
+     "canceled"
+    ],
+    [
+     0.66,
+     "canceled"
+    ],
+    [
+     1.19,
+     "canceled"
+    ],
+    [
+     1.72,
+     "canceled"
+    ],
+    [
+     2.26,
+     "canceled"
+    ],
+    [
+     2.78,
+     "canceled"
+    ],
+    [
+     3.31,
+     "canceled"
+    ],
+    [
+     3.84,
+     "canceled"
+    ],
+    [
+     4.36,
+     "canceled"
+    ],
+    [
+     4.89,
+     "canceled"
+    ],
+    [
+     5.41,
+     "canceled"
+    ],
+    [
+     5.94,
+     "canceled"
+    ],
+    [
+     6.48,
+     "canceled"
+    ],
+    [
+     7.0,
+     "canceled"
+    ],
+    [
+     7.52,
+     "canceled"
+    ],
+    [
+     8.06,
+     "canceled"
+    ],
+    [
+     8.58,
+     "canceled"
+    ],
+    [
+     9.1,
+     "canceled"
+    ],
+    [
+     9.63,
+     "canceled"
+    ],
+    [
+     10.15,
+     "canceled"
+    ]
+   ]
+  },
+  "C4_listing": {
+   "unfiltered_list_ids": [
+    [
+     "1",
+     "canceled"
+    ]
+   ],
+   "status_new_list_ids": [],
+   "bull_job_execution_id": "2"
+  },
+  "C4_queue": {
+   "webhook_http": 200,
+   "queued_execution": "2",
+   "statuses_listed": [
+    [
+     "1",
+     "canceled"
+    ]
+   ],
+   "bull_keys_before": [
+    "bull:jobs:2",
+    "bull:jobs:id",
+    "bull:jobs:priority",
+    "bull:jobs:stalled-check",
+    "bull:jobs:wait"
+   ],
+   "stop_http": 200,
+   "stop_body": "{'mode': 'webhook', 'startedAt': '1970-01-01T00:00:00.000Z', 'stoppedAt': '2026-10-10T04:32:50.340Z', 'finished': False, 'status': 'canceled'}",
+   "bull_keys_after": [
+    "bull:jobs:id",
+    "bull:jobs:stalled-check"
+   ],
+   "status_after": "canceled"
+  },
+  "C3_recorder_independence": {
+   "twin_pings": 20,
+   "max_gap_s": 1.015,
+   "window_s": 19.0
+  },
+  "memory_total_mb_during_execution": 1151.4
+ },
+ "notes": [],
+ "leftover_processes": []
+}

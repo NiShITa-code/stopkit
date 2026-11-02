@@ -1,0 +1,7 @@
+07:12:12 spike folder /var/lib/stopcheck-openclaw/runs/spike-20261014-071212 nonce af49d070
+07:12:54 gateway launched, pid 7221
+07:13:10 gateway healthy
+07:13:10 gateway ready
+07:13:54 gated verdict GO (fixed before the observations)
+07:19:54 gateway stop: S11 (foreground Gateway stop): SIGTERM to the Gateway pid, exited within the grace
+07:20:05 verdict GO

@@ -1,0 +1,105 @@
+{
+ "schema_version": 1,
+ "trial": "XC-screen-c-screen-1014-C4",
+ "condition": "C4",
+ "attempt": 1,
+ "created_utc": "2026-10-14T04:20:01+00:00",
+ "paths_relative_to": "temporal/results",
+ "raw_folders": [
+  "XC-screen-c-screen-1014-C4-20261014-041608"
+ ],
+ "raw_files": [
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/receiver.jsonl",
+   "bytes": 86545,
+   "sha256": "3ddde1382a79b0b65e5f94520f1a9de17d4fd44b7ebb017d76deb8d140533bc4"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/receiver.out",
+   "bytes": 148,
+   "sha256": "b77eef0c8ca5054eb9f5e5f9f7981c1830f235b1f8771d7f67c14b939a59855a"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/record.json",
+   "bytes": 1012402,
+   "sha256": "223febf5ba1a4e147c2efd53d15fcbc1507d28c8ef17f0cdd69d6d76448b65c7"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/server-g1.log",
+   "bytes": 292,
+   "sha256": "6887dc35670388daa17ffab468fbf50ddd6df1d623660b3e45a1101d9323a3df"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/server-g2.log",
+   "bytes": 292,
+   "sha256": "6887dc35670388daa17ffab468fbf50ddd6df1d623660b3e45a1101d9323a3df"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/temporal.db",
+   "bytes": 798720,
+   "sha256": "8c8e13d8ff5aac267a66fdc84a84f8c527394b56515f62cc559b398cd1b2a746"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-target-g1.jsonl",
+   "bytes": 2948,
+   "sha256": "04dbeaf15a27ec7b6b7ece5e9134ca47c62fadfc3519b37743dec297cb9f04d7"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-target-g1.out",
+   "bytes": 1444,
+   "sha256": "e54dfa64d7eb23b0ca985f60b10382b8323df8e7a7d5f3fa71a2cca1d756a941"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-target-g2.jsonl",
+   "bytes": 1098,
+   "sha256": "337a6906da9c5475d7b9303f61315c68a45856518488ff1b6f78dcaff92518a7"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-target-g2.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-twin-g1.jsonl",
+   "bytes": 2976,
+   "sha256": "6759009a38b66eccd77e185b21fc654dd113392d578f1083467b9e5a014859e9"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-twin-g1.out",
+   "bytes": 1444,
+   "sha256": "fcfd063d4f6dd154fa15c03ab6803249a60c946d2f33ee9fa560a04dc76c1c83"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-twin-g2.jsonl",
+   "bytes": 2101,
+   "sha256": "98f4bc9051b387e0fef83c56fde726619c3183266aade90b4743aa97e43b78ae"
+  },
+  {
+   "path": "XC-screen-c-screen-1014-C4-20261014-041608/worker-twin-g2.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "derived_folder": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4",
+ "derived_files": [
+  {
+   "path": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4/scored_c.jsonl",
+   "bytes": 35642,
+   "sha256": "207564cee2b14b69fe535f1ae049b93192b2bfa35f0766ce62c4ecf5ca95cf6a"
+  },
+  {
+   "path": "XC-screen-c-screen-1014/derived/XC-screen-c-screen-1014-C4/summary_c.md",
+   "bytes": 2412,
+   "sha256": "8d73d09c74fa4b532f8cd92e0add9d64cdb0a9c2b8dd1594a1c7b9bb1c060b3c"
+  }
+ ],
+ "scoring": {
+  "status": "scored",
+  "rows": 79,
+  "validity": "valid"
+ },
+ "scorer_sources": {
+  "temporal/analyze_c.py": "03d1b7c9e9b51773f530fcc1cc86342d24da2317b1a407170c765cc526fb60ea",
+  "temporal/clockwall_c.py": "cd8ce92e7e00256eaaaffeac5cebcef2b8ba667ce6708a123680952537d613c9"
+ }
+}

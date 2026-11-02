@@ -1,0 +1,33 @@
+{
+ "trial": "XA-X-L1-t1",
+ "t_launch": 1793299248.979505,
+ "server_pid": 4393,
+ "parent_run_id": "01a188f6-f4be-72c3-b0fb-7f745531915b",
+ "attempt": 1,
+ "variant": "X: every carrier at once (stopcheck Experiment A)",
+ "t_launch_mono": 1596.475876633,
+ "bgproc_pid": 4421,
+ "det": "started with setsid -f",
+ "sleeper_pid": 4424,
+ "sleeper_delay_s": 60.0,
+ "sleeper_started_mono": 1596.479074812,
+ "outjob_delay_s": 60.0,
+ "oscron_line": "* * * * * PILOT_RECORDER_SOCK=/run/stopcheck/4352/recorder.sock /root/pilot-venv/bin/python3 /opt/shutdown-experiments-dir/experiments/langgraph-round1/code/langgraph/canary.py oscron XA-X-L1-t1 0 once # stopcheck XA-X-L1-t1",
+ "helper_thread_id": "01a188f6-f7ae-7c11-b137-db0d0f5eb8ab",
+ "helper_run_id": "01a188f6-f7b4-73c2-9a45-1358a7adc2a2",
+ "cron_id": "01a188f6-f7c0-7332-992a-0acca47048a3",
+ "cron_schedule": "* * * * *",
+ "key_file": "/opt/shutdown-experiments-dir/experiments/langgraph-round1/code/langgraph/results/practice/launch/XA-X-L1-t1.key",
+ "cred": {
+  "key": "key_e7d9d36ca8823809",
+  "token": "tok_58f5a00a3aaa3bac"
+ },
+ "outjob_submit": {
+  "queued": true
+ },
+ "outjob_run": {
+  "queued": true
+ },
+ "out": "request thread started",
+ "t_launch_done": 1793299249.1396277
+}

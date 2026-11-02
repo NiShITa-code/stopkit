@@ -1,0 +1,8 @@
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"tool_calls":[{"index":0,"id":"callstopcheckfkill","type":"function","function":{"name":"process","arguments":"{\"action\":\"kill\",\"sessionId\":\"nova-meadow\"}"}}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{},"finish_reason":"tool_calls"}]}
+
+data: [DONE]
+

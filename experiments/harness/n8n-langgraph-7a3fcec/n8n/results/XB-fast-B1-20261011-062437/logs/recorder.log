@@ -1,0 +1,2 @@
+recorder also listening on /run/stopcheck/619/recorder.sock
+recorder listening on 127.0.0.1:8765, writing /mnt/c/work/agent-shutdown-test/stopcheck/n8n/results/XB-fast-B1-20261011-062437/pings.jsonl

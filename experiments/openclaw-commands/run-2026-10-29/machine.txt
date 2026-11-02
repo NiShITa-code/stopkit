@@ -1,0 +1,8 @@
+machine type: e2-standard-4
+zone: us-central1-a
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+kernel: 7.0.0-1014-gcp
+cpus: 4
+               total        used        free      shared  buff/cache   available
+Mem:           15985         680       13639           0        1996       15305
+Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz

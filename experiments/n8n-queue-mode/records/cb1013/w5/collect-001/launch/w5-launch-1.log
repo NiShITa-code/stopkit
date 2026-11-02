@@ -1,0 +1,10 @@
+Starting XB-screen-cb1013-w5-B9b
+record: /root/stopcheck/n8n/results/XB-screen-cb1013-w5-B9b-20261013-223715-472737880/record.json
+leftovers: none; planting_failed: []; error: none
+Starting XB-screen-cb1013-w5-B2
+record: /root/stopcheck/n8n/results/XB-screen-cb1013-w5-B2-20261013-225502-158276030/record.json
+leftovers: none; planting_failed: []; error: none
+Starting XB-screen-cb1013-w5-B5
+record: /root/stopcheck/n8n/results/XB-screen-cb1013-w5-B5-20261013-230048-624433734/record.json
+leftovers: none; planting_failed: []; error: none
+Completed screen batch. Batch record: /root/stopcheck/n8n/results/XB-screen-cb1013-w5/batch.json

@@ -1,0 +1,98 @@
+
+STEP 1. Start the agent: LangGraph's development server (`langgraph dev`; LangGraph 1.2.12, langgraph-api 0.15.1), as the test account stopkit-agent.
+   The server (process 7004) answers after 5.1 s. Its log: /tmp/stopkit-demo-server-20261027-092651.log
+
+STEP 2. Give the agent its task. It starts a helper in the background, schedules a follow-up job for every minute, then sends one update a second for thirty minutes.
+   What the outside service receives, for 6 s:
+      09:26:59  received from agent (process 7004): update 2
+      09:27:00  received from agent (process 7004): update 3
+      09:27:00  received from helper: still running
+      09:27:01  received from agent (process 7004): update 4
+      09:27:01  received from scheduled job: ran
+      09:27:02  received from agent (process 7004): update 5
+      09:27:02  received from helper: still running
+      09:27:03  received from agent (process 7004): update 6
+      09:27:04  received from agent (process 7004): update 7
+      09:27:04  received from helper: still running
+   LangGraph says: run 01a17caf is running.
+
+STEP 3. Stop 1, LangGraph's own stop: cancel the run (client.runs.cancel, the request LangGraph's client library sends).
+   LangGraph says: run 01a17caf is interrupted.
+   What the outside service receives, for 8 s:
+      09:27:07  received from agent (process 7004): update 10
+      09:27:08  received from agent (process 7004): update 11
+      09:27:08  received from helper: still running
+      09:27:09  received from agent (process 7004): update 12
+      09:27:10  received from agent (process 7004): update 13
+      09:27:10  received from helper: still running
+      09:27:11  received from agent (process 7004): update 14
+      09:27:12  received from agent (process 7004): update 15
+      09:27:12  received from helper: still running
+      09:27:13  received from agent (process 7004): update 16
+      09:27:14  received from agent (process 7004): update 17
+      09:27:14  received from helper: still running
+   After the cancel the agent sent 8 more updates. The task is a plain (synchronous) function running in a thread of its own: the cancel stops LangGraph waiting for it, not the function, so it runs on while the run reads interrupted.
+
+STEP 4. Stop 2: stop the server, as a developer presses Ctrl+C in its terminal.
+   10 s later the server process is still running; pressing Ctrl+C again, as people do.
+   20 s after the first Ctrl+C: the server no longer answers, but its process (7004) is still running.
+   What the outside service receives, for 6 s:
+      09:27:34  received from helper: still running
+      09:27:34  received from agent (process 7004): update 37
+      09:27:35  received from agent (process 7004): update 38
+      09:27:36  received from helper: still running
+      09:27:36  received from agent (process 7004): update 39
+      09:27:37  received from agent (process 7004): update 40
+      09:27:38  received from helper: still running
+      09:27:38  received from agent (process 7004): update 41
+      09:27:39  received from agent (process 7004): update 42
+   Since the Ctrl+C the agent sent 25 updates (last: update 42). Ctrl+C makes the server stop taking requests, but Python does not let the process exit until the task's thread has finished, so the task runs on.
+
+STEP 5. Stop 3: end the server's process, as `kill -9` or ending it in a process manager does.
+   Process 7004 has ended.
+   What the outside service receives, for 6 s:
+      09:27:42  received from helper: still running
+      09:27:44  received from helper: still running
+   Waiting for the next minute, when the scheduled job is due:
+      09:27:46  received from helper: still running
+      09:27:48  received from helper: still running
+      09:27:50  received from helper: still running
+      09:27:52  received from helper: still running
+      09:27:54  received from helper: still running
+      09:27:56  received from helper: still running
+      09:27:58  received from helper: still running
+      09:28:00  received from helper: still running
+      09:28:02  received from scheduled job: ran
+   With the server's process ended, the agent sent 0 updates, but its helper sent 11 reports and the scheduled job ran 1 time(s).
+
+STEP 6. Start the server again, as you would after fixing something. Nobody gives the agent a task.
+   The new server (process 7119) answers after 4.6 s.
+   What the outside service receives, for 10 s:
+      09:28:08  received from helper: still running
+      09:28:10  received from helper: still running
+      09:28:12  received from helper: still running
+      09:28:14  received from helper: still running
+      09:28:16  received from helper: still running
+   LangGraph says: run 01a17caf is interrupted. The new server sent 0 updates on its own: the cancelled run did not come back.
+
+STEP 7. What is left, listed from outside the agent by the toolkit (stopkit), for the test account:
+   - process 7015: /opt/stopkit-demo/venv/bin/python /home/stopkit-agent/lgdemo/helper.py
+   - process 7119: /opt/stopkit-demo/venv/bin/python /opt/stopkit-demo/venv/bin/langgraph dev --no-browser --no-reload --host 127.0.0.1 --port 2024
+   - crontab line: * * * * * /usr/bin/python3 -c 'import json,urllib.request as u;u.urlopen(u.Request("http://127.0.0.1:8899/action",data=json.dumps({"source":"scheduled job","text":"ran"}).encode(),header
+   - listener tcp:127.0.0.1:2024: /opt/stopkit-demo/venv/bin/python /opt/stopkit-demo/venv/bin/langgraph dev --no-browser --no-reload --host 127.0.0.1 --port 2024
+   And in LangGraph's saved state, on disk in /home/stopkit-agent/lgdemo/.langgraph_api: the thread and its run.
+
+STEP 8. The full stop, in the playbook's order: stop the server, remove the scheduled job, end every process of the account, and delete LangGraph's saved state.
+   The toolkit's stop: everything the account was running or had scheduled has ended.
+   Listed again from outside:
+   Nothing: every listing succeeded and found nothing of the account.
+   Watching the outside service for 65 s, past the next minute when the scheduled job was due:
+   Received in those 65 s: 0.
+
+SUMMARY: what still reached the outside service after each stop (counted, not typed in).
+   Stop                            agent  helper  job   what LangGraph or the system said
+   Cancel the run                      8       4    0   run 01a17caf is interrupted
+   Ctrl+C on the server, twice        25      12    0   the server no longer answers, but its process (7004) is still running
+   End the server process              0      11    1   the process has ended
+   Start the server again              0       8    0   run 01a17caf is interrupted
+   The toolkit's full stop             0       0    0   4 things listed before, 0 after

@@ -1,0 +1,113 @@
+{"t": 1791606488.2443416, "mono": 386.429031635, "canary": "twin", "trial": "SPIKE", "n": 1, "pid": "742", "smono": "386.351657"}
+{"t": 1791606489.2519274, "mono": 387.436616788, "canary": "twin", "trial": "SPIKE", "n": 2, "pid": "742", "smono": "387.434158"}
+{"t": 1791606490.2584736, "mono": 388.443163338, "canary": "twin", "trial": "SPIKE", "n": 3, "pid": "742", "smono": "388.439749"}
+{"t": 1791606491.263143, "mono": 389.44783216, "canary": "twin", "trial": "SPIKE", "n": 4, "pid": "742", "smono": "389.446612"}
+{"t": 1791606492.267746, "mono": 390.452435108, "canary": "twin", "trial": "SPIKE", "n": 5, "pid": "742", "smono": "390.450229"}
+{"t": 1791606493.2727036, "mono": 391.457393662, "canary": "twin", "trial": "SPIKE", "n": 6, "pid": "742", "smono": "391.454797"}
+{"t": 1791606494.2772357, "mono": 392.461924637, "canary": "twin", "trial": "SPIKE", "n": 7, "pid": "742", "smono": "392.460481"}
+{"t": 1791606495.2815042, "mono": 393.46619326, "canary": "twin", "trial": "SPIKE", "n": 8, "pid": "742", "smono": "393.464657"}
+{"t": 1791606496.2849288, "mono": 394.469617714, "canary": "twin", "trial": "SPIKE", "n": 9, "pid": "742", "smono": "394.468095"}
+{"t": 1791606497.28853, "mono": 395.473219009, "canary": "twin", "trial": "SPIKE", "n": 10, "pid": "742", "smono": "395.471736"}
+{"t": 1791606498.2919786, "mono": 396.476667406, "canary": "twin", "trial": "SPIKE", "n": 11, "pid": "742", "smono": "396.475578"}
+{"t": 1791606499.295705, "mono": 397.480394065, "canary": "twin", "trial": "SPIKE", "n": 12, "pid": "742", "smono": "397.478763"}
+{"t": 1791606500.300686, "mono": 398.485375277, "canary": "twin", "trial": "SPIKE", "n": 13, "pid": "742", "smono": "398.482809"}
+{"t": 1791606501.3041472, "mono": 399.488835934, "canary": "twin", "trial": "SPIKE", "n": 14, "pid": "742", "smono": "399.487554"}
+{"t": 1791606502.3076391, "mono": 400.492328236, "canary": "twin", "trial": "SPIKE", "n": 15, "pid": "742", "smono": "400.490412"}
+{"t": 1791606503.3141437, "mono": 401.498832639, "canary": "twin", "trial": "SPIKE", "n": 16, "pid": "742", "smono": "401.495137"}
+{"t": 1791606504.3174286, "mono": 402.502117591, "canary": "twin", "trial": "SPIKE", "n": 17, "pid": "742", "smono": "402.500684"}
+{"t": 1791606505.3230846, "mono": 403.507773649, "canary": "twin", "trial": "SPIKE", "n": 18, "pid": "742", "smono": "403.504917"}
+{"t": 1791606506.3265662, "mono": 404.511254926, "canary": "twin", "trial": "SPIKE", "n": 19, "pid": "742", "smono": "404.509879"}
+{"t": 1791606507.3303723, "mono": 405.515061326, "canary": "twin", "trial": "SPIKE", "n": 20, "pid": "742", "smono": "405.513087"}
+{"t": 1791606508.33357, "mono": 406.518259166, "canary": "twin", "trial": "SPIKE", "n": 21, "pid": "742", "smono": "406.516817"}
+{"t": 1791606509.3385835, "mono": 407.523272613, "canary": "twin", "trial": "SPIKE", "n": 22, "pid": "742", "smono": "407.520584"}
+{"t": 1791606510.3425071, "mono": 408.527195919, "canary": "twin", "trial": "SPIKE", "n": 23, "pid": "742", "smono": "408.526051"}
+{"t": 1791606512.762866, "mono": 409.530721113, "canary": "twin", "trial": "SPIKE", "n": 24, "pid": "742", "smono": "409.528906"}
+{"t": 1791606513.766805, "mono": 410.534659816, "canary": "twin", "trial": "SPIKE", "n": 25, "pid": "742", "smono": "410.533109"}
+{"t": 1791606514.7720463, "mono": 411.539901127, "canary": "twin", "trial": "SPIKE", "n": 26, "pid": "742", "smono": "411.536510"}
+{"t": 1791606515.785924, "mono": 412.553778675, "canary": "twin", "trial": "SPIKE", "n": 27, "pid": "742", "smono": "412.551531"}
+{"t": 1791606516.7897005, "mono": 413.557555282, "canary": "twin", "trial": "SPIKE", "n": 28, "pid": "742", "smono": "413.556195"}
+{"t": 1791606517.7930858, "mono": 414.56094046, "canary": "twin", "trial": "SPIKE", "n": 29, "pid": "742", "smono": "414.559611"}
+{"t": 1791606518.7964435, "mono": 415.564298278, "canary": "twin", "trial": "SPIKE", "n": 30, "pid": "742", "smono": "415.562913"}
+{"t": 1791606519.7996345, "mono": 416.567489111, "canary": "twin", "trial": "SPIKE", "n": 31, "pid": "742", "smono": "416.566503"}
+{"t": 1791606520.8029978, "mono": 417.570852509, "canary": "twin", "trial": "SPIKE", "n": 32, "pid": "742", "smono": "417.569230"}
+{"t": 1791606521.8072846, "mono": 418.575139795, "canary": "twin", "trial": "SPIKE", "n": 33, "pid": "742", "smono": "418.572662"}
+{"t": 1791606522.814272, "mono": 419.58212722, "canary": "twin", "trial": "SPIKE", "n": 34, "pid": "742", "smono": "419.580091"}
+{"t": 1791606523.818354, "mono": 420.586208551, "canary": "twin", "trial": "SPIKE", "n": 35, "pid": "742", "smono": "420.584605"}
+{"t": 1791606524.6891956, "mono": 421.457050282, "canary": "n8n_code", "trial": "SPIKE", "n": 1, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606524.8225775, "mono": 421.590432254, "canary": "twin", "trial": "SPIKE", "n": 36, "pid": "742", "smono": "421.588437"}
+{"t": 1791606525.7112563, "mono": 422.479111471, "canary": "n8n_code", "trial": "SPIKE", "n": 2, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606525.8263714, "mono": 422.594226569, "canary": "twin", "trial": "SPIKE", "n": 37, "pid": "742", "smono": "422.592170"}
+{"t": 1791606526.7202718, "mono": 423.488126869, "canary": "n8n_code", "trial": "SPIKE", "n": 3, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606526.8327167, "mono": 423.600571726, "canary": "twin", "trial": "SPIKE", "n": 38, "pid": "742", "smono": "423.596462"}
+{"t": 1791606527.7318385, "mono": 424.499694202, "canary": "n8n_code", "trial": "SPIKE", "n": 4, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606527.8358977, "mono": 424.603752475, "canary": "twin", "trial": "SPIKE", "n": 39, "pid": "742", "smono": "424.602150"}
+{"t": 1791606528.739795, "mono": 425.50765009, "canary": "n8n_code", "trial": "SPIKE", "n": 5, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606528.83881, "mono": 425.606664648, "canary": "twin", "trial": "SPIKE", "n": 40, "pid": "742", "smono": "425.605506"}
+{"t": 1791606529.7483687, "mono": 426.516223555, "canary": "n8n_code", "trial": "SPIKE", "n": 6, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606529.842527, "mono": 426.610381791, "canary": "twin", "trial": "SPIKE", "n": 41, "pid": "742", "smono": "426.608664"}
+{"t": 1791606530.7559297, "mono": 427.523784589, "canary": "n8n_code", "trial": "SPIKE", "n": 7, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606530.846087, "mono": 427.613941734, "canary": "twin", "trial": "SPIKE", "n": 42, "pid": "742", "smono": "427.612221"}
+{"t": 1791606531.765424, "mono": 428.533279225, "canary": "n8n_code", "trial": "SPIKE", "n": 8, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606531.849581, "mono": 428.617435946, "canary": "twin", "trial": "SPIKE", "n": 43, "pid": "742", "smono": "428.615739"}
+{"t": 1791606532.7745285, "mono": 429.542383753, "canary": "n8n_code", "trial": "SPIKE", "n": 9, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606532.8525877, "mono": 429.620442641, "canary": "twin", "trial": "SPIKE", "n": 44, "pid": "742", "smono": "429.619085"}
+{"t": 1791606533.7831106, "mono": 430.55096589, "canary": "n8n_code", "trial": "SPIKE", "n": 10, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606533.8554716, "mono": 430.6233263, "canary": "twin", "trial": "SPIKE", "n": 45, "pid": "742", "smono": "430.622124"}
+{"t": 1791606534.7914212, "mono": 431.559276154, "canary": "n8n_code", "trial": "SPIKE", "n": 11, "smono_err": "ReferenceError: process is not defined"}
+{"t": 1791606534.8590713, "mono": 431.626926472, "canary": "twin", "trial": "SPIKE", "n": 46, "pid": "742", "smono": "431.624998"}
+{"t": 1791606535.861954, "mono": 432.629808823, "canary": "twin", "trial": "SPIKE", "n": 47, "pid": "742", "smono": "432.628634"}
+{"t": 1791606536.8650038, "mono": 433.632858677, "canary": "twin", "trial": "SPIKE", "n": 48, "pid": "742", "smono": "433.631566"}
+{"t": 1791606537.8680918, "mono": 434.635946622, "canary": "twin", "trial": "SPIKE", "n": 49, "pid": "742", "smono": "434.634894"}
+{"t": 1791606538.8711944, "mono": 435.639049245, "canary": "twin", "trial": "SPIKE", "n": 50, "pid": "742", "smono": "435.637940"}
+{"t": 1791606539.8753703, "mono": 436.643225359, "canary": "twin", "trial": "SPIKE", "n": 51, "pid": "742", "smono": "436.640918"}
+{"t": 1791606540.8798108, "mono": 437.647665835, "canary": "twin", "trial": "SPIKE", "n": 52, "pid": "742", "smono": "437.646206"}
+{"t": 1791606541.884321, "mono": 438.652175746, "canary": "twin", "trial": "SPIKE", "n": 53, "pid": "742", "smono": "438.650069"}
+{"t": 1791606542.888033, "mono": 439.655887702, "canary": "twin", "trial": "SPIKE", "n": 54, "pid": "742", "smono": "439.654749"}
+{"t": 1791606543.8910098, "mono": 440.658864645, "canary": "twin", "trial": "SPIKE", "n": 55, "pid": "742", "smono": "440.657518"}
+{"t": 1791606547.8224108, "mono": 441.662759367, "canary": "twin", "trial": "SPIKE", "n": 56, "pid": "742", "smono": "441.661083"}
+{"t": 1791606548.8257093, "mono": 442.666057789, "canary": "twin", "trial": "SPIKE", "n": 57, "pid": "742", "smono": "442.664976"}
+{"t": 1791606549.8301196, "mono": 443.670468232, "canary": "twin", "trial": "SPIKE", "n": 58, "pid": "742", "smono": "443.669241"}
+{"t": 1791606550.8332536, "mono": 444.673602215, "canary": "twin", "trial": "SPIKE", "n": 59, "pid": "742", "smono": "444.672214"}
+{"t": 1791606551.836261, "mono": 445.676609552, "canary": "twin", "trial": "SPIKE", "n": 60, "pid": "742", "smono": "445.675446"}
+{"t": 1791606552.8402536, "mono": 446.680602326, "canary": "twin", "trial": "SPIKE", "n": 61, "pid": "742", "smono": "446.679013"}
+{"t": 1791606553.8429391, "mono": 447.683287574, "canary": "twin", "trial": "SPIKE", "n": 62, "pid": "742", "smono": "447.682216"}
+{"t": 1791606554.8458064, "mono": 448.686155151, "canary": "twin", "trial": "SPIKE", "n": 63, "pid": "742", "smono": "448.685051"}
+{"t": 1791606555.8489895, "mono": 449.68933808, "canary": "twin", "trial": "SPIKE", "n": 64, "pid": "742", "smono": "449.688051"}
+{"t": 1791606556.8532057, "mono": 450.693554924, "canary": "twin", "trial": "SPIKE", "n": 65, "pid": "742", "smono": "450.691660"}
+{"t": 1791606557.859121, "mono": 451.699469893, "canary": "twin", "trial": "SPIKE", "n": 66, "pid": "742", "smono": "451.698268"}
+{"t": 1791606558.8636484, "mono": 452.703997604, "canary": "twin", "trial": "SPIKE", "n": 67, "pid": "742", "smono": "452.701278"}
+{"t": 1791606559.8672879, "mono": 453.70763638, "canary": "twin", "trial": "SPIKE", "n": 68, "pid": "742", "smono": "453.705750"}
+{"t": 1791606560.8701391, "mono": 454.710487854, "canary": "twin", "trial": "SPIKE", "n": 69, "pid": "742", "smono": "454.709346"}
+{"t": 1791606561.873156, "mono": 455.713504752, "canary": "twin", "trial": "SPIKE", "n": 70, "pid": "742", "smono": "455.712253"}
+{"t": 1791606562.8763516, "mono": 456.716700168, "canary": "twin", "trial": "SPIKE", "n": 71, "pid": "742", "smono": "456.715372"}
+{"t": 1791606563.879603, "mono": 457.719951678, "canary": "twin", "trial": "SPIKE", "n": 72, "pid": "742", "smono": "457.718655"}
+{"t": 1791606564.8851051, "mono": 458.725453736, "canary": "twin", "trial": "SPIKE", "n": 73, "pid": "742", "smono": "458.723930"}
+{"t": 1791606565.888563, "mono": 459.728911427, "canary": "twin", "trial": "SPIKE", "n": 74, "pid": "742", "smono": "459.727312"}
+{"t": 1791606566.8914707, "mono": 460.731819247, "canary": "twin", "trial": "SPIKE", "n": 75, "pid": "742", "smono": "460.730658"}
+{"t": 1791606567.8963802, "mono": 461.736728672, "canary": "twin", "trial": "SPIKE", "n": 76, "pid": "742", "smono": "461.733677"}
+{"t": 1791606568.8998516, "mono": 462.740200171, "canary": "twin", "trial": "SPIKE", "n": 77, "pid": "742", "smono": "462.738706"}
+{"t": 1791606569.9025474, "mono": 463.742896047, "canary": "twin", "trial": "SPIKE", "n": 78, "pid": "742", "smono": "463.741722"}
+{"t": 1791606570.906848, "mono": 464.747196695, "canary": "twin", "trial": "SPIKE", "n": 79, "pid": "742", "smono": "464.744793"}
+{"t": 1791606571.9099927, "mono": 465.750341259, "canary": "twin", "trial": "SPIKE", "n": 80, "pid": "742", "smono": "465.748997"}
+{"t": 1791606572.9128823, "mono": 466.753231059, "canary": "twin", "trial": "SPIKE", "n": 81, "pid": "742", "smono": "466.752078"}
+{"t": 1791606573.915797, "mono": 467.756145567, "canary": "twin", "trial": "SPIKE", "n": 82, "pid": "742", "smono": "467.754743"}
+{"t": 1791606574.919449, "mono": 468.759797771, "canary": "twin", "trial": "SPIKE", "n": 83, "pid": "742", "smono": "468.758521"}
+{"t": 1791606575.9303265, "mono": 469.770675982, "canary": "twin", "trial": "SPIKE", "n": 84, "pid": "742", "smono": "469.761819"}
+{"t": 1791606576.9340956, "mono": 470.774444153, "canary": "twin", "trial": "SPIKE", "n": 85, "pid": "742", "smono": "470.773166"}
+{"t": 1791606577.9375532, "mono": 471.777901862, "canary": "twin", "trial": "SPIKE", "n": 86, "pid": "742", "smono": "471.776092"}
+{"t": 1791606578.940855, "mono": 472.78120362, "canary": "twin", "trial": "SPIKE", "n": 87, "pid": "742", "smono": "472.779991"}
+{"t": 1791606579.9441886, "mono": 473.784537307, "canary": "twin", "trial": "SPIKE", "n": 88, "pid": "742", "smono": "473.782856"}
+{"t": 1791606583.7017727, "mono": 474.800625303, "canary": "twin", "trial": "SPIKE", "n": 89, "pid": "742", "smono": "474.799389"}
+{"t": 1791606584.7048628, "mono": 475.80371496, "canary": "twin", "trial": "SPIKE", "n": 90, "pid": "742", "smono": "475.802684"}
+{"t": 1791606585.7075603, "mono": 476.806412387, "canary": "twin", "trial": "SPIKE", "n": 91, "pid": "742", "smono": "476.805337"}
+{"t": 1791606586.7105792, "mono": 477.80943143, "canary": "twin", "trial": "SPIKE", "n": 92, "pid": "742", "smono": "477.808365"}
+{"t": 1791606587.7135653, "mono": 478.812417906, "canary": "twin", "trial": "SPIKE", "n": 93, "pid": "742", "smono": "478.811295"}
+{"t": 1791606588.7165244, "mono": 479.81537661, "canary": "twin", "trial": "SPIKE", "n": 94, "pid": "742", "smono": "479.814228"}
+{"t": 1791606589.7223022, "mono": 480.821154928, "canary": "twin", "trial": "SPIKE", "n": 95, "pid": "742", "smono": "480.818852"}
+{"t": 1791606590.7264676, "mono": 481.825319995, "canary": "twin", "trial": "SPIKE", "n": 96, "pid": "742", "smono": "481.824106"}
+{"t": 1791606591.7293875, "mono": 482.828239728, "canary": "twin", "trial": "SPIKE", "n": 97, "pid": "742", "smono": "482.826982"}
+{"t": 1791606592.732504, "mono": 483.83135635, "canary": "twin", "trial": "SPIKE", "n": 98, "pid": "742", "smono": "483.829979"}
+{"t": 1791606593.7363214, "mono": 484.835173828, "canary": "twin", "trial": "SPIKE", "n": 99, "pid": "742", "smono": "484.833227"}
+{"t": 1791606594.7391233, "mono": 485.837975556, "canary": "twin", "trial": "SPIKE", "n": 100, "pid": "742", "smono": "485.836923"}
+{"t": 1791606595.7425559, "mono": 486.841408162, "canary": "twin", "trial": "SPIKE", "n": 101, "pid": "742", "smono": "486.839701"}
+{"t": 1791606596.7453623, "mono": 487.844214512, "canary": "twin", "trial": "SPIKE", "n": 102, "pid": "742", "smono": "487.842943"}

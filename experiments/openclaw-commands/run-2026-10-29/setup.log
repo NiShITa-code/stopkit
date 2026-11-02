@@ -1,0 +1,31 @@
+/tmp/tmp.ZGYrBf07b3/node.tar.xz: OK
+node v24.21.0, npm 11.19.0
+uid=1003(ocspike) gid=1004(ocspike) groups=1004(ocspike); User ocspike is not allowed to run sudo on cas-openclaw.
+openclaw-2026.10.2.tgz: 102864426 bytes, sha512 and sha1 match the pins
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+added 341 packages in 50s
+
+111 packages are looking for funding
+  run `npm fund` for details
+npm warn install-scripts 4 packages have install scripts not yet covered by allowScripts:
+npm warn install-scripts   @google/genai@2.24.0 (preinstall: echo 'preinstall: no-op')
+npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn install-scripts   koffi@3.3.1 (install: node ./cnoke.cjs -P . -D src/koffi --prebuild --release)
+npm warn install-scripts   protobufjs@7.6.6 (postinstall: node scripts/postinstall)
+npm warn install-scripts
+npm warn install-scripts Run `npm install -g --allow-scripts=@google/genai,esbuild,koffi,protobufjs` to allow these scripts once, or `npm config set allow-scripts=@google/genai,esbuild,koffi,protobufjs --location=user` to allow them for all global installs.
+OpenClaw 2026.10.2 (b8952d4), installed at /home/ocspike/.npm-global/lib/node_modules/openclaw/openclaw.mjs
+edf62cc62f4ef99b011c7bae098d9b682e6d652380d370932f2536e352f9531b  SPIKE-F.md
+a0a9dc589d266c8f2b7896063f3aacc2b9f87030c65c1de278b5e687d9d49d11  egress_f.py
+3b56b15cd4c665630123c05bfbb8d9fc4a95161729c29b0eea822c2019b7ad15  procfs_f.py
+30c292f03ed27abd6c53005615b80f96c6336e8298093045c62b0081dbda9374  spike_f.py
+b5c5d8e8b39ee3402d211e621df88ea79facfe4e63246fdd9ec29a8b20658983  stub_completions.py
+
+Ready. Next, as in experiments/openclaw-spike/README.md: close outbound traffic with
+  python3 -I /opt/stopcheck-openclaw/openclaw/egress_f.py close --user ocspike --out-dir /var/lib/stopcheck-openclaw/egress
+check that a fresh SSH login still works, then start the run as ocspike inside tmux.
+
+real	1m57.143s
+user	1m10.725s
+sys	0m25.796s

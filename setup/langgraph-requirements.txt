@@ -1,0 +1,7 @@
+# What the LangGraph binding needs: LangGraph and its development server (`langgraph dev`), at the versions of the
+# earlier experiments and the demo. setup/langgraph-constraints.txt pins every other package to the version it ran with.
+langgraph==1.2.12
+langgraph-cli[inmem]==0.4.32
+langgraph-api==0.15.1
+langgraph-runtime-inmem==0.35.1
+langgraph-sdk==0.4.5

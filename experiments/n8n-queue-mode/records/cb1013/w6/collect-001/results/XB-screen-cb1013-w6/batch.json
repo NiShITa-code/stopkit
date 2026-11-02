@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "run_kind": "screen",
+  "batch_id": "cb1013-w6",
+  "conditions": [
+    "B9c",
+    "B2s",
+    "B6a"
+  ],
+  "seed": 20261012,
+  "host_profile": "linux-vm",
+  "source_hashes": {
+    "common/clockguard.py": "2ef1f0f69336bfad835a0c925ad6bd851b07d4fbb783cda5ad1284723ba69482",
+    "common/guards.py": "f5d9f4e213673f100b08f9ad22767b797339083de497610dd4a74d46555e23fb",
+    "common/test_clockguard.py": "38b9875c3999f7f64b467319592a1989c50af1e8dc52618c07736a3344b2f484",
+    "langgraph/recorder.py": "70a98cadc113e4b85eab9418e599cb8f0cb71529bc4b3e2e73bb10b99ab4ce49",
+    "n8n/DESIGN-expB.md": "1f1ed5a81d46d10d2c159ce486287a828d5da119e5a429fcbd242d84442870fc",
+    "n8n/RULES-expB.md": "f9a44694268d2f29fded0c724f74adbb42c3cce4483de4997c0937498d92431b",
+    "n8n/_preflight.sh": "c7e35c6590dd9fae251f40162f9a161e85f7516b2440a952633c353e72ceb3b7",
+    "n8n/_probe.sh": "c5c24b168e18e60f80365ba9bb6a5c9e94fe10660f34dd28216710cdf20807f5",
+    "n8n/analyze_b.py": "653aa70d284aa7c656b16f9c1bbbe96017edd98061022ad022af85c8424a7d5b",
+    "n8n/campaign_b.py": "f5806a7d122955b99b9c918745267c5a9e44242b140df61c782856222fdf621d",
+    "n8n/canary_b.py": "21690086fb62d75aaaab25843bf4d3c0cd7b1ada3fbecc1d95b8f87d4d3bbce1",
+    "n8n/clockwall_b.py": "4c2e0039d3eaa7419d1da647bc50804013c179d7f94105785fcbb549ab1a42bc",
+    "n8n/feasibility3.py": "a7450679a68fb2c4f0f3adcb30e8004c26a811822963dbb455596f5bbb81d598",
+    "n8n/feasibility3_ns.sh": "a76f79df3fb9241e8830c81e9e8f9b1b014a0bd30c496ad8a79884acb25278f6",
+    "n8n/harness_b.py": "a64e42358949bdea54627f6b9325a9bdb8f6ac7c1e1c7596016d561d901efc90",
+    "n8n/harness_b_ns.sh": "e9b55ee4a10cdcd764c38673fe77b10e1654b5b9ecbd7e26c0145c9cb135b5f4",
+    "n8n/install_n8n.sh": "8faf406ae826b089df767204c15fa994bcf71a1bdd501fafb3464b6eb95e8414",
+    "n8n/mocks_b.py": "fdcbf99976b345a079f7e13caf6e7f6dbbce272485e630c606935e55ed2460c3",
+    "n8n/mutate_b.py": "4c8dd5bdeb72aec4add0de2335c6325db616aac415d4597fd17f0d63fe15dc0a",
+    "n8n/owner_api_key_scopes.txt": "566b4a48d9aaf34a3a1719eba8e6a6d4b0c64ddaa9082bae2adce5d46e26467b",
+    "n8n/reproduce_b.py": "8adcdee24dc4eab52e9b68f642df5138dd7d6f308b4b87ef610569e210bacd76",
+    "n8n/run_expB.py": "58cd898b762b712b94e00dcd8bf51d24de939b39a9ed19fbaa0d670a1376cbd7",
+    "n8n/spike.py": "387c48cc82960aecfe5e16c6d1844706cd7a7abc0b66bbd5fdf4fe96dee5440e",
+    "n8n/spike2.py": "5197909fef5bd3b9417b7cd67468ef3f2a27a1a6a16e0929221db3640c87aeeb",
+    "n8n/spike2_ns.sh": "6af452b566eba7bf370c3a02f708d06ec9b03a2f609b5dcc07ba1ca8eb98f2b0",
+    "n8n/spike_ns.sh": "3eaefa5d691581733bced606879a11b7d6c5ea6785e7ca693a89c2b82d73a40a",
+    "n8n/stub_model.py": "17cf75674cc20045361209707bbc38fb2e31889db07ff9df44357a2cc70dca5b",
+    "n8n/workflows_b.py": "8509e55f353da47cf90a662f02e897f4cd6461888ba6debb10f8a6a349441f1e",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/expected_rev6.json": "1009b5ab76befd4bce93d4f1d15dc32347b007649d814edaf98f7d706c70eb30",
+    "tests/export_fixtures.py": "d6e1f9f7eccd9c5a04f6b600484f4434e04a727aa62e947579bef4c8035e4763",
+    "tests/mutate.py": "94ca8593945163b4f88ec55a6660adff701a306d40c142b94832268674e1cb85",
+    "tests/scenarios_rev6.py": "32245e9e3619cf9dee8d814a67731b767faca6ec69931e1d2cdea0c14e75ba76",
+    "tests/synth.py": "aeaff84b40979f496a391bb64dc2a06d545d50c53a512e46e1b72e8261f8e9ad",
+    "tests/test_analyze_b.py": "9caac58004610b8447f0332b9e03987320cbf4b4033c491123dff1739df0a381",
+    "tests/test_campaign_b.py": "af73e70fd578378ad28ebef5b9f0666d4b34291b34ae41f54ba4cd2d6e11281b",
+    "tests/test_clockwall_b.py": "4d1f1d988ee6d9f3688cbb41d1b4ea72b075ccde97a725c314a63a168b6e5424",
+    "tests/test_harness_b.py": "a7a5092b23934195286f8968fbf9664dd5cb3d680e2efa23096b4dff5d246561",
+    "tests/test_launch_b.py": "8395730344904850c7090a60e4cc0cab1a881f8187016528e56c71518a993a96",
+    "tests/test_rev6.py": "109436a1b8be5341174de163192388f5fe2e7d087e3804b031c0cc20d43f7db1",
+    "tests/test_rev6_vs_rev5.py": "69f9a915ae4d3a42409e9e633191aa4ab3047a66869e3e0899a0fa5f21e14332",
+    "tests/test_round1_record.py": "8ad8062f9663ae80d07db05a8eddb9421422ea8eb15fecb1f208c74138e14dfd",
+    "tests/test_run_expB.py": "a5247893b24416b730578c2cbfdf15e0d9e867375dbef90eeb1a86016afe29ef"
+  },
+  "trials": [
+    {
+      "trial": "XB-screen-cb1013-w6-B9c",
+      "condition": "B9c",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-13T22:37:23+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-13T22:37:23+00:00",
+        "values": {
+          "id": "100000000000000006",
+          "name": "stopcheck-6",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/shutdown-test-project-00/global/images/stopcheck-base-1013",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-13T22:55:07+00:00",
+      "record": "/root/stopcheck/n8n/results/XB-screen-cb1013-w6-B9c-20261013-223723-806800993",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-13T22:55:08+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XB-screen-cb1013-w6-B9c-20261013-223723-806800993"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B9c",
+        "reports": {
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B9c/scored_b.jsonl": "a2eb377f9a0d2c0f0a435dcf32684a01835927f16c773ba7150303cf6eb9123e",
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B9c/summary_b.md": "ac65e64ef11101d692e384e1dc01ca84d1be9acdbc926dfb7637660b64f108a5"
+        },
+        "manifest": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B9c/manifest-sha256.json",
+        "manifest_sha256": "f9499cf6b0d8d1aeb701370e0c32a92be4f6004e9992f223cfd780b442f07677"
+      }
+    },
+    {
+      "trial": "XB-screen-cb1013-w6-B2s",
+      "condition": "B2s",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-13T22:55:10+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-13T22:55:10+00:00",
+        "values": {
+          "id": "100000000000000006",
+          "name": "stopcheck-6",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/shutdown-test-project-00/global/images/stopcheck-base-1013",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-13T23:00:54+00:00",
+      "record": "/root/stopcheck/n8n/results/XB-screen-cb1013-w6-B2s-20261013-225510-436673413",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-13T23:00:54+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XB-screen-cb1013-w6-B2s-20261013-225510-436673413"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s",
+        "reports": {
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s/scored_b.jsonl": "9859a1275218ce53d170d350f8713f5ed17e0a7ebe4575597ed6a50f2014e4af",
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s/summary_b.md": "8ae96375c79916d3fdb7a5fc99e58a1ef6f7c6f1728ea744b146e960dfe56bd3"
+        },
+        "manifest": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B2s/manifest-sha256.json",
+        "manifest_sha256": "a9f8078b1011b93055085a1c95f428402f3768b1b5dfa405f95f15501a375682"
+      }
+    },
+    {
+      "trial": "XB-screen-cb1013-w6-B6a",
+      "condition": "B6a",
+      "attempt": 1,
+      "status": "finished",
+      "exit_code": 0,
+      "started_utc": "2026-10-13T23:00:56+00:00",
+      "host_identity": {
+        "status": "recorded",
+        "host_profile": "linux-vm",
+        "source": "http://metadata.google.internal/computeMetadata/v1/instance/ (read by the runner, outside the trial's network namespace)",
+        "read_utc": "2026-10-13T23:00:56+00:00",
+        "values": {
+          "id": "100000000000000006",
+          "name": "stopcheck-6",
+          "zone": "projects/10000000001/zones/europe-west1-b",
+          "machine_type": "projects/10000000001/machineTypes/n2-standard-4",
+          "cpu_platform": "Intel Cascade Lake",
+          "image": "projects/shutdown-test-project-00/global/images/stopcheck-base-1013",
+          "preemptible": "FALSE",
+          "on_host_maintenance": "MIGRATE"
+        },
+        "missing": [],
+        "errors": {}
+      },
+      "ended_utc": "2026-10-13T23:07:38+00:00",
+      "record": "/root/stopcheck/n8n/results/XB-screen-cb1013-w6-B6a-20261013-230056-842952070",
+      "scored_valid": true,
+      "validity": "valid",
+      "accepted": true,
+      "export": {
+        "exported_utc": "2026-10-13T23:07:38+00:00",
+        "status": "exported",
+        "raw_folders": [
+          "XB-screen-cb1013-w6-B6a-20261013-230056-842952070"
+        ],
+        "raw_files": 16,
+        "scoring": "scored",
+        "validity": "valid",
+        "derived_folder": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B6a",
+        "reports": {
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B6a/scored_b.jsonl": "ef7f2dd1e575d4ec86a15d84cc4072e83a305fdb3175794c86db70a1d343b702",
+          "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B6a/summary_b.md": "30cc0a107247dd8878315c0199568aaa4b70417056f64fc2b94b8ee48aa3a192"
+        },
+        "manifest": "XB-screen-cb1013-w6/derived/XB-screen-cb1013-w6-B6a/manifest-sha256.json",
+        "manifest_sha256": "8b55fd45a298591e22d9cef19f241cd9d21435a49dd4e6c39eeebb3de827df93"
+      }
+    }
+  ],
+  "incomplete": [],
+  "completed": true,
+  "stopped_reason": null,
+  "stops": [],
+  "freeze_sha256": "d28706e3d0a824be8e7c3d8fd6b3f38f2874b92a6c2a478461aa72f56f1e2754"
+}

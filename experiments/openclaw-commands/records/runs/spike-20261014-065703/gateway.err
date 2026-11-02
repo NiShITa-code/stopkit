@@ -1,0 +1,29 @@
+[gateway] startup phase: entry.run-main-import starting total=185.6ms
+[gateway] startup phase: entry.run-main-import 81.4ms total=267.0ms start=185.6ms
+[gateway] startup phase: cli.main.gateway-run-select-environment starting total=798.0ms
+[gateway] startup phase: cli.main.gateway-run-select-environment 395.5ms total=1193.5ms start=798.0ms
+[gateway] startup phase: cli.main.gateway-run-imports starting total=1213.5ms
+[gateway] startup phase: cli.main.gateway-run-imports 4.6ms total=1218.1ms start=1213.5ms
+[gateway] startup phase: cli.main.gateway-run-pre-bootstrap starting total=1226.9ms
+[gateway] startup phase: cli.main.gateway-run-pre-bootstrap 21.1ms total=1248.0ms start=1226.9ms
+[gateway] startup phase: cli.main.gateway-run-bootstrap starting total=1248.2ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness starting total=1365.8ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness 4.7ms total=1370.5ms start=1365.8ms agentCount=1 schemaProcessCount=0 schemaInspectionCount=0 schemaSnapshotCount=0
+[gateway] startup phase: cli.bootstrap.admission.database-readiness starting total=2302.2ms
+[gateway] startup phase: cli.bootstrap.admission.database-readiness 465.7ms total=2767.9ms start=2302.2ms agentCount=1 schemaProcessCount=0 schemaInspectionCount=0 schemaSnapshotCount=0
+[gateway] startup phase: cli.main.gateway-run-bootstrap 5439.6ms total=6687.8ms start=1248.2ms
+[gateway] startup phase: gateway.server-start-import starting total=7916.9ms
+[gateway] startup phase: gateway.server-start-import 754.3ms total=8671.2ms start=7916.9ms
+2026-10-14T06:57:59.231+00:00 [gateway] Older local CLI/SDK versions can bypass Gateway state mutation routing. Use matching CLI/SDK and Gateway versions; legacy direct writers remain supported.
+2026-10-14T06:58:03.548+00:00 [plugins] memory-core: dreaming startup cleanup failed for agent main: SQLite lifecycle cleanup database owner changed
+2026-10-14T06:58:05.874+00:00 [session-sqlite] slow SQLite reclamation Worker operation pid=5725 threadId=0 isMainThread=true reclamationKind=maintenance-plan workerThreadId=14 elapsedMs=2286 outcome=resolved
+2026-10-14T06:58:11.059+00:00 [memory] memory_index_chunks_vec not updated — semantic vector embeddings unavailable — no vector dimensions resolved. Vector recall degraded. Further duplicate warnings suppressed.
+2026-10-14T06:58:14.203+00:00 [memory] memory_index_chunks_vec not updated — semantic vector embeddings unavailable — no vector dimensions resolved. Vector recall degraded. Further duplicate warnings suppressed.
+2026-10-14T06:58:15.992+00:00 [fetch-timeout] fetch timeout after 5000ms (elapsed 5000ms) operation=fetchWithSsrFGuard url=https://clawhub.ai/v1/feeds/plugins
+2026-10-14T06:58:16.864+00:00 [fetch-timeout] fetch timeout after 15000ms (elapsed 15001ms) operation=fetchWithSsrFGuard url=https://catalog.openclaw.ai/models/v2/catalog.json
+2026-10-14T06:58:51.421+00:00 [diagnostic] lane task error: lane=main durationMs=5126 error="This operation was aborted" errorName=AbortError taskKind=turn sessionKey=agent:main:stopcheck-f-s3 runId=9c4c36f8-4d76-4d50-a3ec-4718179fbb6c
+2026-10-14T06:58:51.424+00:00 [diagnostic] lane task error: lane=session:agent:main:stopcheck-f-s3 durationMs=5130 error="This operation was aborted" errorName=AbortError taskKind=turn sessionKey=agent:main:stopcheck-f-s3 runId=9c4c36f8-4d76-4d50-a3ec-4718179fbb6c
+2026-10-14T06:58:51.425+00:00 [model-fallback/decision] model fallback chain stopped: reason=caller_signal_aborted candidate=standin/stopcheck-f-hold errorName=AbortError
+[state/agent-db] agent database clean-close receipt: active-leases
+2026-10-14T06:59:59.471+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2
+2026-10-14T07:00:29.530+00:00 [gateway] still draining active work before stop: backgroundExecSessions=2

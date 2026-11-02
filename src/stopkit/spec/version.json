@@ -1,0 +1,5 @@
+{
+ "spec_version": "1.0.0-rc1",
+ "date": "2026-10-26",
+ "status": "release candidate: frozen only after every binding passes its smoke test and E0 (EXECUTION-PLAN.md section 2)"
+}

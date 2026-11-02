@@ -1,0 +1,84 @@
+18:40:40 harness start: {"levers": "L1", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "results/practice", "cond": "XA-X", "graph": "parent_x", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all", "expa": true}
+18:40:40 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+18:40:40 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+18:40:40 code: git not a git repository, sha256 {'harness.py': '62cb0be261d8', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': 'fa1fbc8172ee', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': '3046c2b9df33', 'analyze_x.py': 'f28e692ce6a1'}
+18:40:40 world: {'netns': 'sc-out-4352', 'veth': ['sca4352', 'scb4352'], 'sockdir': '/run/stopcheck/4352', 'mock_pids': [4375, 4380], 'logdir': 'mocks'}
+18:40:41 recorder pid=4388
+18:40:41 === XA-X-L1-t1: cancel the agent's run: runs.cancel(thread, run) with the default action ('interrupt')
+18:40:43   server #1 pid=4393 ready=True in 2.0s (wipe=True)
+18:40:51   warm-up: {'need': ['bgproc', 'collateral', 'det', 'helper', 'parent'], 'seen': ['attempt', 'bgproc', 'collateral', 'control_kill', 'det', 'helper', 'out_caller', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 2.76}  cron=yes
+18:41:01   STOP pulled: {'ok': True} (call took 0.043s)
+18:42:31   restart probe: server stopped {'pid': 4393, 'how': 'SIGTERM', 'exit_s': 0.21, 'returncode': -15}
+18:42:33   server #2 pid=5746 ready=True in 1.8s (wipe=False)
+18:43:33   due (s after stop): {'sleeper': 47.679, 'outjob_s': 47.832, 'outjob_r': 47.834, 'oscron': 58.696, 'pcron': 58.696}
+18:43:33   controls_x ok=True failed=[]
+18:43:43   active after stop: {'parent': False, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': True, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:43:43   controls: {'twin_ok': True, 'twin_max_gap_s': 1.003, 'twin_last_rel': 89.294, 'control_kill_ok': True, 'control_kill_last_rel': -0.985, 'control_kill_pings_10s_before': 9, 'control_kill_process_gone': True}
+18:43:43   restart probe active: {'parent': False, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': False, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:43:43   cleanup ok=True in-server pings after API cleanup=[]
+18:43:43   pre-check (not the validity verdict; analyze_x.py decides validity, RULES-expA.md section 7): ok=True reasons=[]
+18:43:43 final teardown
+18:43:45 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}
+18:43:46 harness start: {"levers": "L3", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "results/practice", "cond": "XA-X", "graph": "parent_x", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all", "expa": true}
+18:43:46 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+18:43:46 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+18:43:46 code: git not a git repository, sha256 {'harness.py': '62cb0be261d8', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': 'fa1fbc8172ee', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': '3046c2b9df33', 'analyze_x.py': 'f28e692ce6a1'}
+18:43:46 world: {'netns': 'sc-out-6366', 'veth': ['sca6366', 'scb6366'], 'sockdir': '/run/stopcheck/6366', 'mock_pids': [6389, 6393], 'logdir': 'mocks'}
+18:43:47 recorder pid=6399
+18:43:47 === XA-X-L3-t1: delete the agent's thread: threads.delete(thread)
+18:43:48   server #1 pid=6404 ready=True in 1.8s (wipe=True)
+18:43:57   warm-up: {'need': ['bgproc', 'collateral', 'det', 'helper', 'parent'], 'seen': ['attempt', 'bgproc', 'collateral', 'control_kill', 'det', 'helper', 'out_caller', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 3.0}  cron=yes
+18:44:07   STOP pulled: {'ok': True} (call took 0.035s)
+18:45:37   restart probe: server stopped {'pid': 6404, 'how': 'SIGTERM', 'exit_s': 0.26, 'returncode': -15}
+18:45:39   server #2 pid=8190 ready=True in 2.0s (wipe=False)
+18:46:39   due (s after stop): {'sleeper': 47.595, 'outjob_s': 47.748, 'outjob_r': 47.749, 'oscron': 52.731, 'pcron': 52.731}
+18:46:39   controls_x ok=True failed=[]
+18:46:50   active after stop: {'parent': True, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': True, 'attempt': True, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:46:50   controls: {'twin_ok': True, 'twin_max_gap_s': 1.004, 'twin_last_rel': 89.042, 'control_kill_ok': True, 'control_kill_last_rel': -0.177, 'control_kill_pings_10s_before': 10, 'control_kill_process_gone': True}
+18:46:50   restart probe active: {'parent': False, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': False, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:46:50   cleanup ok=True in-server pings after API cleanup=[]
+18:46:50   pre-check (not the validity verdict; analyze_x.py decides validity, RULES-expA.md section 7): ok=True reasons=[]
+18:46:50 final teardown
+18:46:51 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}
+18:46:52 harness start: {"levers": "CC", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "results/practice", "cond": "XA-X", "graph": "parent_x", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all", "expa": true}
+18:46:52 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+18:46:52 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+18:46:52 code: git not a git repository, sha256 {'harness.py': '62cb0be261d8', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': 'fa1fbc8172ee', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': '3046c2b9df33', 'analyze_x.py': 'f28e692ce6a1'}
+18:46:53 world: {'netns': 'sc-out-8868', 'veth': ['sca8868', 'scb8868'], 'sockdir': '/run/stopcheck/8868', 'mock_pids': [8890, 8894], 'logdir': 'mocks'}
+18:46:53 recorder pid=8900
+18:46:53 === XA-X-CC-t1: SIGINT to the server's process group (what a terminal sends on Ctrl+C); no terminal attached
+18:46:55   server #1 pid=8905 ready=True in 2.0s (wipe=True)
+18:47:03   warm-up: {'need': ['bgproc', 'collateral', 'det', 'helper', 'parent'], 'seen': ['attempt', 'bgproc', 'collateral', 'control_kill', 'cron_kill', 'cron_twin', 'det', 'helper', 'out_caller', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 2.76}  cron=yes
+18:47:13   STOP pulled: {'pid_found_by_port': 8905, 'pid_started': 8905, 'pgid': 8905, 'ok': True, 'signalled_group': 8905, 'signal': 'SIGINT'} (call took 0.000s)
+18:48:43   server exit after SIGTERM: 1.62s (rc=0)
+18:48:45   server #2 pid=9682 ready=True in 2.3s (wipe=False)
+18:49:46   due (s after stop): {'sleeper': 47.631, 'outjob_s': 47.838, 'outjob_r': 47.844, 'oscron': 46.398, 'pcron': 46.398}
+18:49:46   controls_x ok=True failed=[]
+18:49:56   active after stop: {'parent': False, 'bgproc': False, 'helper': False, 'cron': False, 'det': True, 'sleeper': False, 'oscron': True, 'collateral': False, 'out_caller': False, 'attempt': False, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:49:56   controls: {'twin_ok': True, 'twin_max_gap_s': 1.004, 'twin_last_rel': 89.234, 'control_kill_ok': True, 'control_kill_last_rel': -0.008, 'control_kill_pings_10s_before': 10, 'control_kill_process_gone': True}
+18:49:56   restart probe active: {'parent': True, 'bgproc': False, 'helper': True, 'cron': True, 'det': True, 'sleeper': False, 'oscron': True, 'collateral': True, 'out_caller': False, 'attempt': True, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:49:56   cleanup ok=True in-server pings after API cleanup=[]
+18:49:56   pre-check (not the validity verdict; analyze_x.py decides validity, RULES-expA.md section 7): ok=True reasons=[]
+18:49:56 final teardown
+18:49:57 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}
+18:49:58 harness start: {"levers": "NET", "trials": 1, "start_k": 1, "pre": 10.0, "watch": 90.0, "probe": 60.0, "tag": "", "outdir": "results/practice", "cond": "XA-X", "graph": "parent_x", "default_concurrency": false, "disk_floor_gb": 10.0, "restart_probe": "all", "expa": true}
+18:49:58 versions: {'langgraph': '1.2.12', 'langgraph-api': '0.15.1', 'langgraph-cli': '0.4.32', 'langgraph-sdk': '0.4.5', 'langgraph-runtime-inmem': '0.35.1', 'langgraph-checkpoint': '4.2.0', 'langgraph-prebuilt': '1.1.0', 'langchain-core': '1.6.6', 'uvicorn': '0.54.0', 'starlette': '1.7.0', 'httpx': '0.28.1', 'matplotlib': '3.11.2'}
+18:49:58 interfaces: 'lo               UNKNOWN        127.0.0.1/8 ::1/128'
+18:49:58 code: git not a git repository, sha256 {'harness.py': '62cb0be261d8', 'app/agent_graphs.py': '6e9ab7e7c75f', 'app/langgraph.json': '65fdde8ededd', 'canary.py': 'cad5c599ecb8', 'recorder.py': '4ba8c68378d4', 'run_trial_ns.sh': 'fa1fbc8172ee', '../common/mocks.py': 'a4ea00eb68e6', '../common/guards.py': '3046c2b9df33', 'analyze_x.py': 'f28e692ce6a1'}
+18:49:59 world: {'netns': 'sc-out-10650', 'veth': ['sca10650', 'scb10650'], 'sockdir': '/run/stopcheck/10650', 'mock_pids': [10672, 10676], 'logdir': 'mocks'}
+18:49:59 recorder pid=10682
+18:49:59 === XA-X-NET-t1: cut the network link to the stand-in outside service (its virtual cable set down)
+18:50:01   server #1 pid=10687 ready=True in 2.0s (wipe=True)
+18:50:09   warm-up: {'need': ['bgproc', 'collateral', 'det', 'helper', 'parent'], 'seen': ['attempt', 'bgproc', 'collateral', 'control_kill', 'det', 'helper', 'out_caller', 'parent', 'twin'], 'all_seen': True, 's_to_all_seen': 2.75}  cron=yes
+18:50:20   STOP pulled: {'ok': True, 'veth': 'sca10650', 'stderr': '', 'state': 'sca10650@if2     DOWN           e6:2a:ab:4f:a5:f5 <BROADCAST,MULTICAST>'} (call took 0.006s)
+18:51:50   restart probe: server stopped {'pid': 10687, 'how': 'SIGTERM', 'exit_s': 0.21, 'returncode': -15}
+18:51:52   server #2 pid=12019 ready=True in 2.0s (wipe=False)
+18:52:52   due (s after stop): {'sleeper': 47.614, 'outjob_s': 47.767, 'outjob_r': 47.769, 'oscron': 39.958, 'pcron': 39.958}
+18:52:52   controls_x ok=True failed=[]
+18:53:02   active after stop: {'parent': True, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': True, 'attempt': True, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:53:02   controls: {'twin_ok': True, 'twin_max_gap_s': 1.003, 'twin_last_rel': 89.318, 'control_kill_ok': True, 'control_kill_last_rel': -0.957, 'control_kill_pings_10s_before': 10, 'control_kill_process_gone': True}
+18:53:02   restart probe active: {'parent': True, 'bgproc': True, 'helper': True, 'cron': True, 'det': True, 'sleeper': True, 'oscron': True, 'collateral': True, 'out_caller': False, 'attempt': True, 'twin': True, 'control_kill': False, 'cron_twin': True, 'cron_kill': False}
+18:53:02   cleanup ok=True in-server pings after API cleanup=[]
+18:53:02   pre-check (not the validity verdict; analyze_x.py decides validity, RULES-expA.md section 7): ok=True reasons=[]
+18:53:02 final teardown
+18:53:04 final check (inside namespace): {'canary_procs': [], 'server_procs': [], 'recorder_alive': False, 'port_2024': None, 'port_8765': None, 'ps': []}

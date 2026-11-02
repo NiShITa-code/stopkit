@@ -1,0 +1,62 @@
+{
+ "trial": "SMOKE-L1-t1",
+ "t_launch": 1791438910.527575,
+ "server_pid": 710,
+ "parent_run_id": "01a11a14-71a9-7f80-bc43-0aa5c24877c9",
+ "attempt": 1,
+ "config_keys": {
+  "top": [
+   "callbacks",
+   "configurable",
+   "metadata",
+   "recursion_limit"
+  ],
+  "metadata": [
+   "assistant_id",
+   "created_by",
+   "graph_id",
+   "langgraph_api_url",
+   "langgraph_api_version",
+   "langgraph_checkpoint_ns",
+   "langgraph_host",
+   "langgraph_node",
+   "langgraph_path",
+   "langgraph_plan",
+   "langgraph_step",
+   "langgraph_triggers",
+   "langgraph_version",
+   "role",
+   "run_attempt",
+   "run_id",
+   "thread_id",
+   "trial"
+  ],
+  "configurable": [
+   "assistant_id",
+   "checkpoint_id",
+   "checkpoint_map",
+   "checkpoint_ns",
+   "graph_id",
+   "langgraph_auth_permissions",
+   "langgraph_auth_user",
+   "langgraph_auth_user_id",
+   "langgraph_request_id",
+   "run_id",
+   "thread_id",
+   "user_id"
+  ]
+ },
+ "bgproc_pid": 727,
+ "helper_thread_id": "01a11a14-7479-7591-ab8a-f6d19ddc0eb2",
+ "helper_run_id": "01a11a14-7480-7ce1-ab4a-10081525fc1c",
+ "cron_id": "01a11a14-7488-7bd3-87ba-8986975ab59d",
+ "cron_created": {
+  "cron_id": "01a11a14-7488-7bd3-87ba-8986975ab59d",
+  "assistant_id": "51f239a0-b773-58df-b115-1f2c4818cc25",
+  "thread_id": "None",
+  "schedule": "* * * * *",
+  "next_run_date": "2026-10-08T05:56:00+00:00",
+  "enabled": "True"
+ },
+ "t_launch_done": 1791438910.6061544
+}

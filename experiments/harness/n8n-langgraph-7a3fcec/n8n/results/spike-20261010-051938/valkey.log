@@ -1,0 +1,15 @@
+751:C 10 Oct 2026 05:19:41.595 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+751:C 10 Oct 2026 05:19:41.600 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+751:C 10 Oct 2026 05:19:41.601 * Valkey version=7.2.13, bits=64, commit=00000000, modified=0, pid=751, just started
+751:C 10 Oct 2026 05:19:41.602 * Configuration loaded
+751:M 10 Oct 2026 05:19:41.604 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+751:M 10 Oct 2026 05:19:41.605 * monotonic clock: POSIX clock_gettime
+751:M 10 Oct 2026 05:19:41.608 * Running mode=standalone, port=6380.
+751:M 10 Oct 2026 05:19:41.611 * Server initialized
+751:M 10 Oct 2026 05:19:41.612 * Ready to accept connections tcp
+751:signal-handler (
+Session terminated, killing shell...1791606007) 751:signal-handler (Received SIGTERM scheduling shutdown...
+1791606007) Received SIGTERM scheduling shutdown...
+751:M 10 Oct 2026 05:20:07.713 * User requested shutdown...
+751:M 10 Oct 2026 05:20:07.715 # Valkey is now ready to exit, bye bye...
+ ...killed.
