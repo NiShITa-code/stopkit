@@ -16,4 +16,7 @@ regexes = [
   '''^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$''',
   # the dated feature names a client sends in its request headers
   '''^[a-z]+(?:-[a-z]+)*-20[0-9]{2}-[0-9]{2}-[0-9]{2}$''',
+  # a keyword argument given a plain number, which the generic key rule reads after a parameter named token
+  # (scrub_tree(root, token, max_bytes=256 * 1024 * 1024) in the frozen OpenClaw code)
+  '''^[a-z_]+=[0-9]+$''',
 ]
