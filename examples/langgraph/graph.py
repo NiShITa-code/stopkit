@@ -10,7 +10,7 @@ Every action is a request to the outside service that demo.py runs, which shows 
 
 graph_async is the same main task written as an async function, with no helper and no scheduled job. The server offers
 it as `agent_async`, but the demo does not launch it. In round 1 of the LangGraph trials, cancelling the run stopped a
-tool that waits with `await` but not a plain function running in a thread (experiments/docs/WHAT-EACH-STOP-REACHES.md).
+tool that waits with `await` but not a plain function running in a thread (experiments/docs/WHAT-EACH-STOP-REACHES.md at commit 19544dd).
 """
 import asyncio
 import json

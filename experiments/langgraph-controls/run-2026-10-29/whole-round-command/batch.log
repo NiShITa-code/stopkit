@@ -1,6 +1,0 @@
-2026-10-29T18:53:09 batch start: rounds 1; 33 cells; KEYC has no class in the predictions and is run as D (3 trials)
-2026-10-29T18:53:09 freeze record written: /opt/shutdown-experiments-dir/experiments/langgraph-round1/code/langgraph/results/expA/FREEZE.json
-2026-10-29T18:53:09 round 1: 33 trials
-2026-10-29T18:53:09   start XA-C2A-S1-t1 (parent_c2a)
-2026-10-29T18:56:14   end   XA-C2A-S1-t1 rc=0 in 3.1 min
-2026-10-29T18:56:14 stop file found; ending the batch

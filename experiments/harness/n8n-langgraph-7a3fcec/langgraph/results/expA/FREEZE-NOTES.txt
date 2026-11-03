@@ -1,7 +1,0 @@
-92be8c02dd22318f695f65a6285e9ec02bd51f3f85debb739777b0d8ac807beb *naive_checks.py
-f28e692ce6a1768d7a33af9924907b0327aaa7886b6853bea3d373a73d2baedd *analyze_x.py
-2026-10-09T16:58:23+01:00
-c518979a5f36ff017d10bece983bda422aac1bc8ffdcd24472ade0c060d174d1 *naive_checks.py
-2026-10-09T18:00:53+01:00 naive_checks.py: text-only correction of the docstring and report header (timeline); logic unchanged, outputs identical below the header
-0725e8f40f7c4668e455671c6d50c6824aad749afe8fa6ff86447cbc8283b20a *naive_checks.py
-2026-10-09T18:22:11+01:00 naive_checks.py: logic fix after round 1 - tcp-only now keeps the restart check (was 3 of 33 missed, now 0 of 33); other checks unchanged

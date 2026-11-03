@@ -1,8 +1,0 @@
-data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
-
-data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{"tool_calls":[{"index":0,"id":"callstopcheckf1","type":"function","function":{"name":"exec","arguments":"{\"title\":\"StopCheck spike canary\",\"command\":\"python3 -c 'import os,time,urllib.request\\nbase='\\\"'\\\"'http://127.0.0.1:18799/ping'\\\"'\\\"'\\ntag='\\\"'\\\"'stopcheck-f-af49d070-pk'\\\"'\\\"'\\nfor n in range(1000):\\n q='\\\"'\\\"'?canary=%s&n=%d&pid=%d'\\\"'\\\"'%(tag,n,os.getpid())\\n try:\\n  urllib.request.urlopen(base+q,timeout=2).read()\\n except Exception:\\n  pass\\n time.sleep(1)'\",\"background\":true,\"timeoutSeconds\":900}"}}]},"finish_reason":null}]}
-
-data: {"id":"chatcmpl-stopcheck-f","object":"chat.completion.chunk","model":"scripted","choices":[{"index":0,"delta":{},"finish_reason":"tool_calls"}]}
-
-data: [DONE]
-

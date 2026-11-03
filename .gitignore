@@ -1,5 +1,6 @@
-# The source archive the records are built from (experiments/scripts/build_data.py).
-/experiments/data/source/
+# The earlier studies, which the repository held up to commit 19544dd and which are kept outside it since
+# (README.md, Previous work).
+/experiments/
 /.venv/
 __pycache__/
 *.pyc
@@ -9,8 +10,6 @@ __pycache__/
 .DS_Store
 # Runs of the kit write their folders here by default.
 /results/*/
-# Runs of the client probe write their folders here.
-/experiments/claude-code-codex/results/
 /reports/
 # Test logins written by the setup scripts.
 *.env

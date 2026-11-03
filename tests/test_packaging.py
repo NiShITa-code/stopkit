@@ -1,17 +1,18 @@
 """Packaging checks for this repository, run by pytest on every push.
 
-The checks read four things: the text of every tracked file (vocabulary,
+The checks read three things: the text of every tracked file (vocabulary,
 register, spelling, citations), the layout of the README and its agreement with
-the tree, the contents and messages of every reachable commit, and whether the
-results builder reproduces experiments/results/results.json byte for byte.
+the tree, and the contents and messages of every reachable commit.
 
-The recorded trials and the frozen code they ran are shipped as recorded, apart
-from the substitutions experiments/data/MANIFEST.json lists, so the checks on wording and
-names skip them; experiments/data/MANIFEST.json lists every one of them with its SHA-256.
+The recorded runs in validation/ are shipped as recorded, so the checks on wording
+and names skip them. So do the checks of the history, for the records of the
+earlier studies, which the repository held in experiments/ up to commit EARLIER:
+the manifest that commit holds lists every recorded file with its SHA-256.
 """
 
 from __future__ import annotations
 
+import functools
 import hashlib
 import json
 import re
@@ -27,10 +28,10 @@ SELF = Path(__file__).resolve().relative_to(ROOT).as_posix()
 # scans skip this file under each of them, as they do under SELF.
 SELF_EARLIER_PATHS: tuple[str, ...] = ()
 CI = ".github/workflows/ci.yml"
-RESULTS = ROOT / "experiments" / "results" / "results.json"
-BUILDER = ROOT / "experiments" / "scripts" / "build_results.py"
-MANIFEST = ROOT / "experiments" / "data" / "MANIFEST.json"
-# Files experiments/data/MANIFEST.json lists under these prefixes are moved code, held to every check.
+# The last commit that holds the earlier studies, experiments/, which are kept outside the repository since. Its
+# experiments/data/MANIFEST.json lists the recorded files, in validation/ and in experiments/, with their SHA-256.
+EARLIER = "19544dda0a08ef0e1532735d8505a671609a5959"
+# Files the manifest lists under these prefixes are moved code, held to every check.
 MOVED_CODE = ("src/", "tests/", "examples/")
 # Home folders the records hold that belong to no person (.github/scripts/identity_scan.py lists the same).
 ACCOUNTS = frozenset(
@@ -48,10 +49,19 @@ ACCOUNTS = frozenset(
 )
 
 
+@functools.lru_cache(maxsize=1)
+def manifest() -> dict:
+    """The recorded files by path, each with its SHA-256: experiments/data/MANIFEST.json as commit EARLIER holds it."""
+    r = subprocess.run(
+        ["git", "show", f"{EARLIER}:experiments/data/MANIFEST.json"], cwd=ROOT, capture_output=True, text=True
+    )
+    assert r.returncode == 0, f"commit {EARLIER[:7]} is not in this checkout; these checks need the full history"
+    return json.loads(r.stdout)["files"]
+
+
 def records() -> set[str]:
-    """The recorded files: everything experiments/data/MANIFEST.json lists outside the moved code."""
-    files = json.loads(MANIFEST.read_text())["files"]
-    return {p for p in files if not p.startswith(MOVED_CODE)}
+    """The recorded files: everything the manifest lists outside the moved code."""
+    return {p for p in manifest() if not p.startswith(MOVED_CODE)}
 
 
 def tracked() -> list[str]:
@@ -93,21 +103,10 @@ def scan(pattern: str, files: dict[str, str]) -> dict[str, list[str]]:
 # --- local source directory ----------------------------------------------------
 
 
-def test_working_notes_are_not_tracked():
-    """A local source directory is ignored, nothing under it is tracked, and a MANIFEST.json is tracked.
-
-    The source directory is any .gitignore entry ending in source/ or author/.
-    The tracked MANIFEST.json records the hashes of the files it holds.
-    """
-    ignored = [
-        ln.strip()
-        for ln in (ROOT / ".gitignore").read_text().splitlines()
-        if ln.strip().endswith("source/") or ln.strip().endswith("author/")
-    ]
-    assert ignored, "no .gitignore entry for a local source directory"
-    leaked = [f for f in tracked() if any(f.startswith(d) for d in ignored)]
-    assert not leaked, f"files under an ignored source directory are tracked: {leaked}"
-    assert any(f.endswith("MANIFEST.json") for f in tracked()), "no MANIFEST.json is tracked"
+def test_the_earlier_studies_are_not_tracked():
+    """Nothing under experiments/ is tracked: the earlier studies are kept outside the repository since EARLIER."""
+    held = [f for f in tracked() if f.startswith("experiments/")]
+    assert not held, f"files under experiments/ are tracked: {held[:5]}"
 
 
 # --- publication status --------------------------------------------------------
@@ -123,7 +122,7 @@ def test_no_venue_attribution_for_this_work():
     """Every venue named in a Markdown file is also named in a tracked file that is not Markdown.
 
     A venue cited for prior work is recorded with that work in a shipped record
-    such as experiments/data/MANIFEST.json. A venue named only in documentation has no such
+    that is not Markdown. A venue named only in documentation has no such
     record and fails the check.
     """
     rx = re.compile(r"\b(AAAI|ICLR|NeurIPS|ICML|EACL|ACL|CVPR|ECCV|USENIX|TMLR|ICCV)\b")
@@ -210,7 +209,7 @@ def test_no_internal_vocabulary_in_filenames():
 
 
 def test_no_internal_vocabulary_in_public_names():
-    """Subcommands, HTTP routes, environment variables and top-level result keys avoid STRUCTURAL_VOCABULARY.
+    """Subcommands, HTTP routes and environment variables avoid STRUCTURAL_VOCABULARY.
 
     Subcommands are read from the `choices=` tuples in cli.py, routes from the
     decorators in app.py, and environment variables from app.py, cli.py and
@@ -239,12 +238,6 @@ def test_no_internal_vocabulary_in_public_names():
     if env:
         offenders["environment variables"] = env
 
-    if RESULTS.is_file():
-        keys = list(json.loads(RESULTS.read_text()).keys())
-        bad = [k for k in keys if STRUCTURAL_VOCABULARY.search(k)]
-        if bad:
-            offenders["top-level result keys"] = bad
-
     assert not offenders, f"internal vocabulary in public names: {offenders}"
 
 
@@ -252,14 +245,15 @@ def test_the_readme_tree_matches_the_repository():
     """The README's tree names every tracked file and no untracked one; a recorded file, by its folder.
 
     The folder of a recorded file is the one directly under its top-level
-    folder (experiments/<folder>/..., experiments/harness/<folder>/...).
+    folder (validation/<folder>/...).
     """
     readme = (ROOT / "README.md").read_text()
     m = re.search(r"## Files and what they do\n.*?```\n(.*?)\n```", readme, re.S)
     assert m, "no tree of the files"
     tree = m.group(1)
-    recorded = records()
-    missing = [f for f in tracked() if f not in recorded and Path(f).name not in tree]
+    files = tracked()
+    recorded = records() & set(files)
+    missing = [f for f in files if f not in recorded and Path(f).name not in tree]
     missing += sorted({Path(f).parts[1] for f in recorded if Path(f).parts[1] not in tree})
     invented = [
         n
@@ -285,22 +279,6 @@ def test_the_readme_route_list_is_complete():
 # --- results file --------------------------------------------------------------
 
 
-def test_served_json_has_no_undefined_shorthand():
-    """experiments/results/results.json contains no shorthand term that needs the build's context to be read."""
-    blob = json.dumps(json.loads(RESULTS.read_text()))
-    rx = re.compile(r"the.anchor\b|the.trap.row|min.vs.max|the.headline\b|\brivals?\b", re.I)
-    assert not rx.search(blob), f"undefined shorthand in experiments/results/results.json: {rx.findall(blob)}"
-
-
-def test_the_checks_field_is_structured():
-    """The results file's `checks` field is an object listing at least three checks of over 40 characters."""
-    checks = json.loads(RESULTS.read_text())["checks"]
-    assert isinstance(checks, dict), "the checks field is not an object"
-    assert len(checks.get("checks", [])) >= 3, "fewer than three checks are described"
-    for c in checks["checks"]:
-        assert len(c) > 40, f"check description of 40 characters or fewer: {c!r}"
-
-
 # --- program output ------------------------------------------------------------
 
 
@@ -318,7 +296,6 @@ def test_program_output_is_readable_by_a_stranger():
     sources = [
         ROOT / "src" / PKG / "cli.py",
         *(ROOT / ".github" / "scripts").glob("*.py"),
-        *(ROOT / "experiments" / "scripts").glob("*.py"),
     ]
     offenders = {}
     for f in sources:
@@ -383,30 +360,11 @@ def test_no_findings_or_limitations_section():
     assert not hits, f"findings or limitations heading in documentation: {hits}"
 
 
-def test_no_readme_prose_restates_the_runbook_or_the_served_results():
-    """No figure with three or more decimals in README prose appears in experiments/RUNBOOK.md or the results file.
-
-    Lines that start a table row, a code fence, an indented block or a heading
-    are not prose and are skipped.
-    """
-    readme = (ROOT / "README.md").read_text()
-    runbook = ROOT / "experiments/RUNBOOK.md"
-    others = (runbook.read_text() if runbook.is_file() else "") + (RESULTS.read_text() if RESULTS.is_file() else "")
-    prose = [ln for ln in readme.splitlines() if ln.strip() and not ln.startswith(("|", "```", "  ", "\t", "#"))]
-    # A number that follows "arXiv:" is an identifier, not a figure.
-    figure = r"(?<!arXiv:)\b\d+\.\d{3,}\b"
-    carried = sorted({f for ln in prose for f in re.findall(figure, ln) if f in others})
-    assert not carried, (
-        f"figures in README prose that experiments/RUNBOOK.md or the results file also states: {carried}; "
-        "state each figure in one place"
-    )
-
-
 # --- completeness of this file -------------------------------------------------
 
 EXPECTED_CHECKS = frozenset(
     {
-        "test_working_notes_are_not_tracked",
+        "test_the_earlier_studies_are_not_tracked",
         "test_no_release_process_or_review_status_language",
         "test_no_venue_attribution_for_this_work",
         "test_no_adversarial_framing",
@@ -417,10 +375,7 @@ EXPECTED_CHECKS = frozenset(
         "test_no_internal_vocabulary_in_public_names",
         "test_the_readme_tree_matches_the_repository",
         "test_the_readme_route_list_is_complete",
-        "test_served_json_has_no_undefined_shorthand",
-        "test_the_checks_field_is_structured",
         "test_no_findings_or_limitations_section",
-        "test_no_readme_prose_restates_the_runbook_or_the_served_results",
         "test_readme_has_no_project_management_sections",
         "test_readme_has_the_required_sections",
         "test_no_dangling_file_references",
@@ -431,8 +386,6 @@ EXPECTED_CHECKS = frozenset(
         "test_no_unsourced_citation",
         "test_license_is_present_and_named",
         "test_ci_blocks_on_secret_and_identity_scans",
-        "test_the_gate_is_reproducible",
-        "test_release_copy_matches_the_gated_artifact",
         "test_program_output_is_readable_by_a_stranger",
         "test_every_expected_check_is_present",
         "test_no_personal_home_folder_in_history",
@@ -487,7 +440,7 @@ def test_no_dangling_file_references():
 
 
 def test_documented_test_count_matches_reality():
-    """Every test count stated in README.md or experiments/RUNBOOK.md equals the number pytest collects."""
+    """Every test count stated in README.md equals the number pytest collects."""
     r = subprocess.run(
         [str(ROOT / ".venv/bin/python"), "-m", "pytest", "-q", "--collect-only"],
         cwd=ROOT,
@@ -498,7 +451,7 @@ def test_documented_test_count_matches_reality():
     if not m:
         pytest.skip("pytest --collect-only reported no test count")
     actual = int(m.group(1))
-    for name in ("README.md", "experiments/RUNBOOK.md"):
+    for name in ("README.md",):
         for claimed in re.findall(r"(\d+)\s+(?:offline|tests)", (ROOT / name).read_text()):
             assert int(claimed) == actual, f"{name} states {claimed} tests; pytest collects {actual}"
 
@@ -535,8 +488,7 @@ def _reachable_hits(pattern: str, skip_records: bool = False) -> list[str]:
         hits += [ln for ln in r.stdout.splitlines() if ln.strip()]
     if skip_records:
         recorded = records()
-        manifest = json.loads(MANIFEST.read_text())["files"]
-        recorded_sha = {manifest[p]["sha256"] for p in recorded}
+        recorded_sha = {manifest()[p]["sha256"] for p in recorded}
         hits = [h for h in hits if h.split(":", 1)[1] not in recorded and _blob_sha256(h) not in recorded_sha]
     return hits
 
@@ -602,7 +554,7 @@ def test_no_unsourced_citation():
     """A citation by author list, arXiv identifier or parenthesized year needs a record outside documentation.
 
     If a Markdown file carries a citation in one of these forms, at least one
-    tracked file that is not Markdown, such as experiments/data/MANIFEST.json, must carry
+    tracked file that is not Markdown must carry
     one too. A work cited by its title alone needs no record.
     """
     claims = re.compile(r"\bet al\.|arXiv:\s*\d|\b(?:19|20)\d{2}[a-z]?\)")
@@ -643,31 +595,3 @@ def test_ci_blocks_on_secret_and_identity_scans():
     assert re.search(r"needs:\s*\[secrets,\s*identity\]", ci), "the test job does not wait for both scans"
     assert "secrets.IDENTITY_PATTERN" in ci, "the identity pattern is not read from a repository secret"
     assert not re.search(r"git grep[^\n]*\|[a-z]+\|", ci), "a literal names pattern is in the workflow"
-
-
-# --- results build -------------------------------------------------------------
-
-
-def test_the_gate_is_reproducible():
-    """experiments/scripts/build_results.py exits 0 and writes experiments/results/results.json unchanged, byte for "
-    "byte."""
-    before = RESULTS.read_bytes()
-    r = subprocess.run(
-        [str(ROOT / ".venv/bin/python"), str(BUILDER.relative_to(ROOT))],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-    )
-    assert r.returncode == 0, f"experiments/scripts/build_results.py exited with {r.returncode}:\n{r.stdout}{r.stderr}"
-    assert RESULTS.read_bytes() == before, (
-        "experiments/scripts/build_results.py changed experiments/results/results.json"
-    )
-
-
-def test_release_copy_matches_the_gated_artifact():
-    """release/results.json, when it exists, is byte-identical to experiments/results/results.json."""
-    copy = ROOT / "release" / "results.json"
-    if copy.exists():
-        assert RESULTS.read_bytes() == copy.read_bytes(), (
-            "release/results.json differs from experiments/results/results.json"
-        )

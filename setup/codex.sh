@@ -4,8 +4,8 @@
 # The Codex CLI 0.164.0 for Linux on x86-64 into /opt/stopkit-codex/0.164.0: npm's package for that platform,
 # @openai/codex@0.164.0-linux-x64, which holds Codex's own executable, downloaded from the npm registry and checked
 # against the pinned sha512 (the integrity that the registry and the client probe's lock file record,
-# experiments/claude-code-codex/clients/codex-0.164.0/package-lock.json); then the executable is checked against the
-# SHA-256 that the client probe recorded on 25 October 2026. The kit runs that executable, as the client probe did, so
+# experiments/claude-code-codex/clients/codex-0.164.0/package-lock.json at commit 19544dd); then the executable is
+# checked against the SHA-256 that the client probe recorded on 25 October 2026. The kit runs that executable, as the client probe did, so
 # npm's launcher (a Node.js script that starts it) and Node.js are not needed. Root owns it; the test account can run
 # it but not change it. Codex runs shell commands for its model; the kit runs it against its scripted model stand-in,
 # with the agent account kept off the network.

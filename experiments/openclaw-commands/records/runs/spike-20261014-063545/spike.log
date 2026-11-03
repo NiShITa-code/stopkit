@@ -1,7 +1,0 @@
-06:35:45 spike folder /var/lib/stopcheck-openclaw/runs/spike-20261014-063545 nonce 34806151
-06:36:27 gateway launched, pid 4027
-06:36:44 gateway healthy
-06:36:44 gateway ready
-06:37:28 gated verdict NO-GO (fixed before the observations)
-06:40:40 gateway stop: S12 (crash): the SIGTERM grace expired and SIGKILL was sent to the Gateway pid
-06:40:51 verdict NO-GO

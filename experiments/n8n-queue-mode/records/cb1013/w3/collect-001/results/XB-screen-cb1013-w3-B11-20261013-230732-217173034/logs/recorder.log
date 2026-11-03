@@ -1,2 +1,0 @@
-recorder also listening on /run/stopcheck/49870/recorder.sock
-recorder listening on 127.0.0.1:8765, writing /root/stopcheck/n8n/results/XB-screen-cb1013-w3-B11-20261013-230732-217173034/pings.jsonl

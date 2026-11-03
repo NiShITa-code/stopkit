@@ -269,7 +269,7 @@ The self-test and a check of the recorder on its own passed on 27 October 2026, 
 
 ## Previous work
 
-The folder [experiments/](experiments/README.md) holds the studies the kit grew out of. They tested what the stops of n8n, LangGraph's development server, Temporal, OpenClaw, Claude Code and Codex reach, each on a real, pinned installation, and the folder keeps each study's guide, code and recorded runs; its README sums up what each platform's own controls reached. You don't need any of it to use the kit: the kit never reads this folder, and your own runs are written to `results/`. To check the recorded runs again, run `python3 -B experiments/verify.py`; it needs only Python 3.11 or later, with no root, no Linux machine and no network.
+The kit grew out of earlier studies of what the stops of n8n, LangGraph's development server, Temporal, OpenClaw, Claude Code and Codex reach, each on a real, pinned installation. They are not in this repository, which holds only the kit, and you don't need any of them to use it. The repository held them in `experiments/` up to commit 19544dd, with each study's guide, code and recorded runs, and a script that checks the recorded runs again; in a clone, `git switch --detach 19544dd` shows the repository as it was then, and `git switch main` returns.
 
 ## How the kit is built
 
@@ -466,78 +466,12 @@ To follow one run through the code, read five files in this order. `cli.py` turn
 │   └── openclaw/
 │       ├── README.md                     # how to check it, and how it relates to the binding
 │       └── agent.toml                    # OpenClaw's Gateway, written as a config file
-├── validation/                           # the records of the kit's own checks (docs/VALIDATION.md)
-│   ├── e0-20261027-092228-f20558
-│   ├── langgraph-example-20261027.log
-│   ├── langgraph-example-20261101-server.log
-│   ├── langgraph-example-20261101.log
-│   └── selftest-20261027T091012Z-70406a
-└── experiments/                          # previous work: the studies the kit grew out of
-    ├── README.md                         # the studies: questions, findings, records, how to recheck them
-    ├── RUNBOOK.md                        # regenerating the evidence; each check and what makes it fail
-    ├── verify.py                         # reruns every check and compares with results/results.json
-    ├── n8n-queue-mode/                   # n8n in queue mode: 19 conditions on 13 October, and the runs of 29 October
-    │   └── README.md                     # its guide
-    ├── n8n-restart/                      # the stop after a main restart: scripts, 11 reproductions
-    │   └── README.md                     # its guide
-    ├── langgraph-controls/               # LangGraph's development server: 33 trials on 9 October; a portable copy of their code
-    │   ├── README.md                     # its guide
-    │   └── code/
-    │       └── CHANGES.md                # what changed from the code of the 9 October trials
-    ├── temporal-activities/              # Temporal: 16 conditions on 14 October, and the runs of 29 October
-    │   └── README.md                     # its guide
-    ├── openclaw-commands/                # OpenClaw: three runs on 14 October and one on 29 October
-    │   └── README.md                     # its guide
-    ├── claude-code-codex/                # Claude Code and Codex: 58 client runs on 25 October, and a batch on 29 October
-    │   └── README.md                     # its guide
-    ├── docs/                             # the studies' documents, generated pages among them
-    │   ├── METHOD.md                     # how an experiment works, with one result recounted from the raw files
-    │   ├── WHAT-EACH-STOP-REACHES.md     # per platform: what each stop ended and what it left
-    │   ├── n8n-loop-evidence/
-    │   │   ├── REPORT.md                 # the n8n loop readings, written by scripts/loop_evidence.py
-    │   │   └── rows.jsonl                # the same rows, one per line
-    │   └── walkthroughs/
-    │       ├── LANGGRAPH.md              # one trial's record lines, merged on one clock
-    │       ├── N8N.md                    # one trial's record lines, merged on one clock
-    │       ├── OPENCLAW.md               # one trial's record lines, merged on one clock
-    │       ├── README.md                 # the walkthrough pages
-    │       └── TEMPORAL.md               # one trial's record lines, merged on one clock
-    ├── harness/                          # the frozen code the trials ran, one folder per commit
-    │   ├── README.md                     # the frozen code: which commit each folder holds, and the names in it
-    │   ├── langgraph-cd26851/
-    │   ├── n8n-langgraph-7a3fcec/
-    │   ├── n8n-scorer-3832d7c/
-    │   ├── openclaw-b8fd1e4/
-    │   └── temporal-627df0b/
-    ├── scripts/                          # the checks, the record build and the page scripts
-    │   ├── build_data.py                 # makes the records and the manifest from the source archive
-    │   ├── build_results.py              # reruns every check on the records and writes results/results.json
-    │   ├── check_pages.py                # checks a walkthrough page against the files it quotes
-    │   ├── loop_evidence.py              # the n8n loop rows and their page, from the raw records
-    │   ├── walkthrough_langgraph.py      # prints LANGGRAPH.md of docs/walkthroughs
-    │   ├── walkthrough_n8n.py            # prints N8N.md of docs/walkthroughs
-    │   ├── walkthrough_openclaw.py       # prints OPENCLAW.md of docs/walkthroughs
-    │   └── walkthrough_temporal.py       # prints TEMPORAL.md of docs/walkthroughs
-    ├── tests/                            # the studies' tests
-    │   ├── conftest.py                   # no bytecode written beside the frozen code
-    │   ├── test_checks.py                # one changed record per check: the check fails and nothing is written
-    │   ├── test_loop_evidence.py         # silence and incomplete readings never count as an end
-    │   ├── test_readme.py                # experiments/README.md's figures and quoted output, against a fresh run
-    │   └── test_records.py               # the records against the manifest and its substitutions
-    ├── setup/                            # machine set-up for each study
-    │   ├── claude-code-codex.sh          # one study's set-up
-    │   ├── clock_tick.py                 # puts the clock tick back to nominal
-    │   ├── common.sh                     # steps every script shares
-    │   ├── constraints-temporal.txt      # the Temporal trials' Python packages
-    │   ├── langgraph-controls.sh         # one study's set-up
-    │   ├── n8n-queue-mode.sh             # one study's set-up
-    │   ├── openclaw-commands.sh          # one study's set-up
-    │   ├── temporal-activities.sh        # one study's set-up
-    │   └── n8n-2.41.7/                   # n8n's pinned packages
-    ├── data/
-    │   └── MANIFEST.json                 # each record: where it came from, its SHA-256 as shipped, what changed in it
-    └── results/
-        └── results.json                  # the outcome of every check, written by scripts/build_results.py
+└── validation/                           # the records of the kit's own checks (docs/VALIDATION.md)
+    ├── e0-20261027-092228-f20558
+    ├── langgraph-example-20261027.log
+    ├── langgraph-example-20261101-server.log
+    ├── langgraph-example-20261101.log
+    └── selftest-20261027T091012Z-70406a
 ```
 
 ## License

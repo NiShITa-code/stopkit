@@ -12,13 +12,11 @@ The self-test and the ground-truth check ran on 27 October 2026 on Ubuntu 24.04.
 |---|---|---|---|
 | Self-test | `python3 -B -m stopkit selftest`, as root, from the installed copy | Passed (below) | [selftest-20261027T091012Z-70406a](../validation/selftest-20261027T091012Z-70406a) |
 | Ground-truth check | `python3 -B -m stopkit dev e0 --trials 30 --fires`, as root, from the installed copy | Passed (below) | [e0-20261027-092228-f20558](../validation/e0-20261027-092228-f20558) |
-| Recheck | `PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012Z-70406a/run-*` | The same verdicts from the stored evidence for all six runs; `experiments/verify.py` repeats it as its check `selftest_recheck` | the six `run-*` folders of the self-test |
+| Recheck | `PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012Z-70406a/run-*` | The same verdicts from the stored evidence for all six runs; CI repeats it for the first run on every push | the six `run-*` folders of the self-test |
 | LangGraph example | `sudo bash examples/langgraph/demo.sh --auto` | Completed; the results are in [examples/langgraph/README.md](../examples/langgraph/README.md) | [langgraph-example-20261027.log](../validation/langgraph-example-20261027.log), [langgraph-example-20261101.log](../validation/langgraph-example-20261101.log) |
 | OpenClaw from its config file | `python3 -B -m stopkit doctor examples/openclaw/agent.toml`, then `python3 -B -m stopkit check examples/openclaw/agent.toml --stop none --stop abort --stop sigterm --stop kill --stop kill-scope --stop reference --runs 3`, as root, from the installed copy | `doctor` passed; the same verdicts as the ready-made binding (below) | batch `test-20261102T215527Z-d714ad`, 93 MB, kept outside the repository |
 | The Codex CLI from its config file | `python3 -B -m stopkit doctor examples/codex/agent.toml`, then `python3 -B -m stopkit check examples/codex/agent.toml`, as root, from the installed copy | `doctor` passed; every stop three times, with no error and no wrong reading (below) | batch `test-20261103T064353Z-b1981e`, 70 MB, kept outside the repository |
 | Claude Code's binding | `bash setup/claude-code.sh`, then `python3 -B -m stopkit check claude-code`, as root, from the installed copy | Every stop three times, with no error and no wrong reading; after `ctrl-c-background` the truth cannot follow Claude Code's process (below) | batch `test-20261103T064100Z-d4fe34`, 54 MB, kept outside the repository |
-
-`python3 -B experiments/verify.py` runs every check on the repository's records again, including `recheck` on the six saved self-test runs, and compares the outcome with `experiments/results/results.json`.
 
 ## The ground-truth check
 

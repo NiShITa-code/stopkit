@@ -1,1 +1,0 @@
-[2m2026-10-29T16:49:23.038278Z[0m [33m WARN[0m [2mtemporalio_sdk_core::worker[0m[2m:[0m shutdown_worker rpc errored during worker shutdown: Status { code: Cancelled, message: "operation was canceled", source: Some(tonic::transport::Error(Transport, hyper::Error(Canceled, "connection closed"))) }

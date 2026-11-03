@@ -30,17 +30,8 @@ stopkit = ["spec/*.json", "spec/scenarios/*.json", "bindings/*.sh", "bindings/la
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-# The records and the frozen code the trials ran are kept as recorded; the examples and the set-up are not linted.
+# The recorded validation runs are kept as recorded; the examples and the set-up are not linted.
 extend-exclude = [
-    "experiments/harness",
-    "experiments/data",
-    "experiments/setup",
-    "experiments/n8n-queue-mode",
-    "experiments/n8n-restart",
-    "experiments/langgraph-controls",
-    "experiments/temporal-activities",
-    "experiments/openclaw-commands",
-    "experiments/claude-code-codex",
     "validation",
     "setup",
     "examples",
@@ -61,4 +52,4 @@ select = ["E", "F", "I", "UP", "B"]
 exclude = ["src/stopkit/**", "tests/test_[a-oq-z]*.py", "tests/test_p[b-z]*.py", "tests/helpers.py", "tests/__init__.py"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "experiments/tests"]
+testpaths = ["tests"]

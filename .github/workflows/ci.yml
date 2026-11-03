@@ -56,13 +56,11 @@ jobs:
           python -m venv .venv
           .venv/bin/pip install -e ".[dev]"
       - name: lint
-        run: .venv/bin/ruff check src tests .github/scripts experiments/scripts experiments/tests experiments/verify.py && .venv/bin/ruff format --check src tests .github/scripts experiments/scripts experiments/tests experiments/verify.py
-      - name: rerun every check on the records
-        run: .venv/bin/python -B experiments/scripts/build_results.py && git diff --exit-code -- experiments/results/
+        run: .venv/bin/ruff check src tests .github/scripts && .venv/bin/ruff format --check src tests .github/scripts
       - name: tests
         run: .venv/bin/python -m pytest -q
       - name: the command-line entry points
         run: |
-          .venv/bin/python -B experiments/verify.py
           .venv/bin/stopkit --help > /dev/null
           .venv/bin/stopkit recheck validation/selftest-20261027T091012Z-70406a/run-01-none
+          .venv/bin/stopkit logs validation/selftest-20261027T091012Z-70406a/run-01-none > /dev/null

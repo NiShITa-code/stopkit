@@ -41,9 +41,6 @@ ACCOUNTS = (
 HOME = re.compile(rb"/hom[e]/([A-Za-z0-9_.-]+)/")
 # A home folder on macOS or Windows: the Users folder, a slash or one or more backslashes, and a name.
 OTHER_HOME = re.compile(rb"User[s](?:/|\\+)[A-Za-z0-9_.-]+")
-# The test of the Windows home-folder check holds the folder it plants in a scratch repository; that file may hold
-# that one folder, which names no person.
-PLANTED = ("experiments/tests/test_records.py", b"zzplanted")
 
 
 def gzip_header(blob: bytes) -> bytes:
@@ -106,8 +103,6 @@ def main(argv: list[str] | None = None) -> int:
             scanned += 1
             homes = {h.decode() for h in HOME.findall(data)} - set(ACCOUNTS)
             other = [m.group(0) for m in OTHER_HOME.finditer(data)]
-            if label == PLANTED[0]:
-                other = [m for m in other if not m.endswith(PLANTED[1])]
             if (rx and rx.search(data)) or other or homes:
                 found.append(label)
     for label in found:

@@ -1,6 +1,0 @@
-Temporal CLI 1.9.1 (Server 1.32.0, UI 2.54.1)
-
-Temporal Server:      localhost:7833
-Temporal Persistence: /root/stopcheck-temporal/temporal/results/XC-screen-c-screen-1014-C7-20261014-044342/temporal.db
-Temporal HTTP:        localhost:7834
-Temporal Metrics:     http://localhost:7835/metrics
