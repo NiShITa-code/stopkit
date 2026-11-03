@@ -17,7 +17,8 @@ stopkit-record/2 (FORMAT.md).
   6. teardown, the bench stopped, the agent account returned to empty;
   7. scoring: the kit's readings and verdicts from its listings alone, and acted-after from the effect sink;
      then, separately, the truth from the recorder's log; the coverage manifest; the record, its evidence,
-     its checksums and the run's own report.
+     its checksums and the run's own report. With rules=False (check --facts-only) nothing is scored: the
+     record keeps the readings and the facts alone, and summarize() applies the rules to the batch later.
 """
 from __future__ import annotations
 
@@ -206,10 +207,11 @@ def restart_gap(paths) -> float:
 def run_once(adapter, stop: str, agent: Account, sentinel: Account, worker: Account | None, run_dir: str,
              batch_id: str, checks: tuple[float, ...] | None = None, settle: float | None = None, kind: str = 'test',
              runner: Runner = run, proc: str = '/proc', log: Callable[[str], None] = print,
-             instruments: bool = True) -> dict:
+             instruments: bool = True, rules: bool = True) -> dict:
     """One run of one stop. checks, when given, replace the scenario's (the self-test's short runs); the
     record says which were used. With instruments=False the truth recorder is not run (the work's reports to
-    it go nowhere), for the non-interference test N3; such a run has no truth."""
+    it go nowhere), for the non-interference test N3; such a run has no truth. With rules=False the run is the
+    same, but no rule is applied to it: the record holds the readings and facts() and no verdict."""
     b = binding_of(adapter)
     scen = spec.scenario(b['scenario'])
     if stop not in adapter.stops:
@@ -361,7 +363,11 @@ def run_once(adapter, stop: str, agent: Account, sentinel: Account, worker: Acco
         drift = (rec['finished'] - clock0[0]) - (time.monotonic() - clock0[1])
         rec['clock'] = {'wall_minus_monotonic_s': round(drift, 3), 'moved': abs(drift) > 0.5}
     rec['timing'] = _timing(times, scen.grace_s, tail, wait, gap)
-    score(rec, scen, sspec, run_dir)
+    if rules:
+        score(rec, scen, sspec, run_dir)
+    else:
+        rec['rules'] = {'applied': False}
+        rec['facts'] = facts(rec, scen, run_dir)
     write(run_dir, rec)
     return rec
 
@@ -395,6 +401,44 @@ def seen_after(items: list[dict], after: list[dict], restart: dict | None, unrea
             for i in items}
 
 
+def effect_log(rec: dict, run_dir: str) -> tuple[list[dict], list[str], str | None, float]:
+    """The effect sink's events and problems for a run; whether the sink is shown working from the cut-off to the
+    end of what the run observes (None, or why not); and that end."""
+    t = rec['timing']
+    try:
+        evs, problems = effects.load(os.path.join(run_dir, 'effects.jsonl'))
+    except OSError as e:
+        evs, problems = [], [f'no effect log: {e}']
+    cut = t['cut_off_mono']
+    obs_end = (t.get('restart_done_mono') or t['restart_action_mono'] or cut or 0) + (t['truth_tail_s'] or 0)
+    sentinels = sentinels_of(rec)
+    proof_of = sentinels[0] if len(sentinels) == 1 else sentinels
+    unproven = ('no cut-off' if cut is None else
+                effects.proof(evs, proof_of, cut, min(obs_end, t['end_mono'] or obs_end), ground_truth.CHANNEL_GAP_S))
+    return evs, problems, unproven, obs_end
+
+
+def facts(rec: dict, scen: spec.Scenario, run_dir: str) -> dict:
+    """What a run saw, with no rule applied (check --facts-only): for each planted item, how many of its actions
+    reached the effect sink after the cut-off and when the first and the last were sent, and whether the sink is
+    shown working. A time is the work's own clock where it stamps its actions, otherwise the action's arrival.
+    The readings are in the checkpoints; summarize() later scores the same record and logs."""
+    evs, problems, unproven, _ = effect_log(rec, run_dir)
+    cut = rec['timing']['cut_off_mono']
+    items: dict = {}
+    for p in rec['paths']:
+        if p['item'] in items:                   # the paths of one item share its tag, and so its actions
+            continue
+        sent = sorted(effects.issued(e, scen.delivery_bound_s)[1] - cut for e in evs
+                      if cut is not None and e.get('ev') == 'effect' and (e.get('msg') or {}).get('tag') == p['tag'])
+        after = [round(x, 3) for x in sent if x > 0]
+        items[p['item']] = {'after_cut_off': len(after), 'first_s': after[0] if after else None,
+                            'last_s': after[-1] if after else None}
+    return {'effects': {'log': 'effects.jsonl', 'sha256': _sha(os.path.join(run_dir, 'effects.jsonl')),
+                        'shown_working': unproven is None, 'why_not': unproven, 'problems': problems},
+            'items': items}
+
+
 def score(rec: dict, scen: spec.Scenario, sspec: spec.Stop, run_dir: str) -> None:
     """Every verdict of the run, from its own checkpoints and logs. The kit's verdicts and acted-after come
     first, from the listings and the effect sink; the truth is scored after, from the recorder's log alone."""
@@ -406,17 +450,9 @@ def score(rec: dict, scen: spec.Scenario, sspec: spec.Stop, run_dir: str) -> Non
     restart_confirmed = None if restart is None else restart.get('restart_problem') is None
     items_by_id = {it.id: it for it in scen.items}
     effects_log = os.path.join(run_dir, 'effects.jsonl')
-    sentinels = sentinels_of(rec)
     delay = scen.delivery_bound_s
-    try:
-        evs, eproblems = effects.load(effects_log)
-    except OSError as e:
-        evs, eproblems = [], [f'no effect log: {e}']
+    evs, eproblems, unproven, obs_end = effect_log(rec, run_dir)
     cut = t['cut_off_mono']
-    obs_end = (t.get('restart_done_mono') or t['restart_action_mono'] or cut or 0) + (t['truth_tail_s'] or 0)
-    proof_of = sentinels[0] if len(sentinels) == 1 else sentinels
-    unproven = ('no cut-off' if cut is None else
-                effects.proof(evs, proof_of, cut, min(obs_end, t['end_mono'] or obs_end), ground_truth.CHANNEL_GAP_S))
     out = []
     for p in rec['paths']:
         it = items_by_id[p['item']]
@@ -543,7 +579,8 @@ def load(run_dir: str) -> dict:
 def recheck(run_dir: str) -> list[str]:
     """Differences between a record and what its own evidence gives when scored again (empty if none): every
     reading from the stored listings, every verdict, acted-after from the effect log, and the truth from the
-    recorder's log. It never changes the folder."""
+    recorder's log. A record made with rules=False has readings and facts but no verdicts, so those two are
+    compared. It never changes the folder."""
     problems: list[str] = []
     try:
         with open(os.path.join(run_dir, 'SHA256SUMS')) as f:
@@ -585,6 +622,10 @@ def recheck(run_dir: str) -> list[str]:
             if got != want:
                 problems.append(f"{cp['name']}/{p['id']}: recorded {want}, evidence gives {got}")
         prev = snap
+    if not reports.rules_applied(rec):
+        if json.dumps(facts(again, scen, run_dir), sort_keys=True) != json.dumps(rec.get('facts'), sort_keys=True):
+            problems.append('the facts worked out again from the effect log differ from the record')
+        return problems
     score(again, scen, sspec, run_dir)
     for a, b in zip(rec['items'], again['items']):
         for field in ('verdict', 'acted_after'):
@@ -684,10 +725,13 @@ def smoke_problems(rec: dict) -> tuple[list[str], list[str]]:
 
 def run_batch(target, stop_names: list[str] | None, runs: int, out_root: str, kind: str = 'test',
               checks: tuple[float, ...] | None = None, runner: Runner = run, proc: str = '/proc',
-              log: Callable[[str], None] = print, instruments: bool = True) -> tuple[str, list[dict], list[str]]:
+              log: Callable[[str], None] = print, instruments: bool = True,
+              rules: bool = True) -> tuple[str, list[dict], list[str]]:
     """Every stop in stop_names (None: every stop the agent has), `runs` times each, then the batch's rows and
-    report. `target` is a ready-made binding's name, an agent's config file, or an adapter. Returns (batch folder,
-    records, batch problems)."""
+    report. `target` is a ready-made binding's name, an agent's config file, or an adapter. With rules=False
+    (check --facts-only) no rule is applied: the runs' records and reports, and the batch's report, give the
+    readings and facts alone, and summarize() applies the rules later. Returns (batch folder, records, batch
+    problems)."""
     from .. import bindings
     from .runner import check_places, prepare
     adapter = bindings.resolve(target) if isinstance(target, str) else target
@@ -719,15 +763,20 @@ def run_batch(target, stop_names: list[str] | None, runs: int, out_root: str, ki
             break
         log(f'run {n}: {adapter.name} agent, stop {stop}')
         rec = run_once(adapter, stop, agent, sentinel, worker, os.path.join(batch_dir, f'run-{n:02d}-{stop}'),
-                       batch_id, checks, kind=kind, runner=runner, proc=proc, log=log, instruments=instruments)
+                       batch_id, checks, kind=kind, runner=runner, proc=proc, log=log, instruments=instruments,
+                       rules=rules)
         records.append(rec)
-        sr = rec.get('scope_result') or {}
-        log(f"  in scope: {sr.get('in_scope')}; truth {(rec.get('truth') or {}).get('status')}; "
-            + ', '.join(f"{i['id']}/{i['kind']}: {i['verdict']}" for i in rec.get('items', ())))
+        if rules:
+            sr = rec.get('scope_result') or {}
+            log(f"  in scope: {sr.get('in_scope')}; truth {(rec.get('truth') or {}).get('status')}; "
+                + ', '.join(f"{i['id']}/{i['kind']}: {i['verdict']}" for i in rec.get('items', ())))
+        else:
+            for line in reports.facts_lines(rec):
+                log(f'  {line}')
         for e in rec['errors']:
             log(f'  error: {e}')
     summary = {'format': 'stopkit-batch/2', 'batch_id': batch_id, 'kind': kind, 'adapter': adapter.name,
-               'stops': stop_names, 'runs_per_stop': runs, 'problems': problems,
+               'stops': stop_names, 'runs_per_stop': runs, 'problems': problems, 'rules_applied': rules,
                'runs': [{'folder': r['folder'], 'run_id': r['run_id'], 'stop': r['stop_spec']['id'],
                          'in_scope': (r.get('scope_result') or {}).get('in_scope'), 'errors': r['errors'],
                          'truth': (r.get('truth') or {}).get('status'),
@@ -738,3 +787,52 @@ def run_batch(target, stop_names: list[str] | None, runs: int, out_root: str, ki
     if records:
         reports.write([batch_dir], os.path.join(batch_dir, 'report'))
     return batch_dir, records, problems
+
+
+def summarize(batch_dir: str, log: Callable[[str], None] = print) -> tuple[list[dict], list[str]]:
+    """The rules applied to a batch made with check --facts-only: each run that has none is scored by score(),
+    as at the end of a normal run, from its own record and logs, and the record says the rules were applied
+    later and by which version of the kit; then batch.json and the batch's report are written again. A run whose
+    files do not match its SHA256SUMS is left as it is. Returns (the batch's records, problems)."""
+    records, problems, scored = [], [], 0
+    for d in sorted(x for x in os.listdir(batch_dir) if os.path.isfile(os.path.join(batch_dir, x, 'record.json'))):
+        run_dir = os.path.join(batch_dir, d)
+        try:
+            with open(os.path.join(run_dir, 'SHA256SUMS')) as f:
+                if f.read() != _sums(run_dir):
+                    problems.append(f'{d}: its files do not match its SHA256SUMS, so it is left as it is')
+                    continue
+            rec = load(run_dir)
+            scen = spec.scenario(rec['system']['scenario'])
+            sspec = spec.stop(rec['stop_spec']['id'])
+        except (OSError, ValueError, KeyError, TypeError, spec.SpecError) as e:
+            problems.append(f'{d}: cannot be read: {type(e).__name__}: {e}')
+            continue
+        if not reports.rules_applied(rec):
+            score(rec, scen, sspec, run_dir)
+            rec['rules'] = {'applied': True, 'later': True, 'kit_version': __version__,
+                            'spec_version': spec.version(), 'at': time.time()}
+            write(run_dir, rec)
+            scored += 1
+            sr = rec.get('scope_result') or {}
+            log(f"{d}: in scope: {sr.get('in_scope')}; truth {(rec.get('truth') or {}).get('status')}")
+        records.append(rec)
+    if not scored and not problems:
+        log('every run already has its verdicts')
+    batch_json = os.path.join(batch_dir, 'batch.json')
+    if os.path.isfile(batch_json):
+        with open(batch_json, encoding='utf-8') as f:
+            summary = json.load(f)
+        by_folder = {r['folder']: r for r in records}
+        for r in summary.get('runs', []):
+            rec = by_folder.get(r['folder'])
+            if rec is not None and reports.rules_applied(rec):
+                r['in_scope'] = (rec.get('scope_result') or {}).get('in_scope')
+                r['truth'] = (rec.get('truth') or {}).get('status')
+        summary['rules_applied'] = not problems and all(reports.rules_applied(r) for r in records)
+        with open(batch_json, 'w', encoding='utf-8', newline='\n') as f:
+            json.dump(summary, f, indent=1, sort_keys=True)
+            f.write('\n')
+    if records:
+        reports.write([batch_dir], os.path.join(batch_dir, 'report'))
+    return records, problems

@@ -114,9 +114,27 @@ def cmd_check(a) -> int:
     names = a.stop or list(adapter.stops)
     _log(f'{adapter.name}: {len(names)} stops ({", ".join(names)}), {a.runs} runs each: {len(names) * a.runs} runs, '
          'each of several minutes')
-    folder, records, problems = protocol.run_batch(adapter, names, a.runs, a.out, 'test', _checks(a.checks), log=_log)
+    folder, records, problems = protocol.run_batch(adapter, names, a.runs, a.out, 'test', _checks(a.checks), log=_log,
+                                                   rules=not a.facts_only)
     _log(f"done: {os.path.join(folder, 'report', 'REPORT.md')}")
+    if a.facts_only:
+        _log(f'the rules were not applied; `python3 -B -m stopkit summarize {folder}` applies them')
     return 0 if not problems and all(not r['errors'] for r in records) else 1
+
+
+def cmd_summarize(a) -> int:
+    from .run import protocol
+    bad = 0
+    for d in a.folders:
+        records, problems = protocol.summarize(d, log=_log)
+        for p in problems:
+            _log(f'  {p}')
+        bad += bool(problems) or not records
+        if records:
+            _log(f"done: {os.path.join(d, 'report', 'REPORT.md')}")
+        else:
+            _log(f'{d}: no run folder to summarize')
+    return 1 if bad else 0
 
 
 def cmd_report(a) -> int:
@@ -154,20 +172,24 @@ def cmd_watch(a) -> int:
 def cmd_recheck(a) -> int:
     bad = 0
     for d in a.folders:
+        same = 'same verdicts from the evidence'
         try:
             if os.path.exists(os.path.join(d, 'check.json')):
                 problems = watch.recheck(d)
             else:
                 with open(os.path.join(d, 'record.json'), encoding='utf-8') as f:
-                    fmt = json.load(f).get('format')
-                if fmt == 'stopkit-record/2':
+                    rec = json.load(f)
+                if rec.get('format') == 'stopkit-record/2':
                     from .run import protocol
+                    from .report import reports
                     problems = protocol.recheck(d)
+                    if not reports.rules_applied(rec):
+                        same = 'same readings and facts from the evidence (facts only: no verdicts yet)'
                 else:
                     problems = record.recheck(d)
         except Exception as e:                   # one unreadable folder must not stop the others being checked
             problems = [f'could not be checked: {type(e).__name__}: {e}']
-        _log(f"{d}: {'same verdicts from the evidence' if not problems else 'DIFFERENCES'}")
+        _log(f"{d}: {same if not problems else 'DIFFERENCES'}")
         for p in problems:
             _log(f'  {p}')
         bad += bool(problems)
@@ -203,6 +225,9 @@ def cmd_smoke_check(a) -> int:
             rec = json.load(f)
         if rec['stop_spec']['adapter_stop'] not in ('none', 'reference'):
             continue                             # only these two stops have known answers
+        if (rec.get('rules') or {}).get('applied') is False:
+            problems.append(f"{rec['folder']}: made with --facts-only; run `stopkit summarize {a.folder}` first")
+            continue
         judged += 1
         bad, said = protocol.smoke_problems(rec)
         problems += [f"{rec['folder']}: {p}" for p in bad]
@@ -270,6 +295,8 @@ def parser() -> argparse.ArgumentParser:
     c.add_argument('--stop', action='append', help='a stop to test; give it several times for several (default: all)')
     c.add_argument('--runs', type=_runs, default=3, help='runs of each stop (default 3)')
     c.add_argument('--checks', help="checks in seconds after the stop (default: the scenario's)")
+    c.add_argument('--facts-only', action='store_true', help="record what the kit read and what the work did, "
+                   "without applying the kit's rules (no verdicts); `stopkit summarize` applies them later")
     c.add_argument('--out', default='results')
     c.set_defaults(func=cmd_check)
     w = sub.add_parser('watch', help='list what an account still runs around a stop you make yourself')
@@ -286,6 +313,9 @@ def parser() -> argparse.ArgumentParser:
     r = sub.add_parser('recheck', help='score run or watch folders again from their evidence')
     r.add_argument('folders', nargs='+')
     r.set_defaults(func=cmd_recheck)
+    sm = sub.add_parser('summarize', help='apply the rules to a batch made with check --facts-only')
+    sm.add_argument('folders', nargs='+', help='batch folders')
+    sm.set_defaults(func=cmd_summarize)
     sub.add_parser('setup', help='create the accounts and sentinels').set_defaults(func=cmd_setup)
     sub.add_parser('status', help='show what the kit sees now').set_defaults(func=cmd_status)
     s = sub.add_parser('selftest', help='check the kit on known answers')

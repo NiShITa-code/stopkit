@@ -166,6 +166,24 @@ PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012
 
 `recheck` checks the folder's files against its `SHA256SUMS`, works out every reading again from the stored listings and applies the rules again. For each folder it prints `same verdicts from the evidence`, or `DIFFERENCES` followed by what differs. It takes several folders at once, so you can give it every run of a batch you copied off the machine.
 
+## Facts only, without the kit's rules
+
+To see what happened before any rule is applied, add `--facts-only` to `check`:
+
+```bash
+python3 -B -m stopkit check examples/openclaw/agent.toml --facts-only
+```
+
+The runs are the same: the same work is planted, the same stops are pressed, the machine is read at the same times and the same logs are kept. But the kit applies none of the rules that turn readings into verdicts, so nothing is called ended, still running or came back, and nothing the stop said is judged true or false. The screen shows, for each piece of work, its reading at each check and how many of its actions reached the receiver after the stop, with the times of the first and the last. Each run's `report.md` shows the same, with the listings that found the work, and the batch's `report/REPORT.md` puts the runs of each stop side by side.
+
+To apply the rules later, give `summarize` the batch's folder:
+
+```bash
+python3 -B -m stopkit summarize results/test-…
+```
+
+`summarize` gives each run the same verdicts and the same report that a normal `check` would have given it, and its record says that the rules were applied later and by which version of the kit. The self-test always applies the rules, because it checks them against known answers.
+
 ## Testing your own agent
 
 Install your agent on the machine, then describe it in one file: how to start it, how to point it at the kit's stand-in model, how to give it its task, the name of its shell tool, and its own stops. [docs/CONFIG.md](docs/CONFIG.md) explains every field, and `init` writes a template:
@@ -318,7 +336,7 @@ To follow one run through the code, read five files in this order. `cli.py` turn
 │   │   ├── doctor.py                     # stopkit doctor: the machine and one agent's config file
 │   │   ├── e0.py                         # the ground truth checked on its own
 │   │   ├── noninterference.py            # the tests N1–N7: the kit's own instruments do not change what they measure
-│   │   ├── protocol.py                   # one run of one stop, from start to report; batches, the self-test and recheck
+│   │   ├── protocol.py                   # one run of one stop, from start to report; batches, the self-test, recheck and summarize
 │   │   ├── runner.py                     # preparing the accounts; the runs of the earlier record format
 │   │   └── watch.py                      # watch mode, around a stop made by hand
 │   ├── score/
@@ -373,6 +391,7 @@ To follow one run through the code, read five files in this order. `cli.py` turn
 │   ├── test_cmd_evidence.py              # cmd.py and evidence.py
 │   ├── test_coverage.py                  # score/coverage.py
 │   ├── test_cron.py                      # observe/cron.py
+│   ├── test_facts.py                     # check --facts-only and summarize, on the stored self-test runs
 │   ├── test_guards.py                    # system/guards.py
 │   ├── test_launch.py                    # how planted processes are launched
 │   ├── test_layers.py                    # which part of the kit may import which: score and report never act

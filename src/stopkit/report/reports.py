@@ -1,8 +1,10 @@
 """The reports (FORMAT.md section 3), generated from run records (stopkit-record/2) and their rows only.
 
   write(folders, out)    REPORT.md and REPORT.html (the same content), one timeline per run (timelines/*.svg),
-                         rows.jsonl (every row of every run) and accuracy.json
+                         rows.jsonl (every row of every run) and accuracy.json; for runs made with check
+                         --facts-only, REPORT.md and REPORT.html of their readings and facts alone
   run_details(rec)       one run's own report (report.md in its run folder)
+  facts_lines(rec)       what a facts-only run prints on the screen, one line per planted path
 
 Every number is counted from rows or records; nothing is typed in.
 """
@@ -127,31 +129,41 @@ def _result_text(sr: dict) -> str:
     return sr['in_scope'] + q
 
 
+def rules_applied(rec: dict) -> bool:
+    """False for a run made with check --facts-only whose rules have not been applied yet (stopkit summarize)."""
+    return (rec.get('rules') or {}).get('applied') is not False
+
+
 def run_details(rec: dict) -> str:
-    return to_markdown(run_blocks(rec))
+    return to_markdown(run_blocks(rec) if rules_applied(rec) else facts_blocks(rec))
+
+
+def _header_lines(rec: dict, link_prefix: str, grace: bool = True) -> list[str]:
+    """The lines that open a run's report: the kit, the machine, the scenario, the stop's timing and its words."""
+    t, claim = rec.get('timing') or {}, rec.get('claim') or {}
+    plat = rec['system']['platform']
+    return [f"stopkit {rec['kit_version']}, specification {rec['spec_version']}, commit "
+            f"`{rec.get('git_commit') or 'not recorded'}`"
+            + (' (with uncommitted changes)' if rec.get('git_dirty') not in (None, '0') else ''),
+            f"{plat.get('os')}; Linux {plat.get('kernel')}; systemd {plat.get('systemd')}; WSL: "
+            f"{'yes' if plat.get('wsl') else 'no'}; Python {plat.get('python')}",
+            f"Scenario `{rec['system']['scenario']}`, binding `{rec['system']['binding']}`; checks at "
+            f"{', '.join(f'{x:g} s' for x in rec['system']['configuration']['checks_s'])} after the cut-off",
+            f"The stop returned {t.get('stop_returned_rel_s', 0) or 0:.3f} s after the cut-off; the restart "
+            f"action began at {t.get('restart_action_rel_s') or 0:.1f} s" + (f"; grace {t.get('grace_s')} s" if grace else ''),
+            f"What the stop reported, verbatim: \"{claim.get('message', '')}\" (said stopped: "
+            f"{claim.get('said_stopped')}; report kind: {claim.get('report')})",
+            f"Record: [{link_prefix}record.json]({link_prefix}record.json); raw logs "
+            f"[truth.jsonl]({link_prefix}truth.jsonl) and [effects.jsonl]({link_prefix}effects.jsonl)"]
 
 
 def run_blocks(rec: dict, link_prefix: str = '') -> list:
-    s, t, claim = rec['stop_spec'], rec.get('timing') or {}, rec.get('claim') or {}
+    s = rec['stop_spec']
     sr = results.scope_result(results.rows(rec)) if rec.get('items') else {}
     tr = rec.get('truth') or {}
-    plat = rec['system']['platform']
     b: list = [('h1', f"Run {rec['run_id']}: {rec['system']['architecture']}, stop `{s['id']}`"),
                ('p', f"{s['mechanism'].capitalize()}. Intended scope: {_scope_text(rec)}. Report kind: {s['report_kind']}."),
-               ('list', [
-                   f"stopkit {rec['kit_version']}, specification {rec['spec_version']}, commit "
-                   f"`{rec.get('git_commit') or 'not recorded'}`"
-                   + (' (with uncommitted changes)' if rec.get('git_dirty') not in (None, '0') else ''),
-                   f"{plat.get('os')}; Linux {plat.get('kernel')}; systemd {plat.get('systemd')}; WSL: "
-                   f"{'yes' if plat.get('wsl') else 'no'}; Python {plat.get('python')}",
-                   f"Scenario `{rec['system']['scenario']}`, binding `{rec['system']['binding']}`; checks at "
-                   f"{', '.join(f'{x:g} s' for x in rec['system']['configuration']['checks_s'])} after the cut-off",
-                   f"The stop returned {t.get('stop_returned_rel_s', 0) or 0:.3f} s after the cut-off; the restart "
-                   f"action began at {t.get('restart_action_rel_s') or 0:.1f} s; grace {t.get('grace_s')} s",
-                   f"What the stop reported, verbatim: \"{claim.get('message', '')}\" (said stopped: "
-                   f"{claim.get('said_stopped')}; report kind: {claim.get('report')})",
-                   f"Record: [{link_prefix}record.json]({link_prefix}record.json); raw logs "
-                   f"[truth.jsonl]({link_prefix}truth.jsonl) and [effects.jsonl]({link_prefix}effects.jsonl)"]),
+               ('list', _header_lines(rec, link_prefix)),
                ('h2', 'Result'),
                ('list', [f"In-scope result: **{_result_text(sr)}**" if sr else 'In-scope result: not scored',
                          'Went on in scope: ' + ('; '.join(sr.get('continued') or []) or 'nothing'),
@@ -188,6 +200,155 @@ def run_blocks(rec: dict, link_prefix: str = '') -> list:
               f"{k} ({v['status']})" for k, v in (cov.get('kinds') or {}).items() if v['status'] != 'tested') or 'none') + '.')]
     probs = list(rec.get('errors') or []) + [f'clean-up left: {x}' for x in (rec.get('cleanup') or {}).get('remaining', [])]
     b += [('h2', 'Problems'), ('list', probs or ['none'])]
+    return b
+
+
+# ---- a run made with check --facts-only: its readings and facts, no rule applied -----------------------------
+
+
+def _sentence(text: str) -> str:
+    return text[:1].upper() + text[1:]
+
+
+def _actions_text(a: dict | None) -> str:
+    if a is None:
+        return 'not recorded'
+    n = a['after_cut_off']
+    if not n:
+        return 'none'
+    if n == 1:
+        return f"1 action, at {a['first_s']:g} s"
+    return f"{n} actions, the first at {a['first_s']:g} s and the last at {a['last_s']:g} s"
+
+
+def _found(reading: dict, note: str | None = None) -> str:
+    """A reading, with the listings that found the work when it is present, and a note if one is given."""
+    notes = [note] if note else []
+    if reading['reading'] == 'present':
+        notes.insert(0, ', '.join(sorted({e['surface'] for e in reading.get('evidence') or () if e.get('in_force')})))
+    notes = [n for n in notes if n]
+    return reading['reading'] + (f" ({'; '.join(notes)})" if notes else '')
+
+
+RESTARTED = 'the restart starts it again'
+
+
+def _restarted(rec: dict) -> set[str]:
+    """The items that the run's own restart action starts again (the scenario's "restart_read": false), so that
+    their reading after the restart says nothing about the stop."""
+    try:
+        return {it.id for it in spec.scenario(rec['system']['scenario']).items if not it.raw.get('restart_read', True)}
+    except spec.SpecError:
+        return set()
+
+
+def facts_lines(rec: dict) -> list[str]:
+    acts = (rec.get('facts') or {}).get('items') or {}
+    again = _restarted(rec)
+    out, done = [], set()
+    for p in rec['paths']:
+        line = f"{p['id']}: " + ', '.join(f"{c['name']} {c['readings'][p['id']]['reading']}"
+                                          + (f' ({RESTARTED})' if c['kind'] == 'restart' and p['item'] in again else '')
+                                          for c in rec['checkpoints'])
+        if p['item'] not in done:
+            done.add(p['item'])
+            line += f"; actions after the cut-off: {_actions_text(acts.get(p['item']))}"
+        out.append(line)
+    return out
+
+
+def facts_blocks(rec: dict, link_prefix: str = '') -> list:
+    """The report of one run made with check --facts-only: what the kit read and what the work sent, no verdict."""
+    s = rec['stop_spec']
+    f = rec.get('facts') or {}
+    eff, acts = f.get('effects') or {}, f.get('items') or {}
+    cps = rec['checkpoints']
+    again = _restarted(rec)
+    b: list = [('h1', f"Run {rec['run_id']}: {rec['system']['architecture']}, stop `{s['id']}`, facts only"),
+               ('p', f"{_sentence(s['mechanism'])}. The kit's rules were not applied to this run, so it has no "
+                     'verdicts: this report gives what the kit read at each check and what the planted work sent '
+                     'after the stop. `stopkit summarize` applies the rules to the batch later.'),
+               ('list', _header_lines(rec, link_prefix, grace=False))]
+    rows, done = [], set()
+    for p in rec['paths']:
+        first = p['item'] not in done
+        done.add(p['item'])
+        rows.append([p['item'], p['kind'], ', '.join(p['surfaces'])]
+                    + [_found(c['readings'][p['id']], RESTARTED if c['kind'] == 'restart' and p['item'] in again
+                              else None) for c in cps]
+                    + [_actions_text(acts.get(p['item'])) if first else 'as above'])
+    b += [('h2', 'What the kit read'),
+          ('p', 'At each check the kit listed the machine from outside the agent and read each piece of planted work '
+                'as present (found, and in force; the listings that found it are named), absent (not found, in '
+                'listings shown complete by the known items of the sentinel account) or unknown (anything else). '
+                'Actions after the cut-off are those of the item that reached the effect sink after the moment the '
+                "stop was pressed; a time is the work's own clock where it stamps its actions, otherwise their "
+                'arrival, in seconds after the cut-off.'),
+          ('table', ['Item', 'Kind', 'Where the kit looked'] + [c['name'] for c in cps] + ['Actions after the cut-off'],
+           rows)]
+    unknown = [f"{p['id']} at {c['name']}: {c['readings'][p['id']].get('why')}" for c in cps for p in rec['paths']
+               if c['readings'][p['id']]['reading'] == 'unknown']
+    if unknown:
+        b += [('h3', 'Why a reading is unknown'), ('list', unknown)]
+    restart = next((c for c in cps if c['kind'] == 'restart'), None)
+    sink = ('The effect sink was shown working from the cut-off to the end of what the run observes'
+            if eff.get('shown_working') else f"The effect sink was not shown working: {eff.get('why_not')}")
+    b += [('h2', 'The effect sink and the restart'),
+          ('list', [sink + ('; ' + '; '.join(eff['problems']) if eff.get('problems') else ''),
+                    'The restart: ' + ('none was made' if restart is None else
+                                       'confirmed, it started again' if not restart.get('restart_problem') else
+                                       f"not confirmed: {restart['restart_problem']}"),
+                    f"The recorder's own log is kept in [truth.jsonl]({link_prefix}truth.jsonl); `stopkit summarize` "
+                    "compares it with the kit's readings"])]
+    probs = list(rec.get('errors') or []) + [f'clean-up left: {x}' for x in (rec.get('cleanup') or {}).get('remaining', [])]
+    b += [('h2', 'Problems'), ('list', probs or ['none'])]
+    return b
+
+
+def facts_report_blocks(recs: list[dict], out: str) -> list:
+    """The batch report of runs made with check --facts-only: per stop, run by run, the readings and the actions."""
+    when = time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())
+    b: list = [('h1', 'Shutdown test: facts only'),
+               ('p', "The kit's rules were not applied to these runs, so this report has no verdicts, no in-scope "
+                     'results and no comparison with the recorder. For each stop it gives, run by run, what the kit '
+                     'read at each check and how many actions each piece of work sent after the stop. '
+                     '`python3 -B -m stopkit summarize BATCH_FOLDER` applies the rules to the batch and writes the '
+                     'full report in place of this one.'),
+               ('list', [f'Written {when} by stopkit {__version__}; {len(recs)} runs',
+                         'A cell gives the reading at each check, in order (p present, a absent, u unknown), and, on '
+                         "an item's first row, how many of its actions reached the effect sink after the cut-off",
+                         'A reading marked * was made after the restart, of work that the restart itself starts '
+                         'again, so it says nothing about the stop'])]
+    order: list[str] = []
+    for r in recs:
+        if r['stop_spec']['id'] not in order:
+            order.append(r['stop_spec']['id'])
+    for sid in order:
+        rs = [r for r in recs if r['stop_spec']['id'] == sid]
+        links = [f"[{os.path.basename(r['_dir'])}]({results.relpath(os.path.join(r['_dir'], 'report.md'), out)})"
+                 for r in rs]
+        b += [('h2', f'Stop `{sid}`'),
+              ('p', f"{_sentence(rs[0]['stop_spec']['mechanism'])}. Checks: "
+                    + ', '.join(c['name'] for c in rs[0]['checkpoints']) + '.'),
+              ('list', [f"{link}: the stop reported \"{(r.get('claim') or {}).get('message', '')}\""
+                        + (f"; problems: {'; '.join(r['errors'])}" if r.get('errors') else '')
+                        for link, r in zip(links, rs)])]
+        rows, done = [], set()
+        for p in rs[0]['paths']:
+            first = p['item'] not in done
+            done.add(p['item'])
+            cells = []
+            for r in rs:
+                again = _restarted(r)
+                txt = ' · '.join((c['readings'].get(p['id']) or {}).get('reading', '?')[:1]
+                                 + ('*' if c['kind'] == 'restart' and p['item'] in again else '')
+                                 for c in r['checkpoints'])
+                if first:
+                    n = (((r.get('facts') or {}).get('items') or {}).get(p['item']) or {}).get('after_cut_off')
+                    txt += ('; ? actions after' if n is None else f"; {n} action{'' if n == 1 else 's'} after")
+                cells.append(txt)
+            rows.append([p['item'], p['kind']] + cells)
+        b += [('table', ['Item', 'Kind'] + [f'run {i}' for i in range(1, len(rs) + 1)], rows)]
     return b
 
 
@@ -532,6 +693,14 @@ def write(folders: list[str], out: str) -> dict:
     recs = collect(folders)
     if not recs:
         raise ValueError(f'no stopkit-record/2 runs under {", ".join(folders)}')
+    if not all(rules_applied(r) for r in recs):
+        os.makedirs(out, exist_ok=True)
+        blocks = facts_report_blocks(recs, out)
+        with open(os.path.join(out, 'REPORT.md'), 'w', encoding='utf-8', newline='\n') as f:
+            f.write(to_markdown(blocks))
+        with open(os.path.join(out, 'REPORT.html'), 'w', encoding='utf-8', newline='\n') as f:
+            f.write(to_html(blocks, 'Shutdown test, facts only'))
+        return {'runs': len(recs), 'rows': 0, 'timelines': 0, 'out': out}
     os.makedirs(os.path.join(out, 'timelines'), exist_ok=True)
     rows = []
     for rec in recs:
