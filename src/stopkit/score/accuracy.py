@@ -4,6 +4,9 @@ the truth's, at the same moments, for bench runs. It only counts; it never chang
   reading_pairs   every path at every checkpoint: the kit's reading against the truth reading
   verdict_pairs   every path: the kit's verdict against the truth verdict (scored only where it is definite)
   effect_pairs    every item's activity: the effect sink's count after the cut-off against the truth's
+
+Work that the stop moves into processes the truth does not watch (the stop's truth_cannot_follow) is counted
+after the stop as "not followed", never scored.
 """
 from __future__ import annotations
 
@@ -13,8 +16,19 @@ from typing import Iterable
 from .. import spec
 
 
+NOT_FOLLOWED = 'not followed'
+
+
 def _truth_of(rec: dict, item: str, kind: str) -> dict:
     return ((rec.get('truth') or {}).get('items') or {}).get(item, {}).get(kind) or {}
+
+
+def unfollowed(rec: dict) -> frozenset[str]:
+    """The structures whose work the run's stop moves where the truth cannot follow it (spec/stops.json)."""
+    try:
+        return frozenset(spec.stop(rec['stop_spec']['id']).truth_cannot_follow)
+    except (spec.SpecError, KeyError, TypeError):
+        return frozenset()
 
 
 def reading_pairs(rec: dict) -> list[dict]:
@@ -24,6 +38,8 @@ def reading_pairs(rec: dict) -> list[dict]:
     # A reading after the restart of work the restart itself starts again is not a reading of the stop.
     unread = spec.unread_after_restart((rec.get('system') or {}).get('scenario', ''))
     restart = {c['name'] for c in rec.get('checkpoints', ()) if c.get('kind') == 'restart'}
+    after = {c['name'] for c in rec.get('checkpoints', ()) if c.get('kind') != 'before'}
+    moved = unfollowed(rec)
     out = []
     for it in rec.get('items', ()):
         tr = _truth_of(rec, it['id'], it['kind']).get('readings') or {}
@@ -31,7 +47,10 @@ def reading_pairs(rec: dict) -> list[dict]:
             tru = tr.get(cp)
             if tru is None or (cp in restart and it['id'] in unread):
                 continue
-            cat = 'indefinite' if tru == 'indefinite' else rules.get(f'{kit}|{tru}', f'unexpected {kit}|{tru}')
+            if it.get('structure') in moved and cp in after:
+                cat = NOT_FOLLOWED
+            else:
+                cat = 'indefinite' if tru == 'indefinite' else rules.get(f'{kit}|{tru}', f'unexpected {kit}|{tru}')
             out.append({'run': rec['run_id'], 'stop': rec['stop_spec']['id'], 'item': it['id'], 'kind': it['kind'],
                         'checkpoint': cp, 'kit': kit, 'truth': tru, 'category': cat})
     return out
@@ -41,12 +60,15 @@ def verdict_pairs(rec: dict) -> list[dict]:
     if (rec.get('truth') or {}).get('status') != 'ok':
         return []
     rules = spec.verdict_rules()['accuracy']['verdict_pairs']
+    moved = unfollowed(rec)
     out = []
     for it in rec.get('items', ()):
         tr = _truth_of(rec, it['id'], it['kind'])
         kit, tv, definite = it['verdict'], tr.get('verdict'), bool(tr.get('definite'))
         if kit == 'invalid' or tv == 'invalid':
             cat = 'invalid'
+        elif it.get('structure') in moved:
+            cat = NOT_FOLLOWED
         elif not definite or tv is None:
             cat = 'indefinite'
         elif kit == 'unknown':

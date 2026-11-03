@@ -22,10 +22,11 @@ from ..score import accuracy
 from . import results
 
 KINDS = ('P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7')
-# The architectures of the kit's bindings, as the reports name them.
-ARCHITECTURES = ('A1 Linux host (scripted agent)', 'A2 MCP tool servers', 'A3 n8n queue mode', 'A4 LangGraph (dev server)',
-                 'A5 Temporal', 'A6 Claude Code (real model)', 'A6b Codex CLI (real model)',
-                 'A7 OpenClaw (stand-in model)', 'A8 Held-out (two systems, mentor picks)')
+# The architectures of the kit's ready-made bindings, each as its binding names it (tests/test_reports.py checks
+# that they agree). An agent from a config file is named after its file, and is not listed here.
+ARCHITECTURES = ('A1 Linux host (scripted agent)', 'A2 MCP tool server', 'A3 n8n (queue mode)',
+                 'A4 LangGraph (development server)', 'A5 Temporal (development server)',
+                 'A6 Claude Code (stand-in model)', 'A7 OpenClaw (stand-in model)')
 
 # ---- blocks: one content model, rendered as Markdown and as HTML ------------------------------------------
 
@@ -534,13 +535,21 @@ def _cell(rows: list[dict]) -> str:
 def report_blocks(recs: list[dict], rows: list[dict], out: str, svgs: dict) -> list:
     when = time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())
     runs = len(recs)
-    commits = sorted({r.get('git_commit') or 'not recorded' for r in recs})
+    # A commit is shortened to 10 characters; a run made from an installed copy without STOPKIT_GIT_COMMIT has
+    # none, and the code hash that every record holds (report/codehash.py) still says which kit made it.
+    commits = sorted({(r.get('git_commit') or '')[:10] or 'not recorded' for r in recs})
+    dirty = sum(1 for r in recs if uncommitted(r.get('git_dirty')))
+    codes = sorted({(r.get('code_sha256') or '')[:10] for r in recs} - {''})
     plats = sorted({f"{r['system']['platform'].get('os')}, Linux {r['system']['platform'].get('kernel')}"
                     + (' (WSL)' if r['system']['platform'].get('wsl') else '') for r in recs})
     b: list = [('h1', 'Shutdown verification report'),
                ('p', f"Generated {when} by stopkit {__version__} (specification {spec.version()}) from {runs} "
                      f"run{'s' if runs != 1 else ''} and their {len(rows)} rows ([rows.jsonl](rows.jsonl)). "
-                     f"Commits: {', '.join(f'`{c[:10]}`' for c in commits)}. Platforms: {'; '.join(plats)}."),
+                     f"Commits: {', '.join(f'`{c}`' for c in commits)}"
+                     + ('' if not dirty else ' (with uncommitted changes)' if dirty == runs
+                        else f' ({dirty} of {runs} runs with uncommitted changes)')
+                     + (f"; the kit's code hash: {', '.join(f'`{c}`' for c in codes)}" if codes else '')
+                     + f". Platforms: {'; '.join(plats)}."),
                ('p', 'Status of what is shown: every binding here is implemented (tier 1), not validated. '
                      f'{_repeats(recs)}; no rate, accuracy bound or generality is claimed from them. '
                      'Each stop is judged against its own intended scope; work outside that scope is listed as remainder, '
@@ -591,7 +600,7 @@ def report_blocks(recs: list[dict], rows: list[dict], out: str, svgs: dict) -> l
                    '(spec/verdicts.json). Indefinite truth is counted, never scored. These are counts from the runs '
                    'above, not rates.'))
     order = ['agree', 'false absent', 'false present', 'false ended', 'false active', 'kit unknown', 'indefinite',
-             'invalid']
+             accuracy.NOT_FOLLOWED, 'invalid']
     tr_all, tr_kind = accuracy.tally(rp), accuracy.tally(rp, 'kind')
     b.append(('h3', 'Readings (each path at each checkpoint)'))
     b.append(('table', ['Kind'] + [c for c in order if c in set(tr_all) | {'agree', 'false absent', 'false present'}],
@@ -605,10 +614,17 @@ def report_blocks(recs: list[dict], rows: list[dict], out: str, svgs: dict) -> l
               + [['all'] + [str(tv_all.get(c, 0)) for c in vcols]]))
     b.append(('h3', 'Effects after the stop (sink against truth)'))
     b.append(('table', ['Category', 'Paths'], [[c, str(n)] for c, n in sorted(accuracy.tally(ep).items())]))
-    disagreements = [p for p in rp + vp if p['category'] not in ('agree', 'indefinite', 'kit unknown', 'invalid')]
+    disagreements = [p for p in rp + vp if p['category'] not in ('agree', 'indefinite', 'kit unknown', 'invalid',
+                                                                  accuracy.NOT_FOLLOWED)]
     b.append(('list', [f"{p['run']} {p['item']}/{p['kind']}" + (f" at {p['checkpoint']}" if 'checkpoint' in p else '')
                        + f": kit {p['kit']}, truth {p['truth']} ({p['category']})" for p in disagreements]
               or ['No disagreement between the kit and the truth where the truth is definite.']))
+    moved = sorted({(p['stop'], f"{p['item']}/{p['kind']}") for p in rp + vp if p['category'] == accuracy.NOT_FOLLOWED})
+    if moved:
+        b.append(('p', 'Not scored: ' + '; '.join(f'`{i}` after `{s}`' for s, i in moved)
+                       + '. That stop moves the work into processes that the truth does not watch (its '
+                       '`truth_cannot_follow` in spec/stops.json, whose note says how), so after it the truth cannot '
+                       'say whether the work went on.'))
     b.append(('p', 'Categories: ' + '; '.join(f'{k}: {v}' for k, v in cats.items() if k in set(tr_all) | set(tv_all)) + '.'))
     # 4. timelines
     b.append(('h2', '4. Timelines'))

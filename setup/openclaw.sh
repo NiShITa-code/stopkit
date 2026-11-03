@@ -5,8 +5,8 @@
 # tarball and its recorded integrity match the pinned sha512 (npm checks the tarball it installs against that same
 # value); Node.js v24.21.0 if it is missing. Adapted from the OpenClaw spike's set-up
 # (checking-agent-shutdowns/setup/openclaw-spike.sh, the runs of 14 Oct 2026). Root owns it; the test account can run
-# it but not change it. OpenClaw runs shell commands for its model, so use a machine you can throw away; the binding
-# runs it against the kit's scripted model stand-in, with the agent account kept off the network.
+# it but not change it. OpenClaw runs shell commands for its model; the binding runs it against the kit's scripted
+# model stand-in, with the agent account kept off the network.
 set -euo pipefail
 [ "$(id -u)" = 0 ] || { echo "run as root"; exit 1; }
 NODE=/opt/node-v24.21.0

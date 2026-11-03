@@ -198,7 +198,7 @@ The results and logs are the same as above. Two worked files are in `examples/`:
 
 ## Agents with a ready-made binding
 
-Apart from `pretend`, which the self-test runs, these bindings last ran in full between 29 October and 2 November 2026, on version 0.4.0.dev2, before the code was reorganized into its present layout; they have not yet been run on this version.
+Apart from `pretend`, which the self-test runs, and `claude-code`, which ran in full on 3 November 2026 with the stops in the table, these bindings last ran in full between 29 October and 2 November 2026, on version 0.4.0.dev2, before the code was reorganized into its present layout; they have not yet been run in full on this version.
 
 | Name | What it runs | Its stops, besides `none` and `reference` | Set-up |
 |---|---|---|---|
@@ -249,7 +249,7 @@ Then stop the agent however you normally would, and run `python3 -B -m stopkit w
 
 ## What has been checked
 
-The self-test and a check of the recorder on its own passed on 27 October 2026, OpenClaw's config file gave the same verdicts as the ready-made OpenClaw binding on 2 November 2026, and the Codex CLI's config file ran every stop three times on 3 November 2026, with no error and no reading that the recorder contradicts; [docs/VALIDATION.md](docs/VALIDATION.md) has the runs and their records. Two limits: the stand-in model replaces the agent's real model, so the kit tests what the agent's platform does with the work it is asked to start, not what a real model would decide; and nobody outside the project has run the kit yet.
+The self-test and a check of the recorder on its own passed on 27 October 2026, OpenClaw's config file gave the same verdicts as the ready-made OpenClaw binding on 2 November 2026, and on 3 November 2026 the Codex CLI's config file and Claude Code's binding each ran every stop three times, with no error and no reading that the recorder contradicts (after Claude Code's `ctrl-c-background`, the recorder cannot follow Claude Code's process into the new process that goes on with its session); [docs/VALIDATION.md](docs/VALIDATION.md) has the runs and their records. Two limits: the stand-in model replaces the agent's real model, so the kit tests what the agent's platform does with the work it is asked to start, not what a real model would decide; and nobody outside the project has run the kit yet.
 
 ## Previous work
 

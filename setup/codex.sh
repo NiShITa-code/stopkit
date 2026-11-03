@@ -7,8 +7,8 @@
 # experiments/claude-code-codex/clients/codex-0.164.0/package-lock.json); then the executable is checked against the
 # SHA-256 that the client probe recorded on 25 October 2026. The kit runs that executable, as the client probe did, so
 # npm's launcher (a Node.js script that starts it) and Node.js are not needed. Root owns it; the test account can run
-# it but not change it. Codex runs shell commands for its model, so use a machine you can throw away; the kit runs it
-# against its scripted model stand-in, with the agent account kept off the network.
+# it but not change it. Codex runs shell commands for its model; the kit runs it against its scripted model stand-in,
+# with the agent account kept off the network.
 set -euo pipefail
 [ "$(id -u)" = 0 ] || { echo "run as root"; exit 1; }
 VERSION=0.164.0

@@ -1,6 +1,7 @@
 """The accuracy scorer and the report generator on a small synthetic stopkit-record/2."""
 import json
 import os
+import sys
 import tempfile
 import unittest
 
@@ -65,6 +66,12 @@ def record(run_id='r1', stop='host.sigterm', agent_verdict='ended', agent_truth=
     }
 
 
+def moved_record():
+    """A run of a stop that moves the agent's own process where the truth cannot follow it."""
+    return record(stop='claude-code.ctrl-c-background', agent_verdict='still running',
+                  agent_readings={'before': 'present', '0 s': 'present', '60 s': 'present', 'restart': 'present'})
+
+
 class AccuracyTest(unittest.TestCase):
     def test_agreement(self):
         rec = record()
@@ -93,6 +100,19 @@ class AccuracyTest(unittest.TestCase):
         pairs = accuracy.reading_pairs(rec)
         self.assertEqual(len(pairs), n - 1)
         self.assertFalse([p for p in pairs if p['item'] == 'gateway' and p['checkpoint'] == 'restart'])
+
+    def test_work_the_stop_moves_where_the_truth_cannot_follow_is_not_scored(self):
+        # After claude-code.ctrl-c-background, Claude Code's session goes on in a new process that the truth does not
+        # watch: the kit reads it present, the truth reads the first process ended (3 Nov 2026).
+        rec = moved_record()
+        cats = accuracy.tally(accuracy.reading_pairs(rec))
+        self.assertEqual((cats.get('not followed'), cats.get('agree')), (3, 4))   # before the stop it is scored
+        self.assertNotIn('false present', cats)
+        verdicts = accuracy.tally(accuracy.verdict_pairs(rec))
+        self.assertEqual(verdicts.get('not followed'), 1)
+        self.assertNotIn('false active', verdicts)
+        self.assertEqual(accuracy.tally(accuracy.reading_pairs(record(agent_readings=rec['items'][0]['readings'])))
+                         .get('false present'), 3)                              # another stop is still scored
 
 
 class ReportTest(unittest.TestCase):
@@ -133,6 +153,39 @@ class ReportTest(unittest.TestCase):
         self.assertIn('Bindings in these runs: `mcp`', text)
         self.assertNotIn('pretend agent', text)
         self.assertIn('1 of 8 truth readings (12%): 1 of triggers (fire).', text)
+        # The list once named architectures no binding has; the Codex report said Codex had not run (3 Nov).
+        self.assertNotIn('real model', text)
+        self.assertIn('A6 Claude Code (stand-in model), A7 OpenClaw (stand-in model).', text)
+
+    @unittest.skipUnless(sys.platform.startswith('linux'), 'the bindings import modules that only Linux has')
+    def test_the_architectures_are_the_bindings_own(self):
+        from stopkit import bindings
+        self.assertEqual(reports.ARCHITECTURES, tuple(bindings.get(n).architecture for n in bindings.NAMES))
+
+    def test_the_header_says_which_kit_made_the_runs(self):
+        # With no commit set, the header once read "Commits: `not record`" (3 Nov 2026).
+        with tempfile.TemporaryDirectory() as d:
+            for n in (1, 2):
+                rec = record(f'r{n}')
+                rec.update(git_commit=None, git_dirty='1' if n == 1 else None, code_sha256='6437207118e0893' + 'a' * 49)
+                os.makedirs(f'{d}/batch/run-0{n}')
+                with open(f'{d}/batch/run-0{n}/record.json', 'w') as f:
+                    json.dump(rec, f)
+            reports.write([f'{d}/batch'], f'{d}/report')
+            md = read(f'{d}/report/REPORT.md')
+        self.assertIn("Commits: `not recorded` (1 of 2 runs with uncommitted changes); the kit's code hash: "
+                      '`6437207118`.', md)
+
+    def test_the_report_says_what_it_did_not_score(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(f'{d}/batch/run-01')
+            with open(f'{d}/batch/run-01/record.json', 'w') as f:
+                json.dump(moved_record(), f)
+            reports.write([f'{d}/batch'], f'{d}/report')
+            md = read(f'{d}/report/REPORT.md')
+            self.assertIn('Not scored: `agent/P1` after `claude-code.ctrl-c-background`', md)
+            self.assertIn('| not followed |', md)
+            self.assertNotIn('(false present)', md)
 
     def test_run_details(self):
         md = reports.run_details(record())

@@ -59,6 +59,8 @@ class SpecTest(unittest.TestCase):
         self.assertFalse(quit_.in_scope('agent-detached'))
         self.assertEqual(moved.structures, ('agent-child',))           # the turn the first Ctrl+C interrupts
         self.assertEqual((quit_.report_kind, moved.report_kind), ('explicit', 'explicit'))
+        # The session goes on in a new process, which the truth does not watch.
+        self.assertEqual((quit_.truth_cannot_follow, moved.truth_cannot_follow), ((), ('agent-main',)))
 
 
 class AnthropicScriptTest(unittest.TestCase):
@@ -232,8 +234,9 @@ class QuitTest(unittest.TestCase):
         claim = self.quit('ctrl-c', screen)
         self.assertEqual(screen.keys, [b'\x03'] * 3 + [b'\r'])           # the default option, as a person quitting
         self.assertEqual((claim.said_stopped, claim.report, claim.details['presses']), (True, 'explicit', 3))
-        self.assertIn('"Background work is running The following will stop when you exit: shell · Start a '
-                      'background task"; "Exit and stop tasks" was chosen, and it exited', claim.message)
+        self.assertTrue(claim.message.startswith(                         # the answer first, as a report shortens it
+            '"Exit and stop tasks" was chosen when Claude Code asked "Background work is running The following will '
+            'stop when you exit: shell · Start a background task", and it exited'), claim.message)
         self.assertIn('Resume this session with', claim.message)
         self.assertNotIn('\x0f', claim.message)
 
@@ -242,8 +245,9 @@ class QuitTest(unittest.TestCase):
         claim = self.quit('ctrl-c-background', screen)
         self.assertEqual(screen.keys, [b'\x03'] * 3 + [b'\x1b[B', b'\r'])
         self.assertEqual((claim.said_stopped, claim.report), (False, 'explicit'))
-        self.assertIn('"Move to background and exit" was chosen; it exited, saying "Moving to background… backgrounded '
-                      '· 31d84e30', claim.message)
+        self.assertTrue(claim.message.startswith('"Move to background and exit" was chosen when Claude Code asked '),
+                        claim.message)
+        self.assertIn('"; it exited, saying "Moving to background… backgrounded · 31d84e30', claim.message)
 
     def test_without_background_work_claude_code_quits_without_asking(self):
         for stop in ('ctrl-c', 'ctrl-c-background'):

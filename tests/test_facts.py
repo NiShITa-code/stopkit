@@ -49,6 +49,8 @@ def copy_batch(dst: str, facts_only: bool) -> list[str]:
     return names
 
 
+@unittest.skipUnless(SELFTEST.is_dir(), 'needs the stored self-test runs in validation/, which the copy of the kit '
+                                        'that setup/base.sh installs does not hold')
 class SummarizeTest(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()

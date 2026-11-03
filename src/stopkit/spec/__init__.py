@@ -46,6 +46,9 @@ class Stop:
     actor: str
     note: str = ''
     scope_doc: str = ''                # the documentation the intended scope is taken from, when it is
+    # The structures whose work the stop moves into processes the truth does not watch: the truth's readings of
+    # them after the stop say nothing about that work, so they are not scored (score/accuracy.py).
+    truth_cannot_follow: tuple[str, ...] = ()
 
     def in_scope(self, structure: str) -> bool:
         return '*' in self.structures or structure in self.structures
@@ -163,10 +166,11 @@ def _stop_from(sid: str, s: Mapping[str, Any]) -> Stop:
     for field in ('mechanism', 'actor'):
         if not s.get(field):
             raise SpecError(f'stop {sid}: {field} is required')
-    for st in s['intended_scope']['structures']:
+    for st in list(s['intended_scope']['structures']) + list(s.get('truth_cannot_follow', ())):
         _check_structure(f'stop {sid}', st)
     return Stop(sid, s['class'], bool(s.get('implemented')), s['mechanism'], tuple(s['intended_scope']['structures']),
-                s['scope_source'], s['report_kind'], s['actor'], s.get('note', ''), s.get('scope_doc', ''))
+                s['scope_source'], s['report_kind'], s['actor'], s.get('note', ''), s.get('scope_doc', ''),
+                tuple(s.get('truth_cannot_follow', ())))
 
 
 @lru_cache(maxsize=1)

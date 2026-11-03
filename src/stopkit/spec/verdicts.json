@@ -126,6 +126,7 @@
    "kit unknown": "the kit says unknown while the truth is definite: a loss of coverage, not an error",
    "invalid": "the kit or the truth found the plant failed: counted, not scored",
    "indefinite": "the truth is indefinite: counted, not scored",
+   "not followed": "the stop moves the work into processes that the truth does not watch (its truth_cannot_follow in spec/stops.json), so the truth's reading after the stop says nothing about the work: counted, not scored",
    "missed": "a planted path the kit did not report at all (the blind battery, E3)"
   }
  },

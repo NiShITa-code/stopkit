@@ -14,6 +14,9 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 KIT=$(cd "$HERE/.." && pwd)
 DEST=${1:-/opt/stopkit}
 export DEBIAN_FRONTEND=noninteractive
+# apt's own output is hidden, so say what runs: on a slow package mirror these two steps took most of the
+# script's 9 minutes (3 Nov 2026).
+echo "updating the package lists and installing at, cron, nftables and python3-venv (this can take several minutes)"
 apt-get update -q > /dev/null
 apt-get install -y -q at cron nftables python3 python3-venv util-linux iproute2 procps > /dev/null
 systemctl enable --now atd cron > /dev/null 2>&1
@@ -31,6 +34,7 @@ install -d -m 755 /var/lib/stopkit
 if [ ! -x /var/lib/stopkit/venv-mcp/bin/python ]; then
   python3 -m venv /var/lib/stopkit/venv-mcp
 fi
+echo "installing the MCP binding's packages into /var/lib/stopkit/venv-mcp"
 /var/lib/stopkit/venv-mcp/bin/pip install -q --no-deps --no-cache-dir -r "$HERE/mcp-2.3.0.txt"
 chmod -R a+rX,go-w /var/lib/stopkit/venv-mcp
 echo "python $(python3 --version | cut -d' ' -f2), systemd $(systemctl --version | head -1 | cut -d' ' -f2), $(nft --version)"
