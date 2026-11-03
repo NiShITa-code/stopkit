@@ -50,6 +50,13 @@ class SpecTest(unittest.TestCase):
         self.assertTrue(spec.stop('openclaw.gateway-sigterm').in_scope('tool-background'))
         self.assertFalse(spec.stop('langgraph.cancel').in_scope('agent-detached'))
 
+    def test_quitting_claude_code_ends_its_tasks_and_moving_it_to_the_background_does_not(self):
+        quit_, moved = spec.stop('claude-code.ctrl-c'), spec.stop('claude-code.ctrl-c-background')
+        self.assertTrue(all(quit_.in_scope(s) for s in ('agent-main', 'agent-child', 'tool-background')))
+        self.assertFalse(quit_.in_scope('agent-detached'))
+        self.assertEqual(moved.structures, ('agent-child',))           # the turn the first Ctrl+C interrupts
+        self.assertEqual((quit_.report_kind, moved.report_kind), ('explicit', 'explicit'))
+
 
 class AnthropicScriptTest(unittest.TestCase):
     SCRIPT = {'steps': [{'name': 'a', 'tool': 'Bash', 'input': {'command': 'one'}},
@@ -114,6 +121,86 @@ class AgentScriptsTest(unittest.TestCase):
         self.assertEqual(cfg['models']['providers']['standin']['baseUrl'], 'http://127.0.0.1:4321/v1')
         self.assertIs(cfg['tools']['toolSearch'], False)
         self.assertEqual(cfg['gateway']['auth']['token'], 'tok')
+
+
+# What Claude Code 2.1.310 showed for each key of a quitting stop, read from its screen on the VM, 3 Nov 2026.
+INTERRUPTED = 'Ran 2 shell commands  Interrupted · What should Claude do instead?'
+AGAIN = 'Press Ctrl-C again to exit'
+ASKS = ('Background work is running\nThe following will stop when you exit:\nshell · Start a background task\n'
+        '❯1. Exit and stop tasks\n    2. Move to background and exit\n    3. Stay\nEnter to confirm · Esc to cancel')
+DOWN = 'Exit and stop tasks\n❯Move to background and exit'
+RESUME = '\x0f\x0f Resume this session with: claude --resume 1586c69f-2e3d-4b00-973a-8c5afadbac2a'
+MOVED = ('Moving to background…\n\x0f\x0fbackgrounded · 31d84e30\n  claude agents  list sessions\n  claude attach 31d84e30'
+         '  open in this terminal\n  claude logs 31d84e30  show recent output\n  claude stop 31d84e30  stop this session')
+
+
+class Screen:
+    """Claude Code's terminal as a quitting stop sees it: the n-th key shows shows[n-1], and the key numbered quits
+    ends its process."""
+
+    def __init__(self, shows, quits=None):
+        self.shows, self.quits, self.keys, self.shown, self.last_out = shows, quits, [], '', 0.0
+
+    def write(self, data):
+        self.keys.append(data)
+        self.shown += '\n' + (self.shows[len(self.keys) - 1] if len(self.keys) <= len(self.shows) else '')
+
+    @property
+    def running(self):
+        return self.quits is None or len(self.keys) < self.quits
+
+    def pos(self):
+        return len(self.shown)
+
+    def text(self, since=0):
+        return self.shown[since:]
+
+
+class QuitTest(unittest.TestCase):
+    def quit(self, stop, screen):
+        from stopkit.bindings import claude_code
+        return claude_code.quit_claude(screen, stop, lambda: screen.running, lambda s: not screen.running, 0.0, gap=0)
+
+    def test_ctrl_c_answers_exit_and_stop_tasks_and_takes_its_words_as_the_report(self):
+        screen = Screen([INTERRUPTED, AGAIN, ASKS, RESUME], quits=4)
+        claim = self.quit('ctrl-c', screen)
+        self.assertEqual(screen.keys, [b'\x03'] * 3 + [b'\r'])           # the default option, as a person quitting
+        self.assertEqual((claim.said_stopped, claim.report, claim.details['presses']), (True, 'explicit', 3))
+        self.assertIn('"Background work is running The following will stop when you exit: shell · Start a '
+                      'background task"; "Exit and stop tasks" was chosen, and it exited', claim.message)
+        self.assertIn('Resume this session with', claim.message)
+        self.assertNotIn('\x0f', claim.message)
+
+    def test_ctrl_c_background_moves_down_and_reports_that_the_session_goes_on(self):
+        screen = Screen([INTERRUPTED, AGAIN, ASKS, DOWN, MOVED], quits=5)
+        claim = self.quit('ctrl-c-background', screen)
+        self.assertEqual(screen.keys, [b'\x03'] * 3 + [b'\x1b[B', b'\r'])
+        self.assertEqual((claim.said_stopped, claim.report), (False, 'explicit'))
+        self.assertIn('"Move to background and exit" was chosen; it exited, saying "Moving to background… backgrounded '
+                      '· 31d84e30', claim.message)
+
+    def test_without_background_work_claude_code_quits_without_asking(self):
+        for stop in ('ctrl-c', 'ctrl-c-background'):
+            screen = Screen([AGAIN, ''], quits=2)
+            claim = self.quit(stop, screen)
+            self.assertEqual(screen.keys, [b'\x03', b'\x03'])
+            self.assertEqual((claim.said_stopped, claim.report), (True, 'apparent'))
+            self.assertIn('exited after 2 presses of Ctrl+C, without asking', claim.message)
+
+    def test_presses_stop_at_six_and_a_running_claude_code_is_no_claim_to_stop(self):
+        screen = Screen([INTERRUPTED] + [AGAIN] * 5)
+        claim = self.quit('ctrl-c', screen)
+        self.assertEqual(screen.keys, [b'\x03'] * 6)
+        self.assertEqual((claim.said_stopped, claim.report), (False, 'apparent'))
+
+    def test_enter_is_pressed_only_on_the_option_shown_selected(self):
+        from stopkit.system import KitError
+        on_stay = ASKS.replace('❯1.', '1.').replace('3. Stay', '❯3. Stay')
+        for stop, shows in (('ctrl-c', [INTERRUPTED, AGAIN, on_stay]), ('ctrl-c-background', [INTERRUPTED, AGAIN, ASKS, ''])):
+            screen = Screen(shows)
+            with self.assertRaises(KitError):
+                self.quit(stop, screen)
+            self.assertNotIn(b'\r', screen.keys)
 
 
 if __name__ == '__main__':
