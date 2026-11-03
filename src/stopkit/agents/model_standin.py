@@ -1,8 +1,10 @@
 """A stand-in for the model behind an agent: a scripted, local model API, so that a real agent can be tested with
 no model and no account. Standard library only. It serves the Anthropic Messages API (POST /v1/messages, streamed
 or not), for Claude Code, adapted from the client probe's stand-in (mcp-cancel-spike/client-probe/stub_model.py,
-25 Oct 2026); and the OpenAI Chat Completions API (POST /v1/chat/completions, streamed), for OpenClaw's custom
-provider, framed as in the OpenClaw spike's stand-in (stopcheck-openclaw/openclaw/stub_completions.py, 14 Oct 2026).
+25 Oct 2026); the OpenAI Chat Completions API (POST /v1/chat/completions, streamed), for OpenClaw's custom
+provider, framed as in the OpenClaw spike's stand-in (stopcheck-openclaw/openclaw/stub_completions.py, 14 Oct 2026);
+and the OpenAI Responses API (POST /v1/responses, streamed), for the Codex CLI's custom provider, framed as in the
+client probe's stand-in for Codex (experiments/claude-code-codex/stub_model.py, 25 Oct 2026).
 
     python3 -I -B model_standin.py CONTROL LOG
 
@@ -11,7 +13,8 @@ file with the run's script: {"steps": [{"name": ..., "tool": "Bash", "input": {.
 answered with the next step whose tool use the conversation does not hold yet, in order; when every step has
 been asked for, with a short closing text. A request that offers no tools (a title, a summary) gets "ok".
 Claude Code 2.1.310 can defer tools; a step whose tool is offered only by name is asked for through ToolSearch
-first, as a real model would.
+first, as a real model would. The Codex CLI's shell tool returns after at most 30 s with a longer command still
+running; the stand-in then polls that command, as a model waiting for it would (responses_plan).
 
 Every request is written to LOG without its credential headers: what the agent sent the model, including what
 it said about a stop (an interrupted tool call, a task it stopped), is evidence of the agent's own report.
@@ -26,6 +29,10 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 SKIP_HEADERS = {'authorization', 'x-api-key', 'cookie'}
 LOCK = threading.Lock()
+# Codex's tool that writes to, or with no characters polls, a command its exec_command tool still runs, and the
+# line of exec_command's output that says the command still runs (Codex 0.164.0).
+POLL_TOOL = 'write_stdin'
+RUNNING = re.compile(r'Process running with session ID (\d+)')
 
 
 def load(path):
@@ -104,6 +111,66 @@ def chat_stream(handler, p):
     handler.end_headers()
     handler.wfile.write(data)
     handler.wfile.flush()
+
+
+def text_of(value) -> str:
+    """The text of a tool's output in the Responses API: a string, or a list of content parts."""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        return '\n'.join(text_of(v) for v in value)
+    if isinstance(value, dict):
+        return text_of(value.get('text', ''))
+    return ''
+
+
+def responses_plan(body, script):
+    """The same script for the OpenAI Responses API (the Codex CLI's custom provider). Tool calls already made are
+    counted from the function_call items of the input. Codex's exec_command returns after at most 30 s, leaving a
+    longer command running, and its write_stdin with no characters polls that command; so once every step has been
+    asked for, while the last tool output says its command still runs, the stand-in polls it, as a model waiting
+    for the command would, and the foreground command, the last step, holds the turn for as long as it runs. The
+    polls are not steps."""
+    tools = {t.get('name') for t in body.get('tools') or [] if isinstance(t, dict)}
+    if not tools:
+        return {'kind': 'text', 'text': 'ok'}
+    items = [i for i in body.get('input') or [] if isinstance(i, dict)]
+    done = sum(1 for i in items if i.get('type') == 'function_call' and i.get('name') != POLL_TOOL)
+    steps = script.get('steps') or []
+    if done < len(steps):
+        step = steps[done]
+        return {'kind': 'tool', 'name': step['tool'], 'input': step['input'], 'step': step['name']}
+    outputs = [i for i in items if i.get('type') == 'function_call_output']
+    running = RUNNING.search(text_of(outputs[-1].get('output'))) if outputs else None
+    if running and POLL_TOOL in tools:
+        return {'kind': 'tool', 'name': POLL_TOOL, 'step': 'poll',
+                'input': {'session_id': int(running.group(1)), 'chars': '', 'yield_time_ms': 300000}}
+    return {'kind': 'text', 'text': script.get('closing', 'Done.')}
+
+
+def responses_stream(handler, p):
+    """One streamed Responses body, framed as the client probe's stand-in framed it for Codex 0.164.0: the response
+    created, its one output item done, and the response completed."""
+    rid = 'resp_' + uuid.uuid4().hex[:24]
+    if p['kind'] == 'tool':
+        item = {'type': 'function_call', 'call_id': 'call_' + uuid.uuid4().hex[:20], 'name': p['name'],
+                'arguments': json.dumps(p['input'], separators=(',', ':'))}
+    else:
+        item = {'type': 'message', 'role': 'assistant', 'id': 'msg_' + uuid.uuid4().hex[:20],
+                'content': [{'type': 'output_text', 'text': p['text']}]}
+    events = [{'type': 'response.created', 'response': {'id': rid}},
+              {'type': 'response.output_item.done', 'item': item},
+              {'type': 'response.completed', 'response': {'id': rid, 'usage': {
+                  'input_tokens': 10, 'input_tokens_details': None, 'output_tokens': 12, 'output_tokens_details': None,
+                  'total_tokens': 22}}}]
+    handler.send_response(200)
+    handler.send_header('Content-Type', 'text/event-stream')
+    handler.send_header('Cache-Control', 'no-cache')
+    handler.send_header('Connection', 'close')
+    handler.end_headers()
+    for e in events:
+        handler.wfile.write(f"event: {e['type']}\ndata: {json.dumps(e)}\n\n".encode())
+        handler.wfile.flush()
 
 
 def stream(handler, model, p):
@@ -208,6 +275,11 @@ def main(argv):
                 p = chat_plan(body, load(control))
                 self._record(raw, body, p)
                 chat_stream(self, p)
+            elif path.endswith('/responses'):
+                p = responses_plan(body, load(control))
+                self._record(raw, body, p)
+                responses_stream(self, p)
+                self.close_connection = True
             else:
                 self._record(raw, body, {'kind': 'unknown'})
                 self._json(404, {'error': {'type': 'not_found', 'message': 'stand-in: unknown path'}})

@@ -32,7 +32,7 @@ from ..system.cmd import CmdResult, run
 from ..system.names import WORKER_SOCKET
 from ..truth.bench import BEAT, PYTHON, ROOT_ENV, exec_argv
 from . import MODEL_STANDIN
-from .agent_config import AgentConfig, cases, fill, scenario_data, scenario_name, stop_entries
+from .agent_config import ITEMS, AgentConfig, cases, fill, scenario_data, scenario_name, stop_entries
 from .base import EXPLICIT, NO_REPORT, AgentHandle, RunContext, StopClaim
 
 DOCTOR_ECHO, DOCTOR_ANSWER = 'echo stopkit-doctor-$((6*7))', 'stopkit-doctor-42'   # the command and its output
@@ -47,10 +47,12 @@ SUBMIT = ('import json,socket,sys\ns=socket.socket(socket.AF_UNIX);s.connect(sys
 
 
 def commands(tags: dict, bench, units: str = '~/.config/systemd/user') -> dict[str, str]:
-    """The shell command that plants each item, as the agent's shell tool runs it. `units` is the folder the
-    account's service manager reads user units from: the account's own, named in full, since an agent may run
-    with HOME set elsewhere."""
-    b, t, UNITS = bench, tags, units
+    """The shell command that plants each item the run has a tag for, as the agent's shell tool runs it. `units` is
+    the folder the account's service manager reads user units from: the account's own, named in full, since an
+    agent may run with HOME set elsewhere. An item the file does not plant has no tag in the run: its command is
+    written with none and left out."""
+    b, UNITS = bench, units
+    t = {item: tags.get(item, '') for item in ITEMS}
     rep = lambda item: f'{PYTHON} -I -B {BEAT} run {b.truth_sock} {b.sink_sock} {t[item]} {item} {b.heartbeat_s:g}'  # noqa: E731
     fire = lambda item: f'{PYTHON} -I -B {BEAT} fire {b.truth_sock} {b.sink_sock} {t[item]} {item}'  # noqa: E731
     service = ('[Unit]\\nDescription=stopkit test work: a service that restarts itself\\n[Service]\\n'
@@ -58,7 +60,7 @@ def commands(tags: dict, bench, units: str = '~/.config/systemd/user') -> dict[s
     timer_job = f"[Unit]\\nDescription=stopkit test work: the job a timer starts\\n[Service]\\nType=oneshot\\nExecStart={fire('timer')}\\n"
     timer = ('[Unit]\\nDescription=stopkit test work: a timer that fires every minute\\n[Timer]\\nOnCalendar=minutely\\n'
              'AccuracySec=1s\\n[Install]\\nWantedBy=timers.target\\n')
-    return {
+    every = {
         'background': rep('background'),
         'cron': f"(crontab -l 2>/dev/null; echo '* * * * * {fire('cron')}') | crontab -",
         'timer': (f"mkdir -p {UNITS} && printf '{timer_job}' > {UNITS}/{t['timer']}.service && printf '{timer}' > "
@@ -73,6 +75,7 @@ def commands(tags: dict, bench, units: str = '~/.config/systemd/user') -> dict[s
         'detached': f"setsid nohup {rep('detached')} > /dev/null 2>&1 < /dev/null & echo started",
         'foreground': rep('foreground'),
     }
+    return {item: c for item, c in every.items() if item in tags}
 
 
 def script(cfg: AgentConfig, tags: dict, bench, values: dict, units: str = '~/.config/systemd/user') -> dict:
@@ -146,8 +149,8 @@ class ConfiguredAdapter:
     def configuration(self) -> dict:
         c = self.cfg
         return {'config': os.path.basename(c.path), 'config_sha256': c.sha256,
-                'model': "the kit's scripted stand-in model (agents/model_standin.py), serving the Anthropic Messages "
-                         'and OpenAI Chat Completions APIs',
+                'model': "the kit's scripted stand-in model (agents/model_standin.py), serving the Anthropic Messages, "
+                         'OpenAI Chat Completions and OpenAI Responses APIs',
                 'shell_tool': c.shell, 'planted': list(c.items), 'not_planted': dict(c.skipped),
                 'shape': 'a server: [agent] start, then [task] run' if c.server else 'one command per task: [task] run',
                 'network': "the agent account's packets to anything but loopback are dropped (system/egress.py)"}

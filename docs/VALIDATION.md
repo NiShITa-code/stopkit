@@ -1,12 +1,12 @@
 # Validation of the kit
 
-This file records what has been checked about the kit itself. The records of the runs it describes are in [validation/](../validation/), where any of them can be scored again from its stored evidence with `recheck`; the two OpenClaw batches of 2 November, of 93 MB and 44 MB, are kept outside the repository.
+This file records what has been checked about the kit itself. The records of the runs it describes are in [validation/](../validation/), where any of them can be scored again from its stored evidence with `recheck`; the two OpenClaw batches of 2 November, of 93 MB and 44 MB, and the Codex batch of 3 November, of 70 MB, are kept outside the repository.
 
-The Linux host binding, with the kit's own scripted agent, runs end to end with the ground truth. It has passed its self-test on known answers, and its ground truth has passed the ground-truth check, the check of the truth on its own (FRAMEWORK.md, section 3.4). The config-file route has given the same verdicts as a binding written in code for the same agent. Apart from that comparison, which uses OpenClaw only as the agent under test, nothing in this file is a claim about any real agent or product.
+The Linux host binding, with the kit's own scripted agent, runs end to end with the ground truth. It has passed its self-test on known answers, and its ground truth has passed the ground-truth check, the check of the truth on its own (FRAMEWORK.md, section 3.4). The config-file route has given the same verdicts as a binding written in code for the same agent, and it has run an agent of its other shape, one command per task, through the stand-in's Responses API. Apart from that comparison and that run, which use OpenClaw and the Codex CLI only as agents under test, nothing in this file is a claim about any real agent or product.
 
 ## Recorded validation runs
 
-The self-test and the ground-truth check ran on 27 October 2026 on Ubuntu 24.04.1 with systemd 255 and Python 3.12.3, from a fresh copy of the kit that only root could write; the LangGraph example ran on 27 October and again on 1 November 2026. Each command repeats its run from the repository root. The OpenClaw config file ran on 2 November 2026 on Ubuntu 24.04.5 with systemd 255 and Python 3.12.3, from commit 4ab874d, installed the same way.
+The self-test and the ground-truth check ran on 27 October 2026 on Ubuntu 24.04.1 with systemd 255 and Python 3.12.3, from a fresh copy of the kit that only root could write; the LangGraph example ran on 27 October and again on 1 November 2026. Each command repeats its run from the repository root. The OpenClaw config file ran on 2 November 2026 on Ubuntu 24.04.5 with systemd 255 and Python 3.12.3, from commit 4ab874d, installed the same way. The Codex config file ran on 3 November 2026 on the same versions, installed the same way, from commit e6e1f84 with the changes that added it, before they were committed; each run records the SHA-256 of the kit's code, which begins 73bce633.
 
 | Run | Command | Result | Record |
 |---|---|---|---|
@@ -15,6 +15,7 @@ The self-test and the ground-truth check ran on 27 October 2026 on Ubuntu 24.04.
 | Recheck | `PYTHONPATH=src python3 -B -m stopkit recheck validation/selftest-20261027T091012Z-70406a/run-*` | The same verdicts from the stored evidence for all six runs; `experiments/verify.py` repeats it as its check `selftest_recheck` | the six `run-*` folders of the self-test |
 | LangGraph example | `sudo bash examples/langgraph/demo.sh --auto` | Completed; the results are in [examples/langgraph/README.md](../examples/langgraph/README.md) | [langgraph-example-20261027.log](../validation/langgraph-example-20261027.log), [langgraph-example-20261101.log](../validation/langgraph-example-20261101.log) |
 | OpenClaw from its config file | `python3 -B -m stopkit doctor examples/openclaw/agent.toml`, then `python3 -B -m stopkit check examples/openclaw/agent.toml --stop none --stop abort --stop sigterm --stop kill --stop kill-scope --stop reference --runs 3`, as root, from the installed copy | `doctor` passed; the same verdicts as the ready-made binding (below) | batch `test-20261102T215527Z-d714ad`, 93 MB, kept outside the repository |
+| The Codex CLI from its config file | `python3 -B -m stopkit doctor examples/codex/agent.toml`, then `python3 -B -m stopkit check examples/codex/agent.toml`, as root, from the installed copy | `doctor` passed; every stop three times, with no error and no wrong reading (below) | batch `test-20261103T064353Z-b1981e`, 70 MB, kept outside the repository |
 
 `python3 -B experiments/verify.py` runs every check on the repository's records again, including `recheck` on the six saved self-test runs, and compares the outcome with `experiments/results/results.json`.
 
@@ -57,3 +58,18 @@ A config file (CONFIG.md) must give the same results as a binding written in cod
 The reference stop removes the account's triggers before it ends its processes. With the file's seven extra items it reached the processes 1.1 to 1.2 s after the cut-off, against 0.5 to 0.6 s with the binding's five, so they acted past the 0.6 s grace.
 
 The false absent shows two limits of the kit, not of the config file. In one run without a stop, OpenClaw ran a heartbeat turn of its own while the task started. The stand-in model gives every conversation that offers tools the test's commands, so the agent's shell tool planted the work a second time. The restart action interrupted that turn; OpenClaw resumed it when it came back, and the work was planted again 7 to 10 s after the restart had ended. The kit's reading after the restart, taken 3 s after it ended, found no temporary user service; the ground truth, whose window runs 30 s past the restart, saw it come back. The stand-in model should follow its script only in the task's own conversation, and the reading after a restart should cover the truth's window; both are open faults.
+
+## The Codex CLI from its config file
+
+[examples/codex/agent.toml](../examples/codex/agent.toml) describes the Codex CLI 0.164.0, an agent that is one command per task, which talks to the stand-in through OpenAI's Responses API. There is no binding to compare it with: the batch shows that the config-file route runs such an agent through every stop, and that the kit's readings agree with the recorder's. What each stop ended is in [examples/codex/README.md](../examples/codex/README.md).
+
+| Check | Result |
+|---|---|
+| The runs | 24 runs, three of each stop, in two hours. No run has an error, and clean-up left the agent account empty after every run |
+| Readings, against the ground truth | 1,140 agree, and none is a false absent or a false present; 177 are indefinite, and the kit could not make 3 (below) |
+| Verdicts | 192 agree, with no false "ended" and no false "active"; 72 rest on indefinite truth and are not scored |
+| Effects after the stop | The sink and the truth agree for all 216 paths |
+
+The three readings the kit could not make are of the timer, at the last check after `kill-account`: that stop kills the account's service manager, so the kit cannot list the account's timers, while the recorder, which had seen no firing for a full window, read the timer absent. Of the indefinite readings, 15 are of Codex's own process at the check before the stop, in the five stops after which it died at once (`sigterm`, `kill`, `kill-tree`, `kill-scope` and `kill-account`). The kit's listing of the process ended 17 to 25 ms before the stop, and the process exited 29 to 46 ms after that listing ended, within the recorder's 50 ms latency, so the recorder cannot say that it lived to the end of the listing. After SIGINT it exited 52 to 56 ms after the listing, and the recorder read it present. The other 162 are of triggers, whose absence the recorder can read only after a full firing window.
+
+The first attempt at this batch failed in its first run, before Codex started. The kit built the planting command of every item of the catalogue, and a file that plants fewer has no tag for the others: this one does not plant the listener, which Codex cannot hold, and the kit stopped on a KeyError. It now builds only the commands of the items a file plants, and a unit test covers a file that skips items and gives no background form.

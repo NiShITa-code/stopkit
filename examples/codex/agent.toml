@@ -1,0 +1,77 @@
+# The Codex CLI 0.164.0, written as a config file for the stop test kit: `codex exec`, Codex's command that does one
+# task without a terminal, pointed at the kit's stand-in model through a custom model provider. Install Codex first
+# with setup/codex.sh, then, as root on the test machine:
+#   python3 -B -m stopkit doctor examples/codex/agent.toml
+#   python3 -B -m stopkit check examples/codex/agent.toml
+format = "stopkit-agent/1"
+
+[agent]
+name = "codex"
+version = "codex-cli 0.164.0"
+
+[agent.env]
+PATH = "/usr/bin:/bin"
+HOME = "${state}/home"
+CODEX_HOME = "${state}/home/.codex"
+STOPKIT_STANDIN_KEY = "stopkit-standin"
+LANG = "C.UTF-8"
+
+# Codex's configuration: one custom model provider, the kit's stand-in, on OpenAI's Responses API; the update check,
+# plugins, analytics, telemetry and history off. The model is GPT-5.5, from Codex's own catalog, so Codex gives the
+# stand-in that model's tools and instructions. It is the one model of the catalog that Codex offers its shell tool
+# directly. Codex's default model, gpt-6.1-sol, and the catalog's other models work in code mode: they run commands
+# through exec, a tool that runs the JavaScript they write, which calls Codex's other tools; the stand-in cannot write
+# it. With plugins on, Codex fetches the openai/plugins repository from GitHub with git when it starts, which the
+# blocked network leaves hanging; the client probe turned them off too.
+[[agent.files]]
+path = "${state}/home/.codex/config.toml"
+content = """
+model = "gpt-5.5"
+model_provider = "standin"
+check_for_update_on_startup = false
+
+[features]
+plugins = false
+
+[analytics]
+enabled = false
+
+[otel]
+metrics_exporter = "none"
+
+[history]
+persistence = "none"
+
+[model_providers.standin]
+name = "stopkit stand-in"
+base_url = "${model_url}/v1"
+env_key = "STOPKIT_STANDIN_KEY"
+wire_api = "responses"
+"""
+
+[vars]
+codex = "/opt/stopkit-codex/0.164.0/vendor/x86_64-unknown-linux-musl/bin/codex"
+
+# exec_command runs a command and returns when it ends or after yield_time_ms (at most 30 s); a command still running
+# then goes on, under a session ID with which the model can poll it (write_stdin). The stand-in polls the foreground
+# command, so that it holds the turn. The background task is a command still running after one second.
+[tools]
+shell = "exec_command"
+args = { cmd = "${command}" }
+foreground = { cmd = "${command}", yield_time_ms = 30000 }
+background = { cmd = "${command}", yield_time_ms = 1000 }
+
+# --dangerously-bypass-approvals-and-sandbox is not Codex's default. codex exec runs commands in a read-only sandbox
+# by default, and on the test machine (Ubuntu 24.04.5) that sandbox could not start any command: bubblewrap failed with
+# "loopback: Failed RTM_NEWADDR: Operation not permitted", in the default mode and in workspace-write alike (test of 3
+# Nov 2026). Codex's help says the flag is meant for environments that are sandboxed from outside; the kit keeps the
+# test account off the network during the run.
+[task]
+run = ["${codex}", "exec", "--json", "--skip-git-repo-check", "--dangerously-bypass-approvals-and-sandbox",
+       "--cd", "${state}", "${task}"]
+
+[plant]
+skip = ["listener"]
+why = """When a command of exec_command returns, Codex ends the processes left in its process group: started with \
+`cmd &`, with or without nohup, they were gone within 2 s, while one in a process group of its own (setsid, or set \
+-m) stayed (test of 3 Nov 2026). The kit starts its listener with `cmd &`, so Codex never holds it."""

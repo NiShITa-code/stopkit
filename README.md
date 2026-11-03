@@ -194,7 +194,7 @@ python3 -B -m stopkit doctor my-agent.toml
 python3 -B -m stopkit check my-agent.toml
 ```
 
-The results and logs are the same as above. An agent whose work lives in its own stores, such as a workflow engine's queue, needs a binding written in Python instead ([docs/GUIDE.md](docs/GUIDE.md)).
+The results and logs are the same as above. Two worked files are in `examples/`: [OpenClaw's](examples/openclaw/agent.toml), an agent that runs as a server, and [the Codex CLI's](examples/codex/agent.toml), an agent that is one command per task; `setup/openclaw.sh` and `setup/codex.sh` install them, and [examples/codex/README.md](examples/codex/README.md) says which of Codex's settings the kit changes and why. An agent whose work lives in its own stores, such as a workflow engine's queue, needs a binding written in Python instead ([docs/GUIDE.md](docs/GUIDE.md)).
 
 ## Agents with a ready-made binding
 
@@ -211,6 +211,8 @@ Apart from `pretend`, which the self-test runs, these bindings last ran in full 
 | `openclaw` | OpenClaw's Gateway 2026.10.2, against the stand-in model | `abort` (OpenClaw's own stop for the session), `gateway-sigterm`, `kill` (SIGKILL to the Gateway), `kill-scope` | `setup/openclaw.sh` |
 
 Every binding also has `none`, the control, and `reference`, the kit's complete stop; for n8n, LangGraph and Temporal, `reference` first stops the run's work through the platform's own API. Run the binding's set-up script, then, for example, `python3 -B -m stopkit check langgraph`. Without `--stop`, `check` tests every stop of the binding three times; for LangGraph that is 24 runs, which took two hours on 2 November 2026.
+
+The Codex CLI 0.164.0 has no binding: the kit tests it from its config file, [examples/codex/agent.toml](examples/codex/agent.toml), after `setup/codex.sh`, with the kit's own stops (`none`, `sigint`, `sigterm`, `kill`, `kill-tree`, `kill-scope`, `kill-account` and `reference`).
 
 ## Watching a live demonstration
 
@@ -247,7 +249,7 @@ Then stop the agent however you normally would, and run `python3 -B -m stopkit w
 
 ## What has been checked
 
-The self-test and a check of the recorder on its own passed on 27 October 2026, and OpenClaw's config file gave the same verdicts as the ready-made OpenClaw binding on 2 November 2026; [docs/VALIDATION.md](docs/VALIDATION.md) has the runs and their records. Two limits: the stand-in model replaces the agent's real model, so the kit tests what the agent's platform does with the work it is asked to start, not what a real model would decide; and nobody outside the project has run the kit yet.
+The self-test and a check of the recorder on its own passed on 27 October 2026, OpenClaw's config file gave the same verdicts as the ready-made OpenClaw binding on 2 November 2026, and the Codex CLI's config file ran every stop three times on 3 November 2026, with no error and no reading that the recorder contradicts; [docs/VALIDATION.md](docs/VALIDATION.md) has the runs and their records. Two limits: the stand-in model replaces the agent's real model, so the kit tests what the agent's platform does with the work it is asked to start, not what a real model would decide; and nobody outside the project has run the kit yet.
 
 ## Previous work
 
@@ -419,6 +421,7 @@ To follow one run through the code, read five files in this order. `cli.py` turn
 ├── setup/                                # machine set-up for the kit and its platform bindings
 │   ├── base.sh                           # the kit's machine set-up; installs it into /opt/stopkit
 │   ├── claude-code.sh                    # Claude Code, for the Claude Code binding
+│   ├── codex.sh                          # the Codex CLI, for its config file
 │   ├── langgraph-constraints.txt         # the LangGraph binding's pinned versions
 │   ├── langgraph-requirements.txt        # the LangGraph binding's packages
 │   ├── langgraph.sh                      # LangGraph's development server, for the LangGraph binding
@@ -427,7 +430,10 @@ To follow one run through the code, read five files in this order. `cli.py` turn
 │   ├── openclaw.sh                       # OpenClaw, for the OpenClaw binding
 │   ├── temporal-constraints.txt          # the Temporal binding's pinned packages
 │   └── temporal.sh                       # the Temporal CLI and SDK, for the Temporal binding
-├── examples/                             # the live LangGraph demonstration; OpenClaw as a config file
+├── examples/                             # the live LangGraph demonstration; OpenClaw and the Codex CLI as config files
+│   ├── codex/
+│   │   ├── README.md                     # how to check it, and the settings of Codex that the file changes
+│   │   └── agent.toml                    # the Codex CLI's codex exec, written as a config file
 │   ├── langgraph/
 │   │   ├── README.md                     # how to run the demonstration and what each step shows
 │   │   ├── check_log_filter.py           # checks the filter against a saved server log

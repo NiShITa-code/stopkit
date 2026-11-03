@@ -35,7 +35,7 @@ WAIT_S = 120.0
 
 
 def offered_tools(body: dict) -> set[str]:
-    """The tool names a model request offers, in either API's form (deferred ones included)."""
+    """The tool names a model request offers, in the form of any API the stand-in serves (deferred ones included)."""
     out = set()
     for t in body.get('tools') or []:
         if isinstance(t, dict):
