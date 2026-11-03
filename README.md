@@ -13,7 +13,7 @@
 
 When you stop an AI agent, with its stop button, a signal or a kill, its platform reports a status such as `stopped` or `cancelled`. That status is about the run the agent was doing. But an agent can start work that lives on outside that run: a process in the background, a scheduled job, a service, a job handed to another program. A stop can end the run and leave that work going.
 
-The kit tests this on a Linux machine you can throw away. In each test run it:
+The kit tests this on a Linux machine. In each test run it:
 
 1. starts the agent under a test account, `stopkit-agent`;
 2. gives the agent a task that makes it start harmless, labeled work with its own shell tool: a foreground and a background command, a detached process, a cron job, a systemd timer, a service and a temporary service, a listening socket, and a job handed to a second account;
@@ -27,7 +27,7 @@ A scripted stand-in replaces the agent's AI model. The kit runs it on the same m
 
 ## What you need
 
-- A Linux machine you can throw away, where you are root: for example a cloud virtual machine with Ubuntu 24.04 (the version tested), systemd 250 or later, cgroup v2 and Python 3.11 or later. Do not use your own computer: the agent under test runs shell commands.
+- A Linux machine where you are root: for example a cloud virtual machine with Ubuntu 24.04 (the version tested), systemd 250 or later, cgroup v2 and Python 3.11 or later.
 - Internet access while the set-up scripts install things. During a run of any agent the kit did not write, the test account can reach nothing outside the machine; the kit's own test agent and MCP test server run without that block.
 - About two hours for the first experiment below.
 
