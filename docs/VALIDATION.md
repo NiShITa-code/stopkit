@@ -1,6 +1,6 @@
 # Validation of the kit
 
-This file records what has been checked about the kit itself. The records of the runs it describes are in [validation/](../validation/); any of them can be scored again from its stored evidence with `recheck`.
+This file records what has been checked about the kit itself. The records of the runs it describes are in [validation/](../validation/), where any of them can be scored again from its stored evidence with `recheck`; the two OpenClaw batches of 2 November, of 93 MB and 44 MB, are kept outside the repository.
 
 The Linux host binding, with the kit's own scripted agent, runs end to end with the ground truth. It has passed its self-test on known answers, and its ground truth has passed the ground-truth check, the check of the truth on its own (FRAMEWORK.md, section 3.4). The config-file route has given the same verdicts as a binding written in code for the same agent. Apart from that comparison, which uses OpenClaw only as the agent under test, nothing in this file is a claim about any real agent or product.
 

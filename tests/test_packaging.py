@@ -32,7 +32,7 @@ BUILDER = ROOT / "experiments" / "scripts" / "build_results.py"
 MANIFEST = ROOT / "experiments" / "data" / "MANIFEST.json"
 # Files experiments/data/MANIFEST.json lists under these prefixes are moved code, held to every check.
 MOVED_CODE = ("src/", "tests/", "examples/")
-# Home folders the records hold that belong to no person (scripts/identity_scan.py lists the same).
+# Home folders the records hold that belong to no person (.github/scripts/identity_scan.py lists the same).
 ACCOUNTS = frozenset(
     {
         "stopkit-agent",
@@ -255,8 +255,8 @@ def test_the_readme_tree_matches_the_repository():
     folder (experiments/<folder>/..., experiments/harness/<folder>/...).
     """
     readme = (ROOT / "README.md").read_text()
-    m = re.search(r"## Repository structure\n\n```\n(.*?)\n```", readme, re.S)
-    assert m, "no repository-structure tree"
+    m = re.search(r"## Files and what they do\n.*?```\n(.*?)\n```", readme, re.S)
+    assert m, "no tree of the files"
     tree = m.group(1)
     recorded = records()
     missing = [f for f in tracked() if f not in recorded and Path(f).name not in tree]
@@ -305,7 +305,7 @@ def test_the_checks_field_is_structured():
 
 
 def test_program_output_is_readable_by_a_stranger():
-    """Strings printed by the package's cli.py and by scripts/*.py contain no internal term.
+    """Strings printed by the package's cli.py and by the repository's scripts contain no internal term.
 
     Printed output is quoted in documentation, so it is held to the same
     vocabulary rules as the documentation.
@@ -317,7 +317,7 @@ def test_program_output_is_readable_by_a_stranger():
     )
     sources = [
         ROOT / "src" / PKG / "cli.py",
-        *(ROOT / "scripts").glob("*.py"),
+        *(ROOT / ".github" / "scripts").glob("*.py"),
         *(ROOT / "experiments" / "scripts").glob("*.py"),
     ]
     offenders = {}
@@ -345,32 +345,32 @@ def test_readme_has_no_project_management_sections():
 
 
 def test_readme_has_the_required_sections():
-    """The README has the required sections and the elements each one carries.
+    """The README has the sections a first-time user needs and a guide to every file.
 
-    Required: a centered title block with badges and the paper title in italics
-    under the acronym; Overview, Getting started, Repository structure,
-    Implementation, Citation and License sections; display mathematics; a
-    mermaid diagram; Getting started in numbered steps; and a repository tree.
+    Required: a centered title block with badges and a description in italics
+    under the title; sections on what the kit needs, a first experiment, what
+    it prints, where its results and logs are, how to read a result, testing
+    one's own agent, every file and what it does, and the license; and the
+    file guide as a tree.
     """
     readme = (ROOT / "README.md").read_text()
     required = [
-        "## Overview",
-        "## Getting started",
-        "## Repository structure",
-        "## Implementation",
-        "## Citation",
+        "## What you need",
+        "## Run your first experiment",
+        "## What you see while it runs",
+        "## Where your results and logs are",
+        "## How to read the result",
+        "## Testing your own agent",
+        "## Files and what they do",
         "## License",
     ]
     missing = [h for h in required if h not in readme]
     assert not missing, f"README is missing required sections: {missing}"
 
     assert '<div align="center">' in readme, "no centered title block"
-    assert re.search(r"^### \*.+\*$", readme, re.M), "no italic paper title under the acronym"
+    assert re.search(r"^### \*.+\*$", readme, re.M), "no italic description under the title"
     assert "img.shields.io" in readme, "no badges"
-    assert "```mermaid" in readme, "no mermaid diagram"
-    assert "$$" in readme, "no display mathematics"
-    assert re.search(r"^### 01\.", readme, re.M), "Getting started is not in numbered steps"
-    assert "├──" in readme, "the repository structure is not a tree"
+    assert "├──" in readme, "the file guide is not a tree"
 
 
 def test_no_findings_or_limitations_section():

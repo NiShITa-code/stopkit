@@ -1,6 +1,7 @@
-# The experiments
+# Previous work: the experiments
 
-These are the studies the kit grew out of. Each tested what the stops of one platform reach, on a real, pinned
+These are the studies the kit grew out of, kept here as a record; you don't need them to use the kit, which the
+[README](../README.md) at the root of the repository explains. Each tested what the stops of one platform reach, on a real, pinned
 installation, watched from outside the platform. Each folder holds one study's guide (its README.md), its code where
 that code is not under [harness/](harness/README.md), and its recorded runs. The records are the raw files the runs
 wrote, except that the identifying strings [data/MANIFEST.json](data/MANIFEST.json) lists (a home folder, the cloud
@@ -61,20 +62,6 @@ and the run of 29 October on a fresh virtual machine
 ([`experiments/n8n-restart/results/2026-10-29-fresh-vm/`](n8n-restart/results/2026-10-29-fresh-vm/)) gives
 $N_1 = 0$ for the execution stopped with main running and $N_2 = 237$ for the one stopped after main restarted, while
 n8n's API and its database both read `canceled`.
-
-```mermaid
-flowchart LR
-    H["Harness<br/>experiments/harness/, experiments/"] -->|"start known work,<br/>apply one stop"| P["Pinned platform<br/>and scripted workload"]
-    P -->|"status and logs"| R["Recorded runs<br/>experiments/, experiments/harness/*/langgraph/results"]
-    P -->|"activity"| O["Outside receiver<br/>and system reads"]
-    O --> R
-    R --> A["Frozen scorers<br/>experiments/harness/*/*/analyze_*.py, check_probe.py"]
-    A --> V["Per-piece results"]
-    S["Self-test runs<br/>validation/"] --> C
-    R --> C["experiments/scripts/build_results.py<br/>14 checks"]
-    V --> C
-    C --> J["experiments/results/results.json"]
-```
 
 What each platform's own controls reach, from the per-platform tables in
 [experiments/docs/WHAT-EACH-STOP-REACHES.md](docs/WHAT-EACH-STOP-REACHES.md):

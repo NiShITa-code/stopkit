@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = json.loads((ROOT / "experiments" / "data" / "MANIFEST.json").read_text())
 ARCHIVE = ROOT / "experiments" / "data" / "source" / "archive.zip"
+SCAN = ROOT / ".github" / "scripts" / "identity_scan.py"
 HEX = re.compile(rb"(?<![0-9a-f])[0-9a-f]{64}(?![0-9a-f])")
 
 
@@ -142,7 +143,7 @@ class SubstitutionTests(unittest.TestCase):
 
     def test_no_home_folder_in_any_file_or_archive_member(self):
         p = subprocess.run(
-            [sys.executable, "-B", str(ROOT / "scripts" / "identity_scan.py"), "--no-names"],
+            [sys.executable, "-B", str(SCAN), "--no-names"],
             capture_output=True,
             text=True,
         )
@@ -153,7 +154,7 @@ class SubstitutionTests(unittest.TestCase):
         if not names:
             self.skipTest("IDENTITY_PATTERN is not set")
         p = subprocess.run(
-            [sys.executable, "-B", str(ROOT / "scripts" / "identity_scan.py")],
+            [sys.executable, "-B", str(SCAN)],
             env=dict(os.environ, NAMES=names),
             capture_output=True,
             text=True,
@@ -174,7 +175,7 @@ class IdentityScanTests(unittest.TestCase):
             subprocess.run(["git", "add", "-A"], cwd=repo, check=True)
             env = dict(os.environ, NAMES=names)
             return subprocess.run(
-                [sys.executable, "-B", str(ROOT / "scripts" / "identity_scan.py"), "--root", str(repo), *args],
+                [sys.executable, "-B", str(SCAN), "--root", str(repo), *args],
                 env=env,
                 capture_output=True,
                 text=True,
@@ -186,7 +187,7 @@ class IdentityScanTests(unittest.TestCase):
         self.assertIn("(its path)", p.stdout)
 
     def test_a_windows_home_folder_is_found(self):
-        # A home folder with no person's name; scripts/identity_scan.py lets this file, and no other, hold it.
+        # A home folder with no person's name; .github/scripts/identity_scan.py lets this file, and no other, hold it.
         home = b"C:\\\\Users\\\\zzplanted\\\\x"
         p = self.scan({"record.json": b'{"cwd": "' + home + b'"}\n'}, "--no-names")
         self.assertEqual(p.returncode, 1, p.stdout)

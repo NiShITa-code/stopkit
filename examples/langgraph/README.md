@@ -4,7 +4,7 @@ This demonstration launches a real **LangGraph development server** and runs a s
 
 ## Prepare and run
 
-Follow the [quick start](../../README.md#getting-started) on a disposable Linux environment with systemd and cgroup v2, such as an Ubuntu 24.04 cloud virtual machine or WSL 2. The commands below run as root, from the copy of the kit that `setup/base.sh` installs into a folder only root can write, for example `/opt/stopkit`:
+Use a machine as [What you need](../../README.md#what-you-need) describes: a disposable Linux environment with systemd and cgroup v2, such as an Ubuntu 24.04 cloud virtual machine or WSL 2. The commands below run as root, from the copy of the kit that `setup/base.sh` installs into a folder only root can write, for example `/opt/stopkit`:
 
 ```bash
 sudo apt-get update
@@ -74,7 +74,7 @@ The task is a plain (synchronous) Python function, which LangGraph runs in a thr
 
 ## Output
 
-The terminal contains the live lines described above and the final count table. STEP 1 prints the path of LangGraph's full server log, `/var/lib/stopkit/demo-logs/langgraph-server-<time>.log`, which only root can read and which stays after the demo ends. The standard `record.json`, `report.md` and evidence bundle come from the [kit's own runs](../../README.md#getting-started).
+The terminal contains the live lines described above and the final count table. STEP 1 prints the path of LangGraph's full server log, `/var/lib/stopkit/demo-logs/langgraph-server-<time>.log`, which only root can read and which stays after the demo ends. The standard `record.json`, `report.md` and evidence bundle come from the [kit's own runs](../../README.md#where-your-results-and-logs-are).
 
 The platform is the pinned development server, `langgraph dev`, with its local saved state. [graph.py](graph.py) also defines an async task variant; this demo launches the synchronous variant.
 

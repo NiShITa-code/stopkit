@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Look for a personal name or a personal home-folder path in every tracked file, archive members included.
 
-    NAMES='first|second' python3 scripts/identity_scan.py
-    python3 scripts/identity_scan.py --no-names          # the home-folder checks only
+    NAMES='first|second' python3 .github/scripts/identity_scan.py
+    python3 .github/scripts/identity_scan.py --no-names          # the home-folder checks only
 
 NAMES is an extended regular expression, matched ignoring case. CI takes it from the IDENTITY_PATTERN repository
 secret, so the names never appear in the repository. Without NAMES the scan refuses to run (exit 2) unless --no-names
@@ -23,7 +23,7 @@ import subprocess
 import sys
 import tarfile
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # The home folders the records hold that belong to no person: the kit's and the OpenClaw runs' test accounts, the
 # per-run home folders of the client probe, the build path compiled into the Codex binary, and a frozen test's
 # placeholder path.
