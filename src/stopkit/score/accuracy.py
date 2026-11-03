@@ -21,12 +21,15 @@ def reading_pairs(rec: dict) -> list[dict]:
     if (rec.get('truth') or {}).get('status') != 'ok':
         return []
     rules = spec.verdict_rules()['accuracy']['reading_pairs']
+    # A reading after the restart of work the restart itself starts again is not a reading of the stop.
+    unread = spec.unread_after_restart((rec.get('system') or {}).get('scenario', ''))
+    restart = {c['name'] for c in rec.get('checkpoints', ()) if c.get('kind') == 'restart'}
     out = []
     for it in rec.get('items', ()):
         tr = _truth_of(rec, it['id'], it['kind']).get('readings') or {}
         for cp, kit in it['readings'].items():
             tru = tr.get(cp)
-            if tru is None:
+            if tru is None or (cp in restart and it['id'] in unread):
                 continue
             cat = 'indefinite' if tru == 'indefinite' else rules.get(f'{kit}|{tru}', f'unexpected {kit}|{tru}')
             out.append({'run': rec['run_id'], 'stop': rec['stop_spec']['id'], 'item': it['id'], 'kind': it['kind'],

@@ -84,6 +84,16 @@ class AccuracyTest(unittest.TestCase):
         rec['truth'] = {'status': 'failed', 'items': {}}
         self.assertEqual(accuracy.reading_pairs(rec), [])
 
+    def test_a_reading_after_a_restart_that_starts_the_work_is_not_counted(self):
+        rec = record()
+        n = len(accuracy.reading_pairs(rec))
+        rec['system']['scenario'] = 'openclaw-bundle-1'          # its gateway has "restart_read": false
+        rec['items'][0]['id'] = 'gateway'
+        rec['truth']['items']['gateway'] = rec['truth']['items'].pop('agent')
+        pairs = accuracy.reading_pairs(rec)
+        self.assertEqual(len(pairs), n - 1)
+        self.assertFalse([p for p in pairs if p['item'] == 'gateway' and p['checkpoint'] == 'restart'])
+
 
 class ReportTest(unittest.TestCase):
     def test_report_from_records(self):
@@ -128,6 +138,37 @@ class ReportTest(unittest.TestCase):
         md = reports.run_details(record())
         self.assertIn('In-scope result: **ended**', md)
         self.assertIn('Out-of-scope remainder: timer/P4: armed', md)
+
+    def test_the_header_says_uncommitted_changes_only_when_there_were(self):
+        for value, says in ((None, False), ('', False), ('0', False), ('false', False), ('No', False),
+                            ('1', True), ('true', True), ('working tree c761bbb5', True)):
+            rec = record()
+            rec['git_dirty'] = value
+            self.assertEqual('uncommitted changes' in reports.run_details(rec), says, repr(value))
+
+    def test_the_mechanism_keeps_its_capitals(self):
+        self.assertIn('SIGTERM to the main process. Intended scope', reports.run_details(record()))
+
+    def test_a_long_stop_message_is_marked_as_shortened(self):
+        with tempfile.TemporaryDirectory() as d:
+            rec = record()
+            rec['claim']['message'] = 'x' * 150
+            os.makedirs(f'{d}/batch/run-01')
+            with open(f'{d}/batch/run-01/record.json', 'w') as f:
+                json.dump(rec, f)
+            reports.write([f'{d}/batch'], f'{d}/report')
+            md = read(f'{d}/report/REPORT.md')
+            self.assertIn('"' + 'x' * 119 + '…"', md)
+            self.assertNotIn('x' * 120, md)
+
+    def test_the_report_says_how_often_each_stop_ran(self):
+        recs = [record('r1'), record('r2'), record('r3', stop='host.none')]
+        for r in recs:
+            r['system']['platform']['boot_id'] = 'b'
+        self.assertEqual(reports._repeats(recs), 'Each stop ran between 1 and 2 times on 1 machine boot')
+        recs[2]['system']['platform']['boot_id'] = None
+        self.assertEqual(reports._repeats(recs[:2]), 'Each stop ran 2 times on 1 machine boot')
+        self.assertEqual(reports._repeats(recs), 'Each stop ran between 1 and 2 times')
 
 
 if __name__ == '__main__':

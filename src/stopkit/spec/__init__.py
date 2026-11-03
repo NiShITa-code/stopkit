@@ -244,6 +244,17 @@ def scenario(name: str) -> Scenario:
     return _file_scenario(name)
 
 
+def unread_after_restart(name: str) -> frozenset[str]:
+    """The items of scenario `name` that the restart action itself starts again ("restart_read": false), so that a
+    reading of them after the restart says nothing about the stop. Empty for a scenario that cannot be found."""
+    if not name:
+        return frozenset()
+    try:
+        return frozenset(it.id for it in scenario(name).items if not it.raw.get('restart_read', True))
+    except (SpecError, OSError, KeyError, ValueError):
+        return frozenset()
+
+
 @lru_cache(maxsize=None)
 def _file_scenario(name: str) -> Scenario:
     return _scenario_from(name, _read(os.path.join('scenarios', f'{name}.json')))

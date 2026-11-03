@@ -24,24 +24,26 @@ COLUMNS = (
     'stop_id', 'stop_class', 'stop_mechanism', 'stop_actor', 'scope_source', 'report_kind', 'report_message',
     'said_stopped', 'stop_sent_s', 'stop_returned_s', 'stop_seconds',
     'item', 'kind', 'family', 'structure', 'in_scope',
-    'verdict', 'verdict_word', 'verdict_why', 'restart_confirmed',
+    'verdict', 'verdict_word', 'verdict_why', 'restart_confirmed', 'restart_read',
     'acted_after', 'acted_within_grace', 'last_effect_s', 'ended_by_completion', 'grace_s',
     'truth_status', 'truth_verdict', 'truth_definite', 'truth_exit_s', 'truth_last_alive_s', 'truth_fires_after',
     'evidence',
 )
 
 
-def verdict_word(kind: str, verdict: str | None, restart_confirmed: bool | None) -> str | None:
+def verdict_word(kind: str, verdict: str | None, restart_confirmed: bool | None,
+                 restart_read: bool = True) -> str | None:
     """The verdict as it reads for this kind of work (spec/verdicts.json, words): a trigger is armed or
-    removed, not running or ended. restart_confirmed is None when no restart action was performed; an ended
-    verdict then carries the qualifier, because nothing could be seen coming back."""
+    removed, not running or ended. restart_confirmed is None when no restart action was performed, or when the
+    path is not read after it (restart_read false: the restart itself starts it again); an ended verdict then
+    carries the qualifier, because nothing could be seen coming back, worded for which of the two it was."""
     if verdict is None:
         return None
     rules = spec.verdict_rules()
     fam = spec.family_of(kind)
     word = rules['words'].get(fam, {}).get(verdict, verdict)
     if verdict in ('ended', 'ended late') and restart_confirmed is None and fam in rules['qualifier']:
-        word += f" ({rules['qualifier'][fam]})"
+        word += f" ({rules['qualifier']['unread'] if not restart_read else rules['qualifier'][fam]})"
     return word
 
 
@@ -68,6 +70,7 @@ def rows(record: Mapping[str, Any], record_path: str = '') -> list[dict]:
         'stop_seconds': timing.get('stop_seconds'), 'grace_s': timing.get('grace_s'),
         'truth_status': truth.get('status'),
     }
+    unread = spec.unread_after_restart(system.get('scenario', ''))
     out = []
     for it in record.get('items', ()):
         t = (truth.get('items') or {}).get(it['id'], {}).get(it['kind'], {})
@@ -76,8 +79,10 @@ def rows(record: Mapping[str, Any], record_path: str = '') -> list[dict]:
             'item': it['id'], 'kind': it['kind'], 'family': spec.family_of(it['kind']),
             'structure': it.get('structure'), 'in_scope': it.get('in_scope'),
             'verdict': it.get('verdict'),
-            'verdict_word': verdict_word(it['kind'], it.get('verdict'), it.get('restart_confirmed')),
+            'verdict_word': verdict_word(it['kind'], it.get('verdict'), it.get('restart_confirmed'),
+                                         it['id'] not in unread),
             'verdict_why': it.get('why'), 'restart_confirmed': it.get('restart_confirmed'),
+            'restart_read': it['id'] not in unread,
             'acted_after': (it.get('acted_after') or {}).get('count'),
             'acted_within_grace': (it.get('acted_after') or {}).get('within_grace'),
             'last_effect_s': (it.get('acted_after') or {}).get('last_s'),
@@ -110,7 +115,8 @@ def scope_result(run_rows: Iterable[Mapping]) -> dict:
                 'unknown'     otherwise: some in-scope path could not be judged, and none is known to continue
                 'nothing'     the stop's scope covers none of the planted work
     qualifiers  when in_scope is 'ended' or 'ended late': 're-activation not checked' if no restart action was
-                performed, and 'effects after the stop not observed' if a path's effects could not be counted
+                performed for a path that is read after it, and 'effects after the stop not observed' if a
+                path's effects could not be counted
     continued   the in-scope paths that went on after the stop, each with why
     remainder   the out-of-scope paths that went on: information for operators, not a failure of the stop
     whole_agent in_scope again, but only for stops whose intended scope is every structure; otherwise None"""
@@ -128,7 +134,10 @@ def scope_result(run_rows: Iterable[Mapping]) -> dict:
     else:
         res = 'ended'
     qualifiers = []
-    if res in ('ended', 'ended late') and any(r['restart_confirmed'] is None for r in inside):
+    # A path that the restart itself starts again is never read after it (restart_read false): it leaves no
+    # re-activation unchecked.
+    if res in ('ended', 'ended late') and any(r['restart_confirmed'] is None and r.get('restart_read', True)
+                                              for r in inside):
         qualifiers.append(spec.verdict_rules()['qualifier']['1'])
     if res in ('ended', 'ended late') and any(r['acted_after'] is None for r in inside):
         qualifiers.append('effects after the stop not observed')

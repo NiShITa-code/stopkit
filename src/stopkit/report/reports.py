@@ -129,6 +129,12 @@ def _result_text(sr: dict) -> str:
     return sr['in_scope'] + q
 
 
+def uncommitted(git_dirty) -> bool:
+    """Whether a record's git_dirty (STOPKIT_GIT_DIRTY when the run was made) says the code had uncommitted
+    changes. Not set, empty, 0, false and no all mean it did not."""
+    return git_dirty is not None and str(git_dirty).strip().lower() not in ('', '0', 'false', 'no')
+
+
 def rules_applied(rec: dict) -> bool:
     """False for a run made with check --facts-only whose rules have not been applied yet (stopkit summarize)."""
     return (rec.get('rules') or {}).get('applied') is not False
@@ -142,27 +148,32 @@ def _header_lines(rec: dict, link_prefix: str, grace: bool = True) -> list[str]:
     """The lines that open a run's report: the kit, the machine, the scenario, the stop's timing and its words."""
     t, claim = rec.get('timing') or {}, rec.get('claim') or {}
     plat = rec['system']['platform']
-    return [f"stopkit {rec['kit_version']}, specification {rec['spec_version']}, commit "
+    lines = [f"stopkit {rec['kit_version']}, specification {rec['spec_version']}, commit "
             f"`{rec.get('git_commit') or 'not recorded'}`"
-            + (' (with uncommitted changes)' if rec.get('git_dirty') not in (None, '0') else ''),
+            + (' (with uncommitted changes)' if uncommitted(rec.get('git_dirty')) else ''),
             f"{plat.get('os')}; Linux {plat.get('kernel')}; systemd {plat.get('systemd')}; WSL: "
             f"{'yes' if plat.get('wsl') else 'no'}; Python {plat.get('python')}",
             f"Scenario `{rec['system']['scenario']}`, binding `{rec['system']['binding']}`; checks at "
             f"{', '.join(f'{x:g} s' for x in rec['system']['configuration']['checks_s'])} after the cut-off",
             f"The stop returned {t.get('stop_returned_rel_s', 0) or 0:.3f} s after the cut-off; the restart "
             f"action began at {t.get('restart_action_rel_s') or 0:.1f} s" + (f"; grace {t.get('grace_s')} s" if grace else ''),
-            f"What the stop reported, verbatim: \"{claim.get('message', '')}\" (said stopped: "
-            f"{claim.get('said_stopped')}; report kind: {claim.get('report')})",
-            f"Record: [{link_prefix}record.json]({link_prefix}record.json); raw logs "
-            f"[truth.jsonl]({link_prefix}truth.jsonl) and [effects.jsonl]({link_prefix}effects.jsonl)"]
+            f"What the stop reported: \"{claim.get('message', '')}\" (said stopped: "
+            f"{claim.get('said_stopped')}; report kind: {claim.get('report')})"]
+    output = ((claim.get('details') or {}).get('output') or '') if isinstance(claim.get('details'), dict) else ''
+    if isinstance(output, str) and output.strip():
+        out = ' '.join(output.split()).replace('`', "'")
+        lines.append(f"The stop's own output: `{out[:300]}`" + (' (shortened)' if len(out) > 300 else ''))
+    return lines + [f"Record: [{link_prefix}record.json]({link_prefix}record.json); raw logs "
+                    f"[truth.jsonl]({link_prefix}truth.jsonl) and [effects.jsonl]({link_prefix}effects.jsonl)"]
 
 
 def run_blocks(rec: dict, link_prefix: str = '') -> list:
     s = rec['stop_spec']
     sr = results.scope_result(results.rows(rec)) if rec.get('items') else {}
     tr = rec.get('truth') or {}
+    unread = spec.unread_after_restart(rec['system']['scenario'])
     b: list = [('h1', f"Run {rec['run_id']}: {rec['system']['architecture']}, stop `{s['id']}`"),
-               ('p', f"{s['mechanism'].capitalize()}. Intended scope: {_scope_text(rec)}. Report kind: {s['report_kind']}."),
+               ('p', f"{_sentence(s['mechanism'])}. Intended scope: {_scope_text(rec)}. Report kind: {s['report_kind']}."),
                ('list', _header_lines(rec, link_prefix)),
                ('h2', 'Result'),
                ('list', [f"In-scope result: **{_result_text(sr)}**" if sr else 'In-scope result: not scored',
@@ -181,7 +192,7 @@ def run_blocks(rec: dict, link_prefix: str = '') -> list:
                      f"{acted['count']}" + (f" (last {acted['last_s']} s)" if acted.get('last_s') is not None else ''))
         rows.append([it['id'], it['kind'], it['structure'], 'yes' if it['in_scope'] else 'no',
                      ' · '.join(it['readings'][c][0] for c in cps),
-                     results.verdict_word(it['kind'], it['verdict'], it['restart_confirmed']),
+                     results.verdict_word(it['kind'], it['verdict'], it['restart_confirmed'], it['id'] not in unread),
                      acted_txt,
                      ' · '.join((tv.get('readings') or {}).get(c, '?')[0] for c in cps),
                      (tv.get('verdict') or '—') if tv.get('definite') else 'indefinite',
@@ -233,13 +244,10 @@ def _found(reading: dict, note: str | None = None) -> str:
 RESTARTED = 'the restart starts it again'
 
 
-def _restarted(rec: dict) -> set[str]:
-    """The items that the run's own restart action starts again (the scenario's "restart_read": false), so that
-    their reading after the restart says nothing about the stop."""
-    try:
-        return {it.id for it in spec.scenario(rec['system']['scenario']).items if not it.raw.get('restart_read', True)}
-    except spec.SpecError:
-        return set()
+def _restarted(rec: dict) -> frozenset[str]:
+    """The items that the run's own restart action starts again, so that their reading after the restart says
+    nothing about the stop."""
+    return spec.unread_after_restart(rec['system']['scenario'])
 
 
 def facts_lines(rec: dict) -> list[str]:
@@ -534,7 +542,7 @@ def report_blocks(recs: list[dict], rows: list[dict], out: str, svgs: dict) -> l
                      f"run{'s' if runs != 1 else ''} and their {len(rows)} rows ([rows.jsonl](rows.jsonl)). "
                      f"Commits: {', '.join(f'`{c[:10]}`' for c in commits)}. Platforms: {'; '.join(plats)}."),
                ('p', 'Status of what is shown: every binding here is implemented (tier 1), not validated. '
-                     'Results are single runs on one machine; no rate, accuracy bound or generality is claimed from them. '
+                     f'{_repeats(recs)}; no rate, accuracy bound or generality is claimed from them. '
                      'Each stop is judged against its own intended scope; work outside that scope is listed as remainder, '
                      'not as a failure.')]
     scope = {rid: results.scope_result([r for r in rows if r['run_id'] == rid]) for rid in {r['run_id'] for r in rows}}
@@ -563,7 +571,9 @@ def report_blocks(recs: list[dict], rows: list[dict], out: str, svgs: dict) -> l
         rel = os.path.relpath(rec['_dir'], out).replace(os.sep, '/')
         sr = scope.get(rec['run_id']) or {}
         claim = rec.get('claim') or {}
-        msg = (claim.get('message') or '')[:90]
+        msg = claim.get('message') or ''
+        if len(msg) > 120:                       # shortened for the table; the run's own report has it in full
+            msg = msg[:119] + '…'
         dt.append([f"[{rec['run_id']}]({rel}/report.md)", f"`{rec['stop_spec']['id']}`", f'"{msg}"',
                    rec['truthfulness']['label'], _result_text(sr) if sr else '—',
                    str(len(sr.get('remainder') or [])), f"{(rec['timing'].get('stop_returned_rel_s') or 0):.3f}",
@@ -667,6 +677,17 @@ def _not_planted(recs: list[dict]) -> list[str]:
 
 ORACLE_NAMES = {'pidfd': 'processes (pidfd)', 'fire': 'triggers (fire)', 'beats': 'work inside a process (beats)',
                 'holder-log': 'work at a holder (holder-log)'}
+
+
+def _repeats(recs: list[dict]) -> str:
+    """How many times each stop ran, and on how many machine boots (each record names its boot)."""
+    per_stop = Counter(r['stop_spec']['id'] for r in recs)
+    lo, hi = min(per_stop.values()), max(per_stop.values())
+    times = f"{lo} time{'s' if lo != 1 else ''}" if lo == hi else f'between {lo} and {hi} times'
+    boots = {(r['system'].get('platform') or {}).get('boot_id') for r in recs}
+    where = ('' if None in boots else
+             f" on {len(boots)} machine boot{'s' if len(boots) != 1 else ''}")
+    return f'Each stop ran {times}{where}'
 
 
 def _indefinite_share(recs: list[dict]) -> str:

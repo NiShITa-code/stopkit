@@ -21,13 +21,13 @@ One record per run, written next to `blobs/` (every command's full output, gzip-
 
 | Section | Contents |
 |---|---|
-| Identity | `format`, `kit_version`, `spec_version`, `git_commit` (the framework's commit), `run_id`, `batch_id`, `kind` (`test` or `selftest`), `evidence_origin` (`framework` for a record the kit writes; any other value marks imported evidence) |
+| Identity | `format`, `kit_version`, `spec_version`, `git_commit` and `git_dirty` (the kit's commit, and whether it had uncommitted changes: taken from the environment variables `STOPKIT_GIT_COMMIT` and `STOPKIT_GIT_DIRTY` when they are set, since the installed copy has no git history; a `git_dirty` other than empty, `0`, `false` or `no` marks uncommitted changes), `run_id`, `batch_id`, `kind` (`test` or `selftest`), `evidence_origin` (`framework` for a record the kit writes; any other value marks imported evidence) |
 | `system` | `architecture` (for example `A1 Linux host`), `binding`, `binding_version`, `scenario`, `platform` (operating system, kernel, systemd, Python, WSL or not, boot ID; no host name or address), `configuration` (every non-default setting); for an agent from a config file, `scenario_data`: the scenario the file became, whole, so the run can be scored again where the file is not |
 | `stop_spec` | The stop's entry in the stop register (`spec/stops.json`): `id`, `class`, `mechanism`, intended scope, `scope_source`, `report_kind`, `actor`; for a stop from a config file, `register_entry`: its entry as the file made it, which `stopkit recheck` and `stopkit report` register before scoring |
 | `launch` | What the agent inherited when it started: ignored, blocked and caught signals (from `/proc/<pid>/status`), the environment's hash, resource limits, control group |
 | `timing` | All on the monotonic clock: `stop_sent_mono` (the cut-off), `stop_returned_mono`, `stop_seconds`, `grace_s`, and each checkpoint's window relative to the cut-off |
 | `claim` | What the stop reported, verbatim: `message`, `said_stopped`, the report kind (`explicit`, `apparent`, `none`), the scope it covers |
-| `checkpoints` | Each fresh snapshot (before the stop, after it at each offset, after the restart action): every listing with its commands, exit codes and evidence hashes, the sentinels seen, and each item's reading with its reason |
+| `checkpoints` | Each fresh snapshot (before the stop, after it at each offset, after the restart action): every listing with its commands, exit codes and evidence hashes, the sentinels seen, and each item's reading with its reason. `sentinels` and `proofs` map each listing to `null` when it is shown complete, or to the reason it is not |
 | `items` | One entry per item × kind of work, with:<ul><li>the item's structure, and whether it is inside the stop's intended scope;</li><li>the surfaces read;</li><li>its readings, verdict and reason;</li><li>whether its restart was confirmed;</li><li>`acted_after`: effects issued after the cut-off plus the grace period (count, time of the last one), with those inside the grace period counted separately;</li><li>`ended_by_completion`;</li><li>`evidence`: references to the listings that support the verdict</li></ul> |
 | `effects` | The observed effect events (time relative to the cut-off, item, channel) as the effect observer recorded them, with a reference to the raw log |
 | `truth` | Bench runs only, from the sealed recorder, which the verdicts never read:<ul><li>`status` (`ok`, `failed`);</li><li>per item and kind: the truth reading at each checkpoint (present, absent or indefinite, by the oracle rules in `verdicts.json`), the truth `verdict` computed from them by the same verdict rules, `definite`, `exit_s`, `last_alive_s`, `fires_after`;</li><li>a reference to the raw truth log</li></ul> |
@@ -48,12 +48,12 @@ Records of format `stopkit-record/1` are written by `test`, which runs without t
 | Stop | `stop_id`, `stop_class`, `stop_mechanism`, `stop_actor`, `scope_source`, `report_kind`, `report_message`, `said_stopped` |
 | Timing | `stop_sent_s`, `stop_returned_s`, `stop_seconds`, `grace_s` |
 | Item | `item`, `kind`, `family`, `structure`, `in_scope` |
-| Outcome | `verdict`, `verdict_word`, `verdict_why`, `restart_confirmed` |
+| Outcome | `verdict`, `verdict_word`, `verdict_why`, `restart_confirmed`, `restart_read` |
 | Effects | `acted_after`, `acted_within_grace`, `last_effect_s`, `ended_by_completion` |
 | Truth (bench) | `truth_status`, `truth_verdict`, `truth_definite`, `truth_exit_s`, `truth_last_alive_s`, `truth_fires_after` |
 | Links | `evidence` |
 
-`verdict_word` is the verdict as it reads for that kind of work (`verdicts.json`, words). Work in family 1 is `still active` or `ended`; a trigger (P4) is `armed`, `removed`, `armed, then gone` or `came back`. When no restart action was performed, an ended verdict carries its qualifier, for example `ended (re-activation not checked)`: nothing could be seen coming back.
+`verdict_word` is the verdict as it reads for that kind of work (`verdicts.json`, words). Work in family 1 is `still active` or `ended`; a trigger (P4) is `armed`, `removed`, `armed, then gone` or `came back`. When no restart action was performed, an ended verdict carries its qualifier, for example `ended (re-activation not checked)`: nothing could be seen coming back. `restart_read` is false for a path that the restart action itself starts again, such as the agent's own process when the restart starts the agent: it is not read after the restart, so its own ended verdict reads `ended (the restart starts it again)`, and it does not qualify the run's in-scope result.
 
 An `evidence_origin` other than `framework` marks evidence imported from outside the toolkit; such rows must never be counted with toolkit results.
 

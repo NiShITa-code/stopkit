@@ -41,6 +41,7 @@ from ..truth.bench import BEAT, PYTHON as PYTHON_BIN, ROOT_ENV, Bench, beat_argv
 from ..system.names import SENTINEL_BEAT
 from ..system import KitError
 from ..observe import effects
+from ..report.reports import uncommitted
 from .runner import host_info
 
 EXIT_BOUND_S = 0.05
@@ -517,7 +518,7 @@ def summary(res: dict) -> str:
     plat = res['platform']
     lines = [f"# E0: the ground truth checked on its own ({'PASSED' if res['passed'] else 'FAILED'})", '',
              f"Run `{res['run_id']}`; stopkit {res['kit_version']}, specification {res['spec_version']}, commit "
-             f"`{res.get('git_commit') or 'not recorded'}`{' (uncommitted changes)' if res.get('git_dirty') not in (None, '0') else ''}.",
+             f"`{res.get('git_commit') or 'not recorded'}`{' (uncommitted changes)' if uncommitted(res.get('git_dirty')) else ''}.",
              f"Machine: {plat.get('os')}; Linux {plat.get('kernel')}; systemd {plat.get('systemd')}; "
              f"WSL: {'yes' if plat.get('wsl') else 'no'}; Python {plat.get('python')}.", '',
              '| Part | Result | Measured |', '|---|---|---|']

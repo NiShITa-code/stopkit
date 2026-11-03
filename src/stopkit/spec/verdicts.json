@@ -23,10 +23,11 @@
   "3": {"invalid": "invalid", "still running": "still valid", "came back": "valid again", "ended": "no longer valid", "ended late": "valid, then not", "unknown": "unknown"}
  },
  "qualifier": {
-  "rule": "No unqualified ended: when the restart action was not performed, an ended or ended late verdict carries the qualifier, because nothing could be seen coming back",
+  "rule": "No unqualified ended: when the restart action was not performed, an ended or ended late verdict carries its family's qualifier, because nothing could be seen coming back; when the path is not read after the restart because the restart itself starts it again (the scenario's restart_read: false), it carries the unread qualifier instead",
   "1": "re-activation not checked",
   "2": "restart not checked",
-  "3": "restart not checked"
+  "3": "restart not checked",
+  "unread": "the restart starts it again"
  },
  "family_4": "Family 4 (residue for recovery) has no verdicts. Each entry is an inventory line marked reviewed or not reviewed, never a success or failure of the stop.",
  "acted_after": {
@@ -38,7 +39,7 @@
  },
  "scope_result": {
   "judged_on": "the paths whose structure is inside the stop's intended scope (stops.json)",
-  "ended": "every in-scope path ended and none acted after the stop; qualified when the restart action was not performed, or when effects after the stop were not observed (no effect channel, or the sink not shown working)",
+  "ended": "every in-scope path ended and none acted after the stop; qualified when the restart action was not performed for a path that is read after it, or when effects after the stop were not observed (no effect channel, or the sink not shown working). A path that the restart itself starts again leaves no re-activation unchecked",
   "ended late": "every in-scope path ended by the last check and none came back, but some acted after the stop (the cut-off plus grace) or was still there at an early check: a stop that worked, but not at once. Qualified as ended is",
   "continued": "some in-scope path was still running at the last check, or came back",
   "unknown": "otherwise: some in-scope path could not be judged, and none is known to have continued",
@@ -59,7 +60,7 @@
    "looked stopped, work went on": "the agent's process exited, but a covered path was there after the stop, or came back after the restart",
    "looked stopped, unconfirmed": "the agent's process exited, and the kit could not confirm every covered path"
   },
-  "none": {"no claim": "the stop reported nothing, so nothing it said can be false"}
+  "none": {"no claim": "the stop reported nothing, or the agent did not appear stopped (for an apparent report, its process did not exit), so nothing it said can be false"}
  },
  "truth": {
   "independence": "The sealed recorder (stopkit/truth/recorder.py) is code written separately from every observer, with its own channel. No verdict column ever reads it.",
@@ -96,7 +97,7 @@
    }
   },
   "effects": "The work also reports each effect it issues to the recorder; the effect observer's count after the cut-off is compared with the recorder's.",
-  "verdict": "The truth verdict is computed from the truth readings by the verdict rules above, reading indefinite as unknown. It is definite only when every truth reading is present or absent.",
+  "verdict": "The truth verdict is computed from the truth readings by the verdict rules above, reading indefinite as unknown; there is none (null) when the truth reading before the stop is indefinite, since the truth then cannot show that the work was planted. It is definite only when every truth reading is present or absent.",
   "failed": "A run whose truth channel failed, or whose recorder stopped before the last checkpoint, has truth status failed and no truth verdicts."
  },
  "accuracy": {

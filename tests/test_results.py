@@ -38,6 +38,17 @@ class RowsTest(unittest.TestCase):
         sr = results.scope_result(rs)
         self.assertEqual((sr['in_scope'], sr['qualifiers']), ('ended', ['re-activation not checked']))
 
+    def test_work_the_restart_starts_again_does_not_qualify_the_result(self):
+        rec = record([item('gateway', 'P1', 'ended', True, restart=None)])
+        rec['system']['scenario'] = 'openclaw-bundle-1'          # its gateway has "restart_read": false
+        rs = results.rows(rec)
+        self.assertFalse(rs[0]['restart_read'])
+        self.assertEqual(rs[0]['verdict_word'], 'ended (the restart starts it again)')
+        sr = results.scope_result(rs)
+        self.assertEqual((sr['in_scope'], sr['qualifiers']), ('ended', []))
+        rec['items'].append(item('background', 'P2', 'ended', True, restart=None))
+        self.assertEqual(results.scope_result(results.rows(rec))['qualifiers'], ['re-activation not checked'])
+
     def test_unobserved_effects_qualify_ended(self):
         it = item('agent', 'P1', 'ended', True)
         it['acted_after'] = {'count': None, 'within_grace': 0, 'last_s': None}
