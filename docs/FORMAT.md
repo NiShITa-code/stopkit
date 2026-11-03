@@ -17,7 +17,7 @@ The definitions every record, row and report uses live in `src/stopkit/spec/`, v
 
 ## 1. The run record (`record.json`, format `stopkit-record/2`)
 
-One record per run, written next to `blobs/` (every command's full output, gzip-compressed and named by SHA-256) and `SHA256SUMS`. A record has these sections.
+One record per run, written next to `blobs/` (every command's full output, gzip-compressed and named by SHA-256) and `SHA256SUMS`, which lists the SHA-256 of every other file of the run folder, the agent's and the model's logs among them; `blobs/` is not listed, since each blob is named by its own SHA-256. Runs recorded before 3 November 2026 list only `record.json`, `report.md`, `truth.jsonl` and `effects.jsonl`, and `recheck` checks the files a run lists. A record has these sections.
 
 | Section | Contents |
 |---|---|
@@ -62,6 +62,8 @@ An `evidence_origin` other than `framework` marks evidence imported from outside
 `src/stopkit/report/reports.py` writes `REPORT.md` and `REPORT.html` (the same content; the HTML carries the timelines inline and follows the viewer's light or dark setting), `timelines/<run>.svg` and `<run>-zoom.svg`, `rows.jsonl` and `accuracy.json`. Each run folder also gets its own `report.md` (the run details) when it is written. Every number is counted from rows and records; a run's in-scope result is computed from its rows with the current rules, never copied from the record.
 
 A batch made with `check --facts-only` gets `REPORT.md` and `REPORT.html` of its readings and facts alone: per stop and run by run, each path's reading at each check and each item's count of actions after the cut-off, with no verdict, in-scope result, accuracy or timeline. Each of its runs gets a `report.md` of the same facts, which also names the listings that found each piece of work, gives the reason for each unknown reading, and says whether the effect sink was shown working and whether the restart was confirmed. A reading after the restart of work that the restart itself starts again is marked, since it says nothing about the stop. `stopkit summarize BATCH` writes the full reports in their place.
+
+`stopkit logs RUN` lays out one run's raw logs from its files alone, with no reading, verdict or result: whether each file still has its checksum, the planted work and its tags, the stop's own commands, each check's commands with the entries of their output that hold a tag (and the whole process table), and the recorder's and the receiver's logs per tag (`src/stopkit/report/logs.py`).
 
 | Report | Built from |
 |---|---|

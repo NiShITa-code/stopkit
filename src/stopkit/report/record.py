@@ -129,6 +129,41 @@ def write(run_dir: str, rec: dict, report_text: str) -> None:
         f.write(_sums(run_dir))
 
 
+def file_sha(path: str) -> str | None:
+    """The SHA-256 of a file, or None when it cannot be read."""
+    try:
+        with open(path, 'rb') as f:
+            return hashlib.sha256(f.read()).hexdigest()
+    except OSError:
+        return None
+
+
+def folder_sums(run_dir: str) -> str:
+    """SHA256SUMS of a stopkit-record/2 run: every file of the run folder but SHA256SUMS itself, the agent's and the
+    model's logs among them. blobs/ is not listed: each blob is named by the SHA-256 of its content, which is
+    checked whenever it is read."""
+    lines = []
+    for name in sorted(os.listdir(run_dir)):
+        p = os.path.join(run_dir, name)
+        if name != 'SHA256SUMS' and os.path.isfile(p):
+            lines.append(f'{file_sha(p)}  {name}\n')
+    return ''.join(lines)
+
+
+def folder_sums_problems(run_dir: str) -> list[str]:
+    """What does not match a run's SHA256SUMS: a file it lists that is gone or has changed (empty if none). Runs
+    recorded before 3 November 2026 list only record.json, report.md, truth.jsonl and effects.jsonl."""
+    try:
+        with open(os.path.join(run_dir, 'SHA256SUMS'), encoding='utf-8') as f:
+            listed = [line.rstrip('\n').split('  ', 1) for line in f if line.strip()]
+    except OSError as e:
+        return [f'cannot check SHA256SUMS: {e}']
+    if any(len(x) != 2 for x in listed):
+        return ['SHA256SUMS does not match the files: it has a line that is not a checksum and a name']
+    bad = [name for digest, name in listed if file_sha(os.path.join(run_dir, name)) != digest]
+    return [f"SHA256SUMS does not match the files: {', '.join(bad)}"] if bad else []
+
+
 def load(run_dir: str) -> dict[str, Any]:
     with open(os.path.join(run_dir, 'record.json'), encoding='utf-8') as f:
         rec = json.load(f)

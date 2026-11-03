@@ -16,7 +16,7 @@ Users, in order of priority:
 
 ## 2. Commands
 
-The commands are `python3 -B -m stopkit <command>` from the copy that `setup/base.sh` installs, such as `/opt/stopkit`, or `stopkit <command>` after `pip install -e .`. They run as root, except `init`, `report`, `recheck` and `summarize`, which only read and write files.
+The commands are `python3 -B -m stopkit <command>` from the copy that `setup/base.sh` installs, such as `/opt/stopkit`, or `stopkit <command>` after `pip install -e .`. They run as root, except `init`, `report`, `recheck`, `logs` and `summarize`, which only read and write files.
 
 - **`init [FILE]`** writes a config file template for an agent, every field explained ([CONFIG.md](CONFIG.md)).
 - **`doctor FILE`** checks the machine, the kit's accounts and one agent's config file. It starts the agent as a run would, confirms that it sends the stand-in model a request offering the shell tool the file names, and that the tool runs one harmless command whose output comes back, then stops the agent. It plants nothing.
@@ -24,6 +24,7 @@ The commands are `python3 -B -m stopkit <command>` from the copy that `setup/bas
 - **`watch baseline|before|after|restart|report`** is watch mode. It plants nothing. It lists what account U holds, optionally before the agent starts (the baseline), just before a stop the person makes their own way, again after it (as often as wanted), and after a restart of U's service manager (only with `--yes`, since that stops U's services). It follows each thing by its identity in the listings (a process by its ID and start time, a unit by its name, a crontab line by its text, an at job by its number, a socket by its address), scores each with the same rules and proofs as a test run, and lists what is new after the stop. With a baseline, only what was not there at the baseline counts as the agent's work.
 - **`report FOLDER... --out DIR`** writes the report (FORMAT.md section 3) from run folders.
 - **`recheck FOLDER`** scores a run again from its own stored evidence and reports any difference.
+- **`logs FOLDER`** prints a run's raw logs from its own files, with none of the kit's rules applied: whether each file still has its checksum, the planted work and its tags, the stop's own commands, at each check every command with its exit code and each entry of its output that holds a tag (and the whole process table), and the recorder's and the receiver's logs per tag. It reads no reading, verdict or result from the record (`report/logs.py`).
 - **`summarize FOLDER`** applies the rules to a batch made with `check --facts-only`: each run is scored as at the end of a normal run, from its own record and logs, its record says that the rules were applied later and by which version, and the batch's reports are written again. A run whose files no longer match its `SHA256SUMS` is left as it is.
 - **`setup`** creates the kit's accounts (`stopkit-agent`, `stopkit-sentinel`, and `stopkit-worker`, which runs the worker stand-in), puts the sentinel items in place and checks that the agent account is empty.
 - **`selftest`** checks the kit itself on known answers before anything is reported. It uses a "null" stop that does nothing, after which every leftover must still be running, and the reference stop, after which every leftover must have ended. If either answer is wrong, the self-test fails.

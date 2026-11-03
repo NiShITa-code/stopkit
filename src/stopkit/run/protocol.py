@@ -23,7 +23,6 @@ stopkit-record/2 (FORMAT.md).
 from __future__ import annotations
 
 import dataclasses
-import hashlib
 import json
 import os
 import shutil
@@ -48,7 +47,6 @@ from ..observe.components import list_components
 from .runner import host_info, new_id, window
 
 FORMAT = 'stopkit-record/2'
-FILES = ('record.json', 'report.md', 'truth.jsonl', 'effects.jsonl', 'standin.jsonl')
 TRUTH_LATENCY_S = 0.05        # exit latency bound; E0 measured at most 3 ms in WSL (26 Oct)
 
 # What the host scenario's pretend agent sets up; other bindings say it themselves (configuration()).
@@ -540,21 +538,9 @@ def score_truth(rec: dict, run_dir: str, scen: spec.Scenario | None = None) -> d
     return res
 
 
-def _sha(path: str) -> str | None:
-    try:
-        with open(path, 'rb') as f:
-            return hashlib.sha256(f.read()).hexdigest()
-    except OSError:
-        return None
-
-
-def _sums(run_dir: str) -> str:
-    lines = []
-    for name in FILES:
-        p = os.path.join(run_dir, name)
-        if os.path.exists(p):
-            lines.append(f'{_sha(p)}  {name}\n')
-    return ''.join(lines)
+# A run folder's checksums (report/record.py), which `stopkit logs` reads too; _sums keeps the name that the
+# checks of the earlier experiments use.
+_sha, _sums, sums_problems = record.file_sha, record.folder_sums, record.folder_sums_problems
 
 
 def write(run_dir: str, rec: dict) -> None:
@@ -581,13 +567,7 @@ def recheck(run_dir: str) -> list[str]:
     reading from the stored listings, every verdict, acted-after from the effect log, and the truth from the
     recorder's log. A record made with rules=False has readings and facts but no verdicts, so those two are
     compared. It never changes the folder."""
-    problems: list[str] = []
-    try:
-        with open(os.path.join(run_dir, 'SHA256SUMS')) as f:
-            if f.read() != _sums(run_dir):
-                problems.append('SHA256SUMS does not match the files')
-    except OSError as e:
-        problems.append(f'cannot check SHA256SUMS: {e}')
+    problems: list[str] = sums_problems(run_dir)
     try:
         rec = load(run_dir)
         agent = record.account_from_dict(rec['accounts']['agent'])
@@ -798,10 +778,10 @@ def summarize(batch_dir: str, log: Callable[[str], None] = print) -> tuple[list[
     for d in sorted(x for x in os.listdir(batch_dir) if os.path.isfile(os.path.join(batch_dir, x, 'record.json'))):
         run_dir = os.path.join(batch_dir, d)
         try:
-            with open(os.path.join(run_dir, 'SHA256SUMS')) as f:
-                if f.read() != _sums(run_dir):
-                    problems.append(f'{d}: its files do not match its SHA256SUMS, so it is left as it is')
-                    continue
+            bad = sums_problems(run_dir)
+            if bad:
+                problems.append(f'{d}: {bad[0]}, so it is left as it is')
+                continue
             rec = load(run_dir)
             scen = spec.scenario(rec['system']['scenario'])
             sspec = spec.stop(rec['stop_spec']['id'])

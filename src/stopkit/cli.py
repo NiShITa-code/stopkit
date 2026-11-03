@@ -8,6 +8,8 @@
   watch        list what an account still runs around a stop you make yourself (watch mode)
   report       write the report (reach matrix, run details, accuracy, timelines, coverage) from run folders
   recheck      score run or watch folders again from their own evidence, and report any difference
+  logs         a run's raw logs from its own files, with none of the kit's rules applied: each check's
+               commands and the output lines that hold a planted tag, the recorder's and the receiver's logs
   setup        create the kit's accounts, start the worker stand-in, put the sentinels in place
   status       what the kit sees now: accounts, sentinels, anything left in the agent account
   selftest     check the kit on known answers, against the ground truth too; nothing else should be trusted
@@ -120,6 +122,25 @@ def cmd_check(a) -> int:
     if a.facts_only:
         _log(f'the rules were not applied; `python3 -B -m stopkit summarize {folder}` applies them')
     return 0 if not problems and all(not r['errors'] for r in records) else 1
+
+
+def cmd_logs(a) -> int:
+    from .report import logs
+    texts, bad = [], 0
+    for d in a.folders:
+        try:
+            texts.append(logs.run_logs(d))
+        except (OSError, ValueError, KeyError) as e:
+            _log(f'{d}: cannot be read: {type(e).__name__}: {e}')
+            bad += 1
+    text = '\n\n'.join(texts) + '\n'
+    if a.out:
+        with open(a.out, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+        _log(f'written: {a.out}')
+    else:
+        sys.stdout.write(text)
+    return 1 if bad else 0
 
 
 def cmd_summarize(a) -> int:
@@ -313,6 +334,10 @@ def parser() -> argparse.ArgumentParser:
     r = sub.add_parser('recheck', help='score run or watch folders again from their evidence')
     r.add_argument('folders', nargs='+')
     r.set_defaults(func=cmd_recheck)
+    lg = sub.add_parser('logs', help="a run's raw logs, with none of the kit's rules applied")
+    lg.add_argument('folders', nargs='+', help='run folders')
+    lg.add_argument('--out', help='write them to this file instead of printing them')
+    lg.set_defaults(func=cmd_logs)
     sm = sub.add_parser('summarize', help='apply the rules to a batch made with check --facts-only')
     sm.add_argument('folders', nargs='+', help='batch folders')
     sm.set_defaults(func=cmd_summarize)
@@ -362,7 +387,8 @@ def main(argv=None) -> int:
         return 2
     a = parser().parse_args(argv)
     try:
-        if a.command in ('status', 'recheck', 'report', 'init') or getattr(a, 'dev_command', None) == 'smoke-check':
+        if a.command in ('status', 'recheck', 'report', 'logs', 'init') or \
+                getattr(a, 'dev_command', None) == 'smoke-check':
             return a.func(a)                     # these only read, or write a file of their own
         with guards.single_run():
             return a.func(a)
