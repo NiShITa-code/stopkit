@@ -7,7 +7,7 @@
 # makes the MCP binding's environment: the official Python SDK, mcp 2.3.0, with the exact versions of the MCP cancel
 # study (setup/mcp-2.3.0.txt), at /var/lib/stopkit/venv-mcp. Then, from INSTALL_DIR: python3 -B -m stopkit setup.
 # The platform bindings each have their own script here (n8n.sh, langgraph.sh, temporal.sh, claude-code.sh,
-# openclaw.sh).
+# openclaw.sh), and so does the Codex CLI, which is tested from its config file (codex.sh).
 set -euo pipefail
 [ "$(id -u)" = 0 ] || { echo "run as root"; exit 1; }
 HERE=$(cd "$(dirname "$0")" && pwd)

@@ -1,9 +1,12 @@
 """Every binding's specification, and the pure parts of the bindings that run a real agent: the scripts the model
-stand-in plays, in the Anthropic and the Chat Completions formats, and OpenClaw's configuration."""
+stand-in plays, in the Anthropic, the Chat Completions and the Responses formats, and OpenClaw's configuration."""
 import json
 import os
+import subprocess
 import sys
+import tempfile
 import unittest
+import urllib.request
 
 from stopkit import agents, bindings, spec
 
@@ -90,6 +93,69 @@ class ChatScriptTest(unittest.TestCase):
         body['messages'] += [{'role': 'assistant', 'tool_calls': [{'id': 'callREWRITTEN', 'function': {'name': 'exec'}}]},
                              {'role': 'tool', 'tool_call_id': 'callREWRITTEN', 'content': 'Command still running'}]
         self.assertEqual(model_standin.chat_plan(body, script)['input'], {'command': 'two'})
+
+
+class ResponsesScriptTest(unittest.TestCase):
+    """The Responses API, as Codex 0.164.0 speaks it: its exec_command leaves a long command running and says so."""
+    SCRIPT = {'steps': [{'name': 'background', 'tool': 'exec_command', 'input': {'cmd': 'one'}},
+                        {'name': 'foreground', 'tool': 'exec_command', 'input': {'cmd': 'two'}}], 'closing': 'Done.'}
+    TOOLS = [{'type': 'function', 'name': 'exec_command'}, {'type': 'function', 'name': 'write_stdin'}]
+    RUNNING = [{'type': 'input_text', 'text': 'Wall time: 30.0021 seconds\nProcess running with session ID 7\nOutput:'}]
+
+    def body(self, *calls, tools=TOOLS):
+        items = [{'type': 'message', 'role': 'user', 'content': [{'type': 'input_text', 'text': 'go'}]}]
+        for name, output in calls:
+            items += [{'type': 'function_call', 'name': name, 'arguments': '{}', 'call_id': 'c'},
+                      {'type': 'function_call_output', 'call_id': 'c', 'output': output}]
+        return {'tools': list(tools), 'input': items}
+
+    def test_steps_in_order_then_the_closing(self):
+        p = model_standin.responses_plan(self.body(), self.SCRIPT)
+        self.assertEqual((p['name'], p['input']), ('exec_command', {'cmd': 'one'}))
+        p = model_standin.responses_plan(self.body(('exec_command', 'Process running with session ID 3')), self.SCRIPT)
+        self.assertEqual(p['input'], {'cmd': 'two'})          # a command left running before the last is not polled
+        done = self.body(('exec_command', 'x'), ('exec_command', 'Wall time: 1 seconds\nProcess exited with code 0'))
+        self.assertEqual(model_standin.responses_plan(done, self.SCRIPT), {'kind': 'text', 'text': 'Done.'})
+
+    def test_the_last_command_is_polled_while_it_runs_and_the_polls_are_not_steps(self):
+        body = self.body(('exec_command', 'Process running with session ID 3'), ('exec_command', self.RUNNING))
+        p = model_standin.responses_plan(body, self.SCRIPT)
+        self.assertEqual((p['name'], p['input']), ('write_stdin', {'session_id': 7, 'chars': '', 'yield_time_ms': 300000}))
+        body = self.body(('exec_command', 'x'), ('exec_command', self.RUNNING), ('write_stdin', self.RUNNING))
+        self.assertEqual(model_standin.responses_plan(body, self.SCRIPT)['name'], 'write_stdin')
+        body = self.body(('exec_command', 'x'), ('exec_command', self.RUNNING), ('write_stdin', 'Process exited with code 143'))
+        self.assertEqual(model_standin.responses_plan(body, self.SCRIPT)['text'], 'Done.')
+
+    def test_no_poll_without_the_tool_and_ok_without_tools(self):
+        body = self.body(('exec_command', 'x'), ('exec_command', self.RUNNING), tools=self.TOOLS[:1])
+        self.assertEqual(model_standin.responses_plan(body, self.SCRIPT)['text'], 'Done.')
+        self.assertEqual(model_standin.responses_plan({'input': [], 'tools': []}, self.SCRIPT)['text'], 'ok')
+
+    def test_the_served_stream_and_its_log(self):
+        """The stand-in as a program: a streamed /v1/responses reply in the events Codex reads, logged without the key."""
+        with tempfile.TemporaryDirectory() as d:
+            control, log = os.path.join(d, 'script.json'), os.path.join(d, 'model.jsonl')
+            with open(control, 'w') as f:
+                json.dump(self.SCRIPT, f)
+            p = subprocess.Popen([sys.executable, '-I', '-B', agents.MODEL_STANDIN, control, log], stdout=subprocess.PIPE)
+            try:
+                port = int(p.stdout.readline().decode().split()[1])
+                req = urllib.request.Request(f'http://127.0.0.1:{port}/v1/responses', method='POST',
+                                             data=json.dumps(self.body() | {'stream': True}).encode(),
+                                             headers={'Content-Type': 'application/json', 'Authorization': 'Bearer k'})
+                with urllib.request.urlopen(req, timeout=10) as r:
+                    events = [json.loads(line[6:]) for line in r.read().decode().splitlines() if line.startswith('data: ')]
+            finally:
+                p.kill()
+                p.wait()
+            with open(log, encoding='utf-8') as f:
+                logged = [json.loads(line) for line in f]
+        self.assertEqual([e['type'] for e in events], ['response.created', 'response.output_item.done', 'response.completed'])
+        item = events[1]['item']
+        self.assertEqual((item['type'], item['name'], json.loads(item['arguments'])), ('function_call', 'exec_command', {'cmd': 'one'}))
+        self.assertEqual(events[2]['response']['id'], events[0]['response']['id'])
+        self.assertEqual([e['reply']['step'] for e in logged], ['background'])
+        self.assertNotIn('authorization', {k.lower() for k in logged[0]['headers']})
 
 
 class AgentScriptsTest(unittest.TestCase):

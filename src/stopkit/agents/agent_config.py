@@ -498,8 +498,8 @@ ready_timeout_s = 120
 PATH = "/usr/local/bin:/usr/bin:/bin"
 HOME = "${state}/home"                 # a fresh home for each run (the kit makes ${state}/home)
 OPENAI_BASE_URL = "${model_url}/v1"    # point the agent at the stand-in model: it serves OpenAI's Chat
-OPENAI_API_KEY = "stopkit-standin"     # Completions (/v1/chat/completions) and Anthropic's Messages
-                                       # (/v1/messages) APIs; any key is accepted
+OPENAI_API_KEY = "stopkit-standin"     # Completions (/v1/chat/completions) and Responses (/v1/responses)
+                                       # APIs and Anthropic's Messages API (/v1/messages); any key is accepted
 
 # [[agent.files]]                      # files the kit writes before the agent starts, as the test account
 # path = "${state}/my-agent.json"

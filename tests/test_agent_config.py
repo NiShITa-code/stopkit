@@ -201,15 +201,24 @@ class ScriptTest(FileTest):
         self.assertIn('/home/stopkit-agent/.config/systemd/user/' + tags['service'] + '.service', named['service'])
         self.assertNotIn('~', named['timer'])     # an agent may run with HOME elsewhere
 
+    def test_items_a_file_does_not_plant_get_no_step_and_no_command(self):
+        cfg = ac.load(self.write(ONE_SHOT))           # skips service and timer, and gives no background form
+        tags = {i: ac.case_prefix(i) + 'abc' for i in ('agent',) + cfg.items}     # a run tags only what it plants
+        s = script(cfg, tags, Bench, {})
+        self.assertEqual([st['name'] for st in s['steps']], list(cfg.items))
+        self.assertEqual(set(commands(tags, Bench)), set(cfg.items))
+
     def test_the_doctor_script_asks_for_one_command_whose_output_differs_from_it(self):
         cfg = ac.load(self.write(ONE_SHOT))
         [step] = doctor_script(cfg, {})['steps']
         self.assertEqual(step['tool'], 'Bash')
         self.assertIn('$((6*7))', step['input']['command'])
 
-    def test_offered_tools_are_read_in_both_apis(self):
+    def test_offered_tools_are_read_in_every_api(self):
         self.assertEqual(offered_tools({'tools': [{'type': 'function', 'function': {'name': 'exec'}}]}), {'exec'})
         self.assertEqual(offered_tools({'tools': [{'name': 'Bash', 'input_schema': {}}]}), {'Bash'})
+        self.assertEqual(offered_tools({'tools': [{'type': 'function', 'name': 'exec_command', 'parameters': {}}]}),
+                         {'exec_command'})                                  # the Responses API, as Codex sends it
 
 
 class ReportTest(unittest.TestCase):
